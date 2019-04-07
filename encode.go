@@ -17,7 +17,8 @@ const (
 type Message interface {
 	ID() int
 	CRCExtra() uint16
-	Marshal([]byte) []byte
+	MarshalV1([]byte) []byte
+	MarshalV2([]byte) []byte
 }
 
 // An Encoder can serialize Messages on a io.Writer
@@ -51,7 +52,21 @@ func (e *Encoder) Encode(sysid, compid byte, m Message) error {
 		buf = append(buf, 0xFE, 0, byte(e.SeqNr), sysid, compid, byte(mid))
 	}
 
-	buf = m.Marshal(buf)
+	mark := len(buf)
+	if e.Protocol == V1 {
+		buf = m.MarshalV1(buf)
+	} else {
+		buf = m.MarshalV2(buf)
+		// chop trailing zeroes
+		for len(buf) > 0 && buf[len(buf)-1] == 0 {
+			buf = buf[:len(buf)-1]
+		}
+	}
+	if len(buf)-mark > 255 {
+		return fmt.Errorf("Cannot encode %T, payload %d bytes > 255.", m, len(buf)-mark)
+	}
+	buf[1] = byte(len(buf) - mark)
+
 	x := crc16x25(0xffff)
 	x.Update(buf[1:])
 	c := m.CRCExtra()

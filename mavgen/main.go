@@ -81,11 +81,11 @@ func main() {
 
 	log.Printf("Generating package %s dialect %d version %d", basename, dialect.Dialect, dialect.Version)
 
-	// fill in missing enum values
+	// fill in missing enum values, starting from 1
 	for _, v := range dialect.Enums {
 		for i, vv := range v.Entries {
 			if vv.Value == "" {
-				vv.Value = fmt.Sprintf("%d", i)
+				vv.Value = fmt.Sprintf("%d", i+1)
 			}
 		}
 	}

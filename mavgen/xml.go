@@ -99,6 +99,25 @@ func (m *Message) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	return nil
 }
 
+func (m *Message) BaseFields() []*Field {
+	var r []*Field
+	for _, v := range m.Fields {
+		if !v.IsExtension {
+			r = append(r, v)
+		}
+	}
+	return r
+}
+func (m *Message) ExtFields() []*Field {
+	var r []*Field
+	for _, v := range m.Fields {
+		if v.IsExtension {
+			r = append(r, v)
+		}
+	}
+	return r
+}
+
 type Field struct {
 	CType       string `xml:"type,attr"`
 	Name        string `xml:"name,attr"`
