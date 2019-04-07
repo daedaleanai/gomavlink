@@ -1,6 +1,8 @@
 # gomavlink
 MAVLink Encoding and Decoding in Go
 
+WIP! a little patience please.
+
 [![GoDoc](https://godoc.org/github.com/daedaleanai/gomavlink?status.svg)](https://godoc.org/github.com/daedaleanai/gomavlink)
 
 The top level package defines Encoder and Decoder types that can handle the dialects generated from the XML files in the subpackages.
