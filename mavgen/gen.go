@@ -39,6 +39,24 @@ const (
 {{end -}}
 ){{end}}
 
+{{if .Messages}}
+type Message interface {
+	ID() int
+	CRCExtra() uint16
+	MarshalV1([]byte) []byte
+	MarshalV2([]byte) []byte
+}
+
+func New(mid uint32) Message {
+	switch mid {
+{{- range .Messages}}
+	case {{.ID}}: return &{{underscoreToCamel .Name}}{}
+{{- end}}
+	}
+	return nil
+}
+{{end}}
+
 {{range .Messages}}
 {{- $tpe := underscoreToCamel .Name}}
 {{if .Description}}/* {{.Description}} */{{end}}

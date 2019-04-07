@@ -75,6 +75,7 @@ func (e *Encoder) Encode(sysid, compid byte, m Message) error {
 
 	if e.Protocol == V2Signed {
 		// TODO(lvd) append signature
+		return fmt.Errorf("sorry, didn't get around to implementing signing yet.")
 	}
 
 	_, err := e.w.Write(buf)
