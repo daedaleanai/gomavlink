@@ -66,7 +66,7 @@ func (m *{{$tpe}}) Marshal(buf []byte) []byte {
 }
 {{end}}
 
-{{if.Messages}}
+{{if.Messages}}// These will be inlined.
 func marshalByte(b []byte, v byte) []byte { return append(b, v) }
 func marshalInt8(b []byte, v int8) []byte { return append(b, byte(v)) }
 func marshalInt16(b []byte, v int16) []byte { return append(b, byte(v), byte(v>>8)) }
