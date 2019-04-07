@@ -38,19 +38,31 @@ func NewEncoder(w io.Writer) *Encoder { return &Encoder{w: w} }
 
 func (e *Encoder) Encode(sysid, compid byte, m Message) error {
 	buf := make([]byte, 279)
+	mid := m.ID()
 	switch e.Protocol {
 	case V2:
-		mid := m.ID()
 		buf = append(buf, 0xFD, 0, 0, e.CompatFlags, byte(e.SeqNr), sysid, compid, byte(mid), byte(mid>>8), byte(mid>>16))
 	case V2Signed:
-		mid := m.ID()
 		buf = append(buf, 0xFD, 0, 1, e.CompatFlags, byte(e.SeqNr), sysid, compid, byte(mid), byte(mid>>8), byte(mid>>16))
 	case V1:
-		if m.ID() > 255 {
-			return fmt.Errorf("Cannot encode %T as V1 frame, message id %d too large.", m, m.ID())
+		if mid > 255 {
+			return fmt.Errorf("Cannot encode %T as V1 frame, message id %d too large.", m, mid)
 		}
-		buf = append(buf, 0xFE, 0, byte(e.SeqNr), sysid, compid, byte(m.ID()))
+		buf = append(buf, 0xFE, 0, byte(e.SeqNr), sysid, compid, byte(mid))
 	}
 
-	return nil
+	buf = m.Marshal(buf)
+	x := crc16x25(0xffff)
+	x.Update(buf[1:])
+	c := m.CRCExtra()
+	x.Update([]byte{byte(c), byte(c >> 8)})
+	buf = append(buf, byte(x), byte(x>>8))
+
+	if e.Protocol == V2Signed {
+		// TODO(lvd) append signature
+	}
+
+	_, err := e.w.Write(buf)
+
+	return err
 }
