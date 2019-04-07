@@ -21,14 +21,14 @@ func main() {
 	flag.Parse()
 
 	if len(flag.Args()) != 1 {
-		log.Fatalf("Usage: %s path/to/dialect.xml")
+		log.Fatalf("Usage: %s path/to/dialect.xml", os.Args[0])
 	}
 	f, err := os.Open(flag.Arg(0))
 	if err != nil {
 		log.Fatal(err)
 	}
 	dname, fname := filepath.Split(f.Name())
-	basename := strings.ToLower(strings.TrimSuffix(fname, filepath.Ext(fname))
+	basename := strings.ToLower(strings.TrimSuffix(fname, filepath.Ext(fname)))
 
 	dialect := MAVLink{Name: basename}
 
