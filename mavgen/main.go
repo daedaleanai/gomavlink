@@ -1,4 +1,4 @@
-// Gomavgen generates a Go package from a MAVLink dialect definition xml file and it's includes.
+// Gomavgen generates a Go package from a MAVLink dialect definition xml file and its includes.
 package main
 
 import (
@@ -28,7 +28,7 @@ func main() {
 		log.Fatal(err)
 	}
 	dname, fname := filepath.Split(f.Name())
-	basename := strings.TrimSuffix(fname, filepath.Ext(fname))
+	basename := strings.ToLower(strings.TrimSuffix(fname, filepath.Ext(fname))
 
 	dialect := MAVLink{Name: basename}
 

@@ -11,6 +11,6 @@ fi
 for dialect in /tmp/mavlink/message_definitions/v1.0/*.xml; do 
 	echo $dialect ...
 	go run mavgen/*.go $dialect
-	(cd $(basename -s .xml $dialect); go generate; go build)
+	(cd $(basename -s .xml $dialect | tr '[A-Z]' '[a-z]'); go generate; go build)
 	echo
 done
