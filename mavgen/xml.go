@@ -24,10 +24,11 @@ type Enum struct {
 	Entries     []*Entry `xml:"entry"`
 }
 
-// TODO(lvd) accept non-decimal enum>entry>values, see https://github.com/ArduPilot/pymavlink/blob/master/generator/mavschema.xsd#L19
+// Note: Entry uses Value type string instead of uint32 to accept non-decimal enum>entry>values,
+// see https://github.com/ArduPilot/pymavlink/blob/master/generator/mavschema.xsd#L19
 
 type Entry struct {
-	Value       uint32   `xml:"value,attr"`
+	Value       string   `xml:"value,attr"` // See note
 	Name        string   `xml:"name,attr"`
 	Description string   `xml:"description"`
 	Params      []*Param `xml:"param"`

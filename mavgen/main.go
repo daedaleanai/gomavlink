@@ -5,6 +5,7 @@ import (
 	"bytes"
 	"encoding/xml"
 	"flag"
+	"fmt"
 	"go/format"
 	"log"
 	"os"
@@ -80,6 +81,15 @@ func main() {
 
 	log.Printf("Generating package %s dialect %d version %d", basename, dialect.Dialect, dialect.Version)
 
+	// fill in missing enum values
+	for _, v := range dialect.Enums {
+		for i, vv := range v.Entries {
+			if vv.Value == "" {
+				vv.Value = fmt.Sprintf("%d", i)
+			}
+		}
+	}
+
 	// stable reorder fields by their scalar size
 	for _, v := range dialect.Messages {
 		sort.Stable(bySerialisationOrder(v.Fields))
@@ -102,7 +112,8 @@ func main() {
 	out := b.Bytes()
 	out, err = format.Source(out)
 	if err != nil {
-		log.Fatal(err)
+		log.Println("not formatting, ill-formed source:", err)
+		out = b.Bytes()
 	}
 	if _, err := of.Write(out); err != nil {
 		log.Fatal(err)
