@@ -32,12 +32,6 @@ const (
 {{end -}}
 ){{end}}
 
-{{if .Messages}}type Message interface{
-	ID() int
-	Encode() []byte
-	Decode([]byte) error
-}{{end -}}
-
 {{range .Messages}}
 {{- $tpe := underscoreToCamel .Name}}
 {{if .Description}}/* {{.Description}} */{{end}}
@@ -49,6 +43,7 @@ type {{$tpe}} struct {
 }
 
 func (m *{{$tpe}}) ID() int { return {{.ID}} }
+func (m *{{$tpe}}) CRCExtra() uint16 { return {{.CRCExtra}} }
 {{end}}
 
 `))

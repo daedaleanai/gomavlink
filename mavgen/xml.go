@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/xml"
 	"io"
+	"log"
 	"strconv"
 )
 
@@ -22,6 +23,8 @@ type Enum struct {
 	Description string   `xml:"description"`
 	Entries     []*Entry `xml:"entry"`
 }
+
+// TODO(lvd) accept non-decimal enum>entry>values, see https://github.com/ArduPilot/pymavlink/blob/master/generator/mavschema.xsd#L19
 
 type Entry struct {
 	Value       uint32   `xml:"value,attr"`
@@ -113,3 +116,45 @@ func (s bySerialisationOrder) Less(i, j int) bool {
 	return scalarSize(s[i].CType) > scalarSize(s[j].CType)
 }                                            // reverse!
 func (s bySerialisationOrder) Swap(i, j int) { s[i], s[j] = s[j], s[i] }
+
+//lifted from
+// https://github.com/mavlink/c_library_v2/blob/master/checksum.h#L25
+// https://play.golang.org/p/ycYYW7bMChP
+type crc16x25 uint16
+
+func (acc *crc16x25) Update(b []byte) uint16 {
+	for _, v := range b {
+		t := v ^ byte(*acc)
+		t ^= t << 4
+		u := uint16(t)
+		*acc = crc16x25(uint16(*acc)>>8 ^ u<<8 ^ u<<3 ^ u>>4)
+	}
+	return uint16(*acc)
+}
+
+func (m *Message) CRCExtra() uint16 {
+	x := crc16x25(0xffff)
+	x.Update([]byte(m.Name))
+	x.Update([]byte(" "))
+	for _, v := range m.Fields {
+		if v.IsExtension {
+			break
+		}
+		parts := reCType.FindStringSubmatch(v.CType)
+		if len(parts) != 3 {
+			log.Fatalf("Can't parse message %q field %q as ctype", m.Name, v.CType)
+		}
+		x.Update([]byte(parts[1]))
+		x.Update([]byte(" "))
+		x.Update([]byte(v.Name))
+		x.Update([]byte(" "))
+		if parts[2] != "" {
+			n, err := strconv.ParseUint(parts[2][1:len(parts[2])-1], 10, 8)
+			if err != nil {
+				log.Fatalf("Can't parse message %q field %q as ctype, invalid array length:%v", m.Name, v.CType, err)
+			}
+			x.Update([]byte{byte(n)})
+		}
+	}
+	return uint16(x)
+}
