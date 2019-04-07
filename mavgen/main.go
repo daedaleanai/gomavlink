@@ -38,6 +38,10 @@ func main() {
 	}
 	f.Close()
 
+	for _, v := range dialect.Enums {
+		enums[v.Name] = v
+	}
+
 	// The spec says only includes in the top level xml are executed, probably because proper
 	// recursion was beyond the grasp of the designers.
 	// The spec mentions repeated enum definitions (see below), but leaves the semantics
@@ -62,7 +66,7 @@ func main() {
 				dialect.Enums = append(dialect.Enums, vv)
 				continue
 			}
-			log.Println("Merging %q enum %q", v, vv.Name)
+			log.Printf("Merging %q enum %q", v, vv.Name)
 			enums[vv.Name].Entries = append(enums[vv.Name].Entries, vv.Entries...)
 		}
 
