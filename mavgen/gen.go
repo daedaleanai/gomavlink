@@ -16,6 +16,7 @@ var tmpl = template.Must(template.New("").Funcs(template.FuncMap{
 	"gotype":            goType,
 	"goscalartype":      goScalarType,
 	"goarraysize":       goArraySize,
+	"notabs":            notabs,
 }).Parse(`// Generated enums and structures for Mavlink dialect {{.Name}} #{{.Dialect}} version {{.Version}}
 package {{.Name}}
 
@@ -30,11 +31,11 @@ import "math"
 
 {{range .Enums}}
 {{- $tpe := underscoreToCamel .Name}}
-{{if .Description}}/* {{.Description}} */{{end}}
+{{if .Description}}/* {{notabs .Description}} */{{end}}
 type {{$tpe}} uint32 
 const (
 {{- range .Entries}}
-	{{if .Description}}/* {{.Description}} */{{end}}
+	{{if .Description}}/* {{notabs .Description}} */{{end}}
 	{{upper .Name}} {{$tpe}} = {{.Value}} 
 {{end -}}
 ){{end}}
@@ -59,10 +60,10 @@ func New(mid uint32) Message {
 
 {{range .Messages}}
 {{- $tpe := underscoreToCamel .Name}}
-{{if .Description}}/* {{.Description}} */{{end}}
+{{if .Description}}/* {{notabs .Description}} */{{end}}
 type {{$tpe}} struct {
 {{- range .Fields}}
-	/* {{.Description}} */
+	/* {{notabs .Description}} */
 	{{underscoreToCamel .Name}}  {{if .Enum}}{{underscoreToCamel .Enum}} // {{end}}{{gotype .CType}}{{if .IsExtension}} /*EXTENSION*/{{end}}
 {{end}}
 }
@@ -119,6 +120,10 @@ func underscoreToCamel(s string) string {
 	}
 	return strings.Join(parts, "")
 }
+
+var wstospace = strings.NewReplacer("\t", " ", "\n", " ")
+
+func notabs(s string) string { return wstospace.Replace(s) }
 
 var reCType = regexp.MustCompile(`([a-z0-9_]+)(\[[0-9]+\])?`)
 
