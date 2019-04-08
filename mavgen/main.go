@@ -43,8 +43,7 @@ func main() {
 		enums[v.Name] = v
 	}
 
-	// The spec says only includes in the top level xml are executed, probably because proper
-	// recursion was beyond the grasp of the designers.
+	// The spec says only includes in the top level xml are executed.
 	// The spec mentions repeated enum definitions (see below), but leaves the semantics
 	// of repeated enum entries or repeated message declarations open, so we'll naively process
 	// and leave it to the Go compiler to flag redefinitions.
