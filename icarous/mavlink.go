@@ -169,51 +169,36 @@ func (m *IcarousKinematicBands) MarshalV2(buf []byte) []byte {
 
 func (m *IcarousKinematicBands) UnmarshalV1(buf []byte) []byte {
 	buf, m.Min1 = unmarshalFloat32(buf)
-
 	buf, m.Max1 = unmarshalFloat32(buf)
-
 	buf, m.Min2 = unmarshalFloat32(buf)
-
 	buf, m.Max2 = unmarshalFloat32(buf)
-
 	buf, m.Min3 = unmarshalFloat32(buf)
-
 	buf, m.Max3 = unmarshalFloat32(buf)
-
 	buf, m.Min4 = unmarshalFloat32(buf)
-
 	buf, m.Max4 = unmarshalFloat32(buf)
-
 	buf, m.Min5 = unmarshalFloat32(buf)
-
 	buf, m.Max5 = unmarshalFloat32(buf)
-
 	buf, m.Numbands = unmarshalInt8(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Type1 = IcarousTrackBandTypes(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Type2 = IcarousTrackBandTypes(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Type3 = IcarousTrackBandTypes(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Type4 = IcarousTrackBandTypes(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)

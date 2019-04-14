@@ -146,67 +146,46 @@ func (m *TestTypes) MarshalV2(buf []byte) []byte {
 
 func (m *TestTypes) UnmarshalV1(buf []byte) []byte {
 	buf, m.U64 = unmarshalUint64(buf)
-
 	buf, m.S64 = unmarshalInt64(buf)
-
 	buf, m.D = unmarshalFloat64(buf)
-
 	for i, _ := range m.U64Array {
 		buf, m.U64Array[i] = unmarshalUint64(buf)
 	}
-
 	for i, _ := range m.S64Array {
 		buf, m.S64Array[i] = unmarshalInt64(buf)
 	}
-
 	for i, _ := range m.DArray {
 		buf, m.DArray[i] = unmarshalFloat64(buf)
 	}
-
 	buf, m.U32 = unmarshalUint32(buf)
-
 	buf, m.S32 = unmarshalInt32(buf)
-
 	buf, m.F = unmarshalFloat32(buf)
-
 	for i, _ := range m.U32Array {
 		buf, m.U32Array[i] = unmarshalUint32(buf)
 	}
-
 	for i, _ := range m.S32Array {
 		buf, m.S32Array[i] = unmarshalInt32(buf)
 	}
-
 	for i, _ := range m.FArray {
 		buf, m.FArray[i] = unmarshalFloat32(buf)
 	}
-
 	buf, m.U16 = unmarshalUint16(buf)
-
 	buf, m.S16 = unmarshalInt16(buf)
-
 	for i, _ := range m.U16Array {
 		buf, m.U16Array[i] = unmarshalUint16(buf)
 	}
-
 	for i, _ := range m.S16Array {
 		buf, m.S16Array[i] = unmarshalInt16(buf)
 	}
-
 	buf, m.C = unmarshalByte(buf)
-
 	for i, _ := range m.S {
 		buf, m.S[i] = unmarshalByte(buf)
 	}
-
 	buf, m.U8 = unmarshalByte(buf)
-
 	buf, m.S8 = unmarshalInt8(buf)
-
 	for i, _ := range m.U8Array {
 		buf, m.U8Array[i] = unmarshalByte(buf)
 	}
-
 	for i, _ := range m.S8Array {
 		buf, m.S8Array[i] = unmarshalInt8(buf)
 	}

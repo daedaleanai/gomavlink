@@ -3005,41 +3005,27 @@ func (m *CommandIntStamped) MarshalV2(buf []byte) []byte {
 
 func (m *CommandIntStamped) UnmarshalV1(buf []byte) []byte {
 	buf, m.VehicleTimestamp = unmarshalUint64(buf)
-
 	buf, m.UtcTime = unmarshalUint32(buf)
-
 	buf, m.Param1 = unmarshalFloat32(buf)
-
 	buf, m.Param2 = unmarshalFloat32(buf)
-
 	buf, m.Param3 = unmarshalFloat32(buf)
-
 	buf, m.Param4 = unmarshalFloat32(buf)
-
 	buf, m.X = unmarshalInt32(buf)
-
 	buf, m.Y = unmarshalInt32(buf)
-
 	buf, m.Z = unmarshalFloat32(buf)
-
 	{
 		var v uint16
 		buf, v = unmarshalUint16(buf)
 		m.Command = MavCmd(v)
 	}
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Frame = MavFrame(v)
 	}
-
 	buf, m.Current = unmarshalByte(buf)
-
 	buf, m.Autocontinue = unmarshalByte(buf)
 
 	return buf
@@ -3122,33 +3108,21 @@ func (m *CommandLongStamped) MarshalV2(buf []byte) []byte {
 
 func (m *CommandLongStamped) UnmarshalV1(buf []byte) []byte {
 	buf, m.VehicleTimestamp = unmarshalUint64(buf)
-
 	buf, m.UtcTime = unmarshalUint32(buf)
-
 	buf, m.Param1 = unmarshalFloat32(buf)
-
 	buf, m.Param2 = unmarshalFloat32(buf)
-
 	buf, m.Param3 = unmarshalFloat32(buf)
-
 	buf, m.Param4 = unmarshalFloat32(buf)
-
 	buf, m.Param5 = unmarshalFloat32(buf)
-
 	buf, m.Param6 = unmarshalFloat32(buf)
-
 	buf, m.Param7 = unmarshalFloat32(buf)
-
 	{
 		var v uint16
 		buf, v = unmarshalUint16(buf)
 		m.Command = MavCmd(v)
 	}
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	buf, m.Confirmation = unmarshalByte(buf)
 
 	return buf
@@ -3195,11 +3169,8 @@ func (m *SensPower) MarshalV2(buf []byte) []byte {
 
 func (m *SensPower) UnmarshalV1(buf []byte) []byte {
 	buf, m.Adc121VspbVolt = unmarshalFloat32(buf)
-
 	buf, m.Adc121CspbAmp = unmarshalFloat32(buf)
-
 	buf, m.Adc121Cs1Amp = unmarshalFloat32(buf)
-
 	buf, m.Adc121Cs2Amp = unmarshalFloat32(buf)
 
 	return buf
@@ -3282,29 +3253,17 @@ func (m *SensMppt) MarshalV2(buf []byte) []byte {
 
 func (m *SensMppt) UnmarshalV1(buf []byte) []byte {
 	buf, m.MpptTimestamp = unmarshalUint64(buf)
-
 	buf, m.Mppt1Volt = unmarshalFloat32(buf)
-
 	buf, m.Mppt1Amp = unmarshalFloat32(buf)
-
 	buf, m.Mppt2Volt = unmarshalFloat32(buf)
-
 	buf, m.Mppt2Amp = unmarshalFloat32(buf)
-
 	buf, m.Mppt3Volt = unmarshalFloat32(buf)
-
 	buf, m.Mppt3Amp = unmarshalFloat32(buf)
-
 	buf, m.Mppt1Pwm = unmarshalUint16(buf)
-
 	buf, m.Mppt2Pwm = unmarshalUint16(buf)
-
 	buf, m.Mppt3Pwm = unmarshalUint16(buf)
-
 	buf, m.Mppt1Status = unmarshalByte(buf)
-
 	buf, m.Mppt2Status = unmarshalByte(buf)
-
 	buf, m.Mppt3Status = unmarshalByte(buf)
 
 	return buf
@@ -3435,53 +3394,29 @@ func (m *AslctrlData) MarshalV2(buf []byte) []byte {
 
 func (m *AslctrlData) UnmarshalV1(buf []byte) []byte {
 	buf, m.Timestamp = unmarshalUint64(buf)
-
 	buf, m.H = unmarshalFloat32(buf)
-
 	buf, m.Href = unmarshalFloat32(buf)
-
 	buf, m.HrefT = unmarshalFloat32(buf)
-
 	buf, m.Pitchangle = unmarshalFloat32(buf)
-
 	buf, m.Pitchangleref = unmarshalFloat32(buf)
-
 	buf, m.Q = unmarshalFloat32(buf)
-
 	buf, m.Qref = unmarshalFloat32(buf)
-
 	buf, m.Uelev = unmarshalFloat32(buf)
-
 	buf, m.Uthrot = unmarshalFloat32(buf)
-
 	buf, m.Uthrot2 = unmarshalFloat32(buf)
-
 	buf, m.Nz = unmarshalFloat32(buf)
-
 	buf, m.Airspeedref = unmarshalFloat32(buf)
-
 	buf, m.Yawangle = unmarshalFloat32(buf)
-
 	buf, m.Yawangleref = unmarshalFloat32(buf)
-
 	buf, m.Rollangle = unmarshalFloat32(buf)
-
 	buf, m.Rollangleref = unmarshalFloat32(buf)
-
 	buf, m.P = unmarshalFloat32(buf)
-
 	buf, m.Pref = unmarshalFloat32(buf)
-
 	buf, m.R = unmarshalFloat32(buf)
-
 	buf, m.Rref = unmarshalFloat32(buf)
-
 	buf, m.Uail = unmarshalFloat32(buf)
-
 	buf, m.Urud = unmarshalFloat32(buf)
-
 	buf, m.AslctrlMode = unmarshalByte(buf)
-
 	buf, m.Spoilersengaged = unmarshalByte(buf)
 
 	return buf
@@ -3556,25 +3491,15 @@ func (m *AslctrlDebug) MarshalV2(buf []byte) []byte {
 
 func (m *AslctrlDebug) UnmarshalV1(buf []byte) []byte {
 	buf, m.I321 = unmarshalUint32(buf)
-
 	buf, m.F1 = unmarshalFloat32(buf)
-
 	buf, m.F2 = unmarshalFloat32(buf)
-
 	buf, m.F3 = unmarshalFloat32(buf)
-
 	buf, m.F4 = unmarshalFloat32(buf)
-
 	buf, m.F5 = unmarshalFloat32(buf)
-
 	buf, m.F6 = unmarshalFloat32(buf)
-
 	buf, m.F7 = unmarshalFloat32(buf)
-
 	buf, m.F8 = unmarshalFloat32(buf)
-
 	buf, m.I81 = unmarshalByte(buf)
-
 	buf, m.I82 = unmarshalByte(buf)
 
 	return buf
@@ -3623,11 +3548,8 @@ func (m *AsluavStatus) MarshalV2(buf []byte) []byte {
 
 func (m *AsluavStatus) UnmarshalV1(buf []byte) []byte {
 	buf, m.MotorRpm = unmarshalFloat32(buf)
-
 	buf, m.LedStatus = unmarshalByte(buf)
-
 	buf, m.SatcomStatus = unmarshalByte(buf)
-
 	for i, _ := range m.ServoStatus {
 		buf, m.ServoStatus[i] = unmarshalByte(buf)
 	}
@@ -3688,17 +3610,11 @@ func (m *EkfExt) MarshalV2(buf []byte) []byte {
 
 func (m *EkfExt) UnmarshalV1(buf []byte) []byte {
 	buf, m.Timestamp = unmarshalUint64(buf)
-
 	buf, m.Windspeed = unmarshalFloat32(buf)
-
 	buf, m.Winddir = unmarshalFloat32(buf)
-
 	buf, m.Windz = unmarshalFloat32(buf)
-
 	buf, m.Airspeed = unmarshalFloat32(buf)
-
 	buf, m.Beta = unmarshalFloat32(buf)
-
 	buf, m.Alpha = unmarshalFloat32(buf)
 
 	return buf
@@ -3761,19 +3677,12 @@ func (m *AslObctrl) MarshalV2(buf []byte) []byte {
 
 func (m *AslObctrl) UnmarshalV1(buf []byte) []byte {
 	buf, m.Timestamp = unmarshalUint64(buf)
-
 	buf, m.Uelev = unmarshalFloat32(buf)
-
 	buf, m.Uthrot = unmarshalFloat32(buf)
-
 	buf, m.Uthrot2 = unmarshalFloat32(buf)
-
 	buf, m.Uaill = unmarshalFloat32(buf)
-
 	buf, m.Uailr = unmarshalFloat32(buf)
-
 	buf, m.Urud = unmarshalFloat32(buf)
-
 	buf, m.ObctrlStatus = unmarshalByte(buf)
 
 	return buf
@@ -3816,9 +3725,7 @@ func (m *SensAtmos) MarshalV2(buf []byte) []byte {
 
 func (m *SensAtmos) UnmarshalV1(buf []byte) []byte {
 	buf, m.Timestamp = unmarshalUint64(buf)
-
 	buf, m.Tempambient = unmarshalFloat32(buf)
-
 	buf, m.Humidity = unmarshalFloat32(buf)
 
 	return buf
@@ -3909,33 +3816,19 @@ func (m *SensBatmon) MarshalV2(buf []byte) []byte {
 
 func (m *SensBatmon) UnmarshalV1(buf []byte) []byte {
 	buf, m.BatmonTimestamp = unmarshalUint64(buf)
-
 	buf, m.Temperature = unmarshalFloat32(buf)
-
 	buf, m.Safetystatus = unmarshalUint32(buf)
-
 	buf, m.Operationstatus = unmarshalUint32(buf)
-
 	buf, m.Voltage = unmarshalUint16(buf)
-
 	buf, m.Current = unmarshalInt16(buf)
-
 	buf, m.Batterystatus = unmarshalUint16(buf)
-
 	buf, m.Serialnumber = unmarshalUint16(buf)
-
 	buf, m.Cellvoltage1 = unmarshalUint16(buf)
-
 	buf, m.Cellvoltage2 = unmarshalUint16(buf)
-
 	buf, m.Cellvoltage3 = unmarshalUint16(buf)
-
 	buf, m.Cellvoltage4 = unmarshalUint16(buf)
-
 	buf, m.Cellvoltage5 = unmarshalUint16(buf)
-
 	buf, m.Cellvoltage6 = unmarshalUint16(buf)
-
 	buf, m.Soc = unmarshalByte(buf)
 
 	return buf
@@ -4066,53 +3959,29 @@ func (m *FwSoaringData) MarshalV2(buf []byte) []byte {
 
 func (m *FwSoaringData) UnmarshalV1(buf []byte) []byte {
 	buf, m.Timestamp = unmarshalUint64(buf)
-
 	buf, m.Timestampmodechanged = unmarshalUint64(buf)
-
 	buf, m.Xw = unmarshalFloat32(buf)
-
 	buf, m.Xr = unmarshalFloat32(buf)
-
 	buf, m.Xlat = unmarshalFloat32(buf)
-
 	buf, m.Xlon = unmarshalFloat32(buf)
-
 	buf, m.Varw = unmarshalFloat32(buf)
-
 	buf, m.Varr = unmarshalFloat32(buf)
-
 	buf, m.Varlat = unmarshalFloat32(buf)
-
 	buf, m.Varlon = unmarshalFloat32(buf)
-
 	buf, m.Loiterradius = unmarshalFloat32(buf)
-
 	buf, m.Loiterdirection = unmarshalFloat32(buf)
-
 	buf, m.Disttosoarpoint = unmarshalFloat32(buf)
-
 	buf, m.Vsinkexp = unmarshalFloat32(buf)
-
 	buf, m.Z1Localupdraftspeed = unmarshalFloat32(buf)
-
 	buf, m.Z2Deltaroll = unmarshalFloat32(buf)
-
 	buf, m.Z1Exp = unmarshalFloat32(buf)
-
 	buf, m.Z2Exp = unmarshalFloat32(buf)
-
 	buf, m.Thermalgsnorth = unmarshalFloat32(buf)
-
 	buf, m.Thermalgseast = unmarshalFloat32(buf)
-
 	buf, m.TseDot = unmarshalFloat32(buf)
-
 	buf, m.Debugvar1 = unmarshalFloat32(buf)
-
 	buf, m.Debugvar2 = unmarshalFloat32(buf)
-
 	buf, m.Controlmode = unmarshalByte(buf)
-
 	buf, m.Valid = unmarshalByte(buf)
 
 	return buf
@@ -4175,19 +4044,12 @@ func (m *SensorpodStatus) MarshalV2(buf []byte) []byte {
 
 func (m *SensorpodStatus) UnmarshalV1(buf []byte) []byte {
 	buf, m.Timestamp = unmarshalUint64(buf)
-
 	buf, m.FreeSpace = unmarshalUint16(buf)
-
 	buf, m.VisensorRate1 = unmarshalByte(buf)
-
 	buf, m.VisensorRate2 = unmarshalByte(buf)
-
 	buf, m.VisensorRate3 = unmarshalByte(buf)
-
 	buf, m.VisensorRate4 = unmarshalByte(buf)
-
 	buf, m.RecordingNodesCount = unmarshalByte(buf)
-
 	buf, m.CpuTemp = unmarshalByte(buf)
 
 	return buf
@@ -4266,27 +4128,16 @@ func (m *SensPowerBoard) MarshalV2(buf []byte) []byte {
 
 func (m *SensPowerBoard) UnmarshalV1(buf []byte) []byte {
 	buf, m.Timestamp = unmarshalUint64(buf)
-
 	buf, m.PwrBrdSystemVolt = unmarshalFloat32(buf)
-
 	buf, m.PwrBrdServoVolt = unmarshalFloat32(buf)
-
 	buf, m.PwrBrdDigitalVolt = unmarshalFloat32(buf)
-
 	buf, m.PwrBrdMotLAmp = unmarshalFloat32(buf)
-
 	buf, m.PwrBrdMotRAmp = unmarshalFloat32(buf)
-
 	buf, m.PwrBrdAnalogAmp = unmarshalFloat32(buf)
-
 	buf, m.PwrBrdDigitalAmp = unmarshalFloat32(buf)
-
 	buf, m.PwrBrdExtAmp = unmarshalFloat32(buf)
-
 	buf, m.PwrBrdAuxAmp = unmarshalFloat32(buf)
-
 	buf, m.PwrBrdStatus = unmarshalByte(buf)
-
 	buf, m.PwrBrdLedStatus = unmarshalByte(buf)
 
 	return buf
@@ -4345,25 +4196,19 @@ func (m *GsmLinkStatus) MarshalV2(buf []byte) []byte {
 
 func (m *GsmLinkStatus) UnmarshalV1(buf []byte) []byte {
 	buf, m.Timestamp = unmarshalUint64(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.GsmModemType = GsmModemType(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.GsmLinkType = GsmLinkType(v)
 	}
-
 	buf, m.Rssi = unmarshalByte(buf)
-
 	buf, m.RsrpRscp = unmarshalByte(buf)
-
 	buf, m.SinrEcio = unmarshalByte(buf)
-
 	buf, m.Rsrq = unmarshalByte(buf)
 
 	return buf
@@ -4426,19 +4271,12 @@ func (m *SatcomLinkStatus) MarshalV2(buf []byte) []byte {
 
 func (m *SatcomLinkStatus) UnmarshalV1(buf []byte) []byte {
 	buf, m.Timestamp = unmarshalUint64(buf)
-
 	buf, m.LastHeartbeat = unmarshalUint64(buf)
-
 	buf, m.FailedSessions = unmarshalUint16(buf)
-
 	buf, m.SuccessfulSessions = unmarshalUint16(buf)
-
 	buf, m.SignalQuality = unmarshalByte(buf)
-
 	buf, m.RingPending = unmarshalByte(buf)
-
 	buf, m.TxSessionPending = unmarshalByte(buf)
-
 	buf, m.RxSessionPending = unmarshalByte(buf)
 
 	return buf
@@ -4493,31 +4331,26 @@ func (m *Heartbeat) MarshalV2(buf []byte) []byte {
 
 func (m *Heartbeat) UnmarshalV1(buf []byte) []byte {
 	buf, m.CustomMode = unmarshalUint32(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Type = MavType(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Autopilot = MavAutopilot(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.BaseMode = MavModeFlag(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.SystemStatus = MavState(v)
 	}
-
 	buf, m.MavlinkVersion = unmarshalByte(buf)
 
 	return buf
@@ -4604,37 +4437,25 @@ func (m *SysStatus) UnmarshalV1(buf []byte) []byte {
 		buf, v = unmarshalUint32(buf)
 		m.OnboardControlSensorsPresent = MavSysStatusSensor(v)
 	}
-
 	{
 		var v uint32
 		buf, v = unmarshalUint32(buf)
 		m.OnboardControlSensorsEnabled = MavSysStatusSensor(v)
 	}
-
 	{
 		var v uint32
 		buf, v = unmarshalUint32(buf)
 		m.OnboardControlSensorsHealth = MavSysStatusSensor(v)
 	}
-
 	buf, m.Load = unmarshalUint16(buf)
-
 	buf, m.VoltageBattery = unmarshalUint16(buf)
-
 	buf, m.CurrentBattery = unmarshalInt16(buf)
-
 	buf, m.DropRateComm = unmarshalUint16(buf)
-
 	buf, m.ErrorsComm = unmarshalUint16(buf)
-
 	buf, m.ErrorsCount1 = unmarshalUint16(buf)
-
 	buf, m.ErrorsCount2 = unmarshalUint16(buf)
-
 	buf, m.ErrorsCount3 = unmarshalUint16(buf)
-
 	buf, m.ErrorsCount4 = unmarshalUint16(buf)
-
 	buf, m.BatteryRemaining = unmarshalInt8(buf)
 
 	return buf
@@ -4673,7 +4494,6 @@ func (m *SystemTime) MarshalV2(buf []byte) []byte {
 
 func (m *SystemTime) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUnixUsec = unmarshalUint64(buf)
-
 	buf, m.TimeBootMs = unmarshalUint32(buf)
 
 	return buf
@@ -4720,11 +4540,8 @@ func (m *Ping) MarshalV2(buf []byte) []byte {
 
 func (m *Ping) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.Seq = unmarshalUint32(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
 
 	return buf
@@ -4773,11 +4590,8 @@ func (m *ChangeOperatorControl) MarshalV2(buf []byte) []byte {
 
 func (m *ChangeOperatorControl) UnmarshalV1(buf []byte) []byte {
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.ControlRequest = unmarshalByte(buf)
-
 	buf, m.Version = unmarshalByte(buf)
-
 	for i, _ := range m.Passkey {
 		buf, m.Passkey[i] = unmarshalByte(buf)
 	}
@@ -4822,9 +4636,7 @@ func (m *ChangeOperatorControlAck) MarshalV2(buf []byte) []byte {
 
 func (m *ChangeOperatorControlAck) UnmarshalV1(buf []byte) []byte {
 	buf, m.GcsSystemId = unmarshalByte(buf)
-
 	buf, m.ControlRequest = unmarshalByte(buf)
-
 	buf, m.Ack = unmarshalByte(buf)
 
 	return buf
@@ -4905,9 +4717,7 @@ func (m *SetMode) MarshalV2(buf []byte) []byte {
 
 func (m *SetMode) UnmarshalV1(buf []byte) []byte {
 	buf, m.CustomMode = unmarshalUint32(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -4960,11 +4770,8 @@ func (m *ParamRequestRead) MarshalV2(buf []byte) []byte {
 
 func (m *ParamRequestRead) UnmarshalV1(buf []byte) []byte {
 	buf, m.ParamIndex = unmarshalInt16(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	for i, _ := range m.ParamId {
 		buf, m.ParamId[i] = unmarshalByte(buf)
 	}
@@ -5005,7 +4812,6 @@ func (m *ParamRequestList) MarshalV2(buf []byte) []byte {
 
 func (m *ParamRequestList) UnmarshalV1(buf []byte) []byte {
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
 
 	return buf
@@ -5059,15 +4865,11 @@ func (m *ParamValue) MarshalV2(buf []byte) []byte {
 
 func (m *ParamValue) UnmarshalV1(buf []byte) []byte {
 	buf, m.ParamValue = unmarshalFloat32(buf)
-
 	buf, m.ParamCount = unmarshalUint16(buf)
-
 	buf, m.ParamIndex = unmarshalUint16(buf)
-
 	for i, _ := range m.ParamId {
 		buf, m.ParamId[i] = unmarshalByte(buf)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -5125,15 +4927,11 @@ func (m *ParamSet) MarshalV2(buf []byte) []byte {
 
 func (m *ParamSet) UnmarshalV1(buf []byte) []byte {
 	buf, m.ParamValue = unmarshalFloat32(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	for i, _ := range m.ParamId {
 		buf, m.ParamId[i] = unmarshalByte(buf)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -5229,27 +5027,18 @@ func (m *GpsRawInt) MarshalV2(buf []byte) []byte {
 
 func (m *GpsRawInt) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.Lat = unmarshalInt32(buf)
-
 	buf, m.Lon = unmarshalInt32(buf)
-
 	buf, m.Alt = unmarshalInt32(buf)
-
 	buf, m.Eph = unmarshalUint16(buf)
-
 	buf, m.Epv = unmarshalUint16(buf)
-
 	buf, m.Vel = unmarshalUint16(buf)
-
 	buf, m.Cog = unmarshalUint16(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.FixType = GpsFixType(v)
 	}
-
 	buf, m.SatellitesVisible = unmarshalByte(buf)
 
 	return buf
@@ -5258,13 +5047,9 @@ func (m *GpsRawInt) UnmarshalV1(buf []byte) []byte {
 func (m *GpsRawInt) UnmarshalV2(buf []byte) []byte {
 	buf = m.UnmarshalV1(buf)
 	buf, m.AltEllipsoid = unmarshalInt32(buf)
-
 	buf, m.HAcc = unmarshalUint32(buf)
-
 	buf, m.VAcc = unmarshalUint32(buf)
-
 	buf, m.VelAcc = unmarshalUint32(buf)
-
 	buf, m.HdgAcc = unmarshalUint32(buf)
 
 	return buf
@@ -5323,23 +5108,18 @@ func (m *GpsStatus) MarshalV2(buf []byte) []byte {
 
 func (m *GpsStatus) UnmarshalV1(buf []byte) []byte {
 	buf, m.SatellitesVisible = unmarshalByte(buf)
-
 	for i, _ := range m.SatellitePrn {
 		buf, m.SatellitePrn[i] = unmarshalByte(buf)
 	}
-
 	for i, _ := range m.SatelliteUsed {
 		buf, m.SatelliteUsed[i] = unmarshalByte(buf)
 	}
-
 	for i, _ := range m.SatelliteElevation {
 		buf, m.SatelliteElevation[i] = unmarshalByte(buf)
 	}
-
 	for i, _ := range m.SatelliteAzimuth {
 		buf, m.SatelliteAzimuth[i] = unmarshalByte(buf)
 	}
-
 	for i, _ := range m.SatelliteSnr {
 		buf, m.SatelliteSnr[i] = unmarshalByte(buf)
 	}
@@ -5412,23 +5192,14 @@ func (m *ScaledImu) MarshalV2(buf []byte) []byte {
 
 func (m *ScaledImu) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.Xacc = unmarshalInt16(buf)
-
 	buf, m.Yacc = unmarshalInt16(buf)
-
 	buf, m.Zacc = unmarshalInt16(buf)
-
 	buf, m.Xgyro = unmarshalInt16(buf)
-
 	buf, m.Ygyro = unmarshalInt16(buf)
-
 	buf, m.Zgyro = unmarshalInt16(buf)
-
 	buf, m.Xmag = unmarshalInt16(buf)
-
 	buf, m.Ymag = unmarshalInt16(buf)
-
 	buf, m.Zmag = unmarshalInt16(buf)
 
 	return buf
@@ -5499,23 +5270,14 @@ func (m *RawImu) MarshalV2(buf []byte) []byte {
 
 func (m *RawImu) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.Xacc = unmarshalInt16(buf)
-
 	buf, m.Yacc = unmarshalInt16(buf)
-
 	buf, m.Zacc = unmarshalInt16(buf)
-
 	buf, m.Xgyro = unmarshalInt16(buf)
-
 	buf, m.Ygyro = unmarshalInt16(buf)
-
 	buf, m.Zgyro = unmarshalInt16(buf)
-
 	buf, m.Xmag = unmarshalInt16(buf)
-
 	buf, m.Ymag = unmarshalInt16(buf)
-
 	buf, m.Zmag = unmarshalInt16(buf)
 
 	return buf
@@ -5566,13 +5328,9 @@ func (m *RawPressure) MarshalV2(buf []byte) []byte {
 
 func (m *RawPressure) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.PressAbs = unmarshalInt16(buf)
-
 	buf, m.PressDiff1 = unmarshalInt16(buf)
-
 	buf, m.PressDiff2 = unmarshalInt16(buf)
-
 	buf, m.Temperature = unmarshalInt16(buf)
 
 	return buf
@@ -5619,11 +5377,8 @@ func (m *ScaledPressure) MarshalV2(buf []byte) []byte {
 
 func (m *ScaledPressure) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.PressAbs = unmarshalFloat32(buf)
-
 	buf, m.PressDiff = unmarshalFloat32(buf)
-
 	buf, m.Temperature = unmarshalInt16(buf)
 
 	return buf
@@ -5682,17 +5437,11 @@ func (m *Attitude) MarshalV2(buf []byte) []byte {
 
 func (m *Attitude) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.Roll = unmarshalFloat32(buf)
-
 	buf, m.Pitch = unmarshalFloat32(buf)
-
 	buf, m.Yaw = unmarshalFloat32(buf)
-
 	buf, m.Rollspeed = unmarshalFloat32(buf)
-
 	buf, m.Pitchspeed = unmarshalFloat32(buf)
-
 	buf, m.Yawspeed = unmarshalFloat32(buf)
 
 	return buf
@@ -5755,19 +5504,12 @@ func (m *AttitudeQuaternion) MarshalV2(buf []byte) []byte {
 
 func (m *AttitudeQuaternion) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.Q1 = unmarshalFloat32(buf)
-
 	buf, m.Q2 = unmarshalFloat32(buf)
-
 	buf, m.Q3 = unmarshalFloat32(buf)
-
 	buf, m.Q4 = unmarshalFloat32(buf)
-
 	buf, m.Rollspeed = unmarshalFloat32(buf)
-
 	buf, m.Pitchspeed = unmarshalFloat32(buf)
-
 	buf, m.Yawspeed = unmarshalFloat32(buf)
 
 	return buf
@@ -5826,17 +5568,11 @@ func (m *LocalPositionNed) MarshalV2(buf []byte) []byte {
 
 func (m *LocalPositionNed) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.X = unmarshalFloat32(buf)
-
 	buf, m.Y = unmarshalFloat32(buf)
-
 	buf, m.Z = unmarshalFloat32(buf)
-
 	buf, m.Vx = unmarshalFloat32(buf)
-
 	buf, m.Vy = unmarshalFloat32(buf)
-
 	buf, m.Vz = unmarshalFloat32(buf)
 
 	return buf
@@ -5903,21 +5639,13 @@ func (m *GlobalPositionInt) MarshalV2(buf []byte) []byte {
 
 func (m *GlobalPositionInt) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.Lat = unmarshalInt32(buf)
-
 	buf, m.Lon = unmarshalInt32(buf)
-
 	buf, m.Alt = unmarshalInt32(buf)
-
 	buf, m.RelativeAlt = unmarshalInt32(buf)
-
 	buf, m.Vx = unmarshalInt16(buf)
-
 	buf, m.Vy = unmarshalInt16(buf)
-
 	buf, m.Vz = unmarshalInt16(buf)
-
 	buf, m.Hdg = unmarshalUint16(buf)
 
 	return buf
@@ -5992,25 +5720,15 @@ func (m *RcChannelsScaled) MarshalV2(buf []byte) []byte {
 
 func (m *RcChannelsScaled) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.Chan1Scaled = unmarshalInt16(buf)
-
 	buf, m.Chan2Scaled = unmarshalInt16(buf)
-
 	buf, m.Chan3Scaled = unmarshalInt16(buf)
-
 	buf, m.Chan4Scaled = unmarshalInt16(buf)
-
 	buf, m.Chan5Scaled = unmarshalInt16(buf)
-
 	buf, m.Chan6Scaled = unmarshalInt16(buf)
-
 	buf, m.Chan7Scaled = unmarshalInt16(buf)
-
 	buf, m.Chan8Scaled = unmarshalInt16(buf)
-
 	buf, m.Port = unmarshalByte(buf)
-
 	buf, m.Rssi = unmarshalByte(buf)
 
 	return buf
@@ -6085,25 +5803,15 @@ func (m *RcChannelsRaw) MarshalV2(buf []byte) []byte {
 
 func (m *RcChannelsRaw) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.Chan1Raw = unmarshalUint16(buf)
-
 	buf, m.Chan2Raw = unmarshalUint16(buf)
-
 	buf, m.Chan3Raw = unmarshalUint16(buf)
-
 	buf, m.Chan4Raw = unmarshalUint16(buf)
-
 	buf, m.Chan5Raw = unmarshalUint16(buf)
-
 	buf, m.Chan6Raw = unmarshalUint16(buf)
-
 	buf, m.Chan7Raw = unmarshalUint16(buf)
-
 	buf, m.Chan8Raw = unmarshalUint16(buf)
-
 	buf, m.Port = unmarshalByte(buf)
-
 	buf, m.Rssi = unmarshalByte(buf)
 
 	return buf
@@ -6207,23 +5915,14 @@ func (m *ServoOutputRaw) MarshalV2(buf []byte) []byte {
 
 func (m *ServoOutputRaw) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint32(buf)
-
 	buf, m.Servo1Raw = unmarshalUint16(buf)
-
 	buf, m.Servo2Raw = unmarshalUint16(buf)
-
 	buf, m.Servo3Raw = unmarshalUint16(buf)
-
 	buf, m.Servo4Raw = unmarshalUint16(buf)
-
 	buf, m.Servo5Raw = unmarshalUint16(buf)
-
 	buf, m.Servo6Raw = unmarshalUint16(buf)
-
 	buf, m.Servo7Raw = unmarshalUint16(buf)
-
 	buf, m.Servo8Raw = unmarshalUint16(buf)
-
 	buf, m.Port = unmarshalByte(buf)
 
 	return buf
@@ -6232,19 +5931,12 @@ func (m *ServoOutputRaw) UnmarshalV1(buf []byte) []byte {
 func (m *ServoOutputRaw) UnmarshalV2(buf []byte) []byte {
 	buf = m.UnmarshalV1(buf)
 	buf, m.Servo9Raw = unmarshalUint16(buf)
-
 	buf, m.Servo10Raw = unmarshalUint16(buf)
-
 	buf, m.Servo11Raw = unmarshalUint16(buf)
-
 	buf, m.Servo12Raw = unmarshalUint16(buf)
-
 	buf, m.Servo13Raw = unmarshalUint16(buf)
-
 	buf, m.Servo14Raw = unmarshalUint16(buf)
-
 	buf, m.Servo15Raw = unmarshalUint16(buf)
-
 	buf, m.Servo16Raw = unmarshalUint16(buf)
 
 	return buf
@@ -6290,11 +5982,8 @@ func (m *MissionRequestPartialList) MarshalV2(buf []byte) []byte {
 
 func (m *MissionRequestPartialList) UnmarshalV1(buf []byte) []byte {
 	buf, m.StartIndex = unmarshalInt16(buf)
-
 	buf, m.EndIndex = unmarshalInt16(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
 
 	return buf
@@ -6351,11 +6040,8 @@ func (m *MissionWritePartialList) MarshalV2(buf []byte) []byte {
 
 func (m *MissionWritePartialList) UnmarshalV1(buf []byte) []byte {
 	buf, m.StartIndex = unmarshalInt16(buf)
-
 	buf, m.EndIndex = unmarshalInt16(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
 
 	return buf
@@ -6452,39 +6138,26 @@ func (m *MissionItem) MarshalV2(buf []byte) []byte {
 
 func (m *MissionItem) UnmarshalV1(buf []byte) []byte {
 	buf, m.Param1 = unmarshalFloat32(buf)
-
 	buf, m.Param2 = unmarshalFloat32(buf)
-
 	buf, m.Param3 = unmarshalFloat32(buf)
-
 	buf, m.Param4 = unmarshalFloat32(buf)
-
 	buf, m.X = unmarshalFloat32(buf)
-
 	buf, m.Y = unmarshalFloat32(buf)
-
 	buf, m.Z = unmarshalFloat32(buf)
-
 	buf, m.Seq = unmarshalUint16(buf)
-
 	{
 		var v uint16
 		buf, v = unmarshalUint16(buf)
 		m.Command = MavCmd(v)
 	}
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Frame = MavFrame(v)
 	}
-
 	buf, m.Current = unmarshalByte(buf)
-
 	buf, m.Autocontinue = unmarshalByte(buf)
 
 	return buf
@@ -6537,9 +6210,7 @@ func (m *MissionRequest) MarshalV2(buf []byte) []byte {
 
 func (m *MissionRequest) UnmarshalV1(buf []byte) []byte {
 	buf, m.Seq = unmarshalUint16(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
 
 	return buf
@@ -6587,9 +6258,7 @@ func (m *MissionSetCurrent) MarshalV2(buf []byte) []byte {
 
 func (m *MissionSetCurrent) UnmarshalV1(buf []byte) []byte {
 	buf, m.Seq = unmarshalUint16(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
 
 	return buf
@@ -6666,7 +6335,6 @@ func (m *MissionRequestList) MarshalV2(buf []byte) []byte {
 
 func (m *MissionRequestList) UnmarshalV1(buf []byte) []byte {
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
 
 	return buf
@@ -6719,9 +6387,7 @@ func (m *MissionCount) MarshalV2(buf []byte) []byte {
 
 func (m *MissionCount) UnmarshalV1(buf []byte) []byte {
 	buf, m.Count = unmarshalUint16(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
 
 	return buf
@@ -6770,7 +6436,6 @@ func (m *MissionClearAll) MarshalV2(buf []byte) []byte {
 
 func (m *MissionClearAll) UnmarshalV1(buf []byte) []byte {
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
 
 	return buf
@@ -6856,9 +6521,7 @@ func (m *MissionAck) MarshalV2(buf []byte) []byte {
 
 func (m *MissionAck) UnmarshalV1(buf []byte) []byte {
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -6919,11 +6582,8 @@ func (m *SetGpsGlobalOrigin) MarshalV2(buf []byte) []byte {
 
 func (m *SetGpsGlobalOrigin) UnmarshalV1(buf []byte) []byte {
 	buf, m.Latitude = unmarshalInt32(buf)
-
 	buf, m.Longitude = unmarshalInt32(buf)
-
 	buf, m.Altitude = unmarshalInt32(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
 
 	return buf
@@ -6972,9 +6632,7 @@ func (m *GpsGlobalOrigin) MarshalV2(buf []byte) []byte {
 
 func (m *GpsGlobalOrigin) UnmarshalV1(buf []byte) []byte {
 	buf, m.Latitude = unmarshalInt32(buf)
-
 	buf, m.Longitude = unmarshalInt32(buf)
-
 	buf, m.Altitude = unmarshalInt32(buf)
 
 	return buf
@@ -7044,23 +6702,15 @@ func (m *ParamMapRc) MarshalV2(buf []byte) []byte {
 
 func (m *ParamMapRc) UnmarshalV1(buf []byte) []byte {
 	buf, m.ParamValue0 = unmarshalFloat32(buf)
-
 	buf, m.Scale = unmarshalFloat32(buf)
-
 	buf, m.ParamValueMin = unmarshalFloat32(buf)
-
 	buf, m.ParamValueMax = unmarshalFloat32(buf)
-
 	buf, m.ParamIndex = unmarshalInt16(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	for i, _ := range m.ParamId {
 		buf, m.ParamId[i] = unmarshalByte(buf)
 	}
-
 	buf, m.ParameterRcChannelIndex = unmarshalByte(buf)
 
 	return buf
@@ -7108,9 +6758,7 @@ func (m *MissionRequestInt) MarshalV2(buf []byte) []byte {
 
 func (m *MissionRequestInt) UnmarshalV1(buf []byte) []byte {
 	buf, m.Seq = unmarshalUint16(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
 
 	return buf
@@ -7183,21 +6831,13 @@ func (m *SafetySetAllowedArea) MarshalV2(buf []byte) []byte {
 
 func (m *SafetySetAllowedArea) UnmarshalV1(buf []byte) []byte {
 	buf, m.P1x = unmarshalFloat32(buf)
-
 	buf, m.P1y = unmarshalFloat32(buf)
-
 	buf, m.P1z = unmarshalFloat32(buf)
-
 	buf, m.P2x = unmarshalFloat32(buf)
-
 	buf, m.P2y = unmarshalFloat32(buf)
-
 	buf, m.P2z = unmarshalFloat32(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -7261,17 +6901,11 @@ func (m *SafetyAllowedArea) MarshalV2(buf []byte) []byte {
 
 func (m *SafetyAllowedArea) UnmarshalV1(buf []byte) []byte {
 	buf, m.P1x = unmarshalFloat32(buf)
-
 	buf, m.P1y = unmarshalFloat32(buf)
-
 	buf, m.P1z = unmarshalFloat32(buf)
-
 	buf, m.P2x = unmarshalFloat32(buf)
-
 	buf, m.P2y = unmarshalFloat32(buf)
-
 	buf, m.P2z = unmarshalFloat32(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -7334,17 +6968,12 @@ func (m *AttitudeQuaternionCov) MarshalV2(buf []byte) []byte {
 
 func (m *AttitudeQuaternionCov) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	for i, _ := range m.Q {
 		buf, m.Q[i] = unmarshalFloat32(buf)
 	}
-
 	buf, m.Rollspeed = unmarshalFloat32(buf)
-
 	buf, m.Pitchspeed = unmarshalFloat32(buf)
-
 	buf, m.Yawspeed = unmarshalFloat32(buf)
-
 	for i, _ := range m.Covariance {
 		buf, m.Covariance[i] = unmarshalFloat32(buf)
 	}
@@ -7409,19 +7038,12 @@ func (m *NavControllerOutput) MarshalV2(buf []byte) []byte {
 
 func (m *NavControllerOutput) UnmarshalV1(buf []byte) []byte {
 	buf, m.NavRoll = unmarshalFloat32(buf)
-
 	buf, m.NavPitch = unmarshalFloat32(buf)
-
 	buf, m.AltError = unmarshalFloat32(buf)
-
 	buf, m.AspdError = unmarshalFloat32(buf)
-
 	buf, m.XtrackError = unmarshalFloat32(buf)
-
 	buf, m.NavBearing = unmarshalInt16(buf)
-
 	buf, m.TargetBearing = unmarshalInt16(buf)
-
 	buf, m.WpDist = unmarshalUint16(buf)
 
 	return buf
@@ -7495,25 +7117,16 @@ func (m *GlobalPositionIntCov) MarshalV2(buf []byte) []byte {
 
 func (m *GlobalPositionIntCov) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.Lat = unmarshalInt32(buf)
-
 	buf, m.Lon = unmarshalInt32(buf)
-
 	buf, m.Alt = unmarshalInt32(buf)
-
 	buf, m.RelativeAlt = unmarshalInt32(buf)
-
 	buf, m.Vx = unmarshalFloat32(buf)
-
 	buf, m.Vy = unmarshalFloat32(buf)
-
 	buf, m.Vz = unmarshalFloat32(buf)
-
 	for i, _ := range m.Covariance {
 		buf, m.Covariance[i] = unmarshalFloat32(buf)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -7599,29 +7212,18 @@ func (m *LocalPositionNedCov) MarshalV2(buf []byte) []byte {
 
 func (m *LocalPositionNedCov) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.X = unmarshalFloat32(buf)
-
 	buf, m.Y = unmarshalFloat32(buf)
-
 	buf, m.Z = unmarshalFloat32(buf)
-
 	buf, m.Vx = unmarshalFloat32(buf)
-
 	buf, m.Vy = unmarshalFloat32(buf)
-
 	buf, m.Vz = unmarshalFloat32(buf)
-
 	buf, m.Ax = unmarshalFloat32(buf)
-
 	buf, m.Ay = unmarshalFloat32(buf)
-
 	buf, m.Az = unmarshalFloat32(buf)
-
 	for i, _ := range m.Covariance {
 		buf, m.Covariance[i] = unmarshalFloat32(buf)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -7740,45 +7342,25 @@ func (m *RcChannels) MarshalV2(buf []byte) []byte {
 
 func (m *RcChannels) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.Chan1Raw = unmarshalUint16(buf)
-
 	buf, m.Chan2Raw = unmarshalUint16(buf)
-
 	buf, m.Chan3Raw = unmarshalUint16(buf)
-
 	buf, m.Chan4Raw = unmarshalUint16(buf)
-
 	buf, m.Chan5Raw = unmarshalUint16(buf)
-
 	buf, m.Chan6Raw = unmarshalUint16(buf)
-
 	buf, m.Chan7Raw = unmarshalUint16(buf)
-
 	buf, m.Chan8Raw = unmarshalUint16(buf)
-
 	buf, m.Chan9Raw = unmarshalUint16(buf)
-
 	buf, m.Chan10Raw = unmarshalUint16(buf)
-
 	buf, m.Chan11Raw = unmarshalUint16(buf)
-
 	buf, m.Chan12Raw = unmarshalUint16(buf)
-
 	buf, m.Chan13Raw = unmarshalUint16(buf)
-
 	buf, m.Chan14Raw = unmarshalUint16(buf)
-
 	buf, m.Chan15Raw = unmarshalUint16(buf)
-
 	buf, m.Chan16Raw = unmarshalUint16(buf)
-
 	buf, m.Chan17Raw = unmarshalUint16(buf)
-
 	buf, m.Chan18Raw = unmarshalUint16(buf)
-
 	buf, m.Chancount = unmarshalByte(buf)
-
 	buf, m.Rssi = unmarshalByte(buf)
 
 	return buf
@@ -7829,13 +7411,9 @@ func (m *RequestDataStream) MarshalV2(buf []byte) []byte {
 
 func (m *RequestDataStream) UnmarshalV1(buf []byte) []byte {
 	buf, m.ReqMessageRate = unmarshalUint16(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	buf, m.ReqStreamId = unmarshalByte(buf)
-
 	buf, m.StartStop = unmarshalByte(buf)
 
 	return buf
@@ -7878,9 +7456,7 @@ func (m *DataStream) MarshalV2(buf []byte) []byte {
 
 func (m *DataStream) UnmarshalV1(buf []byte) []byte {
 	buf, m.MessageRate = unmarshalUint16(buf)
-
 	buf, m.StreamId = unmarshalByte(buf)
-
 	buf, m.OnOff = unmarshalByte(buf)
 
 	return buf
@@ -7935,15 +7511,10 @@ func (m *ManualControl) MarshalV2(buf []byte) []byte {
 
 func (m *ManualControl) UnmarshalV1(buf []byte) []byte {
 	buf, m.X = unmarshalInt16(buf)
-
 	buf, m.Y = unmarshalInt16(buf)
-
 	buf, m.Z = unmarshalInt16(buf)
-
 	buf, m.R = unmarshalInt16(buf)
-
 	buf, m.Buttons = unmarshalUint16(buf)
-
 	buf, m.Target = unmarshalByte(buf)
 
 	return buf
@@ -8055,23 +7626,14 @@ func (m *RcChannelsOverride) MarshalV2(buf []byte) []byte {
 
 func (m *RcChannelsOverride) UnmarshalV1(buf []byte) []byte {
 	buf, m.Chan1Raw = unmarshalUint16(buf)
-
 	buf, m.Chan2Raw = unmarshalUint16(buf)
-
 	buf, m.Chan3Raw = unmarshalUint16(buf)
-
 	buf, m.Chan4Raw = unmarshalUint16(buf)
-
 	buf, m.Chan5Raw = unmarshalUint16(buf)
-
 	buf, m.Chan6Raw = unmarshalUint16(buf)
-
 	buf, m.Chan7Raw = unmarshalUint16(buf)
-
 	buf, m.Chan8Raw = unmarshalUint16(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
 
 	return buf
@@ -8080,23 +7642,14 @@ func (m *RcChannelsOverride) UnmarshalV1(buf []byte) []byte {
 func (m *RcChannelsOverride) UnmarshalV2(buf []byte) []byte {
 	buf = m.UnmarshalV1(buf)
 	buf, m.Chan9Raw = unmarshalUint16(buf)
-
 	buf, m.Chan10Raw = unmarshalUint16(buf)
-
 	buf, m.Chan11Raw = unmarshalUint16(buf)
-
 	buf, m.Chan12Raw = unmarshalUint16(buf)
-
 	buf, m.Chan13Raw = unmarshalUint16(buf)
-
 	buf, m.Chan14Raw = unmarshalUint16(buf)
-
 	buf, m.Chan15Raw = unmarshalUint16(buf)
-
 	buf, m.Chan16Raw = unmarshalUint16(buf)
-
 	buf, m.Chan17Raw = unmarshalUint16(buf)
-
 	buf, m.Chan18Raw = unmarshalUint16(buf)
 
 	return buf
@@ -8182,39 +7735,26 @@ func (m *MissionItemInt) MarshalV2(buf []byte) []byte {
 
 func (m *MissionItemInt) UnmarshalV1(buf []byte) []byte {
 	buf, m.Param1 = unmarshalFloat32(buf)
-
 	buf, m.Param2 = unmarshalFloat32(buf)
-
 	buf, m.Param3 = unmarshalFloat32(buf)
-
 	buf, m.Param4 = unmarshalFloat32(buf)
-
 	buf, m.X = unmarshalInt32(buf)
-
 	buf, m.Y = unmarshalInt32(buf)
-
 	buf, m.Z = unmarshalFloat32(buf)
-
 	buf, m.Seq = unmarshalUint16(buf)
-
 	{
 		var v uint16
 		buf, v = unmarshalUint16(buf)
 		m.Command = MavCmd(v)
 	}
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Frame = MavFrame(v)
 	}
-
 	buf, m.Current = unmarshalByte(buf)
-
 	buf, m.Autocontinue = unmarshalByte(buf)
 
 	return buf
@@ -8274,15 +7814,10 @@ func (m *VfrHud) MarshalV2(buf []byte) []byte {
 
 func (m *VfrHud) UnmarshalV1(buf []byte) []byte {
 	buf, m.Airspeed = unmarshalFloat32(buf)
-
 	buf, m.Groundspeed = unmarshalFloat32(buf)
-
 	buf, m.Alt = unmarshalFloat32(buf)
-
 	buf, m.Climb = unmarshalFloat32(buf)
-
 	buf, m.Heading = unmarshalInt16(buf)
-
 	buf, m.Throttle = unmarshalUint16(buf)
 
 	return buf
@@ -8365,37 +7900,25 @@ func (m *CommandInt) MarshalV2(buf []byte) []byte {
 
 func (m *CommandInt) UnmarshalV1(buf []byte) []byte {
 	buf, m.Param1 = unmarshalFloat32(buf)
-
 	buf, m.Param2 = unmarshalFloat32(buf)
-
 	buf, m.Param3 = unmarshalFloat32(buf)
-
 	buf, m.Param4 = unmarshalFloat32(buf)
-
 	buf, m.X = unmarshalInt32(buf)
-
 	buf, m.Y = unmarshalInt32(buf)
-
 	buf, m.Z = unmarshalFloat32(buf)
-
 	{
 		var v uint16
 		buf, v = unmarshalUint16(buf)
 		m.Command = MavCmd(v)
 	}
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Frame = MavFrame(v)
 	}
-
 	buf, m.Current = unmarshalByte(buf)
-
 	buf, m.Autocontinue = unmarshalByte(buf)
 
 	return buf
@@ -8470,29 +7993,19 @@ func (m *CommandLong) MarshalV2(buf []byte) []byte {
 
 func (m *CommandLong) UnmarshalV1(buf []byte) []byte {
 	buf, m.Param1 = unmarshalFloat32(buf)
-
 	buf, m.Param2 = unmarshalFloat32(buf)
-
 	buf, m.Param3 = unmarshalFloat32(buf)
-
 	buf, m.Param4 = unmarshalFloat32(buf)
-
 	buf, m.Param5 = unmarshalFloat32(buf)
-
 	buf, m.Param6 = unmarshalFloat32(buf)
-
 	buf, m.Param7 = unmarshalFloat32(buf)
-
 	{
 		var v uint16
 		buf, v = unmarshalUint16(buf)
 		m.Command = MavCmd(v)
 	}
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	buf, m.Confirmation = unmarshalByte(buf)
 
 	return buf
@@ -8552,7 +8065,6 @@ func (m *CommandAck) UnmarshalV1(buf []byte) []byte {
 		buf, v = unmarshalUint16(buf)
 		m.Command = MavCmd(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -8565,11 +8077,8 @@ func (m *CommandAck) UnmarshalV1(buf []byte) []byte {
 func (m *CommandAck) UnmarshalV2(buf []byte) []byte {
 	buf = m.UnmarshalV1(buf)
 	buf, m.ResultParam2 = unmarshalInt32(buf)
-
 	buf, m.Progress = unmarshalByte(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
 
 	return buf
@@ -8622,17 +8131,11 @@ func (m *ManualSetpoint) MarshalV2(buf []byte) []byte {
 
 func (m *ManualSetpoint) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.Roll = unmarshalFloat32(buf)
-
 	buf, m.Pitch = unmarshalFloat32(buf)
-
 	buf, m.Yaw = unmarshalFloat32(buf)
-
 	buf, m.Thrust = unmarshalFloat32(buf)
-
 	buf, m.ModeSwitch = unmarshalByte(buf)
-
 	buf, m.ManualOverrideSwitch = unmarshalByte(buf)
 
 	return buf
@@ -8701,23 +8204,15 @@ func (m *SetAttitudeTarget) MarshalV2(buf []byte) []byte {
 
 func (m *SetAttitudeTarget) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	for i, _ := range m.Q {
 		buf, m.Q[i] = unmarshalFloat32(buf)
 	}
-
 	buf, m.BodyRollRate = unmarshalFloat32(buf)
-
 	buf, m.BodyPitchRate = unmarshalFloat32(buf)
-
 	buf, m.BodyYawRate = unmarshalFloat32(buf)
-
 	buf, m.Thrust = unmarshalFloat32(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	buf, m.TypeMask = unmarshalByte(buf)
 
 	return buf
@@ -8778,19 +8273,13 @@ func (m *AttitudeTarget) MarshalV2(buf []byte) []byte {
 
 func (m *AttitudeTarget) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	for i, _ := range m.Q {
 		buf, m.Q[i] = unmarshalFloat32(buf)
 	}
-
 	buf, m.BodyRollRate = unmarshalFloat32(buf)
-
 	buf, m.BodyPitchRate = unmarshalFloat32(buf)
-
 	buf, m.BodyYawRate = unmarshalFloat32(buf)
-
 	buf, m.Thrust = unmarshalFloat32(buf)
-
 	buf, m.TypeMask = unmarshalByte(buf)
 
 	return buf
@@ -8886,39 +8375,24 @@ func (m *SetPositionTargetLocalNed) MarshalV2(buf []byte) []byte {
 
 func (m *SetPositionTargetLocalNed) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.X = unmarshalFloat32(buf)
-
 	buf, m.Y = unmarshalFloat32(buf)
-
 	buf, m.Z = unmarshalFloat32(buf)
-
 	buf, m.Vx = unmarshalFloat32(buf)
-
 	buf, m.Vy = unmarshalFloat32(buf)
-
 	buf, m.Vz = unmarshalFloat32(buf)
-
 	buf, m.Afx = unmarshalFloat32(buf)
-
 	buf, m.Afy = unmarshalFloat32(buf)
-
 	buf, m.Afz = unmarshalFloat32(buf)
-
 	buf, m.Yaw = unmarshalFloat32(buf)
-
 	buf, m.YawRate = unmarshalFloat32(buf)
-
 	{
 		var v uint16
 		buf, v = unmarshalUint16(buf)
 		m.TypeMask = PositionTargetTypemask(v)
 	}
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -9010,35 +8484,22 @@ func (m *PositionTargetLocalNed) MarshalV2(buf []byte) []byte {
 
 func (m *PositionTargetLocalNed) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.X = unmarshalFloat32(buf)
-
 	buf, m.Y = unmarshalFloat32(buf)
-
 	buf, m.Z = unmarshalFloat32(buf)
-
 	buf, m.Vx = unmarshalFloat32(buf)
-
 	buf, m.Vy = unmarshalFloat32(buf)
-
 	buf, m.Vz = unmarshalFloat32(buf)
-
 	buf, m.Afx = unmarshalFloat32(buf)
-
 	buf, m.Afy = unmarshalFloat32(buf)
-
 	buf, m.Afz = unmarshalFloat32(buf)
-
 	buf, m.Yaw = unmarshalFloat32(buf)
-
 	buf, m.YawRate = unmarshalFloat32(buf)
-
 	{
 		var v uint16
 		buf, v = unmarshalUint16(buf)
 		m.TypeMask = PositionTargetTypemask(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -9138,39 +8599,24 @@ func (m *SetPositionTargetGlobalInt) MarshalV2(buf []byte) []byte {
 
 func (m *SetPositionTargetGlobalInt) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.LatInt = unmarshalInt32(buf)
-
 	buf, m.LonInt = unmarshalInt32(buf)
-
 	buf, m.Alt = unmarshalFloat32(buf)
-
 	buf, m.Vx = unmarshalFloat32(buf)
-
 	buf, m.Vy = unmarshalFloat32(buf)
-
 	buf, m.Vz = unmarshalFloat32(buf)
-
 	buf, m.Afx = unmarshalFloat32(buf)
-
 	buf, m.Afy = unmarshalFloat32(buf)
-
 	buf, m.Afz = unmarshalFloat32(buf)
-
 	buf, m.Yaw = unmarshalFloat32(buf)
-
 	buf, m.YawRate = unmarshalFloat32(buf)
-
 	{
 		var v uint16
 		buf, v = unmarshalUint16(buf)
 		m.TypeMask = PositionTargetTypemask(v)
 	}
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -9262,35 +8708,22 @@ func (m *PositionTargetGlobalInt) MarshalV2(buf []byte) []byte {
 
 func (m *PositionTargetGlobalInt) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.LatInt = unmarshalInt32(buf)
-
 	buf, m.LonInt = unmarshalInt32(buf)
-
 	buf, m.Alt = unmarshalFloat32(buf)
-
 	buf, m.Vx = unmarshalFloat32(buf)
-
 	buf, m.Vy = unmarshalFloat32(buf)
-
 	buf, m.Vz = unmarshalFloat32(buf)
-
 	buf, m.Afx = unmarshalFloat32(buf)
-
 	buf, m.Afy = unmarshalFloat32(buf)
-
 	buf, m.Afz = unmarshalFloat32(buf)
-
 	buf, m.Yaw = unmarshalFloat32(buf)
-
 	buf, m.YawRate = unmarshalFloat32(buf)
-
 	{
 		var v uint16
 		buf, v = unmarshalUint16(buf)
 		m.TypeMask = PositionTargetTypemask(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -9353,17 +8786,11 @@ func (m *LocalPositionNedSystemGlobalOffset) MarshalV2(buf []byte) []byte {
 
 func (m *LocalPositionNedSystemGlobalOffset) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.X = unmarshalFloat32(buf)
-
 	buf, m.Y = unmarshalFloat32(buf)
-
 	buf, m.Z = unmarshalFloat32(buf)
-
 	buf, m.Roll = unmarshalFloat32(buf)
-
 	buf, m.Pitch = unmarshalFloat32(buf)
-
 	buf, m.Yaw = unmarshalFloat32(buf)
 
 	return buf
@@ -9458,35 +8885,20 @@ func (m *HilState) MarshalV2(buf []byte) []byte {
 
 func (m *HilState) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.Roll = unmarshalFloat32(buf)
-
 	buf, m.Pitch = unmarshalFloat32(buf)
-
 	buf, m.Yaw = unmarshalFloat32(buf)
-
 	buf, m.Rollspeed = unmarshalFloat32(buf)
-
 	buf, m.Pitchspeed = unmarshalFloat32(buf)
-
 	buf, m.Yawspeed = unmarshalFloat32(buf)
-
 	buf, m.Lat = unmarshalInt32(buf)
-
 	buf, m.Lon = unmarshalInt32(buf)
-
 	buf, m.Alt = unmarshalInt32(buf)
-
 	buf, m.Vx = unmarshalInt16(buf)
-
 	buf, m.Vy = unmarshalInt16(buf)
-
 	buf, m.Vz = unmarshalInt16(buf)
-
 	buf, m.Xacc = unmarshalInt16(buf)
-
 	buf, m.Yacc = unmarshalInt16(buf)
-
 	buf, m.Zacc = unmarshalInt16(buf)
 
 	return buf
@@ -9561,29 +8973,19 @@ func (m *HilControls) MarshalV2(buf []byte) []byte {
 
 func (m *HilControls) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.RollAilerons = unmarshalFloat32(buf)
-
 	buf, m.PitchElevator = unmarshalFloat32(buf)
-
 	buf, m.YawRudder = unmarshalFloat32(buf)
-
 	buf, m.Throttle = unmarshalFloat32(buf)
-
 	buf, m.Aux1 = unmarshalFloat32(buf)
-
 	buf, m.Aux2 = unmarshalFloat32(buf)
-
 	buf, m.Aux3 = unmarshalFloat32(buf)
-
 	buf, m.Aux4 = unmarshalFloat32(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Mode = MavMode(v)
 	}
-
 	buf, m.NavMode = unmarshalByte(buf)
 
 	return buf
@@ -9670,31 +9072,18 @@ func (m *HilRcInputsRaw) MarshalV2(buf []byte) []byte {
 
 func (m *HilRcInputsRaw) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.Chan1Raw = unmarshalUint16(buf)
-
 	buf, m.Chan2Raw = unmarshalUint16(buf)
-
 	buf, m.Chan3Raw = unmarshalUint16(buf)
-
 	buf, m.Chan4Raw = unmarshalUint16(buf)
-
 	buf, m.Chan5Raw = unmarshalUint16(buf)
-
 	buf, m.Chan6Raw = unmarshalUint16(buf)
-
 	buf, m.Chan7Raw = unmarshalUint16(buf)
-
 	buf, m.Chan8Raw = unmarshalUint16(buf)
-
 	buf, m.Chan9Raw = unmarshalUint16(buf)
-
 	buf, m.Chan10Raw = unmarshalUint16(buf)
-
 	buf, m.Chan11Raw = unmarshalUint16(buf)
-
 	buf, m.Chan12Raw = unmarshalUint16(buf)
-
 	buf, m.Rssi = unmarshalByte(buf)
 
 	return buf
@@ -9744,13 +9133,10 @@ func (m *HilActuatorControls) MarshalV2(buf []byte) []byte {
 
 func (m *HilActuatorControls) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.Flags = unmarshalUint64(buf)
-
 	for i, _ := range m.Controls {
 		buf, m.Controls[i] = unmarshalFloat32(buf)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -9826,19 +9212,12 @@ func (m *OpticalFlow) MarshalV2(buf []byte) []byte {
 
 func (m *OpticalFlow) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.FlowCompMX = unmarshalFloat32(buf)
-
 	buf, m.FlowCompMY = unmarshalFloat32(buf)
-
 	buf, m.GroundDistance = unmarshalFloat32(buf)
-
 	buf, m.FlowX = unmarshalInt16(buf)
-
 	buf, m.FlowY = unmarshalInt16(buf)
-
 	buf, m.SensorId = unmarshalByte(buf)
-
 	buf, m.Quality = unmarshalByte(buf)
 
 	return buf
@@ -9847,7 +9226,6 @@ func (m *OpticalFlow) UnmarshalV1(buf []byte) []byte {
 func (m *OpticalFlow) UnmarshalV2(buf []byte) []byte {
 	buf = m.UnmarshalV1(buf)
 	buf, m.FlowRateX = unmarshalFloat32(buf)
-
 	buf, m.FlowRateY = unmarshalFloat32(buf)
 
 	return buf
@@ -9911,17 +9289,11 @@ func (m *GlobalVisionPositionEstimate) MarshalV2(buf []byte) []byte {
 
 func (m *GlobalVisionPositionEstimate) UnmarshalV1(buf []byte) []byte {
 	buf, m.Usec = unmarshalUint64(buf)
-
 	buf, m.X = unmarshalFloat32(buf)
-
 	buf, m.Y = unmarshalFloat32(buf)
-
 	buf, m.Z = unmarshalFloat32(buf)
-
 	buf, m.Roll = unmarshalFloat32(buf)
-
 	buf, m.Pitch = unmarshalFloat32(buf)
-
 	buf, m.Yaw = unmarshalFloat32(buf)
 
 	return buf
@@ -9932,7 +9304,6 @@ func (m *GlobalVisionPositionEstimate) UnmarshalV2(buf []byte) []byte {
 	for i, _ := range m.Covariance {
 		buf, m.Covariance[i] = unmarshalFloat32(buf)
 	}
-
 	buf, m.ResetCounter = unmarshalByte(buf)
 
 	return buf
@@ -9996,17 +9367,11 @@ func (m *VisionPositionEstimate) MarshalV2(buf []byte) []byte {
 
 func (m *VisionPositionEstimate) UnmarshalV1(buf []byte) []byte {
 	buf, m.Usec = unmarshalUint64(buf)
-
 	buf, m.X = unmarshalFloat32(buf)
-
 	buf, m.Y = unmarshalFloat32(buf)
-
 	buf, m.Z = unmarshalFloat32(buf)
-
 	buf, m.Roll = unmarshalFloat32(buf)
-
 	buf, m.Pitch = unmarshalFloat32(buf)
-
 	buf, m.Yaw = unmarshalFloat32(buf)
 
 	return buf
@@ -10017,7 +9382,6 @@ func (m *VisionPositionEstimate) UnmarshalV2(buf []byte) []byte {
 	for i, _ := range m.Covariance {
 		buf, m.Covariance[i] = unmarshalFloat32(buf)
 	}
-
 	buf, m.ResetCounter = unmarshalByte(buf)
 
 	return buf
@@ -10069,11 +9433,8 @@ func (m *VisionSpeedEstimate) MarshalV2(buf []byte) []byte {
 
 func (m *VisionSpeedEstimate) UnmarshalV1(buf []byte) []byte {
 	buf, m.Usec = unmarshalUint64(buf)
-
 	buf, m.X = unmarshalFloat32(buf)
-
 	buf, m.Y = unmarshalFloat32(buf)
-
 	buf, m.Z = unmarshalFloat32(buf)
 
 	return buf
@@ -10084,7 +9445,6 @@ func (m *VisionSpeedEstimate) UnmarshalV2(buf []byte) []byte {
 	for i, _ := range m.Covariance {
 		buf, m.Covariance[i] = unmarshalFloat32(buf)
 	}
-
 	buf, m.ResetCounter = unmarshalByte(buf)
 
 	return buf
@@ -10144,17 +9504,11 @@ func (m *ViconPositionEstimate) MarshalV2(buf []byte) []byte {
 
 func (m *ViconPositionEstimate) UnmarshalV1(buf []byte) []byte {
 	buf, m.Usec = unmarshalUint64(buf)
-
 	buf, m.X = unmarshalFloat32(buf)
-
 	buf, m.Y = unmarshalFloat32(buf)
-
 	buf, m.Z = unmarshalFloat32(buf)
-
 	buf, m.Roll = unmarshalFloat32(buf)
-
 	buf, m.Pitch = unmarshalFloat32(buf)
-
 	buf, m.Yaw = unmarshalFloat32(buf)
 
 	return buf
@@ -10248,33 +9602,19 @@ func (m *HighresImu) MarshalV2(buf []byte) []byte {
 
 func (m *HighresImu) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.Xacc = unmarshalFloat32(buf)
-
 	buf, m.Yacc = unmarshalFloat32(buf)
-
 	buf, m.Zacc = unmarshalFloat32(buf)
-
 	buf, m.Xgyro = unmarshalFloat32(buf)
-
 	buf, m.Ygyro = unmarshalFloat32(buf)
-
 	buf, m.Zgyro = unmarshalFloat32(buf)
-
 	buf, m.Xmag = unmarshalFloat32(buf)
-
 	buf, m.Ymag = unmarshalFloat32(buf)
-
 	buf, m.Zmag = unmarshalFloat32(buf)
-
 	buf, m.AbsPressure = unmarshalFloat32(buf)
-
 	buf, m.DiffPressure = unmarshalFloat32(buf)
-
 	buf, m.PressureAlt = unmarshalFloat32(buf)
-
 	buf, m.Temperature = unmarshalFloat32(buf)
-
 	buf, m.FieldsUpdated = unmarshalUint16(buf)
 
 	return buf
@@ -10353,27 +9693,16 @@ func (m *OpticalFlowRad) MarshalV2(buf []byte) []byte {
 
 func (m *OpticalFlowRad) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.IntegrationTimeUs = unmarshalUint32(buf)
-
 	buf, m.IntegratedX = unmarshalFloat32(buf)
-
 	buf, m.IntegratedY = unmarshalFloat32(buf)
-
 	buf, m.IntegratedXgyro = unmarshalFloat32(buf)
-
 	buf, m.IntegratedYgyro = unmarshalFloat32(buf)
-
 	buf, m.IntegratedZgyro = unmarshalFloat32(buf)
-
 	buf, m.TimeDeltaDistanceUs = unmarshalUint32(buf)
-
 	buf, m.Distance = unmarshalFloat32(buf)
-
 	buf, m.Temperature = unmarshalInt16(buf)
-
 	buf, m.SensorId = unmarshalByte(buf)
-
 	buf, m.Quality = unmarshalByte(buf)
 
 	return buf
@@ -10464,33 +9793,19 @@ func (m *HilSensor) MarshalV2(buf []byte) []byte {
 
 func (m *HilSensor) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.Xacc = unmarshalFloat32(buf)
-
 	buf, m.Yacc = unmarshalFloat32(buf)
-
 	buf, m.Zacc = unmarshalFloat32(buf)
-
 	buf, m.Xgyro = unmarshalFloat32(buf)
-
 	buf, m.Ygyro = unmarshalFloat32(buf)
-
 	buf, m.Zgyro = unmarshalFloat32(buf)
-
 	buf, m.Xmag = unmarshalFloat32(buf)
-
 	buf, m.Ymag = unmarshalFloat32(buf)
-
 	buf, m.Zmag = unmarshalFloat32(buf)
-
 	buf, m.AbsPressure = unmarshalFloat32(buf)
-
 	buf, m.DiffPressure = unmarshalFloat32(buf)
-
 	buf, m.PressureAlt = unmarshalFloat32(buf)
-
 	buf, m.Temperature = unmarshalFloat32(buf)
-
 	buf, m.FieldsUpdated = unmarshalUint32(buf)
 
 	return buf
@@ -10605,45 +9920,25 @@ func (m *SimState) MarshalV2(buf []byte) []byte {
 
 func (m *SimState) UnmarshalV1(buf []byte) []byte {
 	buf, m.Q1 = unmarshalFloat32(buf)
-
 	buf, m.Q2 = unmarshalFloat32(buf)
-
 	buf, m.Q3 = unmarshalFloat32(buf)
-
 	buf, m.Q4 = unmarshalFloat32(buf)
-
 	buf, m.Roll = unmarshalFloat32(buf)
-
 	buf, m.Pitch = unmarshalFloat32(buf)
-
 	buf, m.Yaw = unmarshalFloat32(buf)
-
 	buf, m.Xacc = unmarshalFloat32(buf)
-
 	buf, m.Yacc = unmarshalFloat32(buf)
-
 	buf, m.Zacc = unmarshalFloat32(buf)
-
 	buf, m.Xgyro = unmarshalFloat32(buf)
-
 	buf, m.Ygyro = unmarshalFloat32(buf)
-
 	buf, m.Zgyro = unmarshalFloat32(buf)
-
 	buf, m.Lat = unmarshalFloat32(buf)
-
 	buf, m.Lon = unmarshalFloat32(buf)
-
 	buf, m.Alt = unmarshalFloat32(buf)
-
 	buf, m.StdDevHorz = unmarshalFloat32(buf)
-
 	buf, m.StdDevVert = unmarshalFloat32(buf)
-
 	buf, m.Vn = unmarshalFloat32(buf)
-
 	buf, m.Ve = unmarshalFloat32(buf)
-
 	buf, m.Vd = unmarshalFloat32(buf)
 
 	return buf
@@ -10702,17 +9997,11 @@ func (m *RadioStatus) MarshalV2(buf []byte) []byte {
 
 func (m *RadioStatus) UnmarshalV1(buf []byte) []byte {
 	buf, m.Rxerrors = unmarshalUint16(buf)
-
 	buf, m.Fixed = unmarshalUint16(buf)
-
 	buf, m.Rssi = unmarshalByte(buf)
-
 	buf, m.Remrssi = unmarshalByte(buf)
-
 	buf, m.Txbuf = unmarshalByte(buf)
-
 	buf, m.Noise = unmarshalByte(buf)
-
 	buf, m.Remnoise = unmarshalByte(buf)
 
 	return buf
@@ -10761,11 +10050,8 @@ func (m *FileTransferProtocol) MarshalV2(buf []byte) []byte {
 
 func (m *FileTransferProtocol) UnmarshalV1(buf []byte) []byte {
 	buf, m.TargetNetwork = unmarshalByte(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	for i, _ := range m.Payload {
 		buf, m.Payload[i] = unmarshalByte(buf)
 	}
@@ -10806,7 +10092,6 @@ func (m *Timesync) MarshalV2(buf []byte) []byte {
 
 func (m *Timesync) UnmarshalV1(buf []byte) []byte {
 	buf, m.Tc1 = unmarshalInt64(buf)
-
 	buf, m.Ts1 = unmarshalInt64(buf)
 
 	return buf
@@ -10845,7 +10130,6 @@ func (m *CameraTrigger) MarshalV2(buf []byte) []byte {
 
 func (m *CameraTrigger) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.Seq = unmarshalUint32(buf)
 
 	return buf
@@ -10928,29 +10212,17 @@ func (m *HilGps) MarshalV2(buf []byte) []byte {
 
 func (m *HilGps) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.Lat = unmarshalInt32(buf)
-
 	buf, m.Lon = unmarshalInt32(buf)
-
 	buf, m.Alt = unmarshalInt32(buf)
-
 	buf, m.Eph = unmarshalUint16(buf)
-
 	buf, m.Epv = unmarshalUint16(buf)
-
 	buf, m.Vel = unmarshalUint16(buf)
-
 	buf, m.Vn = unmarshalInt16(buf)
-
 	buf, m.Ve = unmarshalInt16(buf)
-
 	buf, m.Vd = unmarshalInt16(buf)
-
 	buf, m.Cog = unmarshalUint16(buf)
-
 	buf, m.FixType = unmarshalByte(buf)
-
 	buf, m.SatellitesVisible = unmarshalByte(buf)
 
 	return buf
@@ -11029,27 +10301,16 @@ func (m *HilOpticalFlow) MarshalV2(buf []byte) []byte {
 
 func (m *HilOpticalFlow) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.IntegrationTimeUs = unmarshalUint32(buf)
-
 	buf, m.IntegratedX = unmarshalFloat32(buf)
-
 	buf, m.IntegratedY = unmarshalFloat32(buf)
-
 	buf, m.IntegratedXgyro = unmarshalFloat32(buf)
-
 	buf, m.IntegratedYgyro = unmarshalFloat32(buf)
-
 	buf, m.IntegratedZgyro = unmarshalFloat32(buf)
-
 	buf, m.TimeDeltaDistanceUs = unmarshalUint32(buf)
-
 	buf, m.Distance = unmarshalFloat32(buf)
-
 	buf, m.Temperature = unmarshalInt16(buf)
-
 	buf, m.SensorId = unmarshalByte(buf)
-
 	buf, m.Quality = unmarshalByte(buf)
 
 	return buf
@@ -11146,37 +10407,22 @@ func (m *HilStateQuaternion) MarshalV2(buf []byte) []byte {
 
 func (m *HilStateQuaternion) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	for i, _ := range m.AttitudeQuaternion {
 		buf, m.AttitudeQuaternion[i] = unmarshalFloat32(buf)
 	}
-
 	buf, m.Rollspeed = unmarshalFloat32(buf)
-
 	buf, m.Pitchspeed = unmarshalFloat32(buf)
-
 	buf, m.Yawspeed = unmarshalFloat32(buf)
-
 	buf, m.Lat = unmarshalInt32(buf)
-
 	buf, m.Lon = unmarshalInt32(buf)
-
 	buf, m.Alt = unmarshalInt32(buf)
-
 	buf, m.Vx = unmarshalInt16(buf)
-
 	buf, m.Vy = unmarshalInt16(buf)
-
 	buf, m.Vz = unmarshalInt16(buf)
-
 	buf, m.IndAirspeed = unmarshalUint16(buf)
-
 	buf, m.TrueAirspeed = unmarshalUint16(buf)
-
 	buf, m.Xacc = unmarshalInt16(buf)
-
 	buf, m.Yacc = unmarshalInt16(buf)
-
 	buf, m.Zacc = unmarshalInt16(buf)
 
 	return buf
@@ -11247,23 +10493,14 @@ func (m *ScaledImu2) MarshalV2(buf []byte) []byte {
 
 func (m *ScaledImu2) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.Xacc = unmarshalInt16(buf)
-
 	buf, m.Yacc = unmarshalInt16(buf)
-
 	buf, m.Zacc = unmarshalInt16(buf)
-
 	buf, m.Xgyro = unmarshalInt16(buf)
-
 	buf, m.Ygyro = unmarshalInt16(buf)
-
 	buf, m.Zgyro = unmarshalInt16(buf)
-
 	buf, m.Xmag = unmarshalInt16(buf)
-
 	buf, m.Ymag = unmarshalInt16(buf)
-
 	buf, m.Zmag = unmarshalInt16(buf)
 
 	return buf
@@ -11310,11 +10547,8 @@ func (m *LogRequestList) MarshalV2(buf []byte) []byte {
 
 func (m *LogRequestList) UnmarshalV1(buf []byte) []byte {
 	buf, m.Start = unmarshalUint16(buf)
-
 	buf, m.End = unmarshalUint16(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
 
 	return buf
@@ -11365,13 +10599,9 @@ func (m *LogEntry) MarshalV2(buf []byte) []byte {
 
 func (m *LogEntry) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUtc = unmarshalUint32(buf)
-
 	buf, m.Size = unmarshalUint32(buf)
-
 	buf, m.Id = unmarshalUint16(buf)
-
 	buf, m.NumLogs = unmarshalUint16(buf)
-
 	buf, m.LastLogNum = unmarshalUint16(buf)
 
 	return buf
@@ -11422,13 +10652,9 @@ func (m *LogRequestData) MarshalV2(buf []byte) []byte {
 
 func (m *LogRequestData) UnmarshalV1(buf []byte) []byte {
 	buf, m.Ofs = unmarshalUint32(buf)
-
 	buf, m.Count = unmarshalUint32(buf)
-
 	buf, m.Id = unmarshalUint16(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
 
 	return buf
@@ -11477,11 +10703,8 @@ func (m *LogData) MarshalV2(buf []byte) []byte {
 
 func (m *LogData) UnmarshalV1(buf []byte) []byte {
 	buf, m.Ofs = unmarshalUint32(buf)
-
 	buf, m.Id = unmarshalUint16(buf)
-
 	buf, m.Count = unmarshalByte(buf)
-
 	for i, _ := range m.Data {
 		buf, m.Data[i] = unmarshalByte(buf)
 	}
@@ -11522,7 +10745,6 @@ func (m *LogErase) MarshalV2(buf []byte) []byte {
 
 func (m *LogErase) UnmarshalV1(buf []byte) []byte {
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
 
 	return buf
@@ -11561,7 +10783,6 @@ func (m *LogRequestEnd) MarshalV2(buf []byte) []byte {
 
 func (m *LogRequestEnd) UnmarshalV1(buf []byte) []byte {
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
 
 	return buf
@@ -11610,11 +10831,8 @@ func (m *GpsInjectData) MarshalV2(buf []byte) []byte {
 
 func (m *GpsInjectData) UnmarshalV1(buf []byte) []byte {
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	buf, m.Len = unmarshalByte(buf)
-
 	for i, _ := range m.Data {
 		buf, m.Data[i] = unmarshalByte(buf)
 	}
@@ -11695,31 +10913,20 @@ func (m *Gps2Raw) MarshalV2(buf []byte) []byte {
 
 func (m *Gps2Raw) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.Lat = unmarshalInt32(buf)
-
 	buf, m.Lon = unmarshalInt32(buf)
-
 	buf, m.Alt = unmarshalInt32(buf)
-
 	buf, m.DgpsAge = unmarshalUint32(buf)
-
 	buf, m.Eph = unmarshalUint16(buf)
-
 	buf, m.Epv = unmarshalUint16(buf)
-
 	buf, m.Vel = unmarshalUint16(buf)
-
 	buf, m.Cog = unmarshalUint16(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.FixType = GpsFixType(v)
 	}
-
 	buf, m.SatellitesVisible = unmarshalByte(buf)
-
 	buf, m.DgpsNumch = unmarshalByte(buf)
 
 	return buf
@@ -11763,9 +10970,7 @@ func (m *PowerStatus) MarshalV2(buf []byte) []byte {
 
 func (m *PowerStatus) UnmarshalV1(buf []byte) []byte {
 	buf, m.Vcc = unmarshalUint16(buf)
-
 	buf, m.Vservo = unmarshalUint16(buf)
-
 	{
 		var v uint16
 		buf, v = unmarshalUint16(buf)
@@ -11826,23 +11031,18 @@ func (m *SerialControl) MarshalV2(buf []byte) []byte {
 
 func (m *SerialControl) UnmarshalV1(buf []byte) []byte {
 	buf, m.Baudrate = unmarshalUint32(buf)
-
 	buf, m.Timeout = unmarshalUint16(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Device = SerialControlDev(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Flags = SerialControlFlag(v)
 	}
-
 	buf, m.Count = unmarshalByte(buf)
-
 	for i, _ := range m.Data {
 		buf, m.Data[i] = unmarshalByte(buf)
 	}
@@ -11928,29 +11128,17 @@ func (m *GpsRtk) MarshalV2(buf []byte) []byte {
 
 func (m *GpsRtk) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeLastBaselineMs = unmarshalUint32(buf)
-
 	buf, m.Tow = unmarshalUint32(buf)
-
 	buf, m.BaselineAMm = unmarshalInt32(buf)
-
 	buf, m.BaselineBMm = unmarshalInt32(buf)
-
 	buf, m.BaselineCMm = unmarshalInt32(buf)
-
 	buf, m.Accuracy = unmarshalUint32(buf)
-
 	buf, m.IarNumHypotheses = unmarshalInt32(buf)
-
 	buf, m.Wn = unmarshalUint16(buf)
-
 	buf, m.RtkReceiverId = unmarshalByte(buf)
-
 	buf, m.RtkHealth = unmarshalByte(buf)
-
 	buf, m.RtkRate = unmarshalByte(buf)
-
 	buf, m.Nsats = unmarshalByte(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -12038,29 +11226,17 @@ func (m *Gps2Rtk) MarshalV2(buf []byte) []byte {
 
 func (m *Gps2Rtk) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeLastBaselineMs = unmarshalUint32(buf)
-
 	buf, m.Tow = unmarshalUint32(buf)
-
 	buf, m.BaselineAMm = unmarshalInt32(buf)
-
 	buf, m.BaselineBMm = unmarshalInt32(buf)
-
 	buf, m.BaselineCMm = unmarshalInt32(buf)
-
 	buf, m.Accuracy = unmarshalUint32(buf)
-
 	buf, m.IarNumHypotheses = unmarshalInt32(buf)
-
 	buf, m.Wn = unmarshalUint16(buf)
-
 	buf, m.RtkReceiverId = unmarshalByte(buf)
-
 	buf, m.RtkHealth = unmarshalByte(buf)
-
 	buf, m.RtkRate = unmarshalByte(buf)
-
 	buf, m.Nsats = unmarshalByte(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -12135,23 +11311,14 @@ func (m *ScaledImu3) MarshalV2(buf []byte) []byte {
 
 func (m *ScaledImu3) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.Xacc = unmarshalInt16(buf)
-
 	buf, m.Yacc = unmarshalInt16(buf)
-
 	buf, m.Zacc = unmarshalInt16(buf)
-
 	buf, m.Xgyro = unmarshalInt16(buf)
-
 	buf, m.Ygyro = unmarshalInt16(buf)
-
 	buf, m.Zgyro = unmarshalInt16(buf)
-
 	buf, m.Xmag = unmarshalInt16(buf)
-
 	buf, m.Ymag = unmarshalInt16(buf)
-
 	buf, m.Zmag = unmarshalInt16(buf)
 
 	return buf
@@ -12210,21 +11377,15 @@ func (m *DataTransmissionHandshake) MarshalV2(buf []byte) []byte {
 
 func (m *DataTransmissionHandshake) UnmarshalV1(buf []byte) []byte {
 	buf, m.Size = unmarshalUint32(buf)
-
 	buf, m.Width = unmarshalUint16(buf)
-
 	buf, m.Height = unmarshalUint16(buf)
-
 	buf, m.Packets = unmarshalUint16(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Type = MavlinkDataStreamType(v)
 	}
-
 	buf, m.Payload = unmarshalByte(buf)
-
 	buf, m.JpgQuality = unmarshalByte(buf)
 
 	return buf
@@ -12265,7 +11426,6 @@ func (m *EncapsulatedData) MarshalV2(buf []byte) []byte {
 
 func (m *EncapsulatedData) UnmarshalV1(buf []byte) []byte {
 	buf, m.Seqnr = unmarshalUint16(buf)
-
 	for i, _ := range m.Data {
 		buf, m.Data[i] = unmarshalByte(buf)
 	}
@@ -12345,27 +11505,20 @@ func (m *DistanceSensor) MarshalV2(buf []byte) []byte {
 
 func (m *DistanceSensor) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.MinDistance = unmarshalUint16(buf)
-
 	buf, m.MaxDistance = unmarshalUint16(buf)
-
 	buf, m.CurrentDistance = unmarshalUint16(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Type = MavDistanceSensor(v)
 	}
-
 	buf, m.Id = unmarshalByte(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Orientation = MavSensorOrientation(v)
 	}
-
 	buf, m.Covariance = unmarshalByte(buf)
 
 	return buf
@@ -12374,9 +11527,7 @@ func (m *DistanceSensor) UnmarshalV1(buf []byte) []byte {
 func (m *DistanceSensor) UnmarshalV2(buf []byte) []byte {
 	buf = m.UnmarshalV1(buf)
 	buf, m.HorizontalFov = unmarshalFloat32(buf)
-
 	buf, m.VerticalFov = unmarshalFloat32(buf)
-
 	for i, _ := range m.Quaternion {
 		buf, m.Quaternion[i] = unmarshalFloat32(buf)
 	}
@@ -12419,11 +11570,8 @@ func (m *TerrainRequest) MarshalV2(buf []byte) []byte {
 
 func (m *TerrainRequest) UnmarshalV1(buf []byte) []byte {
 	buf, m.Mask = unmarshalUint64(buf)
-
 	buf, m.Lat = unmarshalInt32(buf)
-
 	buf, m.Lon = unmarshalInt32(buf)
-
 	buf, m.GridSpacing = unmarshalUint16(buf)
 
 	return buf
@@ -12476,15 +11624,11 @@ func (m *TerrainData) MarshalV2(buf []byte) []byte {
 
 func (m *TerrainData) UnmarshalV1(buf []byte) []byte {
 	buf, m.Lat = unmarshalInt32(buf)
-
 	buf, m.Lon = unmarshalInt32(buf)
-
 	buf, m.GridSpacing = unmarshalUint16(buf)
-
 	for i, _ := range m.Data {
 		buf, m.Data[i] = unmarshalInt16(buf)
 	}
-
 	buf, m.Gridbit = unmarshalByte(buf)
 
 	return buf
@@ -12523,7 +11667,6 @@ func (m *TerrainCheck) MarshalV2(buf []byte) []byte {
 
 func (m *TerrainCheck) UnmarshalV1(buf []byte) []byte {
 	buf, m.Lat = unmarshalInt32(buf)
-
 	buf, m.Lon = unmarshalInt32(buf)
 
 	return buf
@@ -12582,17 +11725,11 @@ func (m *TerrainReport) MarshalV2(buf []byte) []byte {
 
 func (m *TerrainReport) UnmarshalV1(buf []byte) []byte {
 	buf, m.Lat = unmarshalInt32(buf)
-
 	buf, m.Lon = unmarshalInt32(buf)
-
 	buf, m.TerrainHeight = unmarshalFloat32(buf)
-
 	buf, m.CurrentHeight = unmarshalFloat32(buf)
-
 	buf, m.Spacing = unmarshalUint16(buf)
-
 	buf, m.Pending = unmarshalUint16(buf)
-
 	buf, m.Loaded = unmarshalUint16(buf)
 
 	return buf
@@ -12639,11 +11776,8 @@ func (m *ScaledPressure2) MarshalV2(buf []byte) []byte {
 
 func (m *ScaledPressure2) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.PressAbs = unmarshalFloat32(buf)
-
 	buf, m.PressDiff = unmarshalFloat32(buf)
-
 	buf, m.Temperature = unmarshalInt16(buf)
 
 	return buf
@@ -12703,15 +11837,11 @@ func (m *AttPosMocap) MarshalV2(buf []byte) []byte {
 
 func (m *AttPosMocap) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	for i, _ := range m.Q {
 		buf, m.Q[i] = unmarshalFloat32(buf)
 	}
-
 	buf, m.X = unmarshalFloat32(buf)
-
 	buf, m.Y = unmarshalFloat32(buf)
-
 	buf, m.Z = unmarshalFloat32(buf)
 
 	return buf
@@ -12767,15 +11897,11 @@ func (m *SetActuatorControlTarget) MarshalV2(buf []byte) []byte {
 
 func (m *SetActuatorControlTarget) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	for i, _ := range m.Controls {
 		buf, m.Controls[i] = unmarshalFloat32(buf)
 	}
-
 	buf, m.GroupMlx = unmarshalByte(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
 
 	return buf
@@ -12820,11 +11946,9 @@ func (m *ActuatorControlTarget) MarshalV2(buf []byte) []byte {
 
 func (m *ActuatorControlTarget) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	for i, _ := range m.Controls {
 		buf, m.Controls[i] = unmarshalFloat32(buf)
 	}
-
 	buf, m.GroupMlx = unmarshalByte(buf)
 
 	return buf
@@ -12883,17 +12007,11 @@ func (m *Altitude) MarshalV2(buf []byte) []byte {
 
 func (m *Altitude) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.AltitudeMonotonic = unmarshalFloat32(buf)
-
 	buf, m.AltitudeAmsl = unmarshalFloat32(buf)
-
 	buf, m.AltitudeLocal = unmarshalFloat32(buf)
-
 	buf, m.AltitudeRelative = unmarshalFloat32(buf)
-
 	buf, m.AltitudeTerrain = unmarshalFloat32(buf)
-
 	buf, m.BottomClearance = unmarshalFloat32(buf)
 
 	return buf
@@ -12948,15 +12066,11 @@ func (m *ResourceRequest) MarshalV2(buf []byte) []byte {
 
 func (m *ResourceRequest) UnmarshalV1(buf []byte) []byte {
 	buf, m.RequestId = unmarshalByte(buf)
-
 	buf, m.UriType = unmarshalByte(buf)
-
 	for i, _ := range m.Uri {
 		buf, m.Uri[i] = unmarshalByte(buf)
 	}
-
 	buf, m.TransferType = unmarshalByte(buf)
-
 	for i, _ := range m.Storage {
 		buf, m.Storage[i] = unmarshalByte(buf)
 	}
@@ -13005,11 +12119,8 @@ func (m *ScaledPressure3) MarshalV2(buf []byte) []byte {
 
 func (m *ScaledPressure3) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.PressAbs = unmarshalFloat32(buf)
-
 	buf, m.PressDiff = unmarshalFloat32(buf)
-
 	buf, m.Temperature = unmarshalInt16(buf)
 
 	return buf
@@ -13094,35 +12205,25 @@ func (m *FollowTarget) MarshalV2(buf []byte) []byte {
 
 func (m *FollowTarget) UnmarshalV1(buf []byte) []byte {
 	buf, m.Timestamp = unmarshalUint64(buf)
-
 	buf, m.CustomState = unmarshalUint64(buf)
-
 	buf, m.Lat = unmarshalInt32(buf)
-
 	buf, m.Lon = unmarshalInt32(buf)
-
 	buf, m.Alt = unmarshalFloat32(buf)
-
 	for i, _ := range m.Vel {
 		buf, m.Vel[i] = unmarshalFloat32(buf)
 	}
-
 	for i, _ := range m.Acc {
 		buf, m.Acc[i] = unmarshalFloat32(buf)
 	}
-
 	for i, _ := range m.AttitudeQ {
 		buf, m.AttitudeQ[i] = unmarshalFloat32(buf)
 	}
-
 	for i, _ := range m.Rates {
 		buf, m.Rates[i] = unmarshalFloat32(buf)
 	}
-
 	for i, _ := range m.PositionCov {
 		buf, m.PositionCov[i] = unmarshalFloat32(buf)
 	}
-
 	buf, m.EstCapabilities = unmarshalByte(buf)
 
 	return buf
@@ -13227,43 +12328,27 @@ func (m *ControlSystemState) MarshalV2(buf []byte) []byte {
 
 func (m *ControlSystemState) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.XAcc = unmarshalFloat32(buf)
-
 	buf, m.YAcc = unmarshalFloat32(buf)
-
 	buf, m.ZAcc = unmarshalFloat32(buf)
-
 	buf, m.XVel = unmarshalFloat32(buf)
-
 	buf, m.YVel = unmarshalFloat32(buf)
-
 	buf, m.ZVel = unmarshalFloat32(buf)
-
 	buf, m.XPos = unmarshalFloat32(buf)
-
 	buf, m.YPos = unmarshalFloat32(buf)
-
 	buf, m.ZPos = unmarshalFloat32(buf)
-
 	buf, m.Airspeed = unmarshalFloat32(buf)
-
 	for i, _ := range m.VelVariance {
 		buf, m.VelVariance[i] = unmarshalFloat32(buf)
 	}
-
 	for i, _ := range m.PosVariance {
 		buf, m.PosVariance[i] = unmarshalFloat32(buf)
 	}
-
 	for i, _ := range m.Q {
 		buf, m.Q[i] = unmarshalFloat32(buf)
 	}
-
 	buf, m.RollRate = unmarshalFloat32(buf)
-
 	buf, m.PitchRate = unmarshalFloat32(buf)
-
 	buf, m.YawRate = unmarshalFloat32(buf)
 
 	return buf
@@ -13341,31 +12426,23 @@ func (m *BatteryStatus) MarshalV2(buf []byte) []byte {
 
 func (m *BatteryStatus) UnmarshalV1(buf []byte) []byte {
 	buf, m.CurrentConsumed = unmarshalInt32(buf)
-
 	buf, m.EnergyConsumed = unmarshalInt32(buf)
-
 	buf, m.Temperature = unmarshalInt16(buf)
-
 	for i, _ := range m.Voltages {
 		buf, m.Voltages[i] = unmarshalUint16(buf)
 	}
-
 	buf, m.CurrentBattery = unmarshalInt16(buf)
-
 	buf, m.Id = unmarshalByte(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.BatteryFunction = MavBatteryFunction(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Type = MavBatteryType(v)
 	}
-
 	buf, m.BatteryRemaining = unmarshalInt8(buf)
 
 	return buf
@@ -13374,7 +12451,6 @@ func (m *BatteryStatus) UnmarshalV1(buf []byte) []byte {
 func (m *BatteryStatus) UnmarshalV2(buf []byte) []byte {
 	buf = m.UnmarshalV1(buf)
 	buf, m.TimeRemaining = unmarshalInt32(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -13464,29 +12540,19 @@ func (m *AutopilotVersion) UnmarshalV1(buf []byte) []byte {
 		buf, v = unmarshalUint64(buf)
 		m.Capabilities = MavProtocolCapability(v)
 	}
-
 	buf, m.Uid = unmarshalUint64(buf)
-
 	buf, m.FlightSwVersion = unmarshalUint32(buf)
-
 	buf, m.MiddlewareSwVersion = unmarshalUint32(buf)
-
 	buf, m.OsSwVersion = unmarshalUint32(buf)
-
 	buf, m.BoardVersion = unmarshalUint32(buf)
-
 	buf, m.VendorId = unmarshalUint16(buf)
-
 	buf, m.ProductId = unmarshalUint16(buf)
-
 	for i, _ := range m.FlightCustomVersion {
 		buf, m.FlightCustomVersion[i] = unmarshalByte(buf)
 	}
-
 	for i, _ := range m.MiddlewareCustomVersion {
 		buf, m.MiddlewareCustomVersion[i] = unmarshalByte(buf)
 	}
-
 	for i, _ := range m.OsCustomVersion {
 		buf, m.OsCustomVersion[i] = unmarshalByte(buf)
 	}
@@ -13581,19 +12647,12 @@ func (m *LandingTarget) MarshalV2(buf []byte) []byte {
 
 func (m *LandingTarget) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.AngleX = unmarshalFloat32(buf)
-
 	buf, m.AngleY = unmarshalFloat32(buf)
-
 	buf, m.Distance = unmarshalFloat32(buf)
-
 	buf, m.SizeX = unmarshalFloat32(buf)
-
 	buf, m.SizeY = unmarshalFloat32(buf)
-
 	buf, m.TargetNum = unmarshalByte(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -13606,21 +12665,16 @@ func (m *LandingTarget) UnmarshalV1(buf []byte) []byte {
 func (m *LandingTarget) UnmarshalV2(buf []byte) []byte {
 	buf = m.UnmarshalV1(buf)
 	buf, m.X = unmarshalFloat32(buf)
-
 	buf, m.Y = unmarshalFloat32(buf)
-
 	buf, m.Z = unmarshalFloat32(buf)
-
 	for i, _ := range m.Q {
 		buf, m.Q[i] = unmarshalFloat32(buf)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Type = LandingTargetType(v)
 	}
-
 	buf, m.PositionValid = unmarshalByte(buf)
 
 	return buf
@@ -13686,23 +12740,14 @@ func (m *EstimatorStatus) MarshalV2(buf []byte) []byte {
 
 func (m *EstimatorStatus) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.VelRatio = unmarshalFloat32(buf)
-
 	buf, m.PosHorizRatio = unmarshalFloat32(buf)
-
 	buf, m.PosVertRatio = unmarshalFloat32(buf)
-
 	buf, m.MagRatio = unmarshalFloat32(buf)
-
 	buf, m.HaglRatio = unmarshalFloat32(buf)
-
 	buf, m.TasRatio = unmarshalFloat32(buf)
-
 	buf, m.PosHorizAccuracy = unmarshalFloat32(buf)
-
 	buf, m.PosVertAccuracy = unmarshalFloat32(buf)
-
 	{
 		var v uint16
 		buf, v = unmarshalUint16(buf)
@@ -13773,21 +12818,13 @@ func (m *WindCov) MarshalV2(buf []byte) []byte {
 
 func (m *WindCov) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.WindX = unmarshalFloat32(buf)
-
 	buf, m.WindY = unmarshalFloat32(buf)
-
 	buf, m.WindZ = unmarshalFloat32(buf)
-
 	buf, m.VarHoriz = unmarshalFloat32(buf)
-
 	buf, m.VarVert = unmarshalFloat32(buf)
-
 	buf, m.WindAlt = unmarshalFloat32(buf)
-
 	buf, m.HorizAccuracy = unmarshalFloat32(buf)
-
 	buf, m.VertAccuracy = unmarshalFloat32(buf)
 
 	return buf
@@ -13890,43 +12927,26 @@ func (m *GpsInput) MarshalV2(buf []byte) []byte {
 
 func (m *GpsInput) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.TimeWeekMs = unmarshalUint32(buf)
-
 	buf, m.Lat = unmarshalInt32(buf)
-
 	buf, m.Lon = unmarshalInt32(buf)
-
 	buf, m.Alt = unmarshalFloat32(buf)
-
 	buf, m.Hdop = unmarshalFloat32(buf)
-
 	buf, m.Vdop = unmarshalFloat32(buf)
-
 	buf, m.Vn = unmarshalFloat32(buf)
-
 	buf, m.Ve = unmarshalFloat32(buf)
-
 	buf, m.Vd = unmarshalFloat32(buf)
-
 	buf, m.SpeedAccuracy = unmarshalFloat32(buf)
-
 	buf, m.HorizAccuracy = unmarshalFloat32(buf)
-
 	buf, m.VertAccuracy = unmarshalFloat32(buf)
-
 	{
 		var v uint16
 		buf, v = unmarshalUint16(buf)
 		m.IgnoreFlags = GpsInputIgnoreFlags(v)
 	}
-
 	buf, m.TimeWeek = unmarshalUint16(buf)
-
 	buf, m.GpsId = unmarshalByte(buf)
-
 	buf, m.FixType = unmarshalByte(buf)
-
 	buf, m.SatellitesVisible = unmarshalByte(buf)
 
 	return buf
@@ -13971,9 +12991,7 @@ func (m *GpsRtcmData) MarshalV2(buf []byte) []byte {
 
 func (m *GpsRtcmData) UnmarshalV1(buf []byte) []byte {
 	buf, m.Flags = unmarshalByte(buf)
-
 	buf, m.Len = unmarshalByte(buf)
-
 	for i, _ := range m.Data {
 		buf, m.Data[i] = unmarshalByte(buf)
 	}
@@ -14102,63 +13120,40 @@ func (m *HighLatency) MarshalV2(buf []byte) []byte {
 
 func (m *HighLatency) UnmarshalV1(buf []byte) []byte {
 	buf, m.CustomMode = unmarshalUint32(buf)
-
 	buf, m.Latitude = unmarshalInt32(buf)
-
 	buf, m.Longitude = unmarshalInt32(buf)
-
 	buf, m.Roll = unmarshalInt16(buf)
-
 	buf, m.Pitch = unmarshalInt16(buf)
-
 	buf, m.Heading = unmarshalUint16(buf)
-
 	buf, m.HeadingSp = unmarshalInt16(buf)
-
 	buf, m.AltitudeAmsl = unmarshalInt16(buf)
-
 	buf, m.AltitudeSp = unmarshalInt16(buf)
-
 	buf, m.WpDistance = unmarshalUint16(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.BaseMode = MavModeFlag(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.LandedState = MavLandedState(v)
 	}
-
 	buf, m.Throttle = unmarshalInt8(buf)
-
 	buf, m.Airspeed = unmarshalByte(buf)
-
 	buf, m.AirspeedSp = unmarshalByte(buf)
-
 	buf, m.Groundspeed = unmarshalByte(buf)
-
 	buf, m.ClimbRate = unmarshalInt8(buf)
-
 	buf, m.GpsNsat = unmarshalByte(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.GpsFixType = GpsFixType(v)
 	}
-
 	buf, m.BatteryRemaining = unmarshalByte(buf)
-
 	buf, m.Temperature = unmarshalInt8(buf)
-
 	buf, m.TemperatureAir = unmarshalInt8(buf)
-
 	buf, m.Failsafe = unmarshalByte(buf)
-
 	buf, m.WpNum = unmarshalByte(buf)
 
 	return buf
@@ -14297,69 +13292,43 @@ func (m *HighLatency2) MarshalV2(buf []byte) []byte {
 
 func (m *HighLatency2) UnmarshalV1(buf []byte) []byte {
 	buf, m.Timestamp = unmarshalUint32(buf)
-
 	buf, m.Latitude = unmarshalInt32(buf)
-
 	buf, m.Longitude = unmarshalInt32(buf)
-
 	buf, m.CustomMode = unmarshalUint16(buf)
-
 	buf, m.Altitude = unmarshalInt16(buf)
-
 	buf, m.TargetAltitude = unmarshalInt16(buf)
-
 	buf, m.TargetDistance = unmarshalUint16(buf)
-
 	buf, m.WpNum = unmarshalUint16(buf)
-
 	{
 		var v uint16
 		buf, v = unmarshalUint16(buf)
 		m.FailureFlags = HlFailureFlag(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Type = MavType(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Autopilot = MavAutopilot(v)
 	}
-
 	buf, m.Heading = unmarshalByte(buf)
-
 	buf, m.TargetHeading = unmarshalByte(buf)
-
 	buf, m.Throttle = unmarshalByte(buf)
-
 	buf, m.Airspeed = unmarshalByte(buf)
-
 	buf, m.AirspeedSp = unmarshalByte(buf)
-
 	buf, m.Groundspeed = unmarshalByte(buf)
-
 	buf, m.Windspeed = unmarshalByte(buf)
-
 	buf, m.WindHeading = unmarshalByte(buf)
-
 	buf, m.Eph = unmarshalByte(buf)
-
 	buf, m.Epv = unmarshalByte(buf)
-
 	buf, m.TemperatureAir = unmarshalInt8(buf)
-
 	buf, m.ClimbRate = unmarshalInt8(buf)
-
 	buf, m.Battery = unmarshalInt8(buf)
-
 	buf, m.Custom0 = unmarshalInt8(buf)
-
 	buf, m.Custom1 = unmarshalInt8(buf)
-
 	buf, m.Custom2 = unmarshalInt8(buf)
 
 	return buf
@@ -14418,17 +13387,11 @@ func (m *Vibration) MarshalV2(buf []byte) []byte {
 
 func (m *Vibration) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.VibrationX = unmarshalFloat32(buf)
-
 	buf, m.VibrationY = unmarshalFloat32(buf)
-
 	buf, m.VibrationZ = unmarshalFloat32(buf)
-
 	buf, m.Clipping0 = unmarshalUint32(buf)
-
 	buf, m.Clipping1 = unmarshalUint32(buf)
-
 	buf, m.Clipping2 = unmarshalUint32(buf)
 
 	return buf
@@ -14506,25 +13469,16 @@ func (m *HomePosition) MarshalV2(buf []byte) []byte {
 
 func (m *HomePosition) UnmarshalV1(buf []byte) []byte {
 	buf, m.Latitude = unmarshalInt32(buf)
-
 	buf, m.Longitude = unmarshalInt32(buf)
-
 	buf, m.Altitude = unmarshalInt32(buf)
-
 	buf, m.X = unmarshalFloat32(buf)
-
 	buf, m.Y = unmarshalFloat32(buf)
-
 	buf, m.Z = unmarshalFloat32(buf)
-
 	for i, _ := range m.Q {
 		buf, m.Q[i] = unmarshalFloat32(buf)
 	}
-
 	buf, m.ApproachX = unmarshalFloat32(buf)
-
 	buf, m.ApproachY = unmarshalFloat32(buf)
-
 	buf, m.ApproachZ = unmarshalFloat32(buf)
 
 	return buf
@@ -14607,27 +13561,17 @@ func (m *SetHomePosition) MarshalV2(buf []byte) []byte {
 
 func (m *SetHomePosition) UnmarshalV1(buf []byte) []byte {
 	buf, m.Latitude = unmarshalInt32(buf)
-
 	buf, m.Longitude = unmarshalInt32(buf)
-
 	buf, m.Altitude = unmarshalInt32(buf)
-
 	buf, m.X = unmarshalFloat32(buf)
-
 	buf, m.Y = unmarshalFloat32(buf)
-
 	buf, m.Z = unmarshalFloat32(buf)
-
 	for i, _ := range m.Q {
 		buf, m.Q[i] = unmarshalFloat32(buf)
 	}
-
 	buf, m.ApproachX = unmarshalFloat32(buf)
-
 	buf, m.ApproachY = unmarshalFloat32(buf)
-
 	buf, m.ApproachZ = unmarshalFloat32(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
 
 	return buf
@@ -14667,7 +13611,6 @@ func (m *MessageInterval) MarshalV2(buf []byte) []byte {
 
 func (m *MessageInterval) UnmarshalV1(buf []byte) []byte {
 	buf, m.IntervalUs = unmarshalInt32(buf)
-
 	buf, m.MessageId = unmarshalUint16(buf)
 
 	return buf
@@ -14711,7 +13654,6 @@ func (m *ExtendedSysState) UnmarshalV1(buf []byte) []byte {
 		buf, v = unmarshalByte(buf)
 		m.VtolState = MavVtolState(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -14800,43 +13742,31 @@ func (m *AdsbVehicle) MarshalV2(buf []byte) []byte {
 
 func (m *AdsbVehicle) UnmarshalV1(buf []byte) []byte {
 	buf, m.IcaoAddress = unmarshalUint32(buf)
-
 	buf, m.Lat = unmarshalInt32(buf)
-
 	buf, m.Lon = unmarshalInt32(buf)
-
 	buf, m.Altitude = unmarshalInt32(buf)
-
 	buf, m.Heading = unmarshalUint16(buf)
-
 	buf, m.HorVelocity = unmarshalUint16(buf)
-
 	buf, m.VerVelocity = unmarshalInt16(buf)
-
 	{
 		var v uint16
 		buf, v = unmarshalUint16(buf)
 		m.Flags = AdsbFlags(v)
 	}
-
 	buf, m.Squawk = unmarshalUint16(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.AltitudeType = AdsbAltitudeType(v)
 	}
-
 	for i, _ := range m.Callsign {
 		buf, m.Callsign[i] = unmarshalByte(buf)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.EmitterType = AdsbEmitterType(v)
 	}
-
 	buf, m.Tslc = unmarshalByte(buf)
 
 	return buf
@@ -14896,25 +13826,19 @@ func (m *Collision) MarshalV2(buf []byte) []byte {
 
 func (m *Collision) UnmarshalV1(buf []byte) []byte {
 	buf, m.Id = unmarshalUint32(buf)
-
 	buf, m.TimeToMinimumDelta = unmarshalFloat32(buf)
-
 	buf, m.AltitudeMinimumDelta = unmarshalFloat32(buf)
-
 	buf, m.HorizontalMinimumDelta = unmarshalFloat32(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Src = MavCollisionSrc(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Action = MavCollisionAction(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -14971,13 +13895,9 @@ func (m *V2Extension) MarshalV2(buf []byte) []byte {
 
 func (m *V2Extension) UnmarshalV1(buf []byte) []byte {
 	buf, m.MessageType = unmarshalUint16(buf)
-
 	buf, m.TargetNetwork = unmarshalByte(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	for i, _ := range m.Payload {
 		buf, m.Payload[i] = unmarshalByte(buf)
 	}
@@ -15028,11 +13948,8 @@ func (m *MemoryVect) MarshalV2(buf []byte) []byte {
 
 func (m *MemoryVect) UnmarshalV1(buf []byte) []byte {
 	buf, m.Address = unmarshalUint16(buf)
-
 	buf, m.Ver = unmarshalByte(buf)
-
 	buf, m.Type = unmarshalByte(buf)
-
 	for i, _ := range m.Value {
 		buf, m.Value[i] = unmarshalInt8(buf)
 	}
@@ -15087,13 +14004,9 @@ func (m *DebugVect) MarshalV2(buf []byte) []byte {
 
 func (m *DebugVect) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.X = unmarshalFloat32(buf)
-
 	buf, m.Y = unmarshalFloat32(buf)
-
 	buf, m.Z = unmarshalFloat32(buf)
-
 	for i, _ := range m.Name {
 		buf, m.Name[i] = unmarshalByte(buf)
 	}
@@ -15140,9 +14053,7 @@ func (m *NamedValueFloat) MarshalV2(buf []byte) []byte {
 
 func (m *NamedValueFloat) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.Value = unmarshalFloat32(buf)
-
 	for i, _ := range m.Name {
 		buf, m.Name[i] = unmarshalByte(buf)
 	}
@@ -15189,9 +14100,7 @@ func (m *NamedValueInt) MarshalV2(buf []byte) []byte {
 
 func (m *NamedValueInt) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.Value = unmarshalInt32(buf)
-
 	for i, _ := range m.Name {
 		buf, m.Name[i] = unmarshalByte(buf)
 	}
@@ -15238,7 +14147,6 @@ func (m *Statustext) UnmarshalV1(buf []byte) []byte {
 		buf, v = unmarshalByte(buf)
 		m.Severity = MavSeverity(v)
 	}
-
 	for i, _ := range m.Text {
 		buf, m.Text[i] = unmarshalByte(buf)
 	}
@@ -15283,9 +14191,7 @@ func (m *Debug) MarshalV2(buf []byte) []byte {
 
 func (m *Debug) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.Value = unmarshalFloat32(buf)
-
 	buf, m.Ind = unmarshalByte(buf)
 
 	return buf
@@ -15334,11 +14240,8 @@ func (m *SetupSigning) MarshalV2(buf []byte) []byte {
 
 func (m *SetupSigning) UnmarshalV1(buf []byte) []byte {
 	buf, m.InitialTimestamp = unmarshalUint64(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	for i, _ := range m.SecretKey {
 		buf, m.SecretKey[i] = unmarshalByte(buf)
 	}
@@ -15383,9 +14286,7 @@ func (m *ButtonChange) MarshalV2(buf []byte) []byte {
 
 func (m *ButtonChange) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.LastChangeMs = unmarshalUint32(buf)
-
 	buf, m.State = unmarshalByte(buf)
 
 	return buf
@@ -15437,9 +14338,7 @@ func (m *PlayTune) MarshalV2(buf []byte) []byte {
 
 func (m *PlayTune) UnmarshalV1(buf []byte) []byte {
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	for i, _ := range m.Tune {
 		buf, m.Tune[i] = unmarshalByte(buf)
 	}
@@ -15533,37 +14432,25 @@ func (m *CameraInformation) MarshalV2(buf []byte) []byte {
 
 func (m *CameraInformation) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.FirmwareVersion = unmarshalUint32(buf)
-
 	buf, m.FocalLength = unmarshalFloat32(buf)
-
 	buf, m.SensorSizeH = unmarshalFloat32(buf)
-
 	buf, m.SensorSizeV = unmarshalFloat32(buf)
-
 	{
 		var v uint32
 		buf, v = unmarshalUint32(buf)
 		m.Flags = CameraCapFlags(v)
 	}
-
 	buf, m.ResolutionH = unmarshalUint16(buf)
-
 	buf, m.ResolutionV = unmarshalUint16(buf)
-
 	buf, m.CamDefinitionVersion = unmarshalUint16(buf)
-
 	for i, _ := range m.VendorName {
 		buf, m.VendorName[i] = unmarshalByte(buf)
 	}
-
 	for i, _ := range m.ModelName {
 		buf, m.ModelName[i] = unmarshalByte(buf)
 	}
-
 	buf, m.LensId = unmarshalByte(buf)
-
 	for i, _ := range m.CamDefinitionUri {
 		buf, m.CamDefinitionUri[i] = unmarshalByte(buf)
 	}
@@ -15613,7 +14500,6 @@ func (m *CameraSettings) MarshalV2(buf []byte) []byte {
 
 func (m *CameraSettings) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -15626,7 +14512,6 @@ func (m *CameraSettings) UnmarshalV1(buf []byte) []byte {
 func (m *CameraSettings) UnmarshalV2(buf []byte) []byte {
 	buf = m.UnmarshalV1(buf)
 	buf, m.Zoomlevel = unmarshalFloat32(buf)
-
 	buf, m.Focuslevel = unmarshalFloat32(buf)
 
 	return buf
@@ -15687,21 +14572,13 @@ func (m *StorageInformation) MarshalV2(buf []byte) []byte {
 
 func (m *StorageInformation) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.TotalCapacity = unmarshalFloat32(buf)
-
 	buf, m.UsedCapacity = unmarshalFloat32(buf)
-
 	buf, m.AvailableCapacity = unmarshalFloat32(buf)
-
 	buf, m.ReadSpeed = unmarshalFloat32(buf)
-
 	buf, m.WriteSpeed = unmarshalFloat32(buf)
-
 	buf, m.StorageId = unmarshalByte(buf)
-
 	buf, m.StorageCount = unmarshalByte(buf)
-
 	buf, m.Status = unmarshalByte(buf)
 
 	return buf
@@ -15756,15 +14633,10 @@ func (m *CameraCaptureStatus) MarshalV2(buf []byte) []byte {
 
 func (m *CameraCaptureStatus) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.ImageInterval = unmarshalFloat32(buf)
-
 	buf, m.RecordingTimeMs = unmarshalUint32(buf)
-
 	buf, m.AvailableCapacity = unmarshalFloat32(buf)
-
 	buf, m.ImageStatus = unmarshalByte(buf)
-
 	buf, m.VideoStatus = unmarshalByte(buf)
 
 	return buf
@@ -15843,27 +14715,17 @@ func (m *CameraImageCaptured) MarshalV2(buf []byte) []byte {
 
 func (m *CameraImageCaptured) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUtc = unmarshalUint64(buf)
-
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.Lat = unmarshalInt32(buf)
-
 	buf, m.Lon = unmarshalInt32(buf)
-
 	buf, m.Alt = unmarshalInt32(buf)
-
 	buf, m.RelativeAlt = unmarshalInt32(buf)
-
 	for i, _ := range m.Q {
 		buf, m.Q[i] = unmarshalFloat32(buf)
 	}
-
 	buf, m.ImageIndex = unmarshalInt32(buf)
-
 	buf, m.CameraId = unmarshalByte(buf)
-
 	buf, m.CaptureResult = unmarshalInt8(buf)
-
 	for i, _ := range m.FileUrl {
 		buf, m.FileUrl[i] = unmarshalByte(buf)
 	}
@@ -15912,11 +14774,8 @@ func (m *FlightInformation) MarshalV2(buf []byte) []byte {
 
 func (m *FlightInformation) UnmarshalV1(buf []byte) []byte {
 	buf, m.ArmingTimeUtc = unmarshalUint64(buf)
-
 	buf, m.TakeoffTimeUtc = unmarshalUint64(buf)
-
 	buf, m.FlightUuid = unmarshalUint64(buf)
-
 	buf, m.TimeBootMs = unmarshalUint32(buf)
 
 	return buf
@@ -15968,11 +14827,8 @@ func (m *MountOrientation) MarshalV2(buf []byte) []byte {
 
 func (m *MountOrientation) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeBootMs = unmarshalUint32(buf)
-
 	buf, m.Roll = unmarshalFloat32(buf)
-
 	buf, m.Pitch = unmarshalFloat32(buf)
-
 	buf, m.Yaw = unmarshalFloat32(buf)
 
 	return buf
@@ -16030,15 +14886,10 @@ func (m *LoggingData) MarshalV2(buf []byte) []byte {
 
 func (m *LoggingData) UnmarshalV1(buf []byte) []byte {
 	buf, m.Sequence = unmarshalUint16(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	buf, m.Length = unmarshalByte(buf)
-
 	buf, m.FirstMessageOffset = unmarshalByte(buf)
-
 	for i, _ := range m.Data {
 		buf, m.Data[i] = unmarshalByte(buf)
 	}
@@ -16097,15 +14948,10 @@ func (m *LoggingDataAcked) MarshalV2(buf []byte) []byte {
 
 func (m *LoggingDataAcked) UnmarshalV1(buf []byte) []byte {
 	buf, m.Sequence = unmarshalUint16(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	buf, m.Length = unmarshalByte(buf)
-
 	buf, m.FirstMessageOffset = unmarshalByte(buf)
-
 	for i, _ := range m.Data {
 		buf, m.Data[i] = unmarshalByte(buf)
 	}
@@ -16150,9 +14996,7 @@ func (m *LoggingAck) MarshalV2(buf []byte) []byte {
 
 func (m *LoggingAck) UnmarshalV1(buf []byte) []byte {
 	buf, m.Sequence = unmarshalUint16(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
 
 	return buf
@@ -16235,37 +15079,26 @@ func (m *VideoStreamInformation) MarshalV2(buf []byte) []byte {
 
 func (m *VideoStreamInformation) UnmarshalV1(buf []byte) []byte {
 	buf, m.Framerate = unmarshalFloat32(buf)
-
 	buf, m.Bitrate = unmarshalUint32(buf)
-
 	{
 		var v uint16
 		buf, v = unmarshalUint16(buf)
 		m.Flags = VideoStreamStatusFlags(v)
 	}
-
 	buf, m.ResolutionH = unmarshalUint16(buf)
-
 	buf, m.ResolutionV = unmarshalUint16(buf)
-
 	buf, m.Rotation = unmarshalUint16(buf)
-
 	buf, m.Hfov = unmarshalUint16(buf)
-
 	buf, m.StreamId = unmarshalByte(buf)
-
 	buf, m.Count = unmarshalByte(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Type = VideoStreamType(v)
 	}
-
 	for i, _ := range m.Name {
 		buf, m.Name[i] = unmarshalByte(buf)
 	}
-
 	for i, _ := range m.Uri {
 		buf, m.Uri[i] = unmarshalByte(buf)
 	}
@@ -16330,23 +15163,16 @@ func (m *VideoStreamStatus) MarshalV2(buf []byte) []byte {
 
 func (m *VideoStreamStatus) UnmarshalV1(buf []byte) []byte {
 	buf, m.Framerate = unmarshalFloat32(buf)
-
 	buf, m.Bitrate = unmarshalUint32(buf)
-
 	{
 		var v uint16
 		buf, v = unmarshalUint16(buf)
 		m.Flags = VideoStreamStatusFlags(v)
 	}
-
 	buf, m.ResolutionH = unmarshalUint16(buf)
-
 	buf, m.ResolutionV = unmarshalUint16(buf)
-
 	buf, m.Rotation = unmarshalUint16(buf)
-
 	buf, m.Hfov = unmarshalUint16(buf)
-
 	buf, m.StreamId = unmarshalByte(buf)
 
 	return buf
@@ -16391,7 +15217,6 @@ func (m *WifiConfigAp) UnmarshalV1(buf []byte) []byte {
 	for i, _ := range m.Ssid {
 		buf, m.Ssid[i] = unmarshalByte(buf)
 	}
-
 	for i, _ := range m.Password {
 		buf, m.Password[i] = unmarshalByte(buf)
 	}
@@ -16448,15 +15273,11 @@ func (m *ProtocolVersion) MarshalV2(buf []byte) []byte {
 
 func (m *ProtocolVersion) UnmarshalV1(buf []byte) []byte {
 	buf, m.Version = unmarshalUint16(buf)
-
 	buf, m.MinVersion = unmarshalUint16(buf)
-
 	buf, m.MaxVersion = unmarshalUint16(buf)
-
 	for i, _ := range m.SpecVersionHash {
 		buf, m.SpecVersionHash[i] = unmarshalByte(buf)
 	}
-
 	for i, _ := range m.LibraryVersionHash {
 		buf, m.LibraryVersionHash[i] = unmarshalByte(buf)
 	}
@@ -16513,23 +15334,18 @@ func (m *UavcanNodeStatus) MarshalV2(buf []byte) []byte {
 
 func (m *UavcanNodeStatus) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.UptimeSec = unmarshalUint32(buf)
-
 	buf, m.VendorSpecificStatusCode = unmarshalUint16(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Health = UavcanNodeHealth(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Mode = UavcanNodeMode(v)
 	}
-
 	buf, m.SubMode = unmarshalByte(buf)
 
 	return buf
@@ -16600,25 +15416,17 @@ func (m *UavcanNodeInfo) MarshalV2(buf []byte) []byte {
 
 func (m *UavcanNodeInfo) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.UptimeSec = unmarshalUint32(buf)
-
 	buf, m.SwVcsCommit = unmarshalUint32(buf)
-
 	for i, _ := range m.Name {
 		buf, m.Name[i] = unmarshalByte(buf)
 	}
-
 	buf, m.HwVersionMajor = unmarshalByte(buf)
-
 	buf, m.HwVersionMinor = unmarshalByte(buf)
-
 	for i, _ := range m.HwUniqueId {
 		buf, m.HwUniqueId[i] = unmarshalByte(buf)
 	}
-
 	buf, m.SwVersionMajor = unmarshalByte(buf)
-
 	buf, m.SwVersionMinor = unmarshalByte(buf)
 
 	return buf
@@ -16667,11 +15475,8 @@ func (m *ParamExtRequestRead) MarshalV2(buf []byte) []byte {
 
 func (m *ParamExtRequestRead) UnmarshalV1(buf []byte) []byte {
 	buf, m.ParamIndex = unmarshalInt16(buf)
-
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	for i, _ := range m.ParamId {
 		buf, m.ParamId[i] = unmarshalByte(buf)
 	}
@@ -16712,7 +15517,6 @@ func (m *ParamExtRequestList) MarshalV2(buf []byte) []byte {
 
 func (m *ParamExtRequestList) UnmarshalV1(buf []byte) []byte {
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
 
 	return buf
@@ -16768,17 +15572,13 @@ func (m *ParamExtValue) MarshalV2(buf []byte) []byte {
 
 func (m *ParamExtValue) UnmarshalV1(buf []byte) []byte {
 	buf, m.ParamCount = unmarshalUint16(buf)
-
 	buf, m.ParamIndex = unmarshalUint16(buf)
-
 	for i, _ := range m.ParamId {
 		buf, m.ParamId[i] = unmarshalByte(buf)
 	}
-
 	for i, _ := range m.ParamValue {
 		buf, m.ParamValue[i] = unmarshalByte(buf)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -16838,17 +15638,13 @@ func (m *ParamExtSet) MarshalV2(buf []byte) []byte {
 
 func (m *ParamExtSet) UnmarshalV1(buf []byte) []byte {
 	buf, m.TargetSystem = unmarshalByte(buf)
-
 	buf, m.TargetComponent = unmarshalByte(buf)
-
 	for i, _ := range m.ParamId {
 		buf, m.ParamId[i] = unmarshalByte(buf)
 	}
-
 	for i, _ := range m.ParamValue {
 		buf, m.ParamValue[i] = unmarshalByte(buf)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -16906,17 +15702,14 @@ func (m *ParamExtAck) UnmarshalV1(buf []byte) []byte {
 	for i, _ := range m.ParamId {
 		buf, m.ParamId[i] = unmarshalByte(buf)
 	}
-
 	for i, _ := range m.ParamValue {
 		buf, m.ParamValue[i] = unmarshalByte(buf)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.ParamType = MavParamExtType(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -16977,21 +15770,16 @@ func (m *ObstacleDistance) MarshalV2(buf []byte) []byte {
 
 func (m *ObstacleDistance) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	for i, _ := range m.Distances {
 		buf, m.Distances[i] = unmarshalUint16(buf)
 	}
-
 	buf, m.MinDistance = unmarshalUint16(buf)
-
 	buf, m.MaxDistance = unmarshalUint16(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.SensorType = MavDistanceSensor(v)
 	}
-
 	buf, m.Increment = unmarshalByte(buf)
 
 	return buf
@@ -17093,43 +15881,29 @@ func (m *Odometry) MarshalV2(buf []byte) []byte {
 
 func (m *Odometry) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.X = unmarshalFloat32(buf)
-
 	buf, m.Y = unmarshalFloat32(buf)
-
 	buf, m.Z = unmarshalFloat32(buf)
-
 	for i, _ := range m.Q {
 		buf, m.Q[i] = unmarshalFloat32(buf)
 	}
-
 	buf, m.Vx = unmarshalFloat32(buf)
-
 	buf, m.Vy = unmarshalFloat32(buf)
-
 	buf, m.Vz = unmarshalFloat32(buf)
-
 	buf, m.Rollspeed = unmarshalFloat32(buf)
-
 	buf, m.Pitchspeed = unmarshalFloat32(buf)
-
 	buf, m.Yawspeed = unmarshalFloat32(buf)
-
 	for i, _ := range m.PoseCovariance {
 		buf, m.PoseCovariance[i] = unmarshalFloat32(buf)
 	}
-
 	for i, _ := range m.VelocityCovariance {
 		buf, m.VelocityCovariance[i] = unmarshalFloat32(buf)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.FrameId = MavFrame(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -17239,51 +16013,39 @@ func (m *TrajectoryRepresentationWaypoints) MarshalV2(buf []byte) []byte {
 
 func (m *TrajectoryRepresentationWaypoints) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	for i, _ := range m.PosX {
 		buf, m.PosX[i] = unmarshalFloat32(buf)
 	}
-
 	for i, _ := range m.PosY {
 		buf, m.PosY[i] = unmarshalFloat32(buf)
 	}
-
 	for i, _ := range m.PosZ {
 		buf, m.PosZ[i] = unmarshalFloat32(buf)
 	}
-
 	for i, _ := range m.VelX {
 		buf, m.VelX[i] = unmarshalFloat32(buf)
 	}
-
 	for i, _ := range m.VelY {
 		buf, m.VelY[i] = unmarshalFloat32(buf)
 	}
-
 	for i, _ := range m.VelZ {
 		buf, m.VelZ[i] = unmarshalFloat32(buf)
 	}
-
 	for i, _ := range m.AccX {
 		buf, m.AccX[i] = unmarshalFloat32(buf)
 	}
-
 	for i, _ := range m.AccY {
 		buf, m.AccY[i] = unmarshalFloat32(buf)
 	}
-
 	for i, _ := range m.AccZ {
 		buf, m.AccZ[i] = unmarshalFloat32(buf)
 	}
-
 	for i, _ := range m.PosYaw {
 		buf, m.PosYaw[i] = unmarshalFloat32(buf)
 	}
-
 	for i, _ := range m.VelYaw {
 		buf, m.VelYaw[i] = unmarshalFloat32(buf)
 	}
-
 	buf, m.ValidPoints = unmarshalByte(buf)
 
 	return buf
@@ -17352,27 +16114,21 @@ func (m *TrajectoryRepresentationBezier) MarshalV2(buf []byte) []byte {
 
 func (m *TrajectoryRepresentationBezier) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	for i, _ := range m.PosX {
 		buf, m.PosX[i] = unmarshalFloat32(buf)
 	}
-
 	for i, _ := range m.PosY {
 		buf, m.PosY[i] = unmarshalFloat32(buf)
 	}
-
 	for i, _ := range m.PosZ {
 		buf, m.PosZ[i] = unmarshalFloat32(buf)
 	}
-
 	for i, _ := range m.Delta {
 		buf, m.Delta[i] = unmarshalFloat32(buf)
 	}
-
 	for i, _ := range m.PosYaw {
 		buf, m.PosYaw[i] = unmarshalFloat32(buf)
 	}
-
 	buf, m.ValidPoints = unmarshalByte(buf)
 
 	return buf
@@ -17431,25 +16187,19 @@ func (m *CellularStatus) MarshalV2(buf []byte) []byte {
 
 func (m *CellularStatus) UnmarshalV1(buf []byte) []byte {
 	buf, m.Cid = unmarshalUint32(buf)
-
 	{
 		var v uint16
 		buf, v = unmarshalUint16(buf)
 		m.Status = CellularNetworkStatusFlag(v)
 	}
-
 	buf, m.Mcc = unmarshalUint16(buf)
-
 	buf, m.Mnc = unmarshalUint16(buf)
-
 	buf, m.Lac = unmarshalUint16(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Type = CellularNetworkRadioType(v)
 	}
-
 	buf, m.Quality = unmarshalByte(buf)
 
 	return buf
@@ -17555,45 +16305,28 @@ func (m *UtmGlobalPosition) MarshalV2(buf []byte) []byte {
 
 func (m *UtmGlobalPosition) UnmarshalV1(buf []byte) []byte {
 	buf, m.Time = unmarshalUint64(buf)
-
 	buf, m.Lat = unmarshalInt32(buf)
-
 	buf, m.Lon = unmarshalInt32(buf)
-
 	buf, m.Alt = unmarshalInt32(buf)
-
 	buf, m.RelativeAlt = unmarshalInt32(buf)
-
 	buf, m.NextLat = unmarshalInt32(buf)
-
 	buf, m.NextLon = unmarshalInt32(buf)
-
 	buf, m.NextAlt = unmarshalInt32(buf)
-
 	buf, m.Vx = unmarshalInt16(buf)
-
 	buf, m.Vy = unmarshalInt16(buf)
-
 	buf, m.Vz = unmarshalInt16(buf)
-
 	buf, m.HAcc = unmarshalUint16(buf)
-
 	buf, m.VAcc = unmarshalUint16(buf)
-
 	buf, m.VelAcc = unmarshalUint16(buf)
-
 	buf, m.UpdateRate = unmarshalUint16(buf)
-
 	for i, _ := range m.UasId {
 		buf, m.UasId[i] = unmarshalByte(buf)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.FlightState = UtmFlightState(v)
 	}
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -17649,9 +16382,7 @@ func (m *DebugFloatArray) MarshalV2(buf []byte) []byte {
 
 func (m *DebugFloatArray) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.ArrayId = unmarshalUint16(buf)
-
 	for i, _ := range m.Name {
 		buf, m.Name[i] = unmarshalByte(buf)
 	}
@@ -17712,15 +16443,10 @@ func (m *OrbitExecutionStatus) MarshalV2(buf []byte) []byte {
 
 func (m *OrbitExecutionStatus) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	buf, m.Radius = unmarshalFloat32(buf)
-
 	buf, m.X = unmarshalInt32(buf)
-
 	buf, m.Y = unmarshalInt32(buf)
-
 	buf, m.Z = unmarshalFloat32(buf)
-
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
@@ -17769,7 +16495,6 @@ func (m *StatustextLong) UnmarshalV1(buf []byte) []byte {
 		buf, v = unmarshalByte(buf)
 		m.Severity = MavSeverity(v)
 	}
-
 	for i, _ := range m.Text {
 		buf, m.Text[i] = unmarshalByte(buf)
 	}
@@ -17844,23 +16569,14 @@ func (m *SmartBatteryInfo) MarshalV2(buf []byte) []byte {
 
 func (m *SmartBatteryInfo) UnmarshalV1(buf []byte) []byte {
 	buf, m.CapacityFullSpecification = unmarshalInt32(buf)
-
 	buf, m.CapacityFull = unmarshalInt32(buf)
-
 	buf, m.SerialNumber = unmarshalInt32(buf)
-
 	buf, m.CycleCount = unmarshalUint16(buf)
-
 	buf, m.Weight = unmarshalUint16(buf)
-
 	buf, m.DischargeMinimumVoltage = unmarshalUint16(buf)
-
 	buf, m.ChargingMinimumVoltage = unmarshalUint16(buf)
-
 	buf, m.RestingMinimumVoltage = unmarshalUint16(buf)
-
 	buf, m.Id = unmarshalByte(buf)
-
 	for i, _ := range m.DeviceName {
 		buf, m.DeviceName[i] = unmarshalByte(buf)
 	}
@@ -17931,19 +16647,12 @@ func (m *SmartBatteryStatus) UnmarshalV1(buf []byte) []byte {
 		buf, v = unmarshalInt32(buf)
 		m.FaultBitmask = MavSmartBatteryFault(v)
 	}
-
 	buf, m.TimeRemaining = unmarshalInt32(buf)
-
 	buf, m.Id = unmarshalUint16(buf)
-
 	buf, m.CapacityRemaining = unmarshalInt16(buf)
-
 	buf, m.Current = unmarshalInt16(buf)
-
 	buf, m.Temperature = unmarshalInt16(buf)
-
 	buf, m.CellOffset = unmarshalUint16(buf)
-
 	for i, _ := range m.Voltages {
 		buf, m.Voltages[i] = unmarshalUint16(buf)
 	}
@@ -17996,13 +16705,9 @@ func (m *TimeEstimateToTarget) MarshalV2(buf []byte) []byte {
 
 func (m *TimeEstimateToTarget) UnmarshalV1(buf []byte) []byte {
 	buf, m.SafeReturn = unmarshalInt32(buf)
-
 	buf, m.Land = unmarshalInt32(buf)
-
 	buf, m.MissionNextItem = unmarshalInt32(buf)
-
 	buf, m.MissionEnd = unmarshalInt32(buf)
-
 	buf, m.CommandedAction = unmarshalInt32(buf)
 
 	return buf
@@ -18047,11 +16752,9 @@ func (m *WheelDistance) MarshalV2(buf []byte) []byte {
 
 func (m *WheelDistance) UnmarshalV1(buf []byte) []byte {
 	buf, m.TimeUsec = unmarshalUint64(buf)
-
 	for i, _ := range m.Distance {
 		buf, m.Distance[i] = unmarshalFloat64(buf)
 	}
-
 	buf, m.Count = unmarshalByte(buf)
 
 	return buf

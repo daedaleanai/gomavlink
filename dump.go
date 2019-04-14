@@ -3,7 +3,6 @@
 package main
 
 import (
-	"encoding/json"
 	"io"
 	"log"
 	"os"
@@ -13,9 +12,6 @@ import (
 )
 
 func main() {
-
-	enc := json.NewEncoder(os.Stdout)
-	enc.SetIndent("", "\t")
 
 	dec := mavlink.NewDecoder(os.Stdin, ardupilotmega.New)
 	for {
@@ -31,13 +27,7 @@ func main() {
 			log.Println("resyncing: ", n, err)
 		}
 
-		log.Printf("%v: %T", strid, msg)
-		if msg == nil {
-			continue
-		}
-		if err := enc.Encode(msg); err != nil {
-			log.Fatal(err)
-		}
+		log.Printf("%v: %T %v", strid, msg, msg)
 	}
 
 }
