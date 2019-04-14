@@ -9,7 +9,7 @@ import (
 	mavlink "github.com/daedaleanai/gomavlink"
 )
 
-func New(mid uint32) mavlink.Message {
+func New(mid int) mavlink.Message {
 	switch mid {
 	case 0:
 		return &TestTypes{}
@@ -86,8 +86,8 @@ type TestTypes struct {
 	S8Array [3]int8
 }
 
-func (m *TestTypes) ID() int          { return 0 }
-func (m *TestTypes) CRCExtra() uint16 { return 26368 }
+func (m *TestTypes) ID() int        { return 0 }
+func (m *TestTypes) CRCExtra() byte { return 103 }
 
 func (m *TestTypes) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.U64))

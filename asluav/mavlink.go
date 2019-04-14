@@ -2540,7 +2540,7 @@ const (
 	PARACHUTE_RELEASE ParachuteAction = 2
 )
 
-func New(mid uint32) mavlink.Message {
+func New(mid int) mavlink.Message {
 	switch mid {
 	case 78:
 		return &CommandIntStamped{}
@@ -2974,8 +2974,8 @@ type CommandIntStamped struct {
 	Autocontinue byte
 }
 
-func (m *CommandIntStamped) ID() int          { return 78 }
-func (m *CommandIntStamped) CRCExtra() uint16 { return 29189 }
+func (m *CommandIntStamped) ID() int        { return 78 }
+func (m *CommandIntStamped) CRCExtra() byte { return 119 }
 
 func (m *CommandIntStamped) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.VehicleTimestamp))
@@ -3044,8 +3044,8 @@ type CommandLongStamped struct {
 	Confirmation byte
 }
 
-func (m *CommandLongStamped) ID() int          { return 79 }
-func (m *CommandLongStamped) CRCExtra() uint16 { return 29714 }
+func (m *CommandLongStamped) ID() int        { return 79 }
+func (m *CommandLongStamped) CRCExtra() byte { return 102 }
 
 func (m *CommandLongStamped) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.VehicleTimestamp))
@@ -3085,8 +3085,8 @@ type SensPower struct {
 	Adc121Cs2Amp float32
 }
 
-func (m *SensPower) ID() int          { return 201 }
-func (m *SensPower) CRCExtra() uint16 { return 18333 }
+func (m *SensPower) ID() int        { return 201 }
+func (m *SensPower) CRCExtra() byte { return 218 }
 
 func (m *SensPower) MarshalV1(buf []byte) []byte {
 	buf = marshalFloat32(buf, (m.Adc121VspbVolt))
@@ -3144,8 +3144,8 @@ type SensMppt struct {
 	Mppt3Status byte
 }
 
-func (m *SensMppt) ID() int          { return 202 }
-func (m *SensMppt) CRCExtra() uint16 { return 17826 }
+func (m *SensMppt) ID() int        { return 202 }
+func (m *SensMppt) CRCExtra() byte { return 231 }
 
 func (m *SensMppt) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.MpptTimestamp))
@@ -3248,8 +3248,8 @@ type AslctrlData struct {
 	Spoilersengaged byte
 }
 
-func (m *AslctrlData) ID() int          { return 203 }
-func (m *AslctrlData) CRCExtra() uint16 { return 63572 }
+func (m *AslctrlData) ID() int        { return 203 }
+func (m *AslctrlData) CRCExtra() byte { return 172 }
 
 func (m *AslctrlData) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.Timestamp))
@@ -3322,8 +3322,8 @@ type AslctrlDebug struct {
 	I82 byte
 }
 
-func (m *AslctrlDebug) ID() int          { return 204 }
-func (m *AslctrlDebug) CRCExtra() uint16 { return 2291 }
+func (m *AslctrlDebug) ID() int        { return 204 }
+func (m *AslctrlDebug) CRCExtra() byte { return 251 }
 
 func (m *AslctrlDebug) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.I321))
@@ -3361,8 +3361,8 @@ type AsluavStatus struct {
 	ServoStatus [8]byte
 }
 
-func (m *AsluavStatus) ID() int          { return 205 }
-func (m *AsluavStatus) CRCExtra() uint16 { return 14939 }
+func (m *AsluavStatus) ID() int        { return 205 }
+func (m *AsluavStatus) CRCExtra() byte { return 97 }
 
 func (m *AsluavStatus) MarshalV1(buf []byte) []byte {
 	buf = marshalFloat32(buf, (m.MotorRpm))
@@ -3404,8 +3404,8 @@ type EkfExt struct {
 	Alpha float32
 }
 
-func (m *EkfExt) ID() int          { return 206 }
-func (m *EkfExt) CRCExtra() uint16 { return 62901 }
+func (m *EkfExt) ID() int        { return 206 }
+func (m *EkfExt) CRCExtra() byte { return 64 }
 
 func (m *EkfExt) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.Timestamp))
@@ -3451,8 +3451,8 @@ type AslObctrl struct {
 	ObctrlStatus byte
 }
 
-func (m *AslObctrl) ID() int          { return 207 }
-func (m *AslObctrl) CRCExtra() uint16 { return 51234 }
+func (m *AslObctrl) ID() int        { return 207 }
+func (m *AslObctrl) CRCExtra() byte { return 234 }
 
 func (m *AslObctrl) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.Timestamp))
@@ -3484,8 +3484,8 @@ type SensAtmos struct {
 	Humidity float32
 }
 
-func (m *SensAtmos) ID() int          { return 208 }
-func (m *SensAtmos) CRCExtra() uint16 { return 60283 }
+func (m *SensAtmos) ID() int        { return 208 }
+func (m *SensAtmos) CRCExtra() byte { return 144 }
 
 func (m *SensAtmos) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.Timestamp))
@@ -3548,8 +3548,8 @@ type SensBatmon struct {
 	Soc byte
 }
 
-func (m *SensBatmon) ID() int          { return 209 }
-func (m *SensBatmon) CRCExtra() uint16 { return 55116 }
+func (m *SensBatmon) ID() int        { return 209 }
+func (m *SensBatmon) CRCExtra() byte { return 155 }
 
 func (m *SensBatmon) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.BatmonTimestamp))
@@ -3654,8 +3654,8 @@ type FwSoaringData struct {
 	Valid byte
 }
 
-func (m *FwSoaringData) ID() int          { return 210 }
-func (m *FwSoaringData) CRCExtra() uint16 { return 63724 }
+func (m *FwSoaringData) ID() int        { return 210 }
+func (m *FwSoaringData) CRCExtra() byte { return 20 }
 
 func (m *FwSoaringData) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.Timestamp))
@@ -3719,8 +3719,8 @@ type SensorpodStatus struct {
 	CpuTemp byte
 }
 
-func (m *SensorpodStatus) ID() int          { return 211 }
-func (m *SensorpodStatus) CRCExtra() uint16 { return 41367 }
+func (m *SensorpodStatus) ID() int        { return 211 }
+func (m *SensorpodStatus) CRCExtra() byte { return 54 }
 
 func (m *SensorpodStatus) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.Timestamp))
@@ -3779,8 +3779,8 @@ type SensPowerBoard struct {
 	PwrBrdLedStatus byte
 }
 
-func (m *SensPowerBoard) ID() int          { return 212 }
-func (m *SensPowerBoard) CRCExtra() uint16 { return 10743 }
+func (m *SensPowerBoard) ID() int        { return 212 }
+func (m *SensPowerBoard) CRCExtra() byte { return 222 }
 
 func (m *SensPowerBoard) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.Timestamp))
@@ -3828,8 +3828,8 @@ type GsmLinkStatus struct {
 	Rsrq byte
 }
 
-func (m *GsmLinkStatus) ID() int          { return 213 }
-func (m *GsmLinkStatus) CRCExtra() uint16 { return 4039 }
+func (m *GsmLinkStatus) ID() int        { return 213 }
+func (m *GsmLinkStatus) CRCExtra() byte { return 200 }
 
 func (m *GsmLinkStatus) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.Timestamp))
@@ -3875,8 +3875,8 @@ type SatcomLinkStatus struct {
 	RxSessionPending byte
 }
 
-func (m *SatcomLinkStatus) ID() int          { return 214 }
-func (m *SatcomLinkStatus) CRCExtra() uint16 { return 19802 }
+func (m *SatcomLinkStatus) ID() int        { return 214 }
+func (m *SatcomLinkStatus) CRCExtra() byte { return 23 }
 
 func (m *SatcomLinkStatus) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.Timestamp))
@@ -3917,8 +3917,8 @@ type Heartbeat struct {
 	MavlinkVersion byte
 }
 
-func (m *Heartbeat) ID() int          { return 0 }
-func (m *Heartbeat) CRCExtra() uint16 { return 47446 }
+func (m *Heartbeat) ID() int        { return 0 }
+func (m *Heartbeat) CRCExtra() byte { return 239 }
 
 func (m *Heartbeat) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.CustomMode))
@@ -3978,8 +3978,8 @@ type SysStatus struct {
 	BatteryRemaining int8
 }
 
-func (m *SysStatus) ID() int          { return 1 }
-func (m *SysStatus) CRCExtra() uint16 { return 21038 }
+func (m *SysStatus) ID() int        { return 1 }
+func (m *SysStatus) CRCExtra() byte { return 124 }
 
 func (m *SysStatus) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, uint32(m.OnboardControlSensorsPresent))
@@ -4013,8 +4013,8 @@ type SystemTime struct {
 	TimeBootMs uint32
 }
 
-func (m *SystemTime) ID() int          { return 2 }
-func (m *SystemTime) CRCExtra() uint16 { return 30463 }
+func (m *SystemTime) ID() int        { return 2 }
+func (m *SystemTime) CRCExtra() byte { return 137 }
 
 func (m *SystemTime) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUnixUsec))
@@ -4043,8 +4043,8 @@ type Ping struct {
 	TargetComponent byte
 }
 
-func (m *Ping) ID() int          { return 4 }
-func (m *Ping) CRCExtra() uint16 { return 14549 }
+func (m *Ping) ID() int        { return 4 }
+func (m *Ping) CRCExtra() byte { return 237 }
 
 func (m *Ping) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -4075,8 +4075,8 @@ type ChangeOperatorControl struct {
 	Passkey [25]byte
 }
 
-func (m *ChangeOperatorControl) ID() int          { return 5 }
-func (m *ChangeOperatorControl) CRCExtra() uint16 { return 19091 }
+func (m *ChangeOperatorControl) ID() int        { return 5 }
+func (m *ChangeOperatorControl) CRCExtra() byte { return 217 }
 
 func (m *ChangeOperatorControl) MarshalV1(buf []byte) []byte {
 	buf = marshalByte(buf, (m.TargetSystem))
@@ -4106,8 +4106,8 @@ type ChangeOperatorControlAck struct {
 	Ack byte
 }
 
-func (m *ChangeOperatorControlAck) ID() int          { return 6 }
-func (m *ChangeOperatorControlAck) CRCExtra() uint16 { return 39666 }
+func (m *ChangeOperatorControlAck) ID() int        { return 6 }
+func (m *ChangeOperatorControlAck) CRCExtra() byte { return 104 }
 
 func (m *ChangeOperatorControlAck) MarshalV1(buf []byte) []byte {
 	buf = marshalByte(buf, (m.GcsSystemId))
@@ -4128,8 +4128,8 @@ type AuthKey struct {
 	Key [32]byte
 }
 
-func (m *AuthKey) ID() int          { return 7 }
-func (m *AuthKey) CRCExtra() uint16 { return 34545 }
+func (m *AuthKey) ID() int        { return 7 }
+func (m *AuthKey) CRCExtra() byte { return 119 }
 
 func (m *AuthKey) MarshalV1(buf []byte) []byte {
 	for _, v := range m.Key {
@@ -4157,8 +4157,8 @@ type SetMode struct {
 
 }
 
-func (m *SetMode) ID() int          { return 11 }
-func (m *SetMode) CRCExtra() uint16 { return 43763 }
+func (m *SetMode) ID() int        { return 11 }
+func (m *SetMode) CRCExtra() byte { return 89 }
 
 func (m *SetMode) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.CustomMode))
@@ -4188,8 +4188,8 @@ type ParamRequestRead struct {
 	ParamId [16]byte
 }
 
-func (m *ParamRequestRead) ID() int          { return 20 }
-func (m *ParamRequestRead) CRCExtra() uint16 { return 12775 }
+func (m *ParamRequestRead) ID() int        { return 20 }
+func (m *ParamRequestRead) CRCExtra() byte { return 214 }
 
 func (m *ParamRequestRead) MarshalV1(buf []byte) []byte {
 	buf = marshalInt16(buf, (m.ParamIndex))
@@ -4216,8 +4216,8 @@ type ParamRequestList struct {
 	TargetComponent byte
 }
 
-func (m *ParamRequestList) ID() int          { return 21 }
-func (m *ParamRequestList) CRCExtra() uint16 { return 59766 }
+func (m *ParamRequestList) ID() int        { return 21 }
+func (m *ParamRequestList) CRCExtra() byte { return 159 }
 
 func (m *ParamRequestList) MarshalV1(buf []byte) []byte {
 	buf = marshalByte(buf, (m.TargetSystem))
@@ -4250,8 +4250,8 @@ type ParamValue struct {
 
 }
 
-func (m *ParamValue) ID() int          { return 22 }
-func (m *ParamValue) CRCExtra() uint16 { return 12524 }
+func (m *ParamValue) ID() int        { return 22 }
+func (m *ParamValue) CRCExtra() byte { return 220 }
 
 func (m *ParamValue) MarshalV1(buf []byte) []byte {
 	buf = marshalFloat32(buf, (m.ParamValue))
@@ -4289,8 +4289,8 @@ type ParamSet struct {
 
 }
 
-func (m *ParamSet) ID() int          { return 23 }
-func (m *ParamSet) CRCExtra() uint16 { return 7605 }
+func (m *ParamSet) ID() int        { return 23 }
+func (m *ParamSet) CRCExtra() byte { return 168 }
 
 func (m *ParamSet) MarshalV1(buf []byte) []byte {
 	buf = marshalFloat32(buf, (m.ParamValue))
@@ -4358,8 +4358,8 @@ type GpsRawInt struct {
 
 }
 
-func (m *GpsRawInt) ID() int          { return 24 }
-func (m *GpsRawInt) CRCExtra() uint16 { return 8505 }
+func (m *GpsRawInt) ID() int        { return 24 }
+func (m *GpsRawInt) CRCExtra() byte { return 24 }
 
 func (m *GpsRawInt) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -4407,8 +4407,8 @@ type GpsStatus struct {
 	SatelliteSnr [20]byte
 }
 
-func (m *GpsStatus) ID() int          { return 25 }
-func (m *GpsStatus) CRCExtra() uint16 { return 43709 }
+func (m *GpsStatus) ID() int        { return 25 }
+func (m *GpsStatus) CRCExtra() byte { return 23 }
 
 func (m *GpsStatus) MarshalV1(buf []byte) []byte {
 	buf = marshalByte(buf, (m.SatellitesVisible))
@@ -4469,8 +4469,8 @@ type ScaledImu struct {
 	Zmag int16
 }
 
-func (m *ScaledImu) ID() int          { return 26 }
-func (m *ScaledImu) CRCExtra() uint16 { return 3495 }
+func (m *ScaledImu) ID() int        { return 26 }
+func (m *ScaledImu) CRCExtra() byte { return 170 }
 
 func (m *ScaledImu) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -4525,8 +4525,8 @@ type RawImu struct {
 	Zmag int16
 }
 
-func (m *RawImu) ID() int          { return 27 }
-func (m *RawImu) CRCExtra() uint16 { return 25073 }
+func (m *RawImu) ID() int        { return 27 }
+func (m *RawImu) CRCExtra() byte { return 144 }
 
 func (m *RawImu) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -4566,8 +4566,8 @@ type RawPressure struct {
 	Temperature int16
 }
 
-func (m *RawPressure) ID() int          { return 28 }
-func (m *RawPressure) CRCExtra() uint16 { return 53132 }
+func (m *RawPressure) ID() int        { return 28 }
+func (m *RawPressure) CRCExtra() byte { return 67 }
 
 func (m *RawPressure) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -4599,8 +4599,8 @@ type ScaledPressure struct {
 	Temperature int16
 }
 
-func (m *ScaledPressure) ID() int          { return 29 }
-func (m *ScaledPressure) CRCExtra() uint16 { return 27679 }
+func (m *ScaledPressure) ID() int        { return 29 }
+func (m *ScaledPressure) CRCExtra() byte { return 115 }
 
 func (m *ScaledPressure) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -4640,8 +4640,8 @@ type Attitude struct {
 	Yawspeed float32
 }
 
-func (m *Attitude) ID() int          { return 30 }
-func (m *Attitude) CRCExtra() uint16 { return 40888 }
+func (m *Attitude) ID() int        { return 30 }
+func (m *Attitude) CRCExtra() byte { return 39 }
 
 func (m *Attitude) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -4687,8 +4687,8 @@ type AttitudeQuaternion struct {
 	Yawspeed float32
 }
 
-func (m *AttitudeQuaternion) ID() int          { return 31 }
-func (m *AttitudeQuaternion) CRCExtra() uint16 { return 4089 }
+func (m *AttitudeQuaternion) ID() int        { return 31 }
+func (m *AttitudeQuaternion) CRCExtra() byte { return 246 }
 
 func (m *AttitudeQuaternion) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -4732,8 +4732,8 @@ type LocalPositionNed struct {
 	Vz float32
 }
 
-func (m *LocalPositionNed) ID() int          { return 32 }
-func (m *LocalPositionNed) CRCExtra() uint16 { return 22753 }
+func (m *LocalPositionNed) ID() int        { return 32 }
+func (m *LocalPositionNed) CRCExtra() byte { return 185 }
 
 func (m *LocalPositionNed) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -4782,8 +4782,8 @@ type GlobalPositionInt struct {
 	Hdg uint16
 }
 
-func (m *GlobalPositionInt) ID() int          { return 33 }
-func (m *GlobalPositionInt) CRCExtra() uint16 { return 64403 }
+func (m *GlobalPositionInt) ID() int        { return 33 }
+func (m *GlobalPositionInt) CRCExtra() byte { return 104 }
 
 func (m *GlobalPositionInt) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -4840,8 +4840,8 @@ type RcChannelsScaled struct {
 	Rssi byte
 }
 
-func (m *RcChannelsScaled) ID() int          { return 34 }
-func (m *RcChannelsScaled) CRCExtra() uint16 { return 50731 }
+func (m *RcChannelsScaled) ID() int        { return 34 }
+func (m *RcChannelsScaled) CRCExtra() byte { return 237 }
 
 func (m *RcChannelsScaled) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -4900,8 +4900,8 @@ type RcChannelsRaw struct {
 	Rssi byte
 }
 
-func (m *RcChannelsRaw) ID() int          { return 35 }
-func (m *RcChannelsRaw) CRCExtra() uint16 { return 48200 }
+func (m *RcChannelsRaw) ID() int        { return 35 }
+func (m *RcChannelsRaw) CRCExtra() byte { return 244 }
 
 func (m *RcChannelsRaw) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -4982,8 +4982,8 @@ type ServoOutputRaw struct {
 
 }
 
-func (m *ServoOutputRaw) ID() int          { return 36 }
-func (m *ServoOutputRaw) CRCExtra() uint16 { return 50459 }
+func (m *ServoOutputRaw) ID() int        { return 36 }
+func (m *ServoOutputRaw) CRCExtra() byte { return 222 }
 
 func (m *ServoOutputRaw) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeUsec))
@@ -5032,8 +5032,8 @@ type MissionRequestPartialList struct {
 
 }
 
-func (m *MissionRequestPartialList) ID() int          { return 37 }
-func (m *MissionRequestPartialList) CRCExtra() uint16 { return 18066 }
+func (m *MissionRequestPartialList) ID() int        { return 37 }
+func (m *MissionRequestPartialList) CRCExtra() byte { return 212 }
 
 func (m *MissionRequestPartialList) MarshalV1(buf []byte) []byte {
 	buf = marshalInt16(buf, (m.StartIndex))
@@ -5069,8 +5069,8 @@ type MissionWritePartialList struct {
 
 }
 
-func (m *MissionWritePartialList) ID() int          { return 38 }
-func (m *MissionWritePartialList) CRCExtra() uint16 { return 24936 }
+func (m *MissionWritePartialList) ID() int        { return 38 }
+func (m *MissionWritePartialList) CRCExtra() byte { return 9 }
 
 func (m *MissionWritePartialList) MarshalV1(buf []byte) []byte {
 	buf = marshalInt16(buf, (m.StartIndex))
@@ -5136,8 +5136,8 @@ type MissionItem struct {
 
 }
 
-func (m *MissionItem) ID() int          { return 39 }
-func (m *MissionItem) CRCExtra() uint16 { return 41311 }
+func (m *MissionItem) ID() int        { return 39 }
+func (m *MissionItem) CRCExtra() byte { return 254 }
 
 func (m *MissionItem) MarshalV1(buf []byte) []byte {
 	buf = marshalFloat32(buf, (m.Param1))
@@ -5180,8 +5180,8 @@ type MissionRequest struct {
 
 }
 
-func (m *MissionRequest) ID() int          { return 40 }
-func (m *MissionRequest) CRCExtra() uint16 { return 65048 }
+func (m *MissionRequest) ID() int        { return 40 }
+func (m *MissionRequest) CRCExtra() byte { return 230 }
 
 func (m *MissionRequest) MarshalV1(buf []byte) []byte {
 	buf = marshalUint16(buf, (m.Seq))
@@ -5209,8 +5209,8 @@ type MissionSetCurrent struct {
 	TargetComponent byte
 }
 
-func (m *MissionSetCurrent) ID() int          { return 41 }
-func (m *MissionSetCurrent) CRCExtra() uint16 { return 5642 }
+func (m *MissionSetCurrent) ID() int        { return 41 }
+func (m *MissionSetCurrent) CRCExtra() byte { return 28 }
 
 func (m *MissionSetCurrent) MarshalV1(buf []byte) []byte {
 	buf = marshalUint16(buf, (m.Seq))
@@ -5231,8 +5231,8 @@ type MissionCurrent struct {
 	Seq uint16
 }
 
-func (m *MissionCurrent) ID() int          { return 42 }
-func (m *MissionCurrent) CRCExtra() uint16 { return 2582 }
+func (m *MissionCurrent) ID() int        { return 42 }
+func (m *MissionCurrent) CRCExtra() byte { return 28 }
 
 func (m *MissionCurrent) MarshalV1(buf []byte) []byte {
 	buf = marshalUint16(buf, (m.Seq))
@@ -5258,8 +5258,8 @@ type MissionRequestList struct {
 
 }
 
-func (m *MissionRequestList) ID() int          { return 43 }
-func (m *MissionRequestList) CRCExtra() uint16 { return 1152 }
+func (m *MissionRequestList) ID() int        { return 43 }
+func (m *MissionRequestList) CRCExtra() byte { return 132 }
 
 func (m *MissionRequestList) MarshalV1(buf []byte) []byte {
 	buf = marshalByte(buf, (m.TargetSystem))
@@ -5290,8 +5290,8 @@ type MissionCount struct {
 
 }
 
-func (m *MissionCount) ID() int          { return 44 }
-func (m *MissionCount) CRCExtra() uint16 { return 48994 }
+func (m *MissionCount) ID() int        { return 44 }
+func (m *MissionCount) CRCExtra() byte { return 221 }
 
 func (m *MissionCount) MarshalV1(buf []byte) []byte {
 	buf = marshalUint16(buf, (m.Count))
@@ -5320,8 +5320,8 @@ type MissionClearAll struct {
 
 }
 
-func (m *MissionClearAll) ID() int          { return 45 }
-func (m *MissionClearAll) CRCExtra() uint16 { return 48469 }
+func (m *MissionClearAll) ID() int        { return 45 }
+func (m *MissionClearAll) CRCExtra() byte { return 232 }
 
 func (m *MissionClearAll) MarshalV1(buf []byte) []byte {
 	buf = marshalByte(buf, (m.TargetSystem))
@@ -5342,8 +5342,8 @@ type MissionItemReached struct {
 	Seq uint16
 }
 
-func (m *MissionItemReached) ID() int          { return 46 }
-func (m *MissionItemReached) CRCExtra() uint16 { return 61691 }
+func (m *MissionItemReached) ID() int        { return 46 }
+func (m *MissionItemReached) CRCExtra() byte { return 11 }
 
 func (m *MissionItemReached) MarshalV1(buf []byte) []byte {
 	buf = marshalUint16(buf, (m.Seq))
@@ -5372,8 +5372,8 @@ type MissionAck struct {
 
 }
 
-func (m *MissionAck) ID() int          { return 47 }
-func (m *MissionAck) CRCExtra() uint16 { return 1950 }
+func (m *MissionAck) ID() int        { return 47 }
+func (m *MissionAck) CRCExtra() byte { return 153 }
 
 func (m *MissionAck) MarshalV1(buf []byte) []byte {
 	buf = marshalByte(buf, (m.TargetSystem))
@@ -5408,8 +5408,8 @@ type SetGpsGlobalOrigin struct {
 
 }
 
-func (m *SetGpsGlobalOrigin) ID() int          { return 48 }
-func (m *SetGpsGlobalOrigin) CRCExtra() uint16 { return 64980 }
+func (m *SetGpsGlobalOrigin) ID() int        { return 48 }
+func (m *SetGpsGlobalOrigin) CRCExtra() byte { return 41 }
 
 func (m *SetGpsGlobalOrigin) MarshalV1(buf []byte) []byte {
 	buf = marshalInt32(buf, (m.Latitude))
@@ -5442,8 +5442,8 @@ type GpsGlobalOrigin struct {
 
 }
 
-func (m *GpsGlobalOrigin) ID() int          { return 49 }
-func (m *GpsGlobalOrigin) CRCExtra() uint16 { return 65241 }
+func (m *GpsGlobalOrigin) ID() int        { return 49 }
+func (m *GpsGlobalOrigin) CRCExtra() byte { return 39 }
 
 func (m *GpsGlobalOrigin) MarshalV1(buf []byte) []byte {
 	buf = marshalInt32(buf, (m.Latitude))
@@ -5489,8 +5489,8 @@ type ParamMapRc struct {
 	ParameterRcChannelIndex byte
 }
 
-func (m *ParamMapRc) ID() int          { return 50 }
-func (m *ParamMapRc) CRCExtra() uint16 { return 28192 }
+func (m *ParamMapRc) ID() int        { return 50 }
+func (m *ParamMapRc) CRCExtra() byte { return 78 }
 
 func (m *ParamMapRc) MarshalV1(buf []byte) []byte {
 	buf = marshalFloat32(buf, (m.ParamValue0))
@@ -5529,8 +5529,8 @@ type MissionRequestInt struct {
 
 }
 
-func (m *MissionRequestInt) ID() int          { return 51 }
-func (m *MissionRequestInt) CRCExtra() uint16 { return 42594 }
+func (m *MissionRequestInt) ID() int        { return 51 }
+func (m *MissionRequestInt) CRCExtra() byte { return 196 }
 
 func (m *MissionRequestInt) MarshalV1(buf []byte) []byte {
 	buf = marshalUint16(buf, (m.Seq))
@@ -5577,8 +5577,8 @@ type SafetySetAllowedArea struct {
 
 }
 
-func (m *SafetySetAllowedArea) ID() int          { return 54 }
-func (m *SafetySetAllowedArea) CRCExtra() uint16 { return 46522 }
+func (m *SafetySetAllowedArea) ID() int        { return 54 }
+func (m *SafetySetAllowedArea) CRCExtra() byte { return 15 }
 
 func (m *SafetySetAllowedArea) MarshalV1(buf []byte) []byte {
 	buf = marshalFloat32(buf, (m.P1x))
@@ -5624,8 +5624,8 @@ type SafetyAllowedArea struct {
 
 }
 
-func (m *SafetyAllowedArea) ID() int          { return 55 }
-func (m *SafetyAllowedArea) CRCExtra() uint16 { return 52168 }
+func (m *SafetyAllowedArea) ID() int        { return 55 }
+func (m *SafetyAllowedArea) CRCExtra() byte { return 3 }
 
 func (m *SafetyAllowedArea) MarshalV1(buf []byte) []byte {
 	buf = marshalFloat32(buf, (m.P1x))
@@ -5665,8 +5665,8 @@ type AttitudeQuaternionCov struct {
 	Covariance [9]float32
 }
 
-func (m *AttitudeQuaternionCov) ID() int          { return 61 }
-func (m *AttitudeQuaternionCov) CRCExtra() uint16 { return 13459 }
+func (m *AttitudeQuaternionCov) ID() int        { return 61 }
+func (m *AttitudeQuaternionCov) CRCExtra() byte { return 167 }
 
 func (m *AttitudeQuaternionCov) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -5715,8 +5715,8 @@ type NavControllerOutput struct {
 	WpDist uint16
 }
 
-func (m *NavControllerOutput) ID() int          { return 62 }
-func (m *NavControllerOutput) CRCExtra() uint16 { return 40489 }
+func (m *NavControllerOutput) ID() int        { return 62 }
+func (m *NavControllerOutput) CRCExtra() byte { return 183 }
 
 func (m *NavControllerOutput) MarshalV1(buf []byte) []byte {
 	buf = marshalFloat32(buf, (m.NavRoll))
@@ -5770,8 +5770,8 @@ type GlobalPositionIntCov struct {
 
 }
 
-func (m *GlobalPositionIntCov) ID() int          { return 63 }
-func (m *GlobalPositionIntCov) CRCExtra() uint16 { return 35326 }
+func (m *GlobalPositionIntCov) ID() int        { return 63 }
+func (m *GlobalPositionIntCov) CRCExtra() byte { return 119 }
 
 func (m *GlobalPositionIntCov) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -5835,8 +5835,8 @@ type LocalPositionNedCov struct {
 
 }
 
-func (m *LocalPositionNedCov) ID() int          { return 64 }
-func (m *LocalPositionNedCov) CRCExtra() uint16 { return 13961 }
+func (m *LocalPositionNedCov) ID() int        { return 64 }
+func (m *LocalPositionNedCov) CRCExtra() byte { return 191 }
 
 func (m *LocalPositionNedCov) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -5928,8 +5928,8 @@ type RcChannels struct {
 	Rssi byte
 }
 
-func (m *RcChannels) ID() int          { return 65 }
-func (m *RcChannels) CRCExtra() uint16 { return 8535 }
+func (m *RcChannels) ID() int        { return 65 }
+func (m *RcChannels) CRCExtra() byte { return 118 }
 
 func (m *RcChannels) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -5980,8 +5980,8 @@ type RequestDataStream struct {
 	StartStop byte
 }
 
-func (m *RequestDataStream) ID() int          { return 66 }
-func (m *RequestDataStream) CRCExtra() uint16 { return 61307 }
+func (m *RequestDataStream) ID() int        { return 66 }
+func (m *RequestDataStream) CRCExtra() byte { return 148 }
 
 func (m *RequestDataStream) MarshalV1(buf []byte) []byte {
 	buf = marshalUint16(buf, (m.ReqMessageRate))
@@ -6010,8 +6010,8 @@ type DataStream struct {
 	OnOff byte
 }
 
-func (m *DataStream) ID() int          { return 67 }
-func (m *DataStream) CRCExtra() uint16 { return 58103 }
+func (m *DataStream) ID() int        { return 67 }
+func (m *DataStream) CRCExtra() byte { return 21 }
 
 func (m *DataStream) MarshalV1(buf []byte) []byte {
 	buf = marshalUint16(buf, (m.MessageRate))
@@ -6047,8 +6047,8 @@ type ManualControl struct {
 	Target byte
 }
 
-func (m *ManualControl) ID() int          { return 69 }
-func (m *ManualControl) CRCExtra() uint16 { return 18101 }
+func (m *ManualControl) ID() int        { return 69 }
+func (m *ManualControl) CRCExtra() byte { return 243 }
 
 func (m *ManualControl) MarshalV1(buf []byte) []byte {
 	buf = marshalInt16(buf, (m.X))
@@ -6130,8 +6130,8 @@ type RcChannelsOverride struct {
 
 }
 
-func (m *RcChannelsOverride) ID() int          { return 70 }
-func (m *RcChannelsOverride) CRCExtra() uint16 { return 3184 }
+func (m *RcChannelsOverride) ID() int        { return 70 }
+func (m *RcChannelsOverride) CRCExtra() byte { return 124 }
 
 func (m *RcChannelsOverride) MarshalV1(buf []byte) []byte {
 	buf = marshalUint16(buf, (m.Chan1Raw))
@@ -6212,8 +6212,8 @@ type MissionItemInt struct {
 
 }
 
-func (m *MissionItemInt) ID() int          { return 73 }
-func (m *MissionItemInt) CRCExtra() uint16 { return 32091 }
+func (m *MissionItemInt) ID() int        { return 73 }
+func (m *MissionItemInt) CRCExtra() byte { return 38 }
 
 func (m *MissionItemInt) MarshalV1(buf []byte) []byte {
 	buf = marshalFloat32(buf, (m.Param1))
@@ -6261,8 +6261,8 @@ type VfrHud struct {
 	Throttle uint16
 }
 
-func (m *VfrHud) ID() int          { return 74 }
-func (m *VfrHud) CRCExtra() uint16 { return 21568 }
+func (m *VfrHud) ID() int        { return 74 }
+func (m *VfrHud) CRCExtra() byte { return 20 }
 
 func (m *VfrHud) MarshalV1(buf []byte) []byte {
 	buf = marshalFloat32(buf, (m.Airspeed))
@@ -6322,8 +6322,8 @@ type CommandInt struct {
 	Autocontinue byte
 }
 
-func (m *CommandInt) ID() int          { return 75 }
-func (m *CommandInt) CRCExtra() uint16 { return 33055 }
+func (m *CommandInt) ID() int        { return 75 }
+func (m *CommandInt) CRCExtra() byte { return 158 }
 
 func (m *CommandInt) MarshalV1(buf []byte) []byte {
 	buf = marshalFloat32(buf, (m.Param1))
@@ -6384,8 +6384,8 @@ type CommandLong struct {
 	Confirmation byte
 }
 
-func (m *CommandLong) ID() int          { return 76 }
-func (m *CommandLong) CRCExtra() uint16 { return 51537 }
+func (m *CommandLong) ID() int        { return 76 }
+func (m *CommandLong) CRCExtra() byte { return 152 }
 
 func (m *CommandLong) MarshalV1(buf []byte) []byte {
 	buf = marshalFloat32(buf, (m.Param1))
@@ -6430,8 +6430,8 @@ type CommandAck struct {
 
 }
 
-func (m *CommandAck) ID() int          { return 77 }
-func (m *CommandAck) CRCExtra() uint16 { return 23763 }
+func (m *CommandAck) ID() int        { return 77 }
+func (m *CommandAck) CRCExtra() byte { return 143 }
 
 func (m *CommandAck) MarshalV1(buf []byte) []byte {
 	buf = marshalUint16(buf, uint16(m.Command))
@@ -6473,8 +6473,8 @@ type ManualSetpoint struct {
 	ManualOverrideSwitch byte
 }
 
-func (m *ManualSetpoint) ID() int          { return 81 }
-func (m *ManualSetpoint) CRCExtra() uint16 { return 16936 }
+func (m *ManualSetpoint) ID() int        { return 81 }
+func (m *ManualSetpoint) CRCExtra() byte { return 106 }
 
 func (m *ManualSetpoint) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -6523,8 +6523,8 @@ type SetAttitudeTarget struct {
 	TypeMask byte
 }
 
-func (m *SetAttitudeTarget) ID() int          { return 82 }
-func (m *SetAttitudeTarget) CRCExtra() uint16 { return 20577 }
+func (m *SetAttitudeTarget) ID() int        { return 82 }
+func (m *SetAttitudeTarget) CRCExtra() byte { return 49 }
 
 func (m *SetAttitudeTarget) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -6571,8 +6571,8 @@ type AttitudeTarget struct {
 	TypeMask byte
 }
 
-func (m *AttitudeTarget) ID() int          { return 83 }
-func (m *AttitudeTarget) CRCExtra() uint16 { return 5632 }
+func (m *AttitudeTarget) ID() int        { return 83 }
+func (m *AttitudeTarget) CRCExtra() byte { return 22 }
 
 func (m *AttitudeTarget) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -6645,8 +6645,8 @@ type SetPositionTargetLocalNed struct {
 
 }
 
-func (m *SetPositionTargetLocalNed) ID() int          { return 84 }
-func (m *SetPositionTargetLocalNed) CRCExtra() uint16 { return 32752 }
+func (m *SetPositionTargetLocalNed) ID() int        { return 84 }
+func (m *SetPositionTargetLocalNed) CRCExtra() byte { return 143 }
 
 func (m *SetPositionTargetLocalNed) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -6720,8 +6720,8 @@ type PositionTargetLocalNed struct {
 
 }
 
-func (m *PositionTargetLocalNed) ID() int          { return 85 }
-func (m *PositionTargetLocalNed) CRCExtra() uint16 { return 33294 }
+func (m *PositionTargetLocalNed) ID() int        { return 85 }
+func (m *PositionTargetLocalNed) CRCExtra() byte { return 140 }
 
 func (m *PositionTargetLocalNed) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -6799,8 +6799,8 @@ type SetPositionTargetGlobalInt struct {
 
 }
 
-func (m *SetPositionTargetGlobalInt) ID() int          { return 86 }
-func (m *SetPositionTargetGlobalInt) CRCExtra() uint16 { return 43181 }
+func (m *SetPositionTargetGlobalInt) ID() int        { return 86 }
+func (m *SetPositionTargetGlobalInt) CRCExtra() byte { return 5 }
 
 func (m *SetPositionTargetGlobalInt) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -6874,8 +6874,8 @@ type PositionTargetGlobalInt struct {
 
 }
 
-func (m *PositionTargetGlobalInt) ID() int          { return 87 }
-func (m *PositionTargetGlobalInt) CRCExtra() uint16 { return 38400 }
+func (m *PositionTargetGlobalInt) ID() int        { return 87 }
+func (m *PositionTargetGlobalInt) CRCExtra() byte { return 150 }
 
 func (m *PositionTargetGlobalInt) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -6925,8 +6925,8 @@ type LocalPositionNedSystemGlobalOffset struct {
 	Yaw float32
 }
 
-func (m *LocalPositionNedSystemGlobalOffset) ID() int          { return 89 }
-func (m *LocalPositionNedSystemGlobalOffset) CRCExtra() uint16 { return 57606 }
+func (m *LocalPositionNedSystemGlobalOffset) ID() int        { return 89 }
+func (m *LocalPositionNedSystemGlobalOffset) CRCExtra() byte { return 231 }
 
 func (m *LocalPositionNedSystemGlobalOffset) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -6996,8 +6996,8 @@ type HilState struct {
 	Zacc int16
 }
 
-func (m *HilState) ID() int          { return 90 }
-func (m *HilState) CRCExtra() uint16 { return 46083 }
+func (m *HilState) ID() int        { return 90 }
+func (m *HilState) CRCExtra() byte { return 183 }
 
 func (m *HilState) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -7061,8 +7061,8 @@ type HilControls struct {
 	NavMode byte
 }
 
-func (m *HilControls) ID() int          { return 91 }
-func (m *HilControls) CRCExtra() uint16 { return 32321 }
+func (m *HilControls) ID() int        { return 91 }
+func (m *HilControls) CRCExtra() byte { return 63 }
 
 func (m *HilControls) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -7130,8 +7130,8 @@ type HilRcInputsRaw struct {
 	Rssi byte
 }
 
-func (m *HilRcInputsRaw) ID() int          { return 92 }
-func (m *HilRcInputsRaw) CRCExtra() uint16 { return 2877 }
+func (m *HilRcInputsRaw) ID() int        { return 92 }
+func (m *HilRcInputsRaw) CRCExtra() byte { return 54 }
 
 func (m *HilRcInputsRaw) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -7173,8 +7173,8 @@ type HilActuatorControls struct {
 
 }
 
-func (m *HilActuatorControls) ID() int          { return 93 }
-func (m *HilActuatorControls) CRCExtra() uint16 { return 45215 }
+func (m *HilActuatorControls) ID() int        { return 93 }
+func (m *HilActuatorControls) CRCExtra() byte { return 47 }
 
 func (m *HilActuatorControls) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -7226,8 +7226,8 @@ type OpticalFlow struct {
 
 }
 
-func (m *OpticalFlow) ID() int          { return 100 }
-func (m *OpticalFlow) CRCExtra() uint16 { return 2470 }
+func (m *OpticalFlow) ID() int        { return 100 }
+func (m *OpticalFlow) CRCExtra() byte { return 175 }
 
 func (m *OpticalFlow) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -7280,8 +7280,8 @@ type GlobalVisionPositionEstimate struct {
 
 }
 
-func (m *GlobalVisionPositionEstimate) ID() int          { return 101 }
-func (m *GlobalVisionPositionEstimate) CRCExtra() uint16 { return 44744 }
+func (m *GlobalVisionPositionEstimate) ID() int        { return 101 }
+func (m *GlobalVisionPositionEstimate) CRCExtra() byte { return 102 }
 
 func (m *GlobalVisionPositionEstimate) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.Usec))
@@ -7335,8 +7335,8 @@ type VisionPositionEstimate struct {
 
 }
 
-func (m *VisionPositionEstimate) ID() int          { return 102 }
-func (m *VisionPositionEstimate) CRCExtra() uint16 { return 25087 }
+func (m *VisionPositionEstimate) ID() int        { return 102 }
+func (m *VisionPositionEstimate) CRCExtra() byte { return 158 }
 
 func (m *VisionPositionEstimate) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.Usec))
@@ -7381,8 +7381,8 @@ type VisionSpeedEstimate struct {
 
 }
 
-func (m *VisionSpeedEstimate) ID() int          { return 103 }
-func (m *VisionSpeedEstimate) CRCExtra() uint16 { return 15596 }
+func (m *VisionSpeedEstimate) ID() int        { return 103 }
+func (m *VisionSpeedEstimate) CRCExtra() byte { return 208 }
 
 func (m *VisionSpeedEstimate) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.Usec))
@@ -7430,8 +7430,8 @@ type ViconPositionEstimate struct {
 
 }
 
-func (m *ViconPositionEstimate) ID() int          { return 104 }
-func (m *ViconPositionEstimate) CRCExtra() uint16 { return 11798 }
+func (m *ViconPositionEstimate) ID() int        { return 104 }
+func (m *ViconPositionEstimate) CRCExtra() byte { return 56 }
 
 func (m *ViconPositionEstimate) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.Usec))
@@ -7501,8 +7501,8 @@ type HighresImu struct {
 	FieldsUpdated uint16
 }
 
-func (m *HighresImu) ID() int          { return 105 }
-func (m *HighresImu) CRCExtra() uint16 { return 56963 }
+func (m *HighresImu) ID() int        { return 105 }
+func (m *HighresImu) CRCExtra() byte { return 93 }
 
 func (m *HighresImu) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -7568,8 +7568,8 @@ type OpticalFlowRad struct {
 	Quality byte
 }
 
-func (m *OpticalFlowRad) ID() int          { return 106 }
-func (m *OpticalFlowRad) CRCExtra() uint16 { return 6045 }
+func (m *OpticalFlowRad) ID() int        { return 106 }
+func (m *OpticalFlowRad) CRCExtra() byte { return 138 }
 
 func (m *OpticalFlowRad) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -7641,8 +7641,8 @@ type HilSensor struct {
 	FieldsUpdated uint32
 }
 
-func (m *HilSensor) ID() int          { return 107 }
-func (m *HilSensor) CRCExtra() uint16 { return 22837 }
+func (m *HilSensor) ID() int        { return 107 }
+func (m *HilSensor) CRCExtra() byte { return 108 }
 
 func (m *HilSensor) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -7735,8 +7735,8 @@ type SimState struct {
 	Vd float32
 }
 
-func (m *SimState) ID() int          { return 108 }
-func (m *SimState) CRCExtra() uint16 { return 64218 }
+func (m *SimState) ID() int        { return 108 }
+func (m *SimState) CRCExtra() byte { return 32 }
 
 func (m *SimState) MarshalV1(buf []byte) []byte {
 	buf = marshalFloat32(buf, (m.Q1))
@@ -7793,8 +7793,8 @@ type RadioStatus struct {
 	Remnoise byte
 }
 
-func (m *RadioStatus) ID() int          { return 109 }
-func (m *RadioStatus) CRCExtra() uint16 { return 40487 }
+func (m *RadioStatus) ID() int        { return 109 }
+func (m *RadioStatus) CRCExtra() byte { return 185 }
 
 func (m *RadioStatus) MarshalV1(buf []byte) []byte {
 	buf = marshalUint16(buf, (m.Rxerrors))
@@ -7828,8 +7828,8 @@ type FileTransferProtocol struct {
 	Payload [251]byte
 }
 
-func (m *FileTransferProtocol) ID() int          { return 110 }
-func (m *FileTransferProtocol) CRCExtra() uint16 { return 38080 }
+func (m *FileTransferProtocol) ID() int        { return 110 }
+func (m *FileTransferProtocol) CRCExtra() byte { return 84 }
 
 func (m *FileTransferProtocol) MarshalV1(buf []byte) []byte {
 	buf = marshalByte(buf, (m.TargetNetwork))
@@ -7856,8 +7856,8 @@ type Timesync struct {
 	Ts1 int64
 }
 
-func (m *Timesync) ID() int          { return 111 }
-func (m *Timesync) CRCExtra() uint16 { return 52201 }
+func (m *Timesync) ID() int        { return 111 }
+func (m *Timesync) CRCExtra() byte { return 34 }
 
 func (m *Timesync) MarshalV1(buf []byte) []byte {
 	buf = marshalInt64(buf, (m.Tc1))
@@ -7880,8 +7880,8 @@ type CameraTrigger struct {
 	Seq uint32
 }
 
-func (m *CameraTrigger) ID() int          { return 112 }
-func (m *CameraTrigger) CRCExtra() uint16 { return 59719 }
+func (m *CameraTrigger) ID() int        { return 112 }
+func (m *CameraTrigger) CRCExtra() byte { return 174 }
 
 func (m *CameraTrigger) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -7937,8 +7937,8 @@ type HilGps struct {
 	SatellitesVisible byte
 }
 
-func (m *HilGps) ID() int          { return 113 }
-func (m *HilGps) CRCExtra() uint16 { return 16701 }
+func (m *HilGps) ID() int        { return 113 }
+func (m *HilGps) CRCExtra() byte { return 124 }
 
 func (m *HilGps) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -8002,8 +8002,8 @@ type HilOpticalFlow struct {
 	Quality byte
 }
 
-func (m *HilOpticalFlow) ID() int          { return 114 }
-func (m *HilOpticalFlow) CRCExtra() uint16 { return 53026 }
+func (m *HilOpticalFlow) ID() int        { return 114 }
+func (m *HilOpticalFlow) CRCExtra() byte { return 237 }
 
 func (m *HilOpticalFlow) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -8078,8 +8078,8 @@ type HilStateQuaternion struct {
 	Zacc int16
 }
 
-func (m *HilStateQuaternion) ID() int          { return 115 }
-func (m *HilStateQuaternion) CRCExtra() uint16 { return 15167 }
+func (m *HilStateQuaternion) ID() int        { return 115 }
+func (m *HilStateQuaternion) CRCExtra() byte { return 4 }
 
 func (m *HilStateQuaternion) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -8142,8 +8142,8 @@ type ScaledImu2 struct {
 	Zmag int16
 }
 
-func (m *ScaledImu2) ID() int          { return 116 }
-func (m *ScaledImu2) CRCExtra() uint16 { return 49549 }
+func (m *ScaledImu2) ID() int        { return 116 }
+func (m *ScaledImu2) CRCExtra() byte { return 76 }
 
 func (m *ScaledImu2) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -8180,8 +8180,8 @@ type LogRequestList struct {
 	TargetComponent byte
 }
 
-func (m *LogRequestList) ID() int          { return 117 }
-func (m *LogRequestList) CRCExtra() uint16 { return 46132 }
+func (m *LogRequestList) ID() int        { return 117 }
+func (m *LogRequestList) CRCExtra() byte { return 128 }
 
 func (m *LogRequestList) MarshalV1(buf []byte) []byte {
 	buf = marshalUint16(buf, (m.Start))
@@ -8215,8 +8215,8 @@ type LogEntry struct {
 	LastLogNum uint16
 }
 
-func (m *LogEntry) ID() int          { return 118 }
-func (m *LogEntry) CRCExtra() uint16 { return 9244 }
+func (m *LogEntry) ID() int        { return 118 }
+func (m *LogEntry) CRCExtra() byte { return 56 }
 
 func (m *LogEntry) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeUtc))
@@ -8251,8 +8251,8 @@ type LogRequestData struct {
 	TargetComponent byte
 }
 
-func (m *LogRequestData) ID() int          { return 119 }
-func (m *LogRequestData) CRCExtra() uint16 { return 22050 }
+func (m *LogRequestData) ID() int        { return 119 }
+func (m *LogRequestData) CRCExtra() byte { return 116 }
 
 func (m *LogRequestData) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.Ofs))
@@ -8284,8 +8284,8 @@ type LogData struct {
 	Data [90]byte
 }
 
-func (m *LogData) ID() int          { return 120 }
-func (m *LogData) CRCExtra() uint16 { return 27372 }
+func (m *LogData) ID() int        { return 120 }
+func (m *LogData) CRCExtra() byte { return 134 }
 
 func (m *LogData) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.Ofs))
@@ -8312,8 +8312,8 @@ type LogErase struct {
 	TargetComponent byte
 }
 
-func (m *LogErase) ID() int          { return 121 }
-func (m *LogErase) CRCExtra() uint16 { return 44611 }
+func (m *LogErase) ID() int        { return 121 }
+func (m *LogErase) CRCExtra() byte { return 237 }
 
 func (m *LogErase) MarshalV1(buf []byte) []byte {
 	buf = marshalByte(buf, (m.TargetSystem))
@@ -8336,8 +8336,8 @@ type LogRequestEnd struct {
 	TargetComponent byte
 }
 
-func (m *LogRequestEnd) ID() int          { return 122 }
-func (m *LogRequestEnd) CRCExtra() uint16 { return 6610 }
+func (m *LogRequestEnd) ID() int        { return 122 }
+func (m *LogRequestEnd) CRCExtra() byte { return 203 }
 
 func (m *LogRequestEnd) MarshalV1(buf []byte) []byte {
 	buf = marshalByte(buf, (m.TargetSystem))
@@ -8366,8 +8366,8 @@ type GpsInjectData struct {
 	Data [110]byte
 }
 
-func (m *GpsInjectData) ID() int          { return 123 }
-func (m *GpsInjectData) CRCExtra() uint16 { return 60177 }
+func (m *GpsInjectData) ID() int        { return 123 }
+func (m *GpsInjectData) CRCExtra() byte { return 250 }
 
 func (m *GpsInjectData) MarshalV1(buf []byte) []byte {
 	buf = marshalByte(buf, (m.TargetSystem))
@@ -8424,8 +8424,8 @@ type Gps2Raw struct {
 	DgpsNumch byte
 }
 
-func (m *Gps2Raw) ID() int          { return 124 }
-func (m *Gps2Raw) CRCExtra() uint16 { return 28217 }
+func (m *Gps2Raw) ID() int        { return 124 }
+func (m *Gps2Raw) CRCExtra() byte { return 87 }
 
 func (m *Gps2Raw) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -8462,8 +8462,8 @@ type PowerStatus struct {
 
 }
 
-func (m *PowerStatus) ID() int          { return 125 }
-func (m *PowerStatus) CRCExtra() uint16 { return 19328 }
+func (m *PowerStatus) ID() int        { return 125 }
+func (m *PowerStatus) CRCExtra() byte { return 203 }
 
 func (m *PowerStatus) MarshalV1(buf []byte) []byte {
 	buf = marshalUint16(buf, (m.Vcc))
@@ -8499,8 +8499,8 @@ type SerialControl struct {
 	Data [70]byte
 }
 
-func (m *SerialControl) ID() int          { return 126 }
-func (m *SerialControl) CRCExtra() uint16 { return 6340 }
+func (m *SerialControl) ID() int        { return 126 }
+func (m *SerialControl) CRCExtra() byte { return 220 }
 
 func (m *SerialControl) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.Baudrate))
@@ -8563,8 +8563,8 @@ type GpsRtk struct {
 
 }
 
-func (m *GpsRtk) ID() int          { return 127 }
-func (m *GpsRtk) CRCExtra() uint16 { return 52951 }
+func (m *GpsRtk) ID() int        { return 127 }
+func (m *GpsRtk) CRCExtra() byte { return 25 }
 
 func (m *GpsRtk) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeLastBaselineMs))
@@ -8632,8 +8632,8 @@ type Gps2Rtk struct {
 
 }
 
-func (m *Gps2Rtk) ID() int          { return 128 }
-func (m *Gps2Rtk) CRCExtra() uint16 { return 27019 }
+func (m *Gps2Rtk) ID() int        { return 128 }
+func (m *Gps2Rtk) CRCExtra() byte { return 226 }
 
 func (m *Gps2Rtk) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeLastBaselineMs))
@@ -8691,8 +8691,8 @@ type ScaledImu3 struct {
 	Zmag int16
 }
 
-func (m *ScaledImu3) ID() int          { return 129 }
-func (m *ScaledImu3) CRCExtra() uint16 { return 50667 }
+func (m *ScaledImu3) ID() int        { return 129 }
+func (m *ScaledImu3) CRCExtra() byte { return 46 }
 
 func (m *ScaledImu3) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -8738,8 +8738,8 @@ type DataTransmissionHandshake struct {
 	JpgQuality byte
 }
 
-func (m *DataTransmissionHandshake) ID() int          { return 130 }
-func (m *DataTransmissionHandshake) CRCExtra() uint16 { return 3089 }
+func (m *DataTransmissionHandshake) ID() int        { return 130 }
+func (m *DataTransmissionHandshake) CRCExtra() byte { return 29 }
 
 func (m *DataTransmissionHandshake) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.Size))
@@ -8767,8 +8767,8 @@ type EncapsulatedData struct {
 	Data [253]byte
 }
 
-func (m *EncapsulatedData) ID() int          { return 131 }
-func (m *EncapsulatedData) CRCExtra() uint16 { return 1243 }
+func (m *EncapsulatedData) ID() int        { return 131 }
+func (m *EncapsulatedData) CRCExtra() byte { return 223 }
 
 func (m *EncapsulatedData) MarshalV1(buf []byte) []byte {
 	buf = marshalUint16(buf, (m.Seqnr))
@@ -8821,8 +8821,8 @@ type DistanceSensor struct {
 
 }
 
-func (m *DistanceSensor) ID() int          { return 132 }
-func (m *DistanceSensor) CRCExtra() uint16 { return 28474 }
+func (m *DistanceSensor) ID() int        { return 132 }
+func (m *DistanceSensor) CRCExtra() byte { return 85 }
 
 func (m *DistanceSensor) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -8862,8 +8862,8 @@ type TerrainRequest struct {
 	GridSpacing uint16
 }
 
-func (m *TerrainRequest) ID() int          { return 133 }
-func (m *TerrainRequest) CRCExtra() uint16 { return 41126 }
+func (m *TerrainRequest) ID() int        { return 133 }
+func (m *TerrainRequest) CRCExtra() byte { return 6 }
 
 func (m *TerrainRequest) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.Mask))
@@ -8897,8 +8897,8 @@ type TerrainData struct {
 	Gridbit byte
 }
 
-func (m *TerrainData) ID() int          { return 134 }
-func (m *TerrainData) CRCExtra() uint16 { return 59138 }
+func (m *TerrainData) ID() int        { return 134 }
+func (m *TerrainData) CRCExtra() byte { return 229 }
 
 func (m *TerrainData) MarshalV1(buf []byte) []byte {
 	buf = marshalInt32(buf, (m.Lat))
@@ -8926,8 +8926,8 @@ type TerrainCheck struct {
 	Lon int32
 }
 
-func (m *TerrainCheck) ID() int          { return 135 }
-func (m *TerrainCheck) CRCExtra() uint16 { return 3781 }
+func (m *TerrainCheck) ID() int        { return 135 }
+func (m *TerrainCheck) CRCExtra() byte { return 203 }
 
 func (m *TerrainCheck) MarshalV1(buf []byte) []byte {
 	buf = marshalInt32(buf, (m.Lat))
@@ -8965,8 +8965,8 @@ type TerrainReport struct {
 	Loaded uint16
 }
 
-func (m *TerrainReport) ID() int          { return 136 }
-func (m *TerrainReport) CRCExtra() uint16 { return 56027 }
+func (m *TerrainReport) ID() int        { return 136 }
+func (m *TerrainReport) CRCExtra() byte { return 1 }
 
 func (m *TerrainReport) MarshalV1(buf []byte) []byte {
 	buf = marshalInt32(buf, (m.Lat))
@@ -9000,8 +9000,8 @@ type ScaledPressure2 struct {
 	Temperature int16
 }
 
-func (m *ScaledPressure2) ID() int          { return 137 }
-func (m *ScaledPressure2) CRCExtra() uint16 { return 36429 }
+func (m *ScaledPressure2) ID() int        { return 137 }
+func (m *ScaledPressure2) CRCExtra() byte { return 195 }
 
 func (m *ScaledPressure2) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -9039,8 +9039,8 @@ type AttPosMocap struct {
 
 }
 
-func (m *AttPosMocap) ID() int          { return 138 }
-func (m *AttPosMocap) CRCExtra() uint16 { return 48851 }
+func (m *AttPosMocap) ID() int        { return 138 }
+func (m *AttPosMocap) CRCExtra() byte { return 109 }
 
 func (m *AttPosMocap) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -9080,8 +9080,8 @@ type SetActuatorControlTarget struct {
 	TargetComponent byte
 }
 
-func (m *SetActuatorControlTarget) ID() int          { return 139 }
-func (m *SetActuatorControlTarget) CRCExtra() uint16 { return 25547 }
+func (m *SetActuatorControlTarget) ID() int        { return 139 }
+func (m *SetActuatorControlTarget) CRCExtra() byte { return 168 }
 
 func (m *SetActuatorControlTarget) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -9112,8 +9112,8 @@ type ActuatorControlTarget struct {
 	GroupMlx byte
 }
 
-func (m *ActuatorControlTarget) ID() int          { return 140 }
-func (m *ActuatorControlTarget) CRCExtra() uint16 { return 59999 }
+func (m *ActuatorControlTarget) ID() int        { return 140 }
+func (m *ActuatorControlTarget) CRCExtra() byte { return 181 }
 
 func (m *ActuatorControlTarget) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -9154,8 +9154,8 @@ type Altitude struct {
 	BottomClearance float32
 }
 
-func (m *Altitude) ID() int          { return 141 }
-func (m *Altitude) CRCExtra() uint16 { return 22647 }
+func (m *Altitude) ID() int        { return 141 }
+func (m *Altitude) CRCExtra() byte { return 47 }
 
 func (m *Altitude) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -9192,8 +9192,8 @@ type ResourceRequest struct {
 	Storage [120]byte
 }
 
-func (m *ResourceRequest) ID() int          { return 142 }
-func (m *ResourceRequest) CRCExtra() uint16 { return 10850 }
+func (m *ResourceRequest) ID() int        { return 142 }
+func (m *ResourceRequest) CRCExtra() byte { return 72 }
 
 func (m *ResourceRequest) MarshalV1(buf []byte) []byte {
 	buf = marshalByte(buf, (m.RequestId))
@@ -9229,8 +9229,8 @@ type ScaledPressure3 struct {
 	Temperature int16
 }
 
-func (m *ScaledPressure3) ID() int          { return 143 }
-func (m *ScaledPressure3) CRCExtra() uint16 { return 48191 }
+func (m *ScaledPressure3) ID() int        { return 143 }
+func (m *ScaledPressure3) CRCExtra() byte { return 131 }
 
 func (m *ScaledPressure3) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -9282,8 +9282,8 @@ type FollowTarget struct {
 	EstCapabilities byte
 }
 
-func (m *FollowTarget) ID() int          { return 144 }
-func (m *FollowTarget) CRCExtra() uint16 { return 60308 }
+func (m *FollowTarget) ID() int        { return 144 }
+func (m *FollowTarget) CRCExtra() byte { return 127 }
 
 func (m *FollowTarget) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.Timestamp))
@@ -9370,8 +9370,8 @@ type ControlSystemState struct {
 	YawRate float32
 }
 
-func (m *ControlSystemState) ID() int          { return 146 }
-func (m *ControlSystemState) CRCExtra() uint16 { return 48092 }
+func (m *ControlSystemState) ID() int        { return 146 }
+func (m *ControlSystemState) CRCExtra() byte { return 103 }
 
 func (m *ControlSystemState) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -9443,8 +9443,8 @@ type BatteryStatus struct {
 
 }
 
-func (m *BatteryStatus) ID() int          { return 147 }
-func (m *BatteryStatus) CRCExtra() uint16 { return 21710 }
+func (m *BatteryStatus) ID() int        { return 147 }
+func (m *BatteryStatus) CRCExtra() byte { return 154 }
 
 func (m *BatteryStatus) MarshalV1(buf []byte) []byte {
 	buf = marshalInt32(buf, (m.CurrentConsumed))
@@ -9509,8 +9509,8 @@ type AutopilotVersion struct {
 
 }
 
-func (m *AutopilotVersion) ID() int          { return 148 }
-func (m *AutopilotVersion) CRCExtra() uint16 { return 6053 }
+func (m *AutopilotVersion) ID() int        { return 148 }
+func (m *AutopilotVersion) CRCExtra() byte { return 178 }
 
 func (m *AutopilotVersion) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, uint64(m.Capabilities))
@@ -9588,8 +9588,8 @@ type LandingTarget struct {
 
 }
 
-func (m *LandingTarget) ID() int          { return 149 }
-func (m *LandingTarget) CRCExtra() uint16 { return 25515 }
+func (m *LandingTarget) ID() int        { return 149 }
+func (m *LandingTarget) CRCExtra() byte { return 200 }
 
 func (m *LandingTarget) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -9651,8 +9651,8 @@ type EstimatorStatus struct {
 
 }
 
-func (m *EstimatorStatus) ID() int          { return 230 }
-func (m *EstimatorStatus) CRCExtra() uint16 { return 2219 }
+func (m *EstimatorStatus) ID() int        { return 230 }
+func (m *EstimatorStatus) CRCExtra() byte { return 163 }
 
 func (m *EstimatorStatus) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -9704,8 +9704,8 @@ type WindCov struct {
 	VertAccuracy float32
 }
 
-func (m *WindCov) ID() int          { return 231 }
-func (m *WindCov) CRCExtra() uint16 { return 53688 }
+func (m *WindCov) ID() int        { return 231 }
+func (m *WindCov) CRCExtra() byte { return 105 }
 
 func (m *WindCov) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -9783,8 +9783,8 @@ type GpsInput struct {
 	SatellitesVisible byte
 }
 
-func (m *GpsInput) ID() int          { return 232 }
-func (m *GpsInput) CRCExtra() uint16 { return 62563 }
+func (m *GpsInput) ID() int        { return 232 }
+func (m *GpsInput) CRCExtra() byte { return 151 }
 
 func (m *GpsInput) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -9826,8 +9826,8 @@ type GpsRtcmData struct {
 	Data [180]byte
 }
 
-func (m *GpsRtcmData) ID() int          { return 233 }
-func (m *GpsRtcmData) CRCExtra() uint16 { return 42884 }
+func (m *GpsRtcmData) ID() int        { return 233 }
+func (m *GpsRtcmData) CRCExtra() byte { return 35 }
 
 func (m *GpsRtcmData) MarshalV1(buf []byte) []byte {
 	buf = marshalByte(buf, (m.Flags))
@@ -9919,8 +9919,8 @@ type HighLatency struct {
 	WpNum byte
 }
 
-func (m *HighLatency) ID() int          { return 234 }
-func (m *HighLatency) CRCExtra() uint16 { return 11450 }
+func (m *HighLatency) ID() int        { return 234 }
+func (m *HighLatency) CRCExtra() byte { return 150 }
 
 func (m *HighLatency) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.CustomMode))
@@ -10040,8 +10040,8 @@ type HighLatency2 struct {
 	Custom2 int8
 }
 
-func (m *HighLatency2) ID() int          { return 235 }
-func (m *HighLatency2) CRCExtra() uint16 { return 41234 }
+func (m *HighLatency2) ID() int        { return 235 }
+func (m *HighLatency2) CRCExtra() byte { return 179 }
 
 func (m *HighLatency2) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.Timestamp))
@@ -10104,8 +10104,8 @@ type Vibration struct {
 	Clipping2 uint32
 }
 
-func (m *Vibration) ID() int          { return 241 }
-func (m *Vibration) CRCExtra() uint16 { return 10864 }
+func (m *Vibration) ID() int        { return 241 }
+func (m *Vibration) CRCExtra() byte { return 90 }
 
 func (m *Vibration) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -10161,8 +10161,8 @@ type HomePosition struct {
 
 }
 
-func (m *HomePosition) ID() int          { return 242 }
-func (m *HomePosition) CRCExtra() uint16 { return 38140 }
+func (m *HomePosition) ID() int        { return 242 }
+func (m *HomePosition) CRCExtra() byte { return 104 }
 
 func (m *HomePosition) MarshalV1(buf []byte) []byte {
 	buf = marshalInt32(buf, (m.Latitude))
@@ -10227,8 +10227,8 @@ type SetHomePosition struct {
 
 }
 
-func (m *SetHomePosition) ID() int          { return 243 }
-func (m *SetHomePosition) CRCExtra() uint16 { return 59581 }
+func (m *SetHomePosition) ID() int        { return 243 }
+func (m *SetHomePosition) CRCExtra() byte { return 85 }
 
 func (m *SetHomePosition) MarshalV1(buf []byte) []byte {
 	buf = marshalInt32(buf, (m.Latitude))
@@ -10263,8 +10263,8 @@ type MessageInterval struct {
 	MessageId uint16
 }
 
-func (m *MessageInterval) ID() int          { return 244 }
-func (m *MessageInterval) CRCExtra() uint16 { return 35031 }
+func (m *MessageInterval) ID() int        { return 244 }
+func (m *MessageInterval) CRCExtra() byte { return 95 }
 
 func (m *MessageInterval) MarshalV1(buf []byte) []byte {
 	buf = marshalInt32(buf, (m.IntervalUs))
@@ -10288,8 +10288,8 @@ type ExtendedSysState struct {
 
 }
 
-func (m *ExtendedSysState) ID() int          { return 245 }
-func (m *ExtendedSysState) CRCExtra() uint16 { return 46644 }
+func (m *ExtendedSysState) ID() int        { return 245 }
+func (m *ExtendedSysState) CRCExtra() byte { return 130 }
 
 func (m *ExtendedSysState) MarshalV1(buf []byte) []byte {
 	buf = marshalByte(buf, byte(m.VtolState))
@@ -10345,8 +10345,8 @@ type AdsbVehicle struct {
 	Tslc byte
 }
 
-func (m *AdsbVehicle) ID() int          { return 246 }
-func (m *AdsbVehicle) CRCExtra() uint16 { return 13452 }
+func (m *AdsbVehicle) ID() int        { return 246 }
+func (m *AdsbVehicle) CRCExtra() byte { return 184 }
 
 func (m *AdsbVehicle) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.IcaoAddress))
@@ -10398,8 +10398,8 @@ type Collision struct {
 
 }
 
-func (m *Collision) ID() int          { return 247 }
-func (m *Collision) CRCExtra() uint16 { return 13154 }
+func (m *Collision) ID() int        { return 247 }
+func (m *Collision) CRCExtra() byte { return 81 }
 
 func (m *Collision) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.Id))
@@ -10436,8 +10436,8 @@ type V2Extension struct {
 	Payload [249]byte
 }
 
-func (m *V2Extension) ID() int          { return 248 }
-func (m *V2Extension) CRCExtra() uint16 { return 41128 }
+func (m *V2Extension) ID() int        { return 248 }
+func (m *V2Extension) CRCExtra() byte { return 8 }
 
 func (m *V2Extension) MarshalV1(buf []byte) []byte {
 	buf = marshalUint16(buf, (m.MessageType))
@@ -10471,8 +10471,8 @@ type MemoryVect struct {
 	Value [32]int8
 }
 
-func (m *MemoryVect) ID() int          { return 249 }
-func (m *MemoryVect) CRCExtra() uint16 { return 24210 }
+func (m *MemoryVect) ID() int        { return 249 }
+func (m *MemoryVect) CRCExtra() byte { return 204 }
 
 func (m *MemoryVect) MarshalV1(buf []byte) []byte {
 	buf = marshalUint16(buf, (m.Address))
@@ -10508,8 +10508,8 @@ type DebugVect struct {
 	Name [10]byte
 }
 
-func (m *DebugVect) ID() int          { return 250 }
-func (m *DebugVect) CRCExtra() uint16 { return 37280 }
+func (m *DebugVect) ID() int        { return 250 }
+func (m *DebugVect) CRCExtra() byte { return 49 }
 
 func (m *DebugVect) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -10540,8 +10540,8 @@ type NamedValueFloat struct {
 	Name [10]byte
 }
 
-func (m *NamedValueFloat) ID() int          { return 251 }
-func (m *NamedValueFloat) CRCExtra() uint16 { return 14482 }
+func (m *NamedValueFloat) ID() int        { return 251 }
+func (m *NamedValueFloat) CRCExtra() byte { return 170 }
 
 func (m *NamedValueFloat) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -10570,8 +10570,8 @@ type NamedValueInt struct {
 	Name [10]byte
 }
 
-func (m *NamedValueInt) ID() int          { return 252 }
-func (m *NamedValueInt) CRCExtra() uint16 { return 44 }
+func (m *NamedValueInt) ID() int        { return 252 }
+func (m *NamedValueInt) CRCExtra() byte { return 44 }
 
 func (m *NamedValueInt) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -10597,8 +10597,8 @@ type Statustext struct {
 	Text [50]byte
 }
 
-func (m *Statustext) ID() int          { return 253 }
-func (m *Statustext) CRCExtra() uint16 { return 14698 }
+func (m *Statustext) ID() int        { return 253 }
+func (m *Statustext) CRCExtra() byte { return 83 }
 
 func (m *Statustext) MarshalV1(buf []byte) []byte {
 	buf = marshalByte(buf, byte(m.Severity))
@@ -10626,8 +10626,8 @@ type Debug struct {
 	Ind byte
 }
 
-func (m *Debug) ID() int          { return 254 }
-func (m *Debug) CRCExtra() uint16 { return 16751 }
+func (m *Debug) ID() int        { return 254 }
+func (m *Debug) CRCExtra() byte { return 46 }
 
 func (m *Debug) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -10657,8 +10657,8 @@ type SetupSigning struct {
 	SecretKey [32]byte
 }
 
-func (m *SetupSigning) ID() int          { return 256 }
-func (m *SetupSigning) CRCExtra() uint16 { return 45032 }
+func (m *SetupSigning) ID() int        { return 256 }
+func (m *SetupSigning) CRCExtra() byte { return 71 }
 
 func (m *SetupSigning) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.InitialTimestamp))
@@ -10688,8 +10688,8 @@ type ButtonChange struct {
 	State byte
 }
 
-func (m *ButtonChange) ID() int          { return 257 }
-func (m *ButtonChange) CRCExtra() uint16 { return 18372 }
+func (m *ButtonChange) ID() int        { return 257 }
+func (m *ButtonChange) CRCExtra() byte { return 131 }
 
 func (m *ButtonChange) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -10720,8 +10720,8 @@ type PlayTune struct {
 
 }
 
-func (m *PlayTune) ID() int          { return 258 }
-func (m *PlayTune) CRCExtra() uint16 { return 33337 }
+func (m *PlayTune) ID() int        { return 258 }
+func (m *PlayTune) CRCExtra() byte { return 187 }
 
 func (m *PlayTune) MarshalV1(buf []byte) []byte {
 	buf = marshalByte(buf, (m.TargetSystem))
@@ -10783,8 +10783,8 @@ type CameraInformation struct {
 	CamDefinitionUri [140]byte
 }
 
-func (m *CameraInformation) ID() int          { return 259 }
-func (m *CameraInformation) CRCExtra() uint16 { return 44023 }
+func (m *CameraInformation) ID() int        { return 259 }
+func (m *CameraInformation) CRCExtra() byte { return 92 }
 
 func (m *CameraInformation) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -10831,8 +10831,8 @@ type CameraSettings struct {
 
 }
 
-func (m *CameraSettings) ID() int          { return 260 }
-func (m *CameraSettings) CRCExtra() uint16 { return 57458 }
+func (m *CameraSettings) ID() int        { return 260 }
+func (m *CameraSettings) CRCExtra() byte { return 146 }
 
 func (m *CameraSettings) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -10878,8 +10878,8 @@ type StorageInformation struct {
 	Status byte
 }
 
-func (m *StorageInformation) ID() int          { return 261 }
-func (m *StorageInformation) CRCExtra() uint16 { return 8849 }
+func (m *StorageInformation) ID() int        { return 261 }
+func (m *StorageInformation) CRCExtra() byte { return 179 }
 
 func (m *StorageInformation) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -10921,8 +10921,8 @@ type CameraCaptureStatus struct {
 	VideoStatus byte
 }
 
-func (m *CameraCaptureStatus) ID() int          { return 262 }
-func (m *CameraCaptureStatus) CRCExtra() uint16 { return 56785 }
+func (m *CameraCaptureStatus) ID() int        { return 262 }
+func (m *CameraCaptureStatus) CRCExtra() byte { return 12 }
 
 func (m *CameraCaptureStatus) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -10976,8 +10976,8 @@ type CameraImageCaptured struct {
 	FileUrl [205]byte
 }
 
-func (m *CameraImageCaptured) ID() int          { return 263 }
-func (m *CameraImageCaptured) CRCExtra() uint16 { return 35343 }
+func (m *CameraImageCaptured) ID() int        { return 263 }
+func (m *CameraImageCaptured) CRCExtra() byte { return 133 }
 
 func (m *CameraImageCaptured) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUtc))
@@ -11019,8 +11019,8 @@ type FlightInformation struct {
 	TimeBootMs uint32
 }
 
-func (m *FlightInformation) ID() int          { return 264 }
-func (m *FlightInformation) CRCExtra() uint16 { return 4898 }
+func (m *FlightInformation) ID() int        { return 264 }
+func (m *FlightInformation) CRCExtra() byte { return 49 }
 
 func (m *FlightInformation) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.ArmingTimeUtc))
@@ -11055,8 +11055,8 @@ type MountOrientation struct {
 
 }
 
-func (m *MountOrientation) ID() int          { return 265 }
-func (m *MountOrientation) CRCExtra() uint16 { return 38797 }
+func (m *MountOrientation) ID() int        { return 265 }
+func (m *MountOrientation) CRCExtra() byte { return 26 }
 
 func (m *MountOrientation) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.TimeBootMs))
@@ -11094,8 +11094,8 @@ type LoggingData struct {
 	Data [249]byte
 }
 
-func (m *LoggingData) ID() int          { return 266 }
-func (m *LoggingData) CRCExtra() uint16 { return 30646 }
+func (m *LoggingData) ID() int        { return 266 }
+func (m *LoggingData) CRCExtra() byte { return 193 }
 
 func (m *LoggingData) MarshalV1(buf []byte) []byte {
 	buf = marshalUint16(buf, (m.Sequence))
@@ -11136,8 +11136,8 @@ type LoggingDataAcked struct {
 	Data [249]byte
 }
 
-func (m *LoggingDataAcked) ID() int          { return 267 }
-func (m *LoggingDataAcked) CRCExtra() uint16 { return 11279 }
+func (m *LoggingDataAcked) ID() int        { return 267 }
+func (m *LoggingDataAcked) CRCExtra() byte { return 35 }
 
 func (m *LoggingDataAcked) MarshalV1(buf []byte) []byte {
 	buf = marshalUint16(buf, (m.Sequence))
@@ -11169,8 +11169,8 @@ type LoggingAck struct {
 	TargetComponent byte
 }
 
-func (m *LoggingAck) ID() int          { return 268 }
-func (m *LoggingAck) CRCExtra() uint16 { return 39062 }
+func (m *LoggingAck) ID() int        { return 268 }
+func (m *LoggingAck) CRCExtra() byte { return 14 }
 
 func (m *LoggingAck) MarshalV1(buf []byte) []byte {
 	buf = marshalUint16(buf, (m.Sequence))
@@ -11224,8 +11224,8 @@ type VideoStreamInformation struct {
 	Uri [160]byte
 }
 
-func (m *VideoStreamInformation) ID() int          { return 269 }
-func (m *VideoStreamInformation) CRCExtra() uint16 { return 2149 }
+func (m *VideoStreamInformation) ID() int        { return 269 }
+func (m *VideoStreamInformation) CRCExtra() byte { return 109 }
 
 func (m *VideoStreamInformation) MarshalV1(buf []byte) []byte {
 	buf = marshalFloat32(buf, (m.Framerate))
@@ -11280,8 +11280,8 @@ type VideoStreamStatus struct {
 	StreamId byte
 }
 
-func (m *VideoStreamStatus) ID() int          { return 270 }
-func (m *VideoStreamStatus) CRCExtra() uint16 { return 29257 }
+func (m *VideoStreamStatus) ID() int        { return 270 }
+func (m *VideoStreamStatus) CRCExtra() byte { return 59 }
 
 func (m *VideoStreamStatus) MarshalV1(buf []byte) []byte {
 	buf = marshalFloat32(buf, (m.Framerate))
@@ -11310,8 +11310,8 @@ type WifiConfigAp struct {
 	Password [64]byte
 }
 
-func (m *WifiConfigAp) ID() int          { return 299 }
-func (m *WifiConfigAp) CRCExtra() uint16 { return 36995 }
+func (m *WifiConfigAp) ID() int        { return 299 }
+func (m *WifiConfigAp) CRCExtra() byte { return 19 }
 
 func (m *WifiConfigAp) MarshalV1(buf []byte) []byte {
 	for _, v := range m.Ssid {
@@ -11347,8 +11347,8 @@ type ProtocolVersion struct {
 	LibraryVersionHash [8]byte
 }
 
-func (m *ProtocolVersion) ID() int          { return 300 }
-func (m *ProtocolVersion) CRCExtra() uint16 { return 46189 }
+func (m *ProtocolVersion) ID() int        { return 300 }
+func (m *ProtocolVersion) CRCExtra() byte { return 217 }
 
 func (m *ProtocolVersion) MarshalV1(buf []byte) []byte {
 	buf = marshalUint16(buf, (m.Version))
@@ -11390,8 +11390,8 @@ type UavcanNodeStatus struct {
 	SubMode byte
 }
 
-func (m *UavcanNodeStatus) ID() int          { return 310 }
-func (m *UavcanNodeStatus) CRCExtra() uint16 { return 37775 }
+func (m *UavcanNodeStatus) ID() int        { return 310 }
+func (m *UavcanNodeStatus) CRCExtra() byte { return 28 }
 
 func (m *UavcanNodeStatus) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -11439,8 +11439,8 @@ type UavcanNodeInfo struct {
 	SwVersionMinor byte
 }
 
-func (m *UavcanNodeInfo) ID() int          { return 311 }
-func (m *UavcanNodeInfo) CRCExtra() uint16 { return 5450 }
+func (m *UavcanNodeInfo) ID() int        { return 311 }
+func (m *UavcanNodeInfo) CRCExtra() byte { return 95 }
 
 func (m *UavcanNodeInfo) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -11480,8 +11480,8 @@ type ParamExtRequestRead struct {
 	ParamId [16]byte
 }
 
-func (m *ParamExtRequestRead) ID() int          { return 320 }
-func (m *ParamExtRequestRead) CRCExtra() uint16 { return 14794 }
+func (m *ParamExtRequestRead) ID() int        { return 320 }
+func (m *ParamExtRequestRead) CRCExtra() byte { return 243 }
 
 func (m *ParamExtRequestRead) MarshalV1(buf []byte) []byte {
 	buf = marshalInt16(buf, (m.ParamIndex))
@@ -11508,8 +11508,8 @@ type ParamExtRequestList struct {
 	TargetComponent byte
 }
 
-func (m *ParamExtRequestList) ID() int          { return 321 }
-func (m *ParamExtRequestList) CRCExtra() uint16 { return 7493 }
+func (m *ParamExtRequestList) ID() int        { return 321 }
+func (m *ParamExtRequestList) CRCExtra() byte { return 88 }
 
 func (m *ParamExtRequestList) MarshalV1(buf []byte) []byte {
 	buf = marshalByte(buf, (m.TargetSystem))
@@ -11542,8 +11542,8 @@ type ParamExtValue struct {
 
 }
 
-func (m *ParamExtValue) ID() int          { return 322 }
-func (m *ParamExtValue) CRCExtra() uint16 { return 7407 }
+func (m *ParamExtValue) ID() int        { return 322 }
+func (m *ParamExtValue) CRCExtra() byte { return 243 }
 
 func (m *ParamExtValue) MarshalV1(buf []byte) []byte {
 	buf = marshalUint16(buf, (m.ParamCount))
@@ -11583,8 +11583,8 @@ type ParamExtSet struct {
 
 }
 
-func (m *ParamExtSet) ID() int          { return 323 }
-func (m *ParamExtSet) CRCExtra() uint16 { return 51591 }
+func (m *ParamExtSet) ID() int        { return 323 }
+func (m *ParamExtSet) CRCExtra() byte { return 78 }
 
 func (m *ParamExtSet) MarshalV1(buf []byte) []byte {
 	buf = marshalByte(buf, (m.TargetSystem))
@@ -11621,8 +11621,8 @@ type ParamExtAck struct {
 
 }
 
-func (m *ParamExtAck) ID() int          { return 324 }
-func (m *ParamExtAck) CRCExtra() uint16 { return 53332 }
+func (m *ParamExtAck) ID() int        { return 324 }
+func (m *ParamExtAck) CRCExtra() byte { return 132 }
 
 func (m *ParamExtAck) MarshalV1(buf []byte) []byte {
 	for _, v := range m.ParamId {
@@ -11663,8 +11663,8 @@ type ObstacleDistance struct {
 	Increment byte
 }
 
-func (m *ObstacleDistance) ID() int          { return 330 }
-func (m *ObstacleDistance) CRCExtra() uint16 { return 46498 }
+func (m *ObstacleDistance) ID() int        { return 330 }
+func (m *ObstacleDistance) CRCExtra() byte { return 23 }
 
 func (m *ObstacleDistance) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -11736,8 +11736,8 @@ type Odometry struct {
 
 }
 
-func (m *Odometry) ID() int          { return 331 }
-func (m *Odometry) CRCExtra() uint16 { return 57531 }
+func (m *Odometry) ID() int        { return 331 }
+func (m *Odometry) CRCExtra() byte { return 91 }
 
 func (m *Odometry) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -11813,8 +11813,8 @@ type TrajectoryRepresentationWaypoints struct {
 	ValidPoints byte
 }
 
-func (m *TrajectoryRepresentationWaypoints) ID() int          { return 332 }
-func (m *TrajectoryRepresentationWaypoints) CRCExtra() uint16 { return 63404 }
+func (m *TrajectoryRepresentationWaypoints) ID() int        { return 332 }
+func (m *TrajectoryRepresentationWaypoints) CRCExtra() byte { return 91 }
 
 func (m *TrajectoryRepresentationWaypoints) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -11885,8 +11885,8 @@ type TrajectoryRepresentationBezier struct {
 	ValidPoints byte
 }
 
-func (m *TrajectoryRepresentationBezier) ID() int          { return 333 }
-func (m *TrajectoryRepresentationBezier) CRCExtra() uint16 { return 38513 }
+func (m *TrajectoryRepresentationBezier) ID() int        { return 333 }
+func (m *TrajectoryRepresentationBezier) CRCExtra() byte { return 231 }
 
 func (m *TrajectoryRepresentationBezier) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -11939,8 +11939,8 @@ type CellularStatus struct {
 	Quality byte
 }
 
-func (m *CellularStatus) ID() int          { return 334 }
-func (m *CellularStatus) CRCExtra() uint16 { return 1155 }
+func (m *CellularStatus) ID() int        { return 334 }
+func (m *CellularStatus) CRCExtra() byte { return 135 }
 
 func (m *CellularStatus) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.Cid))
@@ -12017,8 +12017,8 @@ type UtmGlobalPosition struct {
 
 }
 
-func (m *UtmGlobalPosition) ID() int          { return 340 }
-func (m *UtmGlobalPosition) CRCExtra() uint16 { return 13399 }
+func (m *UtmGlobalPosition) ID() int        { return 340 }
+func (m *UtmGlobalPosition) CRCExtra() byte { return 99 }
 
 func (m *UtmGlobalPosition) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.Time))
@@ -12066,8 +12066,8 @@ type DebugFloatArray struct {
 
 }
 
-func (m *DebugFloatArray) ID() int          { return 350 }
-func (m *DebugFloatArray) CRCExtra() uint16 { return 14544 }
+func (m *DebugFloatArray) ID() int        { return 350 }
+func (m *DebugFloatArray) CRCExtra() byte { return 232 }
 
 func (m *DebugFloatArray) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -12109,8 +12109,8 @@ type OrbitExecutionStatus struct {
 
 }
 
-func (m *OrbitExecutionStatus) ID() int          { return 360 }
-func (m *OrbitExecutionStatus) CRCExtra() uint16 { return 50893 }
+func (m *OrbitExecutionStatus) ID() int        { return 360 }
+func (m *OrbitExecutionStatus) CRCExtra() byte { return 11 }
 
 func (m *OrbitExecutionStatus) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))
@@ -12137,8 +12137,8 @@ type StatustextLong struct {
 	Text [254]byte
 }
 
-func (m *StatustextLong) ID() int          { return 365 }
-func (m *StatustextLong) CRCExtra() uint16 { return 50151 }
+func (m *StatustextLong) ID() int        { return 365 }
+func (m *StatustextLong) CRCExtra() byte { return 36 }
 
 func (m *StatustextLong) MarshalV1(buf []byte) []byte {
 	buf = marshalByte(buf, byte(m.Severity))
@@ -12187,8 +12187,8 @@ type SmartBatteryInfo struct {
 	DeviceName [50]byte
 }
 
-func (m *SmartBatteryInfo) ID() int          { return 370 }
-func (m *SmartBatteryInfo) CRCExtra() uint16 { return 56510 }
+func (m *SmartBatteryInfo) ID() int        { return 370 }
+func (m *SmartBatteryInfo) CRCExtra() byte { return 98 }
 
 func (m *SmartBatteryInfo) MarshalV1(buf []byte) []byte {
 	buf = marshalInt32(buf, (m.CapacityFullSpecification))
@@ -12239,8 +12239,8 @@ type SmartBatteryStatus struct {
 	Voltages [16]uint16
 }
 
-func (m *SmartBatteryStatus) ID() int          { return 371 }
-func (m *SmartBatteryStatus) CRCExtra() uint16 { return 9090 }
+func (m *SmartBatteryStatus) ID() int        { return 371 }
+func (m *SmartBatteryStatus) CRCExtra() byte { return 161 }
 
 func (m *SmartBatteryStatus) MarshalV1(buf []byte) []byte {
 	buf = marshalInt32(buf, int32(m.FaultBitmask))
@@ -12280,8 +12280,8 @@ type TimeEstimateToTarget struct {
 	CommandedAction int32
 }
 
-func (m *TimeEstimateToTarget) ID() int          { return 380 }
-func (m *TimeEstimateToTarget) CRCExtra() uint16 { return 14046 }
+func (m *TimeEstimateToTarget) ID() int        { return 380 }
+func (m *TimeEstimateToTarget) CRCExtra() byte { return 232 }
 
 func (m *TimeEstimateToTarget) MarshalV1(buf []byte) []byte {
 	buf = marshalInt32(buf, (m.SafeReturn))
@@ -12310,8 +12310,8 @@ type WheelDistance struct {
 	Count byte
 }
 
-func (m *WheelDistance) ID() int          { return 9000 }
-func (m *WheelDistance) CRCExtra() uint16 { return 31498 }
+func (m *WheelDistance) ID() int        { return 9000 }
+func (m *WheelDistance) CRCExtra() byte { return 113 }
 
 func (m *WheelDistance) MarshalV1(buf []byte) []byte {
 	buf = marshalUint64(buf, (m.TimeUsec))

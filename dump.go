@@ -19,14 +19,22 @@ func main() {
 
 	dec := mavlink.NewDecoder(os.Stdin, ardupilotmega.New)
 	for {
-		msg, sysid, compid, err := dec.Decode()
+		msg, strid, err := dec.Decode()
 		if err == io.EOF {
 			break
 		}
 		if err != nil {
 			log.Println(err)
 		}
-		log.Printf("%T sys:%d component:%d", msg, sysid, compid)
+		if err == mavlink.ErrMustSync {
+			n, err := dec.Resync()
+			log.Println("resyncing: ", n, err)
+		}
+
+		log.Printf("%v: %T", strid, msg)
+		if msg == nil {
+			continue
+		}
 		if err := enc.Encode(msg); err != nil {
 			log.Fatal(err)
 		}

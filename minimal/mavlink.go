@@ -397,7 +397,7 @@ const (
 	MAV_COMP_ID_SYSTEM_CONTROL MavComponent = 250
 )
 
-func New(mid uint32) mavlink.Message {
+func New(mid int) mavlink.Message {
 	switch mid {
 	case 0:
 		return &Heartbeat{}
@@ -426,8 +426,8 @@ type Heartbeat struct {
 	MavlinkVersion byte
 }
 
-func (m *Heartbeat) ID() int          { return 0 }
-func (m *Heartbeat) CRCExtra() uint16 { return 47446 }
+func (m *Heartbeat) ID() int        { return 0 }
+func (m *Heartbeat) CRCExtra() byte { return 239 }
 
 func (m *Heartbeat) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.CustomMode))

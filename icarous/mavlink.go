@@ -37,7 +37,7 @@ const (
 	ICAROUS_FMS_STATE_LAND IcarousFmsState = 5
 )
 
-func New(mid uint32) mavlink.Message {
+func New(mid int) mavlink.Message {
 	switch mid {
 	case 42000:
 		return &IcarousHeartbeat{}
@@ -54,8 +54,8 @@ type IcarousHeartbeat struct {
 
 }
 
-func (m *IcarousHeartbeat) ID() int          { return 42000 }
-func (m *IcarousHeartbeat) CRCExtra() uint16 { return 41282 }
+func (m *IcarousHeartbeat) ID() int        { return 42000 }
+func (m *IcarousHeartbeat) CRCExtra() byte { return 227 }
 
 func (m *IcarousHeartbeat) MarshalV1(buf []byte) []byte {
 	buf = marshalByte(buf, byte(m.Status))
@@ -120,8 +120,8 @@ type IcarousKinematicBands struct {
 
 }
 
-func (m *IcarousKinematicBands) ID() int          { return 42001 }
-func (m *IcarousKinematicBands) CRCExtra() uint16 { return 55351 }
+func (m *IcarousKinematicBands) ID() int        { return 42001 }
+func (m *IcarousKinematicBands) CRCExtra() byte { return 239 }
 
 func (m *IcarousKinematicBands) MarshalV1(buf []byte) []byte {
 	buf = marshalFloat32(buf, (m.Min1))

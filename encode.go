@@ -6,38 +6,38 @@ import (
 )
 
 // An Encoder can serialize Messages on a io.Writer
+// The Stream, Protocol, SeqNr and Compatflags only affect the packet encoding
+// of the next message and can be reset freely between calls to Encode.
 type Encoder struct {
 	// w is the io.Writer that Encode serializes to.  Each frame will be written in a single call to w.Write.
 	w io.Writer
-	// Protocol switches between the formats used when serializing a message.
-	// This can be reset freely between calls to Encode.
-	Protocol Protocol
-	// SeqNr counts the number of messages sent, the lower 8 bits are used to generate the packet sequence number.
-	// This can be reset freely between calls to Encode.
-	SeqNr uint64
-	// The value of CompatFlags will be copied to the 3rd byte of the V2 messages.
-	CompatFlags byte
 	// The System-, Component- and Link IDs that will be encoded in the packet.
 	Stream StreamID
+	// Protocol switches between the formats used when serializing a message.
+	// The default is V2 unsigned.
+	Protocol Protocol
+	// The value of CompatFlags will be copied to the 3rd byte of the V2 messages.
+	CompatFlags byte
+	// SeqNr counts the number of messages sent, the lower 8 bits are used to generate the packet sequence number.
+	SeqNr uint64
 }
 
-func NewEncoder(w io.Writer) *Encoder { return &Encoder{w: w} }
+func NewEncoder(w io.Writer, strId StreamID) *Encoder { return &Encoder{w: w, Stream: strId} }
 
 func (e *Encoder) Encode(m Message) error {
-	sysid, compid := e.Stream.SysID(), e.Stream.CompID()
 
-	buf := make([]byte, 279)
+	buf := make([]byte, 280)
 	mid := m.ID()
 	switch e.Protocol {
 	case V2:
-		buf = append(buf, 0xFD, 0, 0, e.CompatFlags, byte(e.SeqNr), sysid, compid, byte(mid), byte(mid>>8), byte(mid>>16))
+		buf = append(buf, 0xFD, 0, 0, e.CompatFlags, byte(e.SeqNr), e.Stream.SysID(), e.Stream.CompID(), byte(mid), byte(mid>>8), byte(mid>>16))
 	case V2Signed:
-		buf = append(buf, 0xFD, 0, 1, e.CompatFlags, byte(e.SeqNr), sysid, compid, byte(mid), byte(mid>>8), byte(mid>>16))
+		buf = append(buf, 0xFD, 0, 1, e.CompatFlags, byte(e.SeqNr), e.Stream.SysID(), e.Stream.CompID(), byte(mid), byte(mid>>8), byte(mid>>16))
 	case V1:
 		if mid > 255 {
 			return fmt.Errorf("Cannot encode %T as V1 frame, message id %d too large.", m, mid)
 		}
-		buf = append(buf, 0xFE, 0, byte(e.SeqNr), sysid, compid, byte(mid))
+		buf = append(buf, 0xFE, 0, byte(e.SeqNr), e.Stream.SysID(), e.Stream.CompID(), byte(mid))
 	}
 
 	mark := len(buf)
@@ -53,7 +53,7 @@ func (e *Encoder) Encode(m Message) error {
 	if len(buf)-mark > 255 {
 		return fmt.Errorf("Cannot encode %T, payload %d bytes > 255.", m, len(buf)-mark)
 	}
-	buf[1] = byte(len(buf) - mark)
+	buf[1] = byte(len(buf) - mark) // patch in payload length
 
 	x := crc16x25(0xffff)
 	x.Update(buf[1:])
@@ -67,6 +67,7 @@ func (e *Encoder) Encode(m Message) error {
 	}
 
 	_, err := e.w.Write(buf)
+	e.SeqNr++
 
 	return err
 }

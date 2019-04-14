@@ -46,7 +46,7 @@ const (
 ){{end}}
 
 {{if .Messages}}
-func New(mid uint32) mavlink.Message {
+func New(mid int) mavlink.Message {
 	switch mid {
 {{- range .Messages}}
 	case {{.ID}}: return &{{underscoreToCamel .Name}}{}
@@ -67,7 +67,7 @@ type {{$tpe}} struct {
 }
 
 func (m *{{$tpe}}) ID() int { return {{.ID}} }
-func (m *{{$tpe}}) CRCExtra() uint16 { return {{.CRCExtra}} }
+func (m *{{$tpe}}) CRCExtra() byte { return {{.CRCExtra}} }
 
 func (m *{{$tpe}}) MarshalV1(buf []byte) []byte {
 {{- range .BaseFields}}

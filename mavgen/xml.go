@@ -152,7 +152,7 @@ func (acc *crc16x25) Update(b []byte) uint16 {
 	return uint16(*acc)
 }
 
-func (m *Message) CRCExtra() uint16 {
+func (m *Message) CRCExtra() byte {
 	x := crc16x25(0xffff)
 	x.Update([]byte(m.Name))
 	x.Update([]byte(" "))
@@ -176,5 +176,5 @@ func (m *Message) CRCExtra() uint16 {
 			x.Update([]byte{byte(n)})
 		}
 	}
-	return uint16(x)
+	return byte(x) ^ byte(x>>8)
 }
