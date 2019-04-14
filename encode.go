@@ -17,11 +17,15 @@ type Encoder struct {
 	SeqNr uint64
 	// The value of CompatFlags will be copied to the 3rd byte of the V2 messages.
 	CompatFlags byte
+	// The System-, Component- and Link IDs that will be encoded in the packet.
+	Stream StreamID
 }
 
 func NewEncoder(w io.Writer) *Encoder { return &Encoder{w: w} }
 
-func (e *Encoder) Encode(sysid, compid byte, m Message) error {
+func (e *Encoder) Encode(m Message) error {
+	sysid, compid := e.Stream.SysID(), e.Stream.CompID()
+
 	buf := make([]byte, 279)
 	mid := m.ID()
 	switch e.Protocol {

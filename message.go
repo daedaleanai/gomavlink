@@ -1,5 +1,7 @@
 package mavlink
 
+import "fmt"
+
 type Protocol int
 
 const (
@@ -15,3 +17,14 @@ type Message interface {
 	MarshalV1([]byte) []byte
 	MarshalV2([]byte) []byte
 }
+
+// A StreamID encodes link/system/component bytes in a single uint.
+type StreamID uint32
+
+func Stream(sysId, compId, linkId byte) StreamID {
+	return StreamID(sysId)<<16 | StreamID(compId)<<8 | StreamID(linkId)
+}
+func (s StreamID) SysID() uint8   { return uint8(s >> 16) }
+func (s StreamID) CompID() uint8  { return uint8(s >> 8) }
+func (s StreamID) LinkID() uint8  { return uint8(s) }
+func (s StreamID) String() string { return fmt.Sprintf("(%d.%d.%d)", s.SysID(), s.CompID(), s.LinkID()) }

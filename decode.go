@@ -5,8 +5,9 @@ import "bufio"
 type Decoder struct {
 	r       bufio.Reader
 	dialect func(uint32) Message
-	SeqNr   uint64 // number of messages received
-	SeqGap  uint64 // number of messages apparently dropped
+	// TODO make this map[StreamID]struct{stats}
+	SeqNr  uint64 // number of messages received
+	SeqGap uint64 // number of messages apparently dropped
 }
 
 /*
@@ -17,7 +18,7 @@ func NewDecoder(r io.Reader, dialect func(uint32) Message) *Decoder {
 	return &Decoder{bufio.NewReader(r), dialect}
 }
 
-func (d *Decoder) Decode() (msg Message, sysid, compid byte, err error) {
+func (d *Decoder) Decode() (msg Message, str StreamID, err error) {
 
 }
 */
