@@ -37,6 +37,7 @@ func main() {
 	if err := xml.NewDecoder(f).Decode(&dialect); err != nil {
 		log.Fatal(err)
 	}
+	log.Printf("Top level %s dialect %d version %d", f.Name(), dialect.Dialect, dialect.Version)
 	f.Close()
 
 	for _, v := range dialect.Enums {
