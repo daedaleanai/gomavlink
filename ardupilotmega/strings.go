@@ -4,6 +4,20 @@ package ardupilotmega
 
 import "strconv"
 
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[ACCELCAL_VEHICLE_POS_LEVEL-1]
+	_ = x[ACCELCAL_VEHICLE_POS_LEFT-2]
+	_ = x[ACCELCAL_VEHICLE_POS_RIGHT-3]
+	_ = x[ACCELCAL_VEHICLE_POS_NOSEDOWN-4]
+	_ = x[ACCELCAL_VEHICLE_POS_NOSEUP-5]
+	_ = x[ACCELCAL_VEHICLE_POS_BACK-6]
+	_ = x[ACCELCAL_VEHICLE_POS_SUCCESS-16777215]
+	_ = x[ACCELCAL_VEHICLE_POS_FAILED-16777216]
+}
+
 const (
 	_AccelcalVehiclePos_name_0 = "ACCELCAL_VEHICLE_POS_LEVELACCELCAL_VEHICLE_POS_LEFTACCELCAL_VEHICLE_POS_RIGHTACCELCAL_VEHICLE_POS_NOSEDOWNACCELCAL_VEHICLE_POS_NOSEUPACCELCAL_VEHICLE_POS_BACK"
 	_AccelcalVehiclePos_name_1 = "ACCELCAL_VEHICLE_POS_SUCCESSACCELCAL_VEHICLE_POS_FAILED"
@@ -25,6 +39,171 @@ func (i AccelcalVehiclePos) String() string {
 	default:
 		return "AccelcalVehiclePos(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_CMD_DO_GRIPPER-211]
+	_ = x[MAV_CMD_DO_AUTOTUNE_ENABLE-212]
+	_ = x[MAV_CMD_NAV_ALTITUDE_WAIT-83]
+	_ = x[MAV_CMD_POWER_OFF_INITIATED-42000]
+	_ = x[MAV_CMD_SOLO_BTN_FLY_CLICK-42001]
+	_ = x[MAV_CMD_SOLO_BTN_FLY_HOLD-42002]
+	_ = x[MAV_CMD_SOLO_BTN_PAUSE_CLICK-42003]
+	_ = x[MAV_CMD_FIXED_MAG_CAL-42004]
+	_ = x[MAV_CMD_FIXED_MAG_CAL_FIELD-42005]
+	_ = x[MAV_CMD_DO_START_MAG_CAL-42424]
+	_ = x[MAV_CMD_DO_ACCEPT_MAG_CAL-42425]
+	_ = x[MAV_CMD_DO_CANCEL_MAG_CAL-42426]
+	_ = x[MAV_CMD_ACCELCAL_VEHICLE_POS-42429]
+	_ = x[MAV_CMD_DO_SEND_BANNER-42428]
+	_ = x[MAV_CMD_SET_FACTORY_TEST_MODE-42427]
+	_ = x[MAV_CMD_GIMBAL_RESET-42501]
+	_ = x[MAV_CMD_GIMBAL_AXIS_CALIBRATION_STATUS-42502]
+	_ = x[MAV_CMD_GIMBAL_REQUEST_AXIS_CALIBRATION-42503]
+	_ = x[MAV_CMD_GIMBAL_FULL_RESET-42505]
+	_ = x[MAV_CMD_DO_WINCH-42600]
+	_ = x[MAV_CMD_FLASH_BOOTLOADER-42650]
+	_ = x[MAV_CMD_NAV_WAYPOINT-16]
+	_ = x[MAV_CMD_NAV_LOITER_UNLIM-17]
+	_ = x[MAV_CMD_NAV_LOITER_TURNS-18]
+	_ = x[MAV_CMD_NAV_LOITER_TIME-19]
+	_ = x[MAV_CMD_NAV_RETURN_TO_LAUNCH-20]
+	_ = x[MAV_CMD_NAV_LAND-21]
+	_ = x[MAV_CMD_NAV_TAKEOFF-22]
+	_ = x[MAV_CMD_NAV_LAND_LOCAL-23]
+	_ = x[MAV_CMD_NAV_TAKEOFF_LOCAL-24]
+	_ = x[MAV_CMD_NAV_FOLLOW-25]
+	_ = x[MAV_CMD_NAV_CONTINUE_AND_CHANGE_ALT-30]
+	_ = x[MAV_CMD_NAV_LOITER_TO_ALT-31]
+	_ = x[MAV_CMD_DO_FOLLOW-32]
+	_ = x[MAV_CMD_DO_FOLLOW_REPOSITION-33]
+	_ = x[MAV_CMD_DO_ORBIT-34]
+	_ = x[MAV_CMD_NAV_ROI-80]
+	_ = x[MAV_CMD_NAV_PATHPLANNING-81]
+	_ = x[MAV_CMD_NAV_SPLINE_WAYPOINT-82]
+	_ = x[MAV_CMD_NAV_VTOL_TAKEOFF-84]
+	_ = x[MAV_CMD_NAV_VTOL_LAND-85]
+	_ = x[MAV_CMD_NAV_GUIDED_ENABLE-92]
+	_ = x[MAV_CMD_NAV_DELAY-93]
+	_ = x[MAV_CMD_NAV_PAYLOAD_PLACE-94]
+	_ = x[MAV_CMD_NAV_LAST-95]
+	_ = x[MAV_CMD_CONDITION_DELAY-112]
+	_ = x[MAV_CMD_CONDITION_CHANGE_ALT-113]
+	_ = x[MAV_CMD_CONDITION_DISTANCE-114]
+	_ = x[MAV_CMD_CONDITION_YAW-115]
+	_ = x[MAV_CMD_CONDITION_LAST-159]
+	_ = x[MAV_CMD_DO_SET_MODE-176]
+	_ = x[MAV_CMD_DO_JUMP-177]
+	_ = x[MAV_CMD_DO_CHANGE_SPEED-178]
+	_ = x[MAV_CMD_DO_SET_HOME-179]
+	_ = x[MAV_CMD_DO_SET_PARAMETER-180]
+	_ = x[MAV_CMD_DO_SET_RELAY-181]
+	_ = x[MAV_CMD_DO_REPEAT_RELAY-182]
+	_ = x[MAV_CMD_DO_SET_SERVO-183]
+	_ = x[MAV_CMD_DO_REPEAT_SERVO-184]
+	_ = x[MAV_CMD_DO_FLIGHTTERMINATION-185]
+	_ = x[MAV_CMD_DO_CHANGE_ALTITUDE-186]
+	_ = x[MAV_CMD_DO_LAND_START-189]
+	_ = x[MAV_CMD_DO_RALLY_LAND-190]
+	_ = x[MAV_CMD_DO_GO_AROUND-191]
+	_ = x[MAV_CMD_DO_REPOSITION-192]
+	_ = x[MAV_CMD_DO_PAUSE_CONTINUE-193]
+	_ = x[MAV_CMD_DO_SET_REVERSE-194]
+	_ = x[MAV_CMD_DO_SET_ROI_LOCATION-195]
+	_ = x[MAV_CMD_DO_SET_ROI_WPNEXT_OFFSET-196]
+	_ = x[MAV_CMD_DO_SET_ROI_NONE-197]
+	_ = x[MAV_CMD_DO_CONTROL_VIDEO-200]
+	_ = x[MAV_CMD_DO_SET_ROI-201]
+	_ = x[MAV_CMD_DO_DIGICAM_CONFIGURE-202]
+	_ = x[MAV_CMD_DO_DIGICAM_CONTROL-203]
+	_ = x[MAV_CMD_DO_MOUNT_CONFIGURE-204]
+	_ = x[MAV_CMD_DO_MOUNT_CONTROL-205]
+	_ = x[MAV_CMD_DO_SET_CAM_TRIGG_DIST-206]
+	_ = x[MAV_CMD_DO_FENCE_ENABLE-207]
+	_ = x[MAV_CMD_DO_PARACHUTE-208]
+	_ = x[MAV_CMD_DO_MOTOR_TEST-209]
+	_ = x[MAV_CMD_DO_INVERTED_FLIGHT-210]
+	_ = x[MAV_CMD_NAV_SET_YAW_SPEED-213]
+	_ = x[MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL-214]
+	_ = x[MAV_CMD_DO_MOUNT_CONTROL_QUAT-220]
+	_ = x[MAV_CMD_DO_GUIDED_MASTER-221]
+	_ = x[MAV_CMD_DO_GUIDED_LIMITS-222]
+	_ = x[MAV_CMD_DO_ENGINE_CONTROL-223]
+	_ = x[MAV_CMD_DO_SET_MISSION_CURRENT-224]
+	_ = x[MAV_CMD_DO_LAST-240]
+	_ = x[MAV_CMD_PREFLIGHT_CALIBRATION-241]
+	_ = x[MAV_CMD_PREFLIGHT_SET_SENSOR_OFFSETS-242]
+	_ = x[MAV_CMD_PREFLIGHT_UAVCAN-243]
+	_ = x[MAV_CMD_PREFLIGHT_STORAGE-245]
+	_ = x[MAV_CMD_PREFLIGHT_REBOOT_SHUTDOWN-246]
+	_ = x[MAV_CMD_OVERRIDE_GOTO-252]
+	_ = x[MAV_CMD_MISSION_START-300]
+	_ = x[MAV_CMD_COMPONENT_ARM_DISARM-400]
+	_ = x[MAV_CMD_GET_HOME_POSITION-410]
+	_ = x[MAV_CMD_START_RX_PAIR-500]
+	_ = x[MAV_CMD_GET_MESSAGE_INTERVAL-510]
+	_ = x[MAV_CMD_SET_MESSAGE_INTERVAL-511]
+	_ = x[MAV_CMD_REQUEST_MESSAGE-512]
+	_ = x[MAV_CMD_REQUEST_PROTOCOL_VERSION-519]
+	_ = x[MAV_CMD_REQUEST_AUTOPILOT_CAPABILITIES-520]
+	_ = x[MAV_CMD_REQUEST_CAMERA_INFORMATION-521]
+	_ = x[MAV_CMD_REQUEST_CAMERA_SETTINGS-522]
+	_ = x[MAV_CMD_REQUEST_STORAGE_INFORMATION-525]
+	_ = x[MAV_CMD_STORAGE_FORMAT-526]
+	_ = x[MAV_CMD_REQUEST_CAMERA_CAPTURE_STATUS-527]
+	_ = x[MAV_CMD_REQUEST_FLIGHT_INFORMATION-528]
+	_ = x[MAV_CMD_RESET_CAMERA_SETTINGS-529]
+	_ = x[MAV_CMD_SET_CAMERA_MODE-530]
+	_ = x[MAV_CMD_SET_CAMERA_ZOOM-531]
+	_ = x[MAV_CMD_SET_CAMERA_FOCUS-532]
+	_ = x[MAV_CMD_JUMP_TAG-600]
+	_ = x[MAV_CMD_DO_JUMP_TAG-601]
+	_ = x[MAV_CMD_IMAGE_START_CAPTURE-2000]
+	_ = x[MAV_CMD_IMAGE_STOP_CAPTURE-2001]
+	_ = x[MAV_CMD_REQUEST_CAMERA_IMAGE_CAPTURE-2002]
+	_ = x[MAV_CMD_DO_TRIGGER_CONTROL-2003]
+	_ = x[MAV_CMD_VIDEO_START_CAPTURE-2500]
+	_ = x[MAV_CMD_VIDEO_STOP_CAPTURE-2501]
+	_ = x[MAV_CMD_VIDEO_START_STREAMING-2502]
+	_ = x[MAV_CMD_VIDEO_STOP_STREAMING-2503]
+	_ = x[MAV_CMD_REQUEST_VIDEO_STREAM_INFORMATION-2504]
+	_ = x[MAV_CMD_REQUEST_VIDEO_STREAM_STATUS-2505]
+	_ = x[MAV_CMD_LOGGING_START-2510]
+	_ = x[MAV_CMD_LOGGING_STOP-2511]
+	_ = x[MAV_CMD_AIRFRAME_CONFIGURATION-2520]
+	_ = x[MAV_CMD_CONTROL_HIGH_LATENCY-2600]
+	_ = x[MAV_CMD_PANORAMA_CREATE-2800]
+	_ = x[MAV_CMD_DO_VTOL_TRANSITION-3000]
+	_ = x[MAV_CMD_ARM_AUTHORIZATION_REQUEST-3001]
+	_ = x[MAV_CMD_SET_GUIDED_SUBMODE_STANDARD-4000]
+	_ = x[MAV_CMD_SET_GUIDED_SUBMODE_CIRCLE-4001]
+	_ = x[MAV_CMD_CONDITION_GATE-4501]
+	_ = x[MAV_CMD_NAV_FENCE_RETURN_POINT-5000]
+	_ = x[MAV_CMD_NAV_FENCE_POLYGON_VERTEX_INCLUSION-5001]
+	_ = x[MAV_CMD_NAV_FENCE_POLYGON_VERTEX_EXCLUSION-5002]
+	_ = x[MAV_CMD_NAV_FENCE_CIRCLE_INCLUSION-5003]
+	_ = x[MAV_CMD_NAV_FENCE_CIRCLE_EXCLUSION-5004]
+	_ = x[MAV_CMD_NAV_RALLY_POINT-5100]
+	_ = x[MAV_CMD_UAVCAN_GET_NODE_INFO-5200]
+	_ = x[MAV_CMD_PAYLOAD_PREPARE_DEPLOY-30001]
+	_ = x[MAV_CMD_PAYLOAD_CONTROL_DEPLOY-30002]
+	_ = x[MAV_CMD_WAYPOINT_USER_1-31000]
+	_ = x[MAV_CMD_WAYPOINT_USER_2-31001]
+	_ = x[MAV_CMD_WAYPOINT_USER_3-31002]
+	_ = x[MAV_CMD_WAYPOINT_USER_4-31003]
+	_ = x[MAV_CMD_WAYPOINT_USER_5-31004]
+	_ = x[MAV_CMD_SPATIAL_USER_1-31005]
+	_ = x[MAV_CMD_SPATIAL_USER_2-31006]
+	_ = x[MAV_CMD_SPATIAL_USER_3-31007]
+	_ = x[MAV_CMD_SPATIAL_USER_4-31008]
+	_ = x[MAV_CMD_SPATIAL_USER_5-31009]
+	_ = x[MAV_CMD_USER_1-31010]
+	_ = x[MAV_CMD_USER_2-31011]
+	_ = x[MAV_CMD_USER_3-31012]
+	_ = x[MAV_CMD_USER_4-31013]
+	_ = x[MAV_CMD_USER_5-31014]
 }
 
 const _MavCmd_name = "MAV_CMD_NAV_WAYPOINTMAV_CMD_NAV_LOITER_UNLIMMAV_CMD_NAV_LOITER_TURNSMAV_CMD_NAV_LOITER_TIMEMAV_CMD_NAV_RETURN_TO_LAUNCHMAV_CMD_NAV_LANDMAV_CMD_NAV_TAKEOFFMAV_CMD_NAV_LAND_LOCALMAV_CMD_NAV_TAKEOFF_LOCALMAV_CMD_NAV_FOLLOWMAV_CMD_NAV_CONTINUE_AND_CHANGE_ALTMAV_CMD_NAV_LOITER_TO_ALTMAV_CMD_DO_FOLLOWMAV_CMD_DO_FOLLOW_REPOSITIONMAV_CMD_DO_ORBITMAV_CMD_NAV_ROIMAV_CMD_NAV_PATHPLANNINGMAV_CMD_NAV_SPLINE_WAYPOINTMAV_CMD_NAV_ALTITUDE_WAITMAV_CMD_NAV_VTOL_TAKEOFFMAV_CMD_NAV_VTOL_LANDMAV_CMD_NAV_GUIDED_ENABLEMAV_CMD_NAV_DELAYMAV_CMD_NAV_PAYLOAD_PLACEMAV_CMD_NAV_LASTMAV_CMD_CONDITION_DELAYMAV_CMD_CONDITION_CHANGE_ALTMAV_CMD_CONDITION_DISTANCEMAV_CMD_CONDITION_YAWMAV_CMD_CONDITION_LASTMAV_CMD_DO_SET_MODEMAV_CMD_DO_JUMPMAV_CMD_DO_CHANGE_SPEEDMAV_CMD_DO_SET_HOMEMAV_CMD_DO_SET_PARAMETERMAV_CMD_DO_SET_RELAYMAV_CMD_DO_REPEAT_RELAYMAV_CMD_DO_SET_SERVOMAV_CMD_DO_REPEAT_SERVOMAV_CMD_DO_FLIGHTTERMINATIONMAV_CMD_DO_CHANGE_ALTITUDEMAV_CMD_DO_LAND_STARTMAV_CMD_DO_RALLY_LANDMAV_CMD_DO_GO_AROUNDMAV_CMD_DO_REPOSITIONMAV_CMD_DO_PAUSE_CONTINUEMAV_CMD_DO_SET_REVERSEMAV_CMD_DO_SET_ROI_LOCATIONMAV_CMD_DO_SET_ROI_WPNEXT_OFFSETMAV_CMD_DO_SET_ROI_NONEMAV_CMD_DO_CONTROL_VIDEOMAV_CMD_DO_SET_ROIMAV_CMD_DO_DIGICAM_CONFIGUREMAV_CMD_DO_DIGICAM_CONTROLMAV_CMD_DO_MOUNT_CONFIGUREMAV_CMD_DO_MOUNT_CONTROLMAV_CMD_DO_SET_CAM_TRIGG_DISTMAV_CMD_DO_FENCE_ENABLEMAV_CMD_DO_PARACHUTEMAV_CMD_DO_MOTOR_TESTMAV_CMD_DO_INVERTED_FLIGHTMAV_CMD_DO_GRIPPERMAV_CMD_DO_AUTOTUNE_ENABLEMAV_CMD_NAV_SET_YAW_SPEEDMAV_CMD_DO_SET_CAM_TRIGG_INTERVALMAV_CMD_DO_MOUNT_CONTROL_QUATMAV_CMD_DO_GUIDED_MASTERMAV_CMD_DO_GUIDED_LIMITSMAV_CMD_DO_ENGINE_CONTROLMAV_CMD_DO_SET_MISSION_CURRENTMAV_CMD_DO_LASTMAV_CMD_PREFLIGHT_CALIBRATIONMAV_CMD_PREFLIGHT_SET_SENSOR_OFFSETSMAV_CMD_PREFLIGHT_UAVCANMAV_CMD_PREFLIGHT_STORAGEMAV_CMD_PREFLIGHT_REBOOT_SHUTDOWNMAV_CMD_OVERRIDE_GOTOMAV_CMD_MISSION_STARTMAV_CMD_COMPONENT_ARM_DISARMMAV_CMD_GET_HOME_POSITIONMAV_CMD_START_RX_PAIRMAV_CMD_GET_MESSAGE_INTERVALMAV_CMD_SET_MESSAGE_INTERVALMAV_CMD_REQUEST_MESSAGEMAV_CMD_REQUEST_PROTOCOL_VERSIONMAV_CMD_REQUEST_AUTOPILOT_CAPABILITIESMAV_CMD_REQUEST_CAMERA_INFORMATIONMAV_CMD_REQUEST_CAMERA_SETTINGSMAV_CMD_REQUEST_STORAGE_INFORMATIONMAV_CMD_STORAGE_FORMATMAV_CMD_REQUEST_CAMERA_CAPTURE_STATUSMAV_CMD_REQUEST_FLIGHT_INFORMATIONMAV_CMD_RESET_CAMERA_SETTINGSMAV_CMD_SET_CAMERA_MODEMAV_CMD_SET_CAMERA_ZOOMMAV_CMD_SET_CAMERA_FOCUSMAV_CMD_JUMP_TAGMAV_CMD_DO_JUMP_TAGMAV_CMD_IMAGE_START_CAPTUREMAV_CMD_IMAGE_STOP_CAPTUREMAV_CMD_REQUEST_CAMERA_IMAGE_CAPTUREMAV_CMD_DO_TRIGGER_CONTROLMAV_CMD_VIDEO_START_CAPTUREMAV_CMD_VIDEO_STOP_CAPTUREMAV_CMD_VIDEO_START_STREAMINGMAV_CMD_VIDEO_STOP_STREAMINGMAV_CMD_REQUEST_VIDEO_STREAM_INFORMATIONMAV_CMD_REQUEST_VIDEO_STREAM_STATUSMAV_CMD_LOGGING_STARTMAV_CMD_LOGGING_STOPMAV_CMD_AIRFRAME_CONFIGURATIONMAV_CMD_CONTROL_HIGH_LATENCYMAV_CMD_PANORAMA_CREATEMAV_CMD_DO_VTOL_TRANSITIONMAV_CMD_ARM_AUTHORIZATION_REQUESTMAV_CMD_SET_GUIDED_SUBMODE_STANDARDMAV_CMD_SET_GUIDED_SUBMODE_CIRCLEMAV_CMD_CONDITION_GATEMAV_CMD_NAV_FENCE_RETURN_POINTMAV_CMD_NAV_FENCE_POLYGON_VERTEX_INCLUSIONMAV_CMD_NAV_FENCE_POLYGON_VERTEX_EXCLUSIONMAV_CMD_NAV_FENCE_CIRCLE_INCLUSIONMAV_CMD_NAV_FENCE_CIRCLE_EXCLUSIONMAV_CMD_NAV_RALLY_POINTMAV_CMD_UAVCAN_GET_NODE_INFOMAV_CMD_PAYLOAD_PREPARE_DEPLOYMAV_CMD_PAYLOAD_CONTROL_DEPLOYMAV_CMD_WAYPOINT_USER_1MAV_CMD_WAYPOINT_USER_2MAV_CMD_WAYPOINT_USER_3MAV_CMD_WAYPOINT_USER_4MAV_CMD_WAYPOINT_USER_5MAV_CMD_SPATIAL_USER_1MAV_CMD_SPATIAL_USER_2MAV_CMD_SPATIAL_USER_3MAV_CMD_SPATIAL_USER_4MAV_CMD_SPATIAL_USER_5MAV_CMD_USER_1MAV_CMD_USER_2MAV_CMD_USER_3MAV_CMD_USER_4MAV_CMD_USER_5MAV_CMD_POWER_OFF_INITIATEDMAV_CMD_SOLO_BTN_FLY_CLICKMAV_CMD_SOLO_BTN_FLY_HOLDMAV_CMD_SOLO_BTN_PAUSE_CLICKMAV_CMD_FIXED_MAG_CALMAV_CMD_FIXED_MAG_CAL_FIELDMAV_CMD_DO_START_MAG_CALMAV_CMD_DO_ACCEPT_MAG_CALMAV_CMD_DO_CANCEL_MAG_CALMAV_CMD_SET_FACTORY_TEST_MODEMAV_CMD_DO_SEND_BANNERMAV_CMD_ACCELCAL_VEHICLE_POSMAV_CMD_GIMBAL_RESETMAV_CMD_GIMBAL_AXIS_CALIBRATION_STATUSMAV_CMD_GIMBAL_REQUEST_AXIS_CALIBRATIONMAV_CMD_GIMBAL_FULL_RESETMAV_CMD_DO_WINCHMAV_CMD_FLASH_BOOTLOADER"
@@ -198,6 +377,17 @@ func (i MavCmd) String() string {
 	}
 	return "MavCmd(" + strconv.FormatInt(int64(i), 10) + ")"
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[LIMITS_INIT-0]
+	_ = x[LIMITS_DISABLED-1]
+	_ = x[LIMITS_ENABLED-2]
+	_ = x[LIMITS_TRIGGERED-3]
+	_ = x[LIMITS_RECOVERING-4]
+	_ = x[LIMITS_RECOVERED-5]
+}
 
 const _LimitsState_name = "LIMITS_INITLIMITS_DISABLEDLIMITS_ENABLEDLIMITS_TRIGGEREDLIMITS_RECOVERINGLIMITS_RECOVERED"
 
@@ -208,6 +398,14 @@ func (i LimitsState) String() string {
 		return "LimitsState(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _LimitsState_name[_LimitsState_index[i]:_LimitsState_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[LIMIT_GPSLOCK-1]
+	_ = x[LIMIT_GEOFENCE-2]
+	_ = x[LIMIT_ALTITUDE-4]
 }
 
 const (
@@ -230,6 +428,13 @@ func (i LimitModule) String() string {
 		return "LimitModule(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[FAVORABLE_WIND-1]
+	_ = x[LAND_IMMEDIATELY-2]
+}
 
 const _RallyFlags_name = "FAVORABLE_WINDLAND_IMMEDIATELY"
 
@@ -242,6 +447,13 @@ func (i RallyFlags) String() string {
 	}
 	return _RallyFlags_name[_RallyFlags_index[i]:_RallyFlags_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GRIPPER_ACTION_RELEASE-0]
+	_ = x[GRIPPER_ACTION_GRAB-1]
+}
 
 const _GripperActions_name = "GRIPPER_ACTION_RELEASEGRIPPER_ACTION_GRAB"
 
@@ -252,6 +464,14 @@ func (i GripperActions) String() string {
 		return "GripperActions(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _GripperActions_name[_GripperActions_index[i]:_GripperActions_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[WINCH_RELAXED-0]
+	_ = x[WINCH_RELATIVE_LENGTH_CONTROL-1]
+	_ = x[WINCH_RATE_CONTROL-2]
 }
 
 const _WinchActions_name = "WINCH_RELAXEDWINCH_RELATIVE_LENGTH_CONTROLWINCH_RATE_CONTROL"
@@ -264,6 +484,18 @@ func (i WinchActions) String() string {
 	}
 	return _WinchActions_name[_WinchActions_index[i]:_WinchActions_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[CAMERA_STATUS_TYPE_HEARTBEAT-0]
+	_ = x[CAMERA_STATUS_TYPE_TRIGGER-1]
+	_ = x[CAMERA_STATUS_TYPE_DISCONNECT-2]
+	_ = x[CAMERA_STATUS_TYPE_ERROR-3]
+	_ = x[CAMERA_STATUS_TYPE_LOWBATT-4]
+	_ = x[CAMERA_STATUS_TYPE_LOWSTORE-5]
+	_ = x[CAMERA_STATUS_TYPE_LOWSTOREV-6]
+}
 
 const _CameraStatusTypes_name = "CAMERA_STATUS_TYPE_HEARTBEATCAMERA_STATUS_TYPE_TRIGGERCAMERA_STATUS_TYPE_DISCONNECTCAMERA_STATUS_TYPE_ERRORCAMERA_STATUS_TYPE_LOWBATTCAMERA_STATUS_TYPE_LOWSTORECAMERA_STATUS_TYPE_LOWSTOREV"
 
@@ -274,6 +506,16 @@ func (i CameraStatusTypes) String() string {
 		return "CameraStatusTypes(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _CameraStatusTypes_name[_CameraStatusTypes_index[i]:_CameraStatusTypes_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[CAMERA_FEEDBACK_PHOTO-0]
+	_ = x[CAMERA_FEEDBACK_VIDEO-1]
+	_ = x[CAMERA_FEEDBACK_BADEXPOSURE-2]
+	_ = x[CAMERA_FEEDBACK_CLOSEDLOOP-3]
+	_ = x[CAMERA_FEEDBACK_OPENLOOP-4]
 }
 
 const _CameraFeedbackFlags_name = "CAMERA_FEEDBACK_PHOTOCAMERA_FEEDBACK_VIDEOCAMERA_FEEDBACK_BADEXPOSURECAMERA_FEEDBACK_CLOSEDLOOPCAMERA_FEEDBACK_OPENLOOP"
@@ -286,6 +528,18 @@ func (i CameraFeedbackFlags) String() string {
 	}
 	return _CameraFeedbackFlags_name[_CameraFeedbackFlags_index[i]:_CameraFeedbackFlags_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_MODE_GIMBAL_UNINITIALIZED-0]
+	_ = x[MAV_MODE_GIMBAL_CALIBRATING_PITCH-1]
+	_ = x[MAV_MODE_GIMBAL_CALIBRATING_ROLL-2]
+	_ = x[MAV_MODE_GIMBAL_CALIBRATING_YAW-3]
+	_ = x[MAV_MODE_GIMBAL_INITIALIZED-4]
+	_ = x[MAV_MODE_GIMBAL_ACTIVE-5]
+	_ = x[MAV_MODE_GIMBAL_RATE_CMD_TIMEOUT-6]
+}
 
 const _MavModeGimbal_name = "MAV_MODE_GIMBAL_UNINITIALIZEDMAV_MODE_GIMBAL_CALIBRATING_PITCHMAV_MODE_GIMBAL_CALIBRATING_ROLLMAV_MODE_GIMBAL_CALIBRATING_YAWMAV_MODE_GIMBAL_INITIALIZEDMAV_MODE_GIMBAL_ACTIVEMAV_MODE_GIMBAL_RATE_CMD_TIMEOUT"
 
@@ -296,6 +550,14 @@ func (i MavModeGimbal) String() string {
 		return "MavModeGimbal(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _MavModeGimbal_name[_MavModeGimbal_index[i]:_MavModeGimbal_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GIMBAL_AXIS_YAW-0]
+	_ = x[GIMBAL_AXIS_PITCH-1]
+	_ = x[GIMBAL_AXIS_ROLL-2]
 }
 
 const _GimbalAxis_name = "GIMBAL_AXIS_YAWGIMBAL_AXIS_PITCHGIMBAL_AXIS_ROLL"
@@ -308,6 +570,14 @@ func (i GimbalAxis) String() string {
 	}
 	return _GimbalAxis_name[_GimbalAxis_index[i]:_GimbalAxis_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GIMBAL_AXIS_CALIBRATION_STATUS_IN_PROGRESS-0]
+	_ = x[GIMBAL_AXIS_CALIBRATION_STATUS_SUCCEEDED-1]
+	_ = x[GIMBAL_AXIS_CALIBRATION_STATUS_FAILED-2]
+}
 
 const _GimbalAxisCalibrationStatus_name = "GIMBAL_AXIS_CALIBRATION_STATUS_IN_PROGRESSGIMBAL_AXIS_CALIBRATION_STATUS_SUCCEEDEDGIMBAL_AXIS_CALIBRATION_STATUS_FAILED"
 
@@ -318,6 +588,14 @@ func (i GimbalAxisCalibrationStatus) String() string {
 		return "GimbalAxisCalibrationStatus(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _GimbalAxisCalibrationStatus_name[_GimbalAxisCalibrationStatus_index[i]:_GimbalAxisCalibrationStatus_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GIMBAL_AXIS_CALIBRATION_REQUIRED_UNKNOWN-0]
+	_ = x[GIMBAL_AXIS_CALIBRATION_REQUIRED_TRUE-1]
+	_ = x[GIMBAL_AXIS_CALIBRATION_REQUIRED_FALSE-2]
 }
 
 const _GimbalAxisCalibrationRequired_name = "GIMBAL_AXIS_CALIBRATION_REQUIRED_UNKNOWNGIMBAL_AXIS_CALIBRATION_REQUIRED_TRUEGIMBAL_AXIS_CALIBRATION_REQUIRED_FALSE"
@@ -330,6 +608,15 @@ func (i GimbalAxisCalibrationRequired) String() string {
 	}
 	return _GimbalAxisCalibrationRequired_name[_GimbalAxisCalibrationRequired_index[i]:_GimbalAxisCalibrationRequired_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GOPRO_HEARTBEAT_STATUS_DISCONNECTED-0]
+	_ = x[GOPRO_HEARTBEAT_STATUS_INCOMPATIBLE-1]
+	_ = x[GOPRO_HEARTBEAT_STATUS_CONNECTED-2]
+	_ = x[GOPRO_HEARTBEAT_STATUS_ERROR-3]
+}
 
 const _GoproHeartbeatStatus_name = "GOPRO_HEARTBEAT_STATUS_DISCONNECTEDGOPRO_HEARTBEAT_STATUS_INCOMPATIBLEGOPRO_HEARTBEAT_STATUS_CONNECTEDGOPRO_HEARTBEAT_STATUS_ERROR"
 
@@ -340,6 +627,12 @@ func (i GoproHeartbeatStatus) String() string {
 		return "GoproHeartbeatStatus(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _GoproHeartbeatStatus_name[_GoproHeartbeatStatus_index[i]:_GoproHeartbeatStatus_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GOPRO_FLAG_RECORDING-1]
 }
 
 const _GoproHeartbeatFlags_name = "GOPRO_FLAG_RECORDING"
@@ -353,6 +646,13 @@ func (i GoproHeartbeatFlags) String() string {
 	}
 	return _GoproHeartbeatFlags_name[_GoproHeartbeatFlags_index[i]:_GoproHeartbeatFlags_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GOPRO_REQUEST_SUCCESS-0]
+	_ = x[GOPRO_REQUEST_FAILED-1]
+}
 
 const _GoproRequestStatus_name = "GOPRO_REQUEST_SUCCESSGOPRO_REQUEST_FAILED"
 
@@ -364,6 +664,28 @@ func (i GoproRequestStatus) String() string {
 	}
 	return _GoproRequestStatus_name[_GoproRequestStatus_index[i]:_GoproRequestStatus_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GOPRO_COMMAND_POWER-0]
+	_ = x[GOPRO_COMMAND_CAPTURE_MODE-1]
+	_ = x[GOPRO_COMMAND_SHUTTER-2]
+	_ = x[GOPRO_COMMAND_BATTERY-3]
+	_ = x[GOPRO_COMMAND_MODEL-4]
+	_ = x[GOPRO_COMMAND_VIDEO_SETTINGS-5]
+	_ = x[GOPRO_COMMAND_LOW_LIGHT-6]
+	_ = x[GOPRO_COMMAND_PHOTO_RESOLUTION-7]
+	_ = x[GOPRO_COMMAND_PHOTO_BURST_RATE-8]
+	_ = x[GOPRO_COMMAND_PROTUNE-9]
+	_ = x[GOPRO_COMMAND_PROTUNE_WHITE_BALANCE-10]
+	_ = x[GOPRO_COMMAND_PROTUNE_COLOUR-11]
+	_ = x[GOPRO_COMMAND_PROTUNE_GAIN-12]
+	_ = x[GOPRO_COMMAND_PROTUNE_SHARPNESS-13]
+	_ = x[GOPRO_COMMAND_PROTUNE_EXPOSURE-14]
+	_ = x[GOPRO_COMMAND_TIME-15]
+	_ = x[GOPRO_COMMAND_CHARGING-16]
+}
 
 const _GoproCommand_name = "GOPRO_COMMAND_POWERGOPRO_COMMAND_CAPTURE_MODEGOPRO_COMMAND_SHUTTERGOPRO_COMMAND_BATTERYGOPRO_COMMAND_MODELGOPRO_COMMAND_VIDEO_SETTINGSGOPRO_COMMAND_LOW_LIGHTGOPRO_COMMAND_PHOTO_RESOLUTIONGOPRO_COMMAND_PHOTO_BURST_RATEGOPRO_COMMAND_PROTUNEGOPRO_COMMAND_PROTUNE_WHITE_BALANCEGOPRO_COMMAND_PROTUNE_COLOURGOPRO_COMMAND_PROTUNE_GAINGOPRO_COMMAND_PROTUNE_SHARPNESSGOPRO_COMMAND_PROTUNE_EXPOSUREGOPRO_COMMAND_TIMEGOPRO_COMMAND_CHARGING"
 
@@ -374,6 +696,19 @@ func (i GoproCommand) String() string {
 		return "GoproCommand(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _GoproCommand_name[_GoproCommand_index[i]:_GoproCommand_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GOPRO_CAPTURE_MODE_VIDEO-0]
+	_ = x[GOPRO_CAPTURE_MODE_PHOTO-1]
+	_ = x[GOPRO_CAPTURE_MODE_BURST-2]
+	_ = x[GOPRO_CAPTURE_MODE_TIME_LAPSE-3]
+	_ = x[GOPRO_CAPTURE_MODE_MULTI_SHOT-4]
+	_ = x[GOPRO_CAPTURE_MODE_PLAYBACK-5]
+	_ = x[GOPRO_CAPTURE_MODE_SETUP-6]
+	_ = x[GOPRO_CAPTURE_MODE_UNKNOWN-255]
 }
 
 const (
@@ -395,6 +730,25 @@ func (i GoproCaptureMode) String() string {
 		return "GoproCaptureMode(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GOPRO_RESOLUTION_480P-0]
+	_ = x[GOPRO_RESOLUTION_720P-1]
+	_ = x[GOPRO_RESOLUTION_960P-2]
+	_ = x[GOPRO_RESOLUTION_1080P-3]
+	_ = x[GOPRO_RESOLUTION_1440P-4]
+	_ = x[GOPRO_RESOLUTION_2_7K_17_9-5]
+	_ = x[GOPRO_RESOLUTION_2_7K_16_9-6]
+	_ = x[GOPRO_RESOLUTION_2_7K_4_3-7]
+	_ = x[GOPRO_RESOLUTION_4K_16_9-8]
+	_ = x[GOPRO_RESOLUTION_4K_17_9-9]
+	_ = x[GOPRO_RESOLUTION_720P_SUPERVIEW-10]
+	_ = x[GOPRO_RESOLUTION_1080P_SUPERVIEW-11]
+	_ = x[GOPRO_RESOLUTION_2_7K_SUPERVIEW-12]
+	_ = x[GOPRO_RESOLUTION_4K_SUPERVIEW-13]
+}
 
 const _GoproResolution_name = "GOPRO_RESOLUTION_480PGOPRO_RESOLUTION_720PGOPRO_RESOLUTION_960PGOPRO_RESOLUTION_1080PGOPRO_RESOLUTION_1440PGOPRO_RESOLUTION_2_7K_17_9GOPRO_RESOLUTION_2_7K_16_9GOPRO_RESOLUTION_2_7K_4_3GOPRO_RESOLUTION_4K_16_9GOPRO_RESOLUTION_4K_17_9GOPRO_RESOLUTION_720P_SUPERVIEWGOPRO_RESOLUTION_1080P_SUPERVIEWGOPRO_RESOLUTION_2_7K_SUPERVIEWGOPRO_RESOLUTION_4K_SUPERVIEW"
 
@@ -405,6 +759,25 @@ func (i GoproResolution) String() string {
 		return "GoproResolution(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _GoproResolution_name[_GoproResolution_index[i]:_GoproResolution_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GOPRO_FRAME_RATE_12-0]
+	_ = x[GOPRO_FRAME_RATE_15-1]
+	_ = x[GOPRO_FRAME_RATE_24-2]
+	_ = x[GOPRO_FRAME_RATE_25-3]
+	_ = x[GOPRO_FRAME_RATE_30-4]
+	_ = x[GOPRO_FRAME_RATE_48-5]
+	_ = x[GOPRO_FRAME_RATE_50-6]
+	_ = x[GOPRO_FRAME_RATE_60-7]
+	_ = x[GOPRO_FRAME_RATE_80-8]
+	_ = x[GOPRO_FRAME_RATE_90-9]
+	_ = x[GOPRO_FRAME_RATE_100-10]
+	_ = x[GOPRO_FRAME_RATE_120-11]
+	_ = x[GOPRO_FRAME_RATE_240-12]
+	_ = x[GOPRO_FRAME_RATE_12_5-13]
 }
 
 const _GoproFrameRate_name = "GOPRO_FRAME_RATE_12GOPRO_FRAME_RATE_15GOPRO_FRAME_RATE_24GOPRO_FRAME_RATE_25GOPRO_FRAME_RATE_30GOPRO_FRAME_RATE_48GOPRO_FRAME_RATE_50GOPRO_FRAME_RATE_60GOPRO_FRAME_RATE_80GOPRO_FRAME_RATE_90GOPRO_FRAME_RATE_100GOPRO_FRAME_RATE_120GOPRO_FRAME_RATE_240GOPRO_FRAME_RATE_12_5"
@@ -417,6 +790,14 @@ func (i GoproFrameRate) String() string {
 	}
 	return _GoproFrameRate_name[_GoproFrameRate_index[i]:_GoproFrameRate_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GOPRO_FIELD_OF_VIEW_WIDE-0]
+	_ = x[GOPRO_FIELD_OF_VIEW_MEDIUM-1]
+	_ = x[GOPRO_FIELD_OF_VIEW_NARROW-2]
+}
 
 const _GoproFieldOfView_name = "GOPRO_FIELD_OF_VIEW_WIDEGOPRO_FIELD_OF_VIEW_MEDIUMGOPRO_FIELD_OF_VIEW_NARROW"
 
@@ -427,6 +808,12 @@ func (i GoproFieldOfView) String() string {
 		return "GoproFieldOfView(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _GoproFieldOfView_name[_GoproFieldOfView_index[i]:_GoproFieldOfView_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GOPRO_VIDEO_SETTINGS_TV_MODE-1]
 }
 
 const _GoproVideoSettingsFlags_name = "GOPRO_VIDEO_SETTINGS_TV_MODE"
@@ -440,6 +827,16 @@ func (i GoproVideoSettingsFlags) String() string {
 	}
 	return _GoproVideoSettingsFlags_name[_GoproVideoSettingsFlags_index[i]:_GoproVideoSettingsFlags_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GOPRO_PHOTO_RESOLUTION_5MP_MEDIUM-0]
+	_ = x[GOPRO_PHOTO_RESOLUTION_7MP_MEDIUM-1]
+	_ = x[GOPRO_PHOTO_RESOLUTION_7MP_WIDE-2]
+	_ = x[GOPRO_PHOTO_RESOLUTION_10MP_WIDE-3]
+	_ = x[GOPRO_PHOTO_RESOLUTION_12MP_WIDE-4]
+}
 
 const _GoproPhotoResolution_name = "GOPRO_PHOTO_RESOLUTION_5MP_MEDIUMGOPRO_PHOTO_RESOLUTION_7MP_MEDIUMGOPRO_PHOTO_RESOLUTION_7MP_WIDEGOPRO_PHOTO_RESOLUTION_10MP_WIDEGOPRO_PHOTO_RESOLUTION_12MP_WIDE"
 
@@ -450,6 +847,16 @@ func (i GoproPhotoResolution) String() string {
 		return "GoproPhotoResolution(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _GoproPhotoResolution_name[_GoproPhotoResolution_index[i]:_GoproPhotoResolution_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GOPRO_PROTUNE_WHITE_BALANCE_AUTO-0]
+	_ = x[GOPRO_PROTUNE_WHITE_BALANCE_3000K-1]
+	_ = x[GOPRO_PROTUNE_WHITE_BALANCE_5500K-2]
+	_ = x[GOPRO_PROTUNE_WHITE_BALANCE_6500K-3]
+	_ = x[GOPRO_PROTUNE_WHITE_BALANCE_RAW-4]
 }
 
 const _GoproProtuneWhiteBalance_name = "GOPRO_PROTUNE_WHITE_BALANCE_AUTOGOPRO_PROTUNE_WHITE_BALANCE_3000KGOPRO_PROTUNE_WHITE_BALANCE_5500KGOPRO_PROTUNE_WHITE_BALANCE_6500KGOPRO_PROTUNE_WHITE_BALANCE_RAW"
@@ -462,6 +869,13 @@ func (i GoproProtuneWhiteBalance) String() string {
 	}
 	return _GoproProtuneWhiteBalance_name[_GoproProtuneWhiteBalance_index[i]:_GoproProtuneWhiteBalance_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GOPRO_PROTUNE_COLOUR_STANDARD-0]
+	_ = x[GOPRO_PROTUNE_COLOUR_NEUTRAL-1]
+}
 
 const _GoproProtuneColour_name = "GOPRO_PROTUNE_COLOUR_STANDARDGOPRO_PROTUNE_COLOUR_NEUTRAL"
 
@@ -472,6 +886,16 @@ func (i GoproProtuneColour) String() string {
 		return "GoproProtuneColour(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _GoproProtuneColour_name[_GoproProtuneColour_index[i]:_GoproProtuneColour_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GOPRO_PROTUNE_GAIN_400-0]
+	_ = x[GOPRO_PROTUNE_GAIN_800-1]
+	_ = x[GOPRO_PROTUNE_GAIN_1600-2]
+	_ = x[GOPRO_PROTUNE_GAIN_3200-3]
+	_ = x[GOPRO_PROTUNE_GAIN_6400-4]
 }
 
 const _GoproProtuneGain_name = "GOPRO_PROTUNE_GAIN_400GOPRO_PROTUNE_GAIN_800GOPRO_PROTUNE_GAIN_1600GOPRO_PROTUNE_GAIN_3200GOPRO_PROTUNE_GAIN_6400"
@@ -484,6 +908,14 @@ func (i GoproProtuneGain) String() string {
 	}
 	return _GoproProtuneGain_name[_GoproProtuneGain_index[i]:_GoproProtuneGain_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GOPRO_PROTUNE_SHARPNESS_LOW-0]
+	_ = x[GOPRO_PROTUNE_SHARPNESS_MEDIUM-1]
+	_ = x[GOPRO_PROTUNE_SHARPNESS_HIGH-2]
+}
 
 const _GoproProtuneSharpness_name = "GOPRO_PROTUNE_SHARPNESS_LOWGOPRO_PROTUNE_SHARPNESS_MEDIUMGOPRO_PROTUNE_SHARPNESS_HIGH"
 
@@ -494,6 +926,32 @@ func (i GoproProtuneSharpness) String() string {
 		return "GoproProtuneSharpness(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _GoproProtuneSharpness_name[_GoproProtuneSharpness_index[i]:_GoproProtuneSharpness_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GOPRO_PROTUNE_EXPOSURE_NEG_5_0-0]
+	_ = x[GOPRO_PROTUNE_EXPOSURE_NEG_4_5-1]
+	_ = x[GOPRO_PROTUNE_EXPOSURE_NEG_4_0-2]
+	_ = x[GOPRO_PROTUNE_EXPOSURE_NEG_3_5-3]
+	_ = x[GOPRO_PROTUNE_EXPOSURE_NEG_3_0-4]
+	_ = x[GOPRO_PROTUNE_EXPOSURE_NEG_2_5-5]
+	_ = x[GOPRO_PROTUNE_EXPOSURE_NEG_2_0-6]
+	_ = x[GOPRO_PROTUNE_EXPOSURE_NEG_1_5-7]
+	_ = x[GOPRO_PROTUNE_EXPOSURE_NEG_1_0-8]
+	_ = x[GOPRO_PROTUNE_EXPOSURE_NEG_0_5-9]
+	_ = x[GOPRO_PROTUNE_EXPOSURE_ZERO-10]
+	_ = x[GOPRO_PROTUNE_EXPOSURE_POS_0_5-11]
+	_ = x[GOPRO_PROTUNE_EXPOSURE_POS_1_0-12]
+	_ = x[GOPRO_PROTUNE_EXPOSURE_POS_1_5-13]
+	_ = x[GOPRO_PROTUNE_EXPOSURE_POS_2_0-14]
+	_ = x[GOPRO_PROTUNE_EXPOSURE_POS_2_5-15]
+	_ = x[GOPRO_PROTUNE_EXPOSURE_POS_3_0-16]
+	_ = x[GOPRO_PROTUNE_EXPOSURE_POS_3_5-17]
+	_ = x[GOPRO_PROTUNE_EXPOSURE_POS_4_0-18]
+	_ = x[GOPRO_PROTUNE_EXPOSURE_POS_4_5-19]
+	_ = x[GOPRO_PROTUNE_EXPOSURE_POS_5_0-20]
 }
 
 const _GoproProtuneExposure_name = "GOPRO_PROTUNE_EXPOSURE_NEG_5_0GOPRO_PROTUNE_EXPOSURE_NEG_4_5GOPRO_PROTUNE_EXPOSURE_NEG_4_0GOPRO_PROTUNE_EXPOSURE_NEG_3_5GOPRO_PROTUNE_EXPOSURE_NEG_3_0GOPRO_PROTUNE_EXPOSURE_NEG_2_5GOPRO_PROTUNE_EXPOSURE_NEG_2_0GOPRO_PROTUNE_EXPOSURE_NEG_1_5GOPRO_PROTUNE_EXPOSURE_NEG_1_0GOPRO_PROTUNE_EXPOSURE_NEG_0_5GOPRO_PROTUNE_EXPOSURE_ZEROGOPRO_PROTUNE_EXPOSURE_POS_0_5GOPRO_PROTUNE_EXPOSURE_POS_1_0GOPRO_PROTUNE_EXPOSURE_POS_1_5GOPRO_PROTUNE_EXPOSURE_POS_2_0GOPRO_PROTUNE_EXPOSURE_POS_2_5GOPRO_PROTUNE_EXPOSURE_POS_3_0GOPRO_PROTUNE_EXPOSURE_POS_3_5GOPRO_PROTUNE_EXPOSURE_POS_4_0GOPRO_PROTUNE_EXPOSURE_POS_4_5GOPRO_PROTUNE_EXPOSURE_POS_5_0"
@@ -506,6 +964,13 @@ func (i GoproProtuneExposure) String() string {
 	}
 	return _GoproProtuneExposure_name[_GoproProtuneExposure_index[i]:_GoproProtuneExposure_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GOPRO_CHARGING_DISABLED-0]
+	_ = x[GOPRO_CHARGING_ENABLED-1]
+}
 
 const _GoproCharging_name = "GOPRO_CHARGING_DISABLEDGOPRO_CHARGING_ENABLED"
 
@@ -516,6 +981,16 @@ func (i GoproCharging) String() string {
 		return "GoproCharging(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _GoproCharging_name[_GoproCharging_index[i]:_GoproCharging_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GOPRO_MODEL_UNKNOWN-0]
+	_ = x[GOPRO_MODEL_HERO_3_PLUS_SILVER-1]
+	_ = x[GOPRO_MODEL_HERO_3_PLUS_BLACK-2]
+	_ = x[GOPRO_MODEL_HERO_4_SILVER-3]
+	_ = x[GOPRO_MODEL_HERO_4_BLACK-4]
 }
 
 const _GoproModel_name = "GOPRO_MODEL_UNKNOWNGOPRO_MODEL_HERO_3_PLUS_SILVERGOPRO_MODEL_HERO_3_PLUS_BLACKGOPRO_MODEL_HERO_4_SILVERGOPRO_MODEL_HERO_4_BLACK"
@@ -528,6 +1003,20 @@ func (i GoproModel) String() string {
 	}
 	return _GoproModel_name[_GoproModel_index[i]:_GoproModel_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GOPRO_BURST_RATE_3_IN_1_SECOND-0]
+	_ = x[GOPRO_BURST_RATE_5_IN_1_SECOND-1]
+	_ = x[GOPRO_BURST_RATE_10_IN_1_SECOND-2]
+	_ = x[GOPRO_BURST_RATE_10_IN_2_SECOND-3]
+	_ = x[GOPRO_BURST_RATE_10_IN_3_SECOND-4]
+	_ = x[GOPRO_BURST_RATE_30_IN_1_SECOND-5]
+	_ = x[GOPRO_BURST_RATE_30_IN_2_SECOND-6]
+	_ = x[GOPRO_BURST_RATE_30_IN_3_SECOND-7]
+	_ = x[GOPRO_BURST_RATE_30_IN_6_SECOND-8]
+}
 
 const _GoproBurstRate_name = "GOPRO_BURST_RATE_3_IN_1_SECONDGOPRO_BURST_RATE_5_IN_1_SECONDGOPRO_BURST_RATE_10_IN_1_SECONDGOPRO_BURST_RATE_10_IN_2_SECONDGOPRO_BURST_RATE_10_IN_3_SECONDGOPRO_BURST_RATE_30_IN_1_SECONDGOPRO_BURST_RATE_30_IN_2_SECONDGOPRO_BURST_RATE_30_IN_3_SECONDGOPRO_BURST_RATE_30_IN_6_SECOND"
 
@@ -538,6 +1027,14 @@ func (i GoproBurstRate) String() string {
 		return "GoproBurstRate(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _GoproBurstRate_name[_GoproBurstRate_index[i]:_GoproBurstRate_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[LED_CONTROL_PATTERN_OFF-0]
+	_ = x[LED_CONTROL_PATTERN_FIRMWAREUPDATE-1]
+	_ = x[LED_CONTROL_PATTERN_CUSTOM-255]
 }
 
 const (
@@ -558,6 +1055,21 @@ func (i LedControlPattern) String() string {
 	default:
 		return "LedControlPattern(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[EKF_ATTITUDE-1]
+	_ = x[EKF_VELOCITY_HORIZ-2]
+	_ = x[EKF_VELOCITY_VERT-4]
+	_ = x[EKF_POS_HORIZ_REL-8]
+	_ = x[EKF_POS_HORIZ_ABS-16]
+	_ = x[EKF_POS_VERT_ABS-32]
+	_ = x[EKF_POS_VERT_AGL-64]
+	_ = x[EKF_CONST_POS_MODE-128]
+	_ = x[EKF_PRED_POS_HORIZ_REL-256]
+	_ = x[EKF_PRED_POS_HORIZ_ABS-512]
 }
 
 const (
@@ -601,6 +1113,17 @@ func (i EkfStatusFlags) String() string {
 		return "EkfStatusFlags(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[PID_TUNING_ROLL-1]
+	_ = x[PID_TUNING_PITCH-2]
+	_ = x[PID_TUNING_YAW-3]
+	_ = x[PID_TUNING_ACCZ-4]
+	_ = x[PID_TUNING_STEER-5]
+	_ = x[PID_TUNING_LANDING-6]
+}
 
 const _PidTuningAxis_name = "PID_TUNING_ROLLPID_TUNING_PITCHPID_TUNING_YAWPID_TUNING_ACCZPID_TUNING_STEERPID_TUNING_LANDING"
 
@@ -613,6 +1136,18 @@ func (i PidTuningAxis) String() string {
 	}
 	return _PidTuningAxis_name[_PidTuningAxis_index[i]:_PidTuningAxis_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAG_CAL_NOT_STARTED-0]
+	_ = x[MAG_CAL_WAITING_TO_START-1]
+	_ = x[MAG_CAL_RUNNING_STEP_ONE-2]
+	_ = x[MAG_CAL_RUNNING_STEP_TWO-3]
+	_ = x[MAG_CAL_SUCCESS-4]
+	_ = x[MAG_CAL_FAILED-5]
+	_ = x[MAG_CAL_BAD_ORIENTATION-6]
+}
 
 const _MagCalStatus_name = "MAG_CAL_NOT_STARTEDMAG_CAL_WAITING_TO_STARTMAG_CAL_RUNNING_STEP_ONEMAG_CAL_RUNNING_STEP_TWOMAG_CAL_SUCCESSMAG_CAL_FAILEDMAG_CAL_BAD_ORIENTATION"
 
@@ -623,6 +1158,13 @@ func (i MagCalStatus) String() string {
 		return "MagCalStatus(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _MagCalStatus_name[_MagCalStatus_index[i]:_MagCalStatus_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_REMOTE_LOG_DATA_BLOCK_STOP-2147483645]
+	_ = x[MAV_REMOTE_LOG_DATA_BLOCK_START-2147483646]
 }
 
 const _MavRemoteLogDataBlockCommands_name = "MAV_REMOTE_LOG_DATA_BLOCK_STOPMAV_REMOTE_LOG_DATA_BLOCK_START"
@@ -636,6 +1178,13 @@ func (i MavRemoteLogDataBlockCommands) String() string {
 	}
 	return _MavRemoteLogDataBlockCommands_name[_MavRemoteLogDataBlockCommands_index[i]:_MavRemoteLogDataBlockCommands_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_REMOTE_LOG_DATA_BLOCK_NACK-0]
+	_ = x[MAV_REMOTE_LOG_DATA_BLOCK_ACK-1]
+}
 
 const _MavRemoteLogDataBlockStatuses_name = "MAV_REMOTE_LOG_DATA_BLOCK_NACKMAV_REMOTE_LOG_DATA_BLOCK_ACK"
 
@@ -646,6 +1195,13 @@ func (i MavRemoteLogDataBlockStatuses) String() string {
 		return "MavRemoteLogDataBlockStatuses(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _MavRemoteLogDataBlockStatuses_name[_MavRemoteLogDataBlockStatuses_index[i]:_MavRemoteLogDataBlockStatuses_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[DEVICE_OP_BUSTYPE_I2C-0]
+	_ = x[DEVICE_OP_BUSTYPE_SPI-1]
 }
 
 const _DeviceOpBustype_name = "DEVICE_OP_BUSTYPE_I2CDEVICE_OP_BUSTYPE_SPI"
@@ -658,6 +1214,18 @@ func (i DeviceOpBustype) String() string {
 	}
 	return _DeviceOpBustype_name[_DeviceOpBustype_index[i]:_DeviceOpBustype_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[DEEPSTALL_STAGE_FLY_TO_LANDING-0]
+	_ = x[DEEPSTALL_STAGE_ESTIMATE_WIND-1]
+	_ = x[DEEPSTALL_STAGE_WAIT_FOR_BREAKOUT-2]
+	_ = x[DEEPSTALL_STAGE_FLY_TO_ARC-3]
+	_ = x[DEEPSTALL_STAGE_ARC-4]
+	_ = x[DEEPSTALL_STAGE_APPROACH-5]
+	_ = x[DEEPSTALL_STAGE_LAND-6]
+}
 
 const _DeepstallStage_name = "DEEPSTALL_STAGE_FLY_TO_LANDINGDEEPSTALL_STAGE_ESTIMATE_WINDDEEPSTALL_STAGE_WAIT_FOR_BREAKOUTDEEPSTALL_STAGE_FLY_TO_ARCDEEPSTALL_STAGE_ARCDEEPSTALL_STAGE_APPROACHDEEPSTALL_STAGE_LAND"
 
@@ -668,6 +1236,31 @@ func (i DeepstallStage) String() string {
 		return "DeepstallStage(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _DeepstallStage_name[_DeepstallStage_index[i]:_DeepstallStage_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[PLANE_MODE_MANUAL-0]
+	_ = x[PLANE_MODE_CIRCLE-1]
+	_ = x[PLANE_MODE_STABILIZE-2]
+	_ = x[PLANE_MODE_TRAINING-3]
+	_ = x[PLANE_MODE_ACRO-4]
+	_ = x[PLANE_MODE_FLY_BY_WIRE_A-5]
+	_ = x[PLANE_MODE_FLY_BY_WIRE_B-6]
+	_ = x[PLANE_MODE_CRUISE-7]
+	_ = x[PLANE_MODE_AUTOTUNE-8]
+	_ = x[PLANE_MODE_AUTO-10]
+	_ = x[PLANE_MODE_RTL-11]
+	_ = x[PLANE_MODE_LOITER-12]
+	_ = x[PLANE_MODE_AVOID_ADSB-14]
+	_ = x[PLANE_MODE_GUIDED-15]
+	_ = x[PLANE_MODE_INITIALIZING-16]
+	_ = x[PLANE_MODE_QSTABILIZE-17]
+	_ = x[PLANE_MODE_QHOVER-18]
+	_ = x[PLANE_MODE_QLOITER-19]
+	_ = x[PLANE_MODE_QLAND-20]
+	_ = x[PLANE_MODE_QRTL-21]
 }
 
 const (
@@ -695,6 +1288,30 @@ func (i PlaneMode) String() string {
 	default:
 		return "PlaneMode(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[COPTER_MODE_STABILIZE-0]
+	_ = x[COPTER_MODE_ACRO-1]
+	_ = x[COPTER_MODE_ALT_HOLD-2]
+	_ = x[COPTER_MODE_AUTO-3]
+	_ = x[COPTER_MODE_GUIDED-4]
+	_ = x[COPTER_MODE_LOITER-5]
+	_ = x[COPTER_MODE_RTL-6]
+	_ = x[COPTER_MODE_CIRCLE-7]
+	_ = x[COPTER_MODE_LAND-9]
+	_ = x[COPTER_MODE_DRIFT-11]
+	_ = x[COPTER_MODE_SPORT-13]
+	_ = x[COPTER_MODE_FLIP-14]
+	_ = x[COPTER_MODE_AUTOTUNE-15]
+	_ = x[COPTER_MODE_POSHOLD-16]
+	_ = x[COPTER_MODE_BRAKE-17]
+	_ = x[COPTER_MODE_THROW-18]
+	_ = x[COPTER_MODE_AVOID_ADSB-19]
+	_ = x[COPTER_MODE_GUIDED_NOGPS-20]
+	_ = x[COPTER_MODE_SMART_RTL-21]
 }
 
 const (
@@ -724,6 +1341,20 @@ func (i CopterMode) String() string {
 		return "CopterMode(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[SUB_MODE_STABILIZE-0]
+	_ = x[SUB_MODE_ACRO-1]
+	_ = x[SUB_MODE_ALT_HOLD-2]
+	_ = x[SUB_MODE_AUTO-3]
+	_ = x[SUB_MODE_GUIDED-4]
+	_ = x[SUB_MODE_CIRCLE-7]
+	_ = x[SUB_MODE_SURFACE-9]
+	_ = x[SUB_MODE_POSHOLD-16]
+	_ = x[SUB_MODE_MANUAL-19]
+}
 
 const (
 	_SubMode_name_0 = "SUB_MODE_STABILIZESUB_MODE_ACROSUB_MODE_ALT_HOLDSUB_MODE_AUTOSUB_MODE_GUIDED"
@@ -752,6 +1383,21 @@ func (i SubMode) String() string {
 	default:
 		return "SubMode(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[ROVER_MODE_MANUAL-0]
+	_ = x[ROVER_MODE_ACRO-1]
+	_ = x[ROVER_MODE_STEERING-3]
+	_ = x[ROVER_MODE_HOLD-4]
+	_ = x[ROVER_MODE_LOITER-5]
+	_ = x[ROVER_MODE_AUTO-10]
+	_ = x[ROVER_MODE_RTL-11]
+	_ = x[ROVER_MODE_SMART_RTL-12]
+	_ = x[ROVER_MODE_GUIDED-15]
+	_ = x[ROVER_MODE_INITIALIZING-16]
 }
 
 const (
@@ -785,6 +1431,17 @@ func (i RoverMode) String() string {
 		return "RoverMode(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[TRACKER_MODE_MANUAL-0]
+	_ = x[TRACKER_MODE_STOP-1]
+	_ = x[TRACKER_MODE_SCAN-2]
+	_ = x[TRACKER_MODE_SERVO_TEST-3]
+	_ = x[TRACKER_MODE_AUTO-10]
+	_ = x[TRACKER_MODE_INITIALIZING-16]
+}
 
 const (
 	_TrackerMode_name_0 = "TRACKER_MODE_MANUALTRACKER_MODE_STOPTRACKER_MODE_SCANTRACKER_MODE_SERVO_TEST"
@@ -808,6 +1465,31 @@ func (i TrackerMode) String() string {
 		return "TrackerMode(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_AUTOPILOT_GENERIC-0]
+	_ = x[MAV_AUTOPILOT_RESERVED-1]
+	_ = x[MAV_AUTOPILOT_SLUGS-2]
+	_ = x[MAV_AUTOPILOT_ARDUPILOTMEGA-3]
+	_ = x[MAV_AUTOPILOT_OPENPILOT-4]
+	_ = x[MAV_AUTOPILOT_GENERIC_WAYPOINTS_ONLY-5]
+	_ = x[MAV_AUTOPILOT_GENERIC_WAYPOINTS_AND_SIMPLE_NAVIGATION_ONLY-6]
+	_ = x[MAV_AUTOPILOT_GENERIC_MISSION_FULL-7]
+	_ = x[MAV_AUTOPILOT_INVALID-8]
+	_ = x[MAV_AUTOPILOT_PPZ-9]
+	_ = x[MAV_AUTOPILOT_UDB-10]
+	_ = x[MAV_AUTOPILOT_FP-11]
+	_ = x[MAV_AUTOPILOT_PX4-12]
+	_ = x[MAV_AUTOPILOT_SMACCMPILOT-13]
+	_ = x[MAV_AUTOPILOT_AUTOQUAD-14]
+	_ = x[MAV_AUTOPILOT_ARMAZILA-15]
+	_ = x[MAV_AUTOPILOT_AEROB-16]
+	_ = x[MAV_AUTOPILOT_ASLUAV-17]
+	_ = x[MAV_AUTOPILOT_SMARTAP-18]
+	_ = x[MAV_AUTOPILOT_AIRRAILS-19]
+}
 
 const _MavAutopilot_name = "MAV_AUTOPILOT_GENERICMAV_AUTOPILOT_RESERVEDMAV_AUTOPILOT_SLUGSMAV_AUTOPILOT_ARDUPILOTMEGAMAV_AUTOPILOT_OPENPILOTMAV_AUTOPILOT_GENERIC_WAYPOINTS_ONLYMAV_AUTOPILOT_GENERIC_WAYPOINTS_AND_SIMPLE_NAVIGATION_ONLYMAV_AUTOPILOT_GENERIC_MISSION_FULLMAV_AUTOPILOT_INVALIDMAV_AUTOPILOT_PPZMAV_AUTOPILOT_UDBMAV_AUTOPILOT_FPMAV_AUTOPILOT_PX4MAV_AUTOPILOT_SMACCMPILOTMAV_AUTOPILOT_AUTOQUADMAV_AUTOPILOT_ARMAZILAMAV_AUTOPILOT_AEROBMAV_AUTOPILOT_ASLUAVMAV_AUTOPILOT_SMARTAPMAV_AUTOPILOT_AIRRAILS"
 
@@ -819,6 +1501,44 @@ func (i MavAutopilot) String() string {
 	}
 	return _MavAutopilot_name[_MavAutopilot_index[i]:_MavAutopilot_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_TYPE_GENERIC-0]
+	_ = x[MAV_TYPE_FIXED_WING-1]
+	_ = x[MAV_TYPE_QUADROTOR-2]
+	_ = x[MAV_TYPE_COAXIAL-3]
+	_ = x[MAV_TYPE_HELICOPTER-4]
+	_ = x[MAV_TYPE_ANTENNA_TRACKER-5]
+	_ = x[MAV_TYPE_GCS-6]
+	_ = x[MAV_TYPE_AIRSHIP-7]
+	_ = x[MAV_TYPE_FREE_BALLOON-8]
+	_ = x[MAV_TYPE_ROCKET-9]
+	_ = x[MAV_TYPE_GROUND_ROVER-10]
+	_ = x[MAV_TYPE_SURFACE_BOAT-11]
+	_ = x[MAV_TYPE_SUBMARINE-12]
+	_ = x[MAV_TYPE_HEXAROTOR-13]
+	_ = x[MAV_TYPE_OCTOROTOR-14]
+	_ = x[MAV_TYPE_TRICOPTER-15]
+	_ = x[MAV_TYPE_FLAPPING_WING-16]
+	_ = x[MAV_TYPE_KITE-17]
+	_ = x[MAV_TYPE_ONBOARD_CONTROLLER-18]
+	_ = x[MAV_TYPE_VTOL_DUOROTOR-19]
+	_ = x[MAV_TYPE_VTOL_QUADROTOR-20]
+	_ = x[MAV_TYPE_VTOL_TILTROTOR-21]
+	_ = x[MAV_TYPE_VTOL_RESERVED2-22]
+	_ = x[MAV_TYPE_VTOL_RESERVED3-23]
+	_ = x[MAV_TYPE_VTOL_RESERVED4-24]
+	_ = x[MAV_TYPE_VTOL_RESERVED5-25]
+	_ = x[MAV_TYPE_GIMBAL-26]
+	_ = x[MAV_TYPE_ADSB-27]
+	_ = x[MAV_TYPE_PARAFOIL-28]
+	_ = x[MAV_TYPE_DODECAROTOR-29]
+	_ = x[MAV_TYPE_CAMERA-30]
+	_ = x[MAV_TYPE_CHARGING_STATION-31]
+	_ = x[MAV_TYPE_FLARM-32]
+}
 
 const _MavType_name = "MAV_TYPE_GENERICMAV_TYPE_FIXED_WINGMAV_TYPE_QUADROTORMAV_TYPE_COAXIALMAV_TYPE_HELICOPTERMAV_TYPE_ANTENNA_TRACKERMAV_TYPE_GCSMAV_TYPE_AIRSHIPMAV_TYPE_FREE_BALLOONMAV_TYPE_ROCKETMAV_TYPE_GROUND_ROVERMAV_TYPE_SURFACE_BOATMAV_TYPE_SUBMARINEMAV_TYPE_HEXAROTORMAV_TYPE_OCTOROTORMAV_TYPE_TRICOPTERMAV_TYPE_FLAPPING_WINGMAV_TYPE_KITEMAV_TYPE_ONBOARD_CONTROLLERMAV_TYPE_VTOL_DUOROTORMAV_TYPE_VTOL_QUADROTORMAV_TYPE_VTOL_TILTROTORMAV_TYPE_VTOL_RESERVED2MAV_TYPE_VTOL_RESERVED3MAV_TYPE_VTOL_RESERVED4MAV_TYPE_VTOL_RESERVED5MAV_TYPE_GIMBALMAV_TYPE_ADSBMAV_TYPE_PARAFOILMAV_TYPE_DODECAROTORMAV_TYPE_CAMERAMAV_TYPE_CHARGING_STATIONMAV_TYPE_FLARM"
 
@@ -829,6 +1549,16 @@ func (i MavType) String() string {
 		return "MavType(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _MavType_name[_MavType_index[i]:_MavType_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[FIRMWARE_VERSION_TYPE_DEV-0]
+	_ = x[FIRMWARE_VERSION_TYPE_ALPHA-64]
+	_ = x[FIRMWARE_VERSION_TYPE_BETA-128]
+	_ = x[FIRMWARE_VERSION_TYPE_RC-192]
+	_ = x[FIRMWARE_VERSION_TYPE_OFFICIAL-255]
 }
 
 const (
@@ -855,6 +1585,25 @@ func (i FirmwareVersionType) String() string {
 		return "FirmwareVersionType(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[HL_FAILURE_FLAG_GPS-1]
+	_ = x[HL_FAILURE_FLAG_DIFFERENTIAL_PRESSURE-2]
+	_ = x[HL_FAILURE_FLAG_ABSOLUTE_PRESSURE-4]
+	_ = x[HL_FAILURE_FLAG_3D_ACCEL-8]
+	_ = x[HL_FAILURE_FLAG_3D_GYRO-16]
+	_ = x[HL_FAILURE_FLAG_3D_MAG-32]
+	_ = x[HL_FAILURE_FLAG_TERRAIN-64]
+	_ = x[HL_FAILURE_FLAG_BATTERY-128]
+	_ = x[HL_FAILURE_FLAG_RC_RECEIVER-256]
+	_ = x[HL_FAILURE_FLAG_OFFBOARD_LINK-512]
+	_ = x[HL_FAILURE_FLAG_ENGINE-1024]
+	_ = x[HL_FAILURE_FLAG_GEOFENCE-2048]
+	_ = x[HL_FAILURE_FLAG_ESTIMATOR-4096]
+	_ = x[HL_FAILURE_FLAG_MISSION-8192]
+}
 
 const _HlFailureFlag_name = "HL_FAILURE_FLAG_GPSHL_FAILURE_FLAG_DIFFERENTIAL_PRESSUREHL_FAILURE_FLAG_ABSOLUTE_PRESSUREHL_FAILURE_FLAG_3D_ACCELHL_FAILURE_FLAG_3D_GYROHL_FAILURE_FLAG_3D_MAGHL_FAILURE_FLAG_TERRAINHL_FAILURE_FLAG_BATTERYHL_FAILURE_FLAG_RC_RECEIVERHL_FAILURE_FLAG_OFFBOARD_LINKHL_FAILURE_FLAG_ENGINEHL_FAILURE_FLAG_GEOFENCEHL_FAILURE_FLAG_ESTIMATORHL_FAILURE_FLAG_MISSION"
 
@@ -880,6 +1629,19 @@ func (i HlFailureFlag) String() string {
 		return str
 	}
 	return "HlFailureFlag(" + strconv.FormatInt(int64(i), 10) + ")"
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_MODE_FLAG_SAFETY_ARMED-128]
+	_ = x[MAV_MODE_FLAG_MANUAL_INPUT_ENABLED-64]
+	_ = x[MAV_MODE_FLAG_HIL_ENABLED-32]
+	_ = x[MAV_MODE_FLAG_STABILIZE_ENABLED-16]
+	_ = x[MAV_MODE_FLAG_GUIDED_ENABLED-8]
+	_ = x[MAV_MODE_FLAG_AUTO_ENABLED-4]
+	_ = x[MAV_MODE_FLAG_TEST_ENABLED-2]
+	_ = x[MAV_MODE_FLAG_CUSTOM_MODE_ENABLED-1]
 }
 
 const (
@@ -917,6 +1679,19 @@ func (i MavModeFlag) String() string {
 		return "MavModeFlag(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_MODE_FLAG_DECODE_POSITION_SAFETY-128]
+	_ = x[MAV_MODE_FLAG_DECODE_POSITION_MANUAL-64]
+	_ = x[MAV_MODE_FLAG_DECODE_POSITION_HIL-32]
+	_ = x[MAV_MODE_FLAG_DECODE_POSITION_STABILIZE-16]
+	_ = x[MAV_MODE_FLAG_DECODE_POSITION_GUIDED-8]
+	_ = x[MAV_MODE_FLAG_DECODE_POSITION_AUTO-4]
+	_ = x[MAV_MODE_FLAG_DECODE_POSITION_TEST-2]
+	_ = x[MAV_MODE_FLAG_DECODE_POSITION_CUSTOM_MODE-1]
+}
 
 const (
 	_MavModeFlagDecodePosition_name_0 = "MAV_MODE_FLAG_DECODE_POSITION_CUSTOM_MODEMAV_MODE_FLAG_DECODE_POSITION_TEST"
@@ -953,6 +1728,15 @@ func (i MavModeFlagDecodePosition) String() string {
 		return "MavModeFlagDecodePosition(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_GOTO_DO_HOLD-0]
+	_ = x[MAV_GOTO_DO_CONTINUE-1]
+	_ = x[MAV_GOTO_HOLD_AT_CURRENT_POSITION-2]
+	_ = x[MAV_GOTO_HOLD_AT_SPECIFIED_POSITION-3]
+}
 
 const _MavGoto_name = "MAV_GOTO_DO_HOLDMAV_GOTO_DO_CONTINUEMAV_GOTO_HOLD_AT_CURRENT_POSITIONMAV_GOTO_HOLD_AT_SPECIFIED_POSITION"
 
@@ -963,6 +1747,22 @@ func (i MavGoto) String() string {
 		return "MavGoto(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _MavGoto_name[_MavGoto_index[i]:_MavGoto_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_MODE_PREFLIGHT-0]
+	_ = x[MAV_MODE_STABILIZE_DISARMED-80]
+	_ = x[MAV_MODE_STABILIZE_ARMED-208]
+	_ = x[MAV_MODE_MANUAL_DISARMED-64]
+	_ = x[MAV_MODE_MANUAL_ARMED-192]
+	_ = x[MAV_MODE_GUIDED_DISARMED-88]
+	_ = x[MAV_MODE_GUIDED_ARMED-216]
+	_ = x[MAV_MODE_AUTO_DISARMED-92]
+	_ = x[MAV_MODE_AUTO_ARMED-220]
+	_ = x[MAV_MODE_TEST_DISARMED-66]
+	_ = x[MAV_MODE_TEST_ARMED-194]
 }
 
 const _MavMode_name = "MAV_MODE_PREFLIGHTMAV_MODE_MANUAL_DISARMEDMAV_MODE_TEST_DISARMEDMAV_MODE_STABILIZE_DISARMEDMAV_MODE_GUIDED_DISARMEDMAV_MODE_AUTO_DISARMEDMAV_MODE_MANUAL_ARMEDMAV_MODE_TEST_ARMEDMAV_MODE_STABILIZE_ARMEDMAV_MODE_GUIDED_ARMEDMAV_MODE_AUTO_ARMED"
@@ -987,6 +1787,20 @@ func (i MavMode) String() string {
 	}
 	return "MavMode(" + strconv.FormatInt(int64(i), 10) + ")"
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_STATE_UNINIT-0]
+	_ = x[MAV_STATE_BOOT-2]
+	_ = x[MAV_STATE_CALIBRATING-3]
+	_ = x[MAV_STATE_STANDBY-4]
+	_ = x[MAV_STATE_ACTIVE-5]
+	_ = x[MAV_STATE_CRITICAL-6]
+	_ = x[MAV_STATE_EMERGENCY-7]
+	_ = x[MAV_STATE_POWEROFF-8]
+	_ = x[MAV_STATE_FLIGHT_TERMINATION-9]
+}
 
 const (
 	_MavState_name_0 = "MAV_STATE_UNINIT"
@@ -1007,6 +1821,52 @@ func (i MavState) String() string {
 	default:
 		return "MavState(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_COMP_ID_ALL-0]
+	_ = x[MAV_COMP_ID_AUTOPILOT1-1]
+	_ = x[MAV_COMP_ID_CAMERA-100]
+	_ = x[MAV_COMP_ID_CAMERA2-101]
+	_ = x[MAV_COMP_ID_CAMERA3-102]
+	_ = x[MAV_COMP_ID_CAMERA4-103]
+	_ = x[MAV_COMP_ID_CAMERA5-104]
+	_ = x[MAV_COMP_ID_CAMERA6-105]
+	_ = x[MAV_COMP_ID_SERVO1-140]
+	_ = x[MAV_COMP_ID_SERVO2-141]
+	_ = x[MAV_COMP_ID_SERVO3-142]
+	_ = x[MAV_COMP_ID_SERVO4-143]
+	_ = x[MAV_COMP_ID_SERVO5-144]
+	_ = x[MAV_COMP_ID_SERVO6-145]
+	_ = x[MAV_COMP_ID_SERVO7-146]
+	_ = x[MAV_COMP_ID_SERVO8-147]
+	_ = x[MAV_COMP_ID_SERVO9-148]
+	_ = x[MAV_COMP_ID_SERVO10-149]
+	_ = x[MAV_COMP_ID_SERVO11-150]
+	_ = x[MAV_COMP_ID_SERVO12-151]
+	_ = x[MAV_COMP_ID_SERVO13-152]
+	_ = x[MAV_COMP_ID_SERVO14-153]
+	_ = x[MAV_COMP_ID_GIMBAL-154]
+	_ = x[MAV_COMP_ID_LOG-155]
+	_ = x[MAV_COMP_ID_ADSB-156]
+	_ = x[MAV_COMP_ID_OSD-157]
+	_ = x[MAV_COMP_ID_PERIPHERAL-158]
+	_ = x[MAV_COMP_ID_QX1_GIMBAL-159]
+	_ = x[MAV_COMP_ID_FLARM-160]
+	_ = x[MAV_COMP_ID_MISSIONPLANNER-190]
+	_ = x[MAV_COMP_ID_PATHPLANNER-195]
+	_ = x[MAV_COMP_ID_OBSTACLE_AVOIDANCE-196]
+	_ = x[MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY-197]
+	_ = x[MAV_COMP_ID_IMU-200]
+	_ = x[MAV_COMP_ID_IMU_2-201]
+	_ = x[MAV_COMP_ID_IMU_3-202]
+	_ = x[MAV_COMP_ID_GPS-220]
+	_ = x[MAV_COMP_ID_GPS2-221]
+	_ = x[MAV_COMP_ID_UDP_BRIDGE-240]
+	_ = x[MAV_COMP_ID_UART_BRIDGE-241]
+	_ = x[MAV_COMP_ID_SYSTEM_CONTROL-250]
 }
 
 const (
@@ -1061,6 +1921,39 @@ func (i MavComponent) String() string {
 		return "MavComponent(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_SYS_STATUS_SENSOR_3D_GYRO-1]
+	_ = x[MAV_SYS_STATUS_SENSOR_3D_ACCEL-2]
+	_ = x[MAV_SYS_STATUS_SENSOR_3D_MAG-4]
+	_ = x[MAV_SYS_STATUS_SENSOR_ABSOLUTE_PRESSURE-8]
+	_ = x[MAV_SYS_STATUS_SENSOR_DIFFERENTIAL_PRESSURE-16]
+	_ = x[MAV_SYS_STATUS_SENSOR_GPS-32]
+	_ = x[MAV_SYS_STATUS_SENSOR_OPTICAL_FLOW-64]
+	_ = x[MAV_SYS_STATUS_SENSOR_VISION_POSITION-128]
+	_ = x[MAV_SYS_STATUS_SENSOR_LASER_POSITION-256]
+	_ = x[MAV_SYS_STATUS_SENSOR_EXTERNAL_GROUND_TRUTH-512]
+	_ = x[MAV_SYS_STATUS_SENSOR_ANGULAR_RATE_CONTROL-1024]
+	_ = x[MAV_SYS_STATUS_SENSOR_ATTITUDE_STABILIZATION-2048]
+	_ = x[MAV_SYS_STATUS_SENSOR_YAW_POSITION-4096]
+	_ = x[MAV_SYS_STATUS_SENSOR_Z_ALTITUDE_CONTROL-8192]
+	_ = x[MAV_SYS_STATUS_SENSOR_XY_POSITION_CONTROL-16384]
+	_ = x[MAV_SYS_STATUS_SENSOR_MOTOR_OUTPUTS-32768]
+	_ = x[MAV_SYS_STATUS_SENSOR_RC_RECEIVER-65536]
+	_ = x[MAV_SYS_STATUS_SENSOR_3D_GYRO2-131072]
+	_ = x[MAV_SYS_STATUS_SENSOR_3D_ACCEL2-262144]
+	_ = x[MAV_SYS_STATUS_SENSOR_3D_MAG2-524288]
+	_ = x[MAV_SYS_STATUS_GEOFENCE-1048576]
+	_ = x[MAV_SYS_STATUS_AHRS-2097152]
+	_ = x[MAV_SYS_STATUS_TERRAIN-4194304]
+	_ = x[MAV_SYS_STATUS_REVERSE_MOTOR-8388608]
+	_ = x[MAV_SYS_STATUS_LOGGING-16777216]
+	_ = x[MAV_SYS_STATUS_SENSOR_BATTERY-33554432]
+	_ = x[MAV_SYS_STATUS_SENSOR_PROXIMITY-67108864]
+	_ = x[MAV_SYS_STATUS_SENSOR_SATCOM-134217728]
+}
 
 const _MavSysStatusSensor_name = "MAV_SYS_STATUS_SENSOR_3D_GYROMAV_SYS_STATUS_SENSOR_3D_ACCELMAV_SYS_STATUS_SENSOR_3D_MAGMAV_SYS_STATUS_SENSOR_ABSOLUTE_PRESSUREMAV_SYS_STATUS_SENSOR_DIFFERENTIAL_PRESSUREMAV_SYS_STATUS_SENSOR_GPSMAV_SYS_STATUS_SENSOR_OPTICAL_FLOWMAV_SYS_STATUS_SENSOR_VISION_POSITIONMAV_SYS_STATUS_SENSOR_LASER_POSITIONMAV_SYS_STATUS_SENSOR_EXTERNAL_GROUND_TRUTHMAV_SYS_STATUS_SENSOR_ANGULAR_RATE_CONTROLMAV_SYS_STATUS_SENSOR_ATTITUDE_STABILIZATIONMAV_SYS_STATUS_SENSOR_YAW_POSITIONMAV_SYS_STATUS_SENSOR_Z_ALTITUDE_CONTROLMAV_SYS_STATUS_SENSOR_XY_POSITION_CONTROLMAV_SYS_STATUS_SENSOR_MOTOR_OUTPUTSMAV_SYS_STATUS_SENSOR_RC_RECEIVERMAV_SYS_STATUS_SENSOR_3D_GYRO2MAV_SYS_STATUS_SENSOR_3D_ACCEL2MAV_SYS_STATUS_SENSOR_3D_MAG2MAV_SYS_STATUS_GEOFENCEMAV_SYS_STATUS_AHRSMAV_SYS_STATUS_TERRAINMAV_SYS_STATUS_REVERSE_MOTORMAV_SYS_STATUS_LOGGINGMAV_SYS_STATUS_SENSOR_BATTERYMAV_SYS_STATUS_SENSOR_PROXIMITYMAV_SYS_STATUS_SENSOR_SATCOM"
 
@@ -1101,6 +1994,31 @@ func (i MavSysStatusSensor) String() string {
 	}
 	return "MavSysStatusSensor(" + strconv.FormatInt(int64(i), 10) + ")"
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_FRAME_GLOBAL-0]
+	_ = x[MAV_FRAME_LOCAL_NED-1]
+	_ = x[MAV_FRAME_MISSION-2]
+	_ = x[MAV_FRAME_GLOBAL_RELATIVE_ALT-3]
+	_ = x[MAV_FRAME_LOCAL_ENU-4]
+	_ = x[MAV_FRAME_GLOBAL_INT-5]
+	_ = x[MAV_FRAME_GLOBAL_RELATIVE_ALT_INT-6]
+	_ = x[MAV_FRAME_LOCAL_OFFSET_NED-7]
+	_ = x[MAV_FRAME_BODY_NED-8]
+	_ = x[MAV_FRAME_BODY_OFFSET_NED-9]
+	_ = x[MAV_FRAME_GLOBAL_TERRAIN_ALT-10]
+	_ = x[MAV_FRAME_GLOBAL_TERRAIN_ALT_INT-11]
+	_ = x[MAV_FRAME_BODY_FRD-12]
+	_ = x[MAV_FRAME_BODY_FLU-13]
+	_ = x[MAV_FRAME_MOCAP_NED-14]
+	_ = x[MAV_FRAME_MOCAP_ENU-15]
+	_ = x[MAV_FRAME_VISION_NED-16]
+	_ = x[MAV_FRAME_VISION_ENU-17]
+	_ = x[MAV_FRAME_ESTIM_NED-18]
+	_ = x[MAV_FRAME_ESTIM_ENU-19]
+}
 
 const _MavFrame_name = "MAV_FRAME_GLOBALMAV_FRAME_LOCAL_NEDMAV_FRAME_MISSIONMAV_FRAME_GLOBAL_RELATIVE_ALTMAV_FRAME_LOCAL_ENUMAV_FRAME_GLOBAL_INTMAV_FRAME_GLOBAL_RELATIVE_ALT_INTMAV_FRAME_LOCAL_OFFSET_NEDMAV_FRAME_BODY_NEDMAV_FRAME_BODY_OFFSET_NEDMAV_FRAME_GLOBAL_TERRAIN_ALTMAV_FRAME_GLOBAL_TERRAIN_ALT_INTMAV_FRAME_BODY_FRDMAV_FRAME_BODY_FLUMAV_FRAME_MOCAP_NEDMAV_FRAME_MOCAP_ENUMAV_FRAME_VISION_NEDMAV_FRAME_VISION_ENUMAV_FRAME_ESTIM_NEDMAV_FRAME_ESTIM_ENU"
 
@@ -1111,6 +2029,17 @@ func (i MavFrame) String() string {
 		return "MavFrame(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _MavFrame_name[_MavFrame_index[i]:_MavFrame_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAVLINK_DATA_STREAM_IMG_JPEG-1]
+	_ = x[MAVLINK_DATA_STREAM_IMG_BMP-2]
+	_ = x[MAVLINK_DATA_STREAM_IMG_RAW8U-3]
+	_ = x[MAVLINK_DATA_STREAM_IMG_RAW32U-4]
+	_ = x[MAVLINK_DATA_STREAM_IMG_PGM-5]
+	_ = x[MAVLINK_DATA_STREAM_IMG_PNG-6]
 }
 
 const _MavlinkDataStreamType_name = "MAVLINK_DATA_STREAM_IMG_JPEGMAVLINK_DATA_STREAM_IMG_BMPMAVLINK_DATA_STREAM_IMG_RAW8UMAVLINK_DATA_STREAM_IMG_RAW32UMAVLINK_DATA_STREAM_IMG_PGMMAVLINK_DATA_STREAM_IMG_PNG"
@@ -1124,6 +2053,16 @@ func (i MavlinkDataStreamType) String() string {
 	}
 	return _MavlinkDataStreamType_name[_MavlinkDataStreamType_index[i]:_MavlinkDataStreamType_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[FENCE_ACTION_NONE-0]
+	_ = x[FENCE_ACTION_GUIDED-1]
+	_ = x[FENCE_ACTION_REPORT-2]
+	_ = x[FENCE_ACTION_GUIDED_THR_PASS-3]
+	_ = x[FENCE_ACTION_RTL-4]
+}
 
 const _FenceAction_name = "FENCE_ACTION_NONEFENCE_ACTION_GUIDEDFENCE_ACTION_REPORTFENCE_ACTION_GUIDED_THR_PASSFENCE_ACTION_RTL"
 
@@ -1134,6 +2073,15 @@ func (i FenceAction) String() string {
 		return "FenceAction(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _FenceAction_name[_FenceAction_index[i]:_FenceAction_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[FENCE_BREACH_NONE-0]
+	_ = x[FENCE_BREACH_MINALT-1]
+	_ = x[FENCE_BREACH_MAXALT-2]
+	_ = x[FENCE_BREACH_BOUNDARY-3]
 }
 
 const _FenceBreach_name = "FENCE_BREACH_NONEFENCE_BREACH_MINALTFENCE_BREACH_MAXALTFENCE_BREACH_BOUNDARY"
@@ -1146,6 +2094,16 @@ func (i FenceBreach) String() string {
 	}
 	return _FenceBreach_name[_FenceBreach_index[i]:_FenceBreach_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_MOUNT_MODE_RETRACT-0]
+	_ = x[MAV_MOUNT_MODE_NEUTRAL-1]
+	_ = x[MAV_MOUNT_MODE_MAVLINK_TARGETING-2]
+	_ = x[MAV_MOUNT_MODE_RC_TARGETING-3]
+	_ = x[MAV_MOUNT_MODE_GPS_POINT-4]
+}
 
 const _MavMountMode_name = "MAV_MOUNT_MODE_RETRACTMAV_MOUNT_MODE_NEUTRALMAV_MOUNT_MODE_MAVLINK_TARGETINGMAV_MOUNT_MODE_RC_TARGETINGMAV_MOUNT_MODE_GPS_POINT"
 
@@ -1157,6 +2115,15 @@ func (i MavMountMode) String() string {
 	}
 	return _MavMountMode_name[_MavMountMode_index[i]:_MavMountMode_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[UAVCAN_NODE_HEALTH_OK-0]
+	_ = x[UAVCAN_NODE_HEALTH_WARNING-1]
+	_ = x[UAVCAN_NODE_HEALTH_ERROR-2]
+	_ = x[UAVCAN_NODE_HEALTH_CRITICAL-3]
+}
 
 const _UavcanNodeHealth_name = "UAVCAN_NODE_HEALTH_OKUAVCAN_NODE_HEALTH_WARNINGUAVCAN_NODE_HEALTH_ERRORUAVCAN_NODE_HEALTH_CRITICAL"
 
@@ -1167,6 +2134,16 @@ func (i UavcanNodeHealth) String() string {
 		return "UavcanNodeHealth(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _UavcanNodeHealth_name[_UavcanNodeHealth_index[i]:_UavcanNodeHealth_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[UAVCAN_NODE_MODE_OPERATIONAL-0]
+	_ = x[UAVCAN_NODE_MODE_INITIALIZATION-1]
+	_ = x[UAVCAN_NODE_MODE_MAINTENANCE-2]
+	_ = x[UAVCAN_NODE_MODE_SOFTWARE_UPDATE-3]
+	_ = x[UAVCAN_NODE_MODE_OFFLINE-7]
 }
 
 const (
@@ -1187,6 +2164,20 @@ func (i UavcanNodeMode) String() string {
 	default:
 		return "UavcanNodeMode(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_DATA_STREAM_ALL-0]
+	_ = x[MAV_DATA_STREAM_RAW_SENSORS-1]
+	_ = x[MAV_DATA_STREAM_EXTENDED_STATUS-2]
+	_ = x[MAV_DATA_STREAM_RC_CHANNELS-3]
+	_ = x[MAV_DATA_STREAM_RAW_CONTROLLER-4]
+	_ = x[MAV_DATA_STREAM_POSITION-6]
+	_ = x[MAV_DATA_STREAM_EXTRA1-10]
+	_ = x[MAV_DATA_STREAM_EXTRA2-11]
+	_ = x[MAV_DATA_STREAM_EXTRA3-12]
 }
 
 const (
@@ -1213,6 +2204,16 @@ func (i MavDataStream) String() string {
 		return "MavDataStream(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_ROI_NONE-0]
+	_ = x[MAV_ROI_WPNEXT-1]
+	_ = x[MAV_ROI_WPINDEX-2]
+	_ = x[MAV_ROI_LOCATION-3]
+	_ = x[MAV_ROI_TARGET-4]
+}
 
 const _MavRoi_name = "MAV_ROI_NONEMAV_ROI_WPNEXTMAV_ROI_WPINDEXMAV_ROI_LOCATIONMAV_ROI_TARGET"
 
@@ -1223,6 +2224,20 @@ func (i MavRoi) String() string {
 		return "MavRoi(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _MavRoi_name[_MavRoi_index[i]:_MavRoi_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_CMD_ACK_OK-1]
+	_ = x[MAV_CMD_ACK_ERR_FAIL-2]
+	_ = x[MAV_CMD_ACK_ERR_ACCESS_DENIED-3]
+	_ = x[MAV_CMD_ACK_ERR_NOT_SUPPORTED-4]
+	_ = x[MAV_CMD_ACK_ERR_COORDINATE_FRAME_NOT_SUPPORTED-5]
+	_ = x[MAV_CMD_ACK_ERR_COORDINATES_OUT_OF_RANGE-6]
+	_ = x[MAV_CMD_ACK_ERR_X_LAT_OUT_OF_RANGE-7]
+	_ = x[MAV_CMD_ACK_ERR_Y_LON_OUT_OF_RANGE-8]
+	_ = x[MAV_CMD_ACK_ERR_Z_ALT_OUT_OF_RANGE-9]
 }
 
 const _MavCmdAck_name = "MAV_CMD_ACK_OKMAV_CMD_ACK_ERR_FAILMAV_CMD_ACK_ERR_ACCESS_DENIEDMAV_CMD_ACK_ERR_NOT_SUPPORTEDMAV_CMD_ACK_ERR_COORDINATE_FRAME_NOT_SUPPORTEDMAV_CMD_ACK_ERR_COORDINATES_OUT_OF_RANGEMAV_CMD_ACK_ERR_X_LAT_OUT_OF_RANGEMAV_CMD_ACK_ERR_Y_LON_OUT_OF_RANGEMAV_CMD_ACK_ERR_Z_ALT_OUT_OF_RANGE"
@@ -1236,6 +2251,21 @@ func (i MavCmdAck) String() string {
 	}
 	return _MavCmdAck_name[_MavCmdAck_index[i]:_MavCmdAck_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_PARAM_TYPE_UINT8-1]
+	_ = x[MAV_PARAM_TYPE_INT8-2]
+	_ = x[MAV_PARAM_TYPE_UINT16-3]
+	_ = x[MAV_PARAM_TYPE_INT16-4]
+	_ = x[MAV_PARAM_TYPE_UINT32-5]
+	_ = x[MAV_PARAM_TYPE_INT32-6]
+	_ = x[MAV_PARAM_TYPE_UINT64-7]
+	_ = x[MAV_PARAM_TYPE_INT64-8]
+	_ = x[MAV_PARAM_TYPE_REAL32-9]
+	_ = x[MAV_PARAM_TYPE_REAL64-10]
+}
 
 const _MavParamType_name = "MAV_PARAM_TYPE_UINT8MAV_PARAM_TYPE_INT8MAV_PARAM_TYPE_UINT16MAV_PARAM_TYPE_INT16MAV_PARAM_TYPE_UINT32MAV_PARAM_TYPE_INT32MAV_PARAM_TYPE_UINT64MAV_PARAM_TYPE_INT64MAV_PARAM_TYPE_REAL32MAV_PARAM_TYPE_REAL64"
 
@@ -1247,6 +2277,22 @@ func (i MavParamType) String() string {
 		return "MavParamType(" + strconv.FormatInt(int64(i+1), 10) + ")"
 	}
 	return _MavParamType_name[_MavParamType_index[i]:_MavParamType_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_PARAM_EXT_TYPE_UINT8-1]
+	_ = x[MAV_PARAM_EXT_TYPE_INT8-2]
+	_ = x[MAV_PARAM_EXT_TYPE_UINT16-3]
+	_ = x[MAV_PARAM_EXT_TYPE_INT16-4]
+	_ = x[MAV_PARAM_EXT_TYPE_UINT32-5]
+	_ = x[MAV_PARAM_EXT_TYPE_INT32-6]
+	_ = x[MAV_PARAM_EXT_TYPE_UINT64-7]
+	_ = x[MAV_PARAM_EXT_TYPE_INT64-8]
+	_ = x[MAV_PARAM_EXT_TYPE_REAL32-9]
+	_ = x[MAV_PARAM_EXT_TYPE_REAL64-10]
+	_ = x[MAV_PARAM_EXT_TYPE_CUSTOM-11]
 }
 
 const _MavParamExtType_name = "MAV_PARAM_EXT_TYPE_UINT8MAV_PARAM_EXT_TYPE_INT8MAV_PARAM_EXT_TYPE_UINT16MAV_PARAM_EXT_TYPE_INT16MAV_PARAM_EXT_TYPE_UINT32MAV_PARAM_EXT_TYPE_INT32MAV_PARAM_EXT_TYPE_UINT64MAV_PARAM_EXT_TYPE_INT64MAV_PARAM_EXT_TYPE_REAL32MAV_PARAM_EXT_TYPE_REAL64MAV_PARAM_EXT_TYPE_CUSTOM"
@@ -1260,6 +2306,17 @@ func (i MavParamExtType) String() string {
 	}
 	return _MavParamExtType_name[_MavParamExtType_index[i]:_MavParamExtType_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_RESULT_ACCEPTED-0]
+	_ = x[MAV_RESULT_TEMPORARILY_REJECTED-1]
+	_ = x[MAV_RESULT_DENIED-2]
+	_ = x[MAV_RESULT_UNSUPPORTED-3]
+	_ = x[MAV_RESULT_FAILED-4]
+	_ = x[MAV_RESULT_IN_PROGRESS-5]
+}
 
 const _MavResult_name = "MAV_RESULT_ACCEPTEDMAV_RESULT_TEMPORARILY_REJECTEDMAV_RESULT_DENIEDMAV_RESULT_UNSUPPORTEDMAV_RESULT_FAILEDMAV_RESULT_IN_PROGRESS"
 
@@ -1270,6 +2327,27 @@ func (i MavResult) String() string {
 		return "MavResult(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _MavResult_name[_MavResult_index[i]:_MavResult_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_MISSION_ACCEPTED-0]
+	_ = x[MAV_MISSION_ERROR-1]
+	_ = x[MAV_MISSION_UNSUPPORTED_FRAME-2]
+	_ = x[MAV_MISSION_UNSUPPORTED-3]
+	_ = x[MAV_MISSION_NO_SPACE-4]
+	_ = x[MAV_MISSION_INVALID-5]
+	_ = x[MAV_MISSION_INVALID_PARAM1-6]
+	_ = x[MAV_MISSION_INVALID_PARAM2-7]
+	_ = x[MAV_MISSION_INVALID_PARAM3-8]
+	_ = x[MAV_MISSION_INVALID_PARAM4-9]
+	_ = x[MAV_MISSION_INVALID_PARAM5_X-10]
+	_ = x[MAV_MISSION_INVALID_PARAM6_Y-11]
+	_ = x[MAV_MISSION_INVALID_PARAM7-12]
+	_ = x[MAV_MISSION_INVALID_SEQUENCE-13]
+	_ = x[MAV_MISSION_DENIED-14]
+	_ = x[MAV_MISSION_OPERATION_CANCELLED-15]
 }
 
 const _MavMissionResult_name = "MAV_MISSION_ACCEPTEDMAV_MISSION_ERRORMAV_MISSION_UNSUPPORTED_FRAMEMAV_MISSION_UNSUPPORTEDMAV_MISSION_NO_SPACEMAV_MISSION_INVALIDMAV_MISSION_INVALID_PARAM1MAV_MISSION_INVALID_PARAM2MAV_MISSION_INVALID_PARAM3MAV_MISSION_INVALID_PARAM4MAV_MISSION_INVALID_PARAM5_XMAV_MISSION_INVALID_PARAM6_YMAV_MISSION_INVALID_PARAM7MAV_MISSION_INVALID_SEQUENCEMAV_MISSION_DENIEDMAV_MISSION_OPERATION_CANCELLED"
@@ -1282,6 +2360,19 @@ func (i MavMissionResult) String() string {
 	}
 	return _MavMissionResult_name[_MavMissionResult_index[i]:_MavMissionResult_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_SEVERITY_EMERGENCY-0]
+	_ = x[MAV_SEVERITY_ALERT-1]
+	_ = x[MAV_SEVERITY_CRITICAL-2]
+	_ = x[MAV_SEVERITY_ERROR-3]
+	_ = x[MAV_SEVERITY_WARNING-4]
+	_ = x[MAV_SEVERITY_NOTICE-5]
+	_ = x[MAV_SEVERITY_INFO-6]
+	_ = x[MAV_SEVERITY_DEBUG-7]
+}
 
 const _MavSeverity_name = "MAV_SEVERITY_EMERGENCYMAV_SEVERITY_ALERTMAV_SEVERITY_CRITICALMAV_SEVERITY_ERRORMAV_SEVERITY_WARNINGMAV_SEVERITY_NOTICEMAV_SEVERITY_INFOMAV_SEVERITY_DEBUG"
 
@@ -1292,6 +2383,17 @@ func (i MavSeverity) String() string {
 		return "MavSeverity(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _MavSeverity_name[_MavSeverity_index[i]:_MavSeverity_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_POWER_STATUS_BRICK_VALID-1]
+	_ = x[MAV_POWER_STATUS_SERVO_VALID-2]
+	_ = x[MAV_POWER_STATUS_USB_CONNECTED-4]
+	_ = x[MAV_POWER_STATUS_PERIPH_OVERCURRENT-8]
+	_ = x[MAV_POWER_STATUS_PERIPH_HIPOWER_OVERCURRENT-16]
+	_ = x[MAV_POWER_STATUS_CHANGED-32]
 }
 
 const (
@@ -1323,6 +2425,16 @@ func (i MavPowerStatus) String() string {
 		return "MavPowerStatus(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[SERIAL_CONTROL_DEV_TELEM1-0]
+	_ = x[SERIAL_CONTROL_DEV_TELEM2-1]
+	_ = x[SERIAL_CONTROL_DEV_GPS1-2]
+	_ = x[SERIAL_CONTROL_DEV_GPS2-3]
+	_ = x[SERIAL_CONTROL_DEV_SHELL-10]
+}
 
 const (
 	_SerialControlDev_name_0 = "SERIAL_CONTROL_DEV_TELEM1SERIAL_CONTROL_DEV_TELEM2SERIAL_CONTROL_DEV_GPS1SERIAL_CONTROL_DEV_GPS2"
@@ -1342,6 +2454,16 @@ func (i SerialControlDev) String() string {
 	default:
 		return "SerialControlDev(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[SERIAL_CONTROL_FLAG_REPLY-1]
+	_ = x[SERIAL_CONTROL_FLAG_RESPOND-2]
+	_ = x[SERIAL_CONTROL_FLAG_EXCLUSIVE-4]
+	_ = x[SERIAL_CONTROL_FLAG_BLOCKING-8]
+	_ = x[SERIAL_CONTROL_FLAG_MULTI-16]
 }
 
 const (
@@ -1370,6 +2492,16 @@ func (i SerialControlFlag) String() string {
 		return "SerialControlFlag(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_DISTANCE_SENSOR_LASER-0]
+	_ = x[MAV_DISTANCE_SENSOR_ULTRASOUND-1]
+	_ = x[MAV_DISTANCE_SENSOR_INFRARED-2]
+	_ = x[MAV_DISTANCE_SENSOR_RADAR-3]
+	_ = x[MAV_DISTANCE_SENSOR_UNKNOWN-4]
+}
 
 const _MavDistanceSensor_name = "MAV_DISTANCE_SENSOR_LASERMAV_DISTANCE_SENSOR_ULTRASOUNDMAV_DISTANCE_SENSOR_INFRAREDMAV_DISTANCE_SENSOR_RADARMAV_DISTANCE_SENSOR_UNKNOWN"
 
@@ -1380,6 +2512,53 @@ func (i MavDistanceSensor) String() string {
 		return "MavDistanceSensor(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _MavDistanceSensor_name[_MavDistanceSensor_index[i]:_MavDistanceSensor_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_SENSOR_ROTATION_NONE-0]
+	_ = x[MAV_SENSOR_ROTATION_YAW_45-1]
+	_ = x[MAV_SENSOR_ROTATION_YAW_90-2]
+	_ = x[MAV_SENSOR_ROTATION_YAW_135-3]
+	_ = x[MAV_SENSOR_ROTATION_YAW_180-4]
+	_ = x[MAV_SENSOR_ROTATION_YAW_225-5]
+	_ = x[MAV_SENSOR_ROTATION_YAW_270-6]
+	_ = x[MAV_SENSOR_ROTATION_YAW_315-7]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_180-8]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_180_YAW_45-9]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_180_YAW_90-10]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_180_YAW_135-11]
+	_ = x[MAV_SENSOR_ROTATION_PITCH_180-12]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_180_YAW_225-13]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_180_YAW_270-14]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_180_YAW_315-15]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_90-16]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_90_YAW_45-17]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_90_YAW_90-18]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_90_YAW_135-19]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_270-20]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_270_YAW_45-21]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_270_YAW_90-22]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_270_YAW_135-23]
+	_ = x[MAV_SENSOR_ROTATION_PITCH_90-24]
+	_ = x[MAV_SENSOR_ROTATION_PITCH_270-25]
+	_ = x[MAV_SENSOR_ROTATION_PITCH_180_YAW_90-26]
+	_ = x[MAV_SENSOR_ROTATION_PITCH_180_YAW_270-27]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_90_PITCH_90-28]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_180_PITCH_90-29]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_270_PITCH_90-30]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_90_PITCH_180-31]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_270_PITCH_180-32]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_90_PITCH_270-33]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_180_PITCH_270-34]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_270_PITCH_270-35]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_90_PITCH_180_YAW_90-36]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_90_YAW_270-37]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_90_PITCH_68_YAW_293-38]
+	_ = x[MAV_SENSOR_ROTATION_PITCH_315-39]
+	_ = x[MAV_SENSOR_ROTATION_ROLL_90_PITCH_315-40]
+	_ = x[MAV_SENSOR_ROTATION_CUSTOM-100]
 }
 
 const (
@@ -1400,6 +2579,28 @@ func (i MavSensorOrientation) String() string {
 	default:
 		return "MavSensorOrientation(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_PROTOCOL_CAPABILITY_MISSION_FLOAT-1]
+	_ = x[MAV_PROTOCOL_CAPABILITY_PARAM_FLOAT-2]
+	_ = x[MAV_PROTOCOL_CAPABILITY_MISSION_INT-4]
+	_ = x[MAV_PROTOCOL_CAPABILITY_COMMAND_INT-8]
+	_ = x[MAV_PROTOCOL_CAPABILITY_PARAM_UNION-16]
+	_ = x[MAV_PROTOCOL_CAPABILITY_FTP-32]
+	_ = x[MAV_PROTOCOL_CAPABILITY_SET_ATTITUDE_TARGET-64]
+	_ = x[MAV_PROTOCOL_CAPABILITY_SET_POSITION_TARGET_LOCAL_NED-128]
+	_ = x[MAV_PROTOCOL_CAPABILITY_SET_POSITION_TARGET_GLOBAL_INT-256]
+	_ = x[MAV_PROTOCOL_CAPABILITY_TERRAIN-512]
+	_ = x[MAV_PROTOCOL_CAPABILITY_SET_ACTUATOR_TARGET-1024]
+	_ = x[MAV_PROTOCOL_CAPABILITY_FLIGHT_TERMINATION-2048]
+	_ = x[MAV_PROTOCOL_CAPABILITY_COMPASS_CALIBRATION-4096]
+	_ = x[MAV_PROTOCOL_CAPABILITY_MAVLINK2-8192]
+	_ = x[MAV_PROTOCOL_CAPABILITY_MISSION_FENCE-16384]
+	_ = x[MAV_PROTOCOL_CAPABILITY_MISSION_RALLY-32768]
+	_ = x[MAV_PROTOCOL_CAPABILITY_FLIGHT_INFORMATION-65536]
 }
 
 const _MavProtocolCapability_name = "MAV_PROTOCOL_CAPABILITY_MISSION_FLOATMAV_PROTOCOL_CAPABILITY_PARAM_FLOATMAV_PROTOCOL_CAPABILITY_MISSION_INTMAV_PROTOCOL_CAPABILITY_COMMAND_INTMAV_PROTOCOL_CAPABILITY_PARAM_UNIONMAV_PROTOCOL_CAPABILITY_FTPMAV_PROTOCOL_CAPABILITY_SET_ATTITUDE_TARGETMAV_PROTOCOL_CAPABILITY_SET_POSITION_TARGET_LOCAL_NEDMAV_PROTOCOL_CAPABILITY_SET_POSITION_TARGET_GLOBAL_INTMAV_PROTOCOL_CAPABILITY_TERRAINMAV_PROTOCOL_CAPABILITY_SET_ACTUATOR_TARGETMAV_PROTOCOL_CAPABILITY_FLIGHT_TERMINATIONMAV_PROTOCOL_CAPABILITY_COMPASS_CALIBRATIONMAV_PROTOCOL_CAPABILITY_MAVLINK2MAV_PROTOCOL_CAPABILITY_MISSION_FENCEMAV_PROTOCOL_CAPABILITY_MISSION_RALLYMAV_PROTOCOL_CAPABILITY_FLIGHT_INFORMATION"
@@ -1430,6 +2631,15 @@ func (i MavProtocolCapability) String() string {
 	}
 	return "MavProtocolCapability(" + strconv.FormatInt(int64(i), 10) + ")"
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_MISSION_TYPE_MISSION-0]
+	_ = x[MAV_MISSION_TYPE_FENCE-1]
+	_ = x[MAV_MISSION_TYPE_RALLY-2]
+	_ = x[MAV_MISSION_TYPE_ALL-255]
+}
 
 const (
 	_MavMissionType_name_0 = "MAV_MISSION_TYPE_MISSIONMAV_MISSION_TYPE_FENCEMAV_MISSION_TYPE_RALLY"
@@ -1450,6 +2660,16 @@ func (i MavMissionType) String() string {
 		return "MavMissionType(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_ESTIMATOR_TYPE_NAIVE-1]
+	_ = x[MAV_ESTIMATOR_TYPE_VISION-2]
+	_ = x[MAV_ESTIMATOR_TYPE_VIO-3]
+	_ = x[MAV_ESTIMATOR_TYPE_GPS-4]
+	_ = x[MAV_ESTIMATOR_TYPE_GPS_INS-5]
+}
 
 const _MavEstimatorType_name = "MAV_ESTIMATOR_TYPE_NAIVEMAV_ESTIMATOR_TYPE_VISIONMAV_ESTIMATOR_TYPE_VIOMAV_ESTIMATOR_TYPE_GPSMAV_ESTIMATOR_TYPE_GPS_INS"
 
@@ -1462,6 +2682,16 @@ func (i MavEstimatorType) String() string {
 	}
 	return _MavEstimatorType_name[_MavEstimatorType_index[i]:_MavEstimatorType_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_BATTERY_TYPE_UNKNOWN-0]
+	_ = x[MAV_BATTERY_TYPE_LIPO-1]
+	_ = x[MAV_BATTERY_TYPE_LIFE-2]
+	_ = x[MAV_BATTERY_TYPE_LION-3]
+	_ = x[MAV_BATTERY_TYPE_NIMH-4]
+}
 
 const _MavBatteryType_name = "MAV_BATTERY_TYPE_UNKNOWNMAV_BATTERY_TYPE_LIPOMAV_BATTERY_TYPE_LIFEMAV_BATTERY_TYPE_LIONMAV_BATTERY_TYPE_NIMH"
 
@@ -1472,6 +2702,16 @@ func (i MavBatteryType) String() string {
 		return "MavBatteryType(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _MavBatteryType_name[_MavBatteryType_index[i]:_MavBatteryType_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_BATTERY_FUNCTION_UNKNOWN-0]
+	_ = x[MAV_BATTERY_FUNCTION_ALL-1]
+	_ = x[MAV_BATTERY_FUNCTION_PROPULSION-2]
+	_ = x[MAV_BATTERY_FUNCTION_AVIONICS-3]
+	_ = x[MAV_BATTERY_TYPE_PAYLOAD-4]
 }
 
 const _MavBatteryFunction_name = "MAV_BATTERY_FUNCTION_UNKNOWNMAV_BATTERY_FUNCTION_ALLMAV_BATTERY_FUNCTION_PROPULSIONMAV_BATTERY_FUNCTION_AVIONICSMAV_BATTERY_TYPE_PAYLOAD"
@@ -1484,6 +2724,19 @@ func (i MavBatteryFunction) String() string {
 	}
 	return _MavBatteryFunction_name[_MavBatteryFunction_index[i]:_MavBatteryFunction_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_BATTERY_CHARGE_STATE_UNDEFINED-0]
+	_ = x[MAV_BATTERY_CHARGE_STATE_OK-1]
+	_ = x[MAV_BATTERY_CHARGE_STATE_LOW-2]
+	_ = x[MAV_BATTERY_CHARGE_STATE_CRITICAL-3]
+	_ = x[MAV_BATTERY_CHARGE_STATE_EMERGENCY-4]
+	_ = x[MAV_BATTERY_CHARGE_STATE_FAILED-5]
+	_ = x[MAV_BATTERY_CHARGE_STATE_UNHEALTHY-6]
+	_ = x[MAV_BATTERY_CHARGE_STATE_CHARGING-7]
+}
 
 const _MavBatteryChargeState_name = "MAV_BATTERY_CHARGE_STATE_UNDEFINEDMAV_BATTERY_CHARGE_STATE_OKMAV_BATTERY_CHARGE_STATE_LOWMAV_BATTERY_CHARGE_STATE_CRITICALMAV_BATTERY_CHARGE_STATE_EMERGENCYMAV_BATTERY_CHARGE_STATE_FAILEDMAV_BATTERY_CHARGE_STATE_UNHEALTHYMAV_BATTERY_CHARGE_STATE_CHARGING"
 
@@ -1494,6 +2747,17 @@ func (i MavBatteryChargeState) String() string {
 		return "MavBatteryChargeState(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _MavBatteryChargeState_name[_MavBatteryChargeState_index[i]:_MavBatteryChargeState_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_SMART_BATTERY_FAULT_DEEP_DISCHARGE-1]
+	_ = x[MAV_SMART_BATTERY_FAULT_SPIKES-2]
+	_ = x[MAV_SMART_BATTERY_FAULT_SINGLE_CELL_FAIL-4]
+	_ = x[MAV_SMART_BATTERY_FAULT_OVER_CURRENT-8]
+	_ = x[MAV_SMART_BATTERY_FAULT_OVER_TEMPERATURE-16]
+	_ = x[MAV_SMART_BATTERY_FAULT_UNDER_TEMPERATURE-32]
 }
 
 const (
@@ -1525,6 +2789,16 @@ func (i MavSmartBatteryFault) String() string {
 		return "MavSmartBatteryFault(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_VTOL_STATE_UNDEFINED-0]
+	_ = x[MAV_VTOL_STATE_TRANSITION_TO_FW-1]
+	_ = x[MAV_VTOL_STATE_TRANSITION_TO_MC-2]
+	_ = x[MAV_VTOL_STATE_MC-3]
+	_ = x[MAV_VTOL_STATE_FW-4]
+}
 
 const _MavVtolState_name = "MAV_VTOL_STATE_UNDEFINEDMAV_VTOL_STATE_TRANSITION_TO_FWMAV_VTOL_STATE_TRANSITION_TO_MCMAV_VTOL_STATE_MCMAV_VTOL_STATE_FW"
 
@@ -1535,6 +2809,16 @@ func (i MavVtolState) String() string {
 		return "MavVtolState(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _MavVtolState_name[_MavVtolState_index[i]:_MavVtolState_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_LANDED_STATE_UNDEFINED-0]
+	_ = x[MAV_LANDED_STATE_ON_GROUND-1]
+	_ = x[MAV_LANDED_STATE_IN_AIR-2]
+	_ = x[MAV_LANDED_STATE_TAKEOFF-3]
+	_ = x[MAV_LANDED_STATE_LANDING-4]
 }
 
 const _MavLandedState_name = "MAV_LANDED_STATE_UNDEFINEDMAV_LANDED_STATE_ON_GROUNDMAV_LANDED_STATE_IN_AIRMAV_LANDED_STATE_TAKEOFFMAV_LANDED_STATE_LANDING"
@@ -1547,6 +2831,13 @@ func (i MavLandedState) String() string {
 	}
 	return _MavLandedState_name[_MavLandedState_index[i]:_MavLandedState_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[ADSB_ALTITUDE_TYPE_PRESSURE_QNH-0]
+	_ = x[ADSB_ALTITUDE_TYPE_GEOMETRIC-1]
+}
 
 const _AdsbAltitudeType_name = "ADSB_ALTITUDE_TYPE_PRESSURE_QNHADSB_ALTITUDE_TYPE_GEOMETRIC"
 
@@ -1558,6 +2849,31 @@ func (i AdsbAltitudeType) String() string {
 	}
 	return _AdsbAltitudeType_name[_AdsbAltitudeType_index[i]:_AdsbAltitudeType_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[ADSB_EMITTER_TYPE_NO_INFO-0]
+	_ = x[ADSB_EMITTER_TYPE_LIGHT-1]
+	_ = x[ADSB_EMITTER_TYPE_SMALL-2]
+	_ = x[ADSB_EMITTER_TYPE_LARGE-3]
+	_ = x[ADSB_EMITTER_TYPE_HIGH_VORTEX_LARGE-4]
+	_ = x[ADSB_EMITTER_TYPE_HEAVY-5]
+	_ = x[ADSB_EMITTER_TYPE_HIGHLY_MANUV-6]
+	_ = x[ADSB_EMITTER_TYPE_ROTOCRAFT-7]
+	_ = x[ADSB_EMITTER_TYPE_UNASSIGNED-8]
+	_ = x[ADSB_EMITTER_TYPE_GLIDER-9]
+	_ = x[ADSB_EMITTER_TYPE_LIGHTER_AIR-10]
+	_ = x[ADSB_EMITTER_TYPE_PARACHUTE-11]
+	_ = x[ADSB_EMITTER_TYPE_ULTRA_LIGHT-12]
+	_ = x[ADSB_EMITTER_TYPE_UNASSIGNED2-13]
+	_ = x[ADSB_EMITTER_TYPE_UAV-14]
+	_ = x[ADSB_EMITTER_TYPE_SPACE-15]
+	_ = x[ADSB_EMITTER_TYPE_UNASSGINED3-16]
+	_ = x[ADSB_EMITTER_TYPE_EMERGENCY_SURFACE-17]
+	_ = x[ADSB_EMITTER_TYPE_SERVICE_SURFACE-18]
+	_ = x[ADSB_EMITTER_TYPE_POINT_OBSTACLE-19]
+}
 
 const _AdsbEmitterType_name = "ADSB_EMITTER_TYPE_NO_INFOADSB_EMITTER_TYPE_LIGHTADSB_EMITTER_TYPE_SMALLADSB_EMITTER_TYPE_LARGEADSB_EMITTER_TYPE_HIGH_VORTEX_LARGEADSB_EMITTER_TYPE_HEAVYADSB_EMITTER_TYPE_HIGHLY_MANUVADSB_EMITTER_TYPE_ROTOCRAFTADSB_EMITTER_TYPE_UNASSIGNEDADSB_EMITTER_TYPE_GLIDERADSB_EMITTER_TYPE_LIGHTER_AIRADSB_EMITTER_TYPE_PARACHUTEADSB_EMITTER_TYPE_ULTRA_LIGHTADSB_EMITTER_TYPE_UNASSIGNED2ADSB_EMITTER_TYPE_UAVADSB_EMITTER_TYPE_SPACEADSB_EMITTER_TYPE_UNASSGINED3ADSB_EMITTER_TYPE_EMERGENCY_SURFACEADSB_EMITTER_TYPE_SERVICE_SURFACEADSB_EMITTER_TYPE_POINT_OBSTACLE"
 
@@ -1568,6 +2884,18 @@ func (i AdsbEmitterType) String() string {
 		return "AdsbEmitterType(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _AdsbEmitterType_name[_AdsbEmitterType_index[i]:_AdsbEmitterType_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[ADSB_FLAGS_VALID_COORDS-1]
+	_ = x[ADSB_FLAGS_VALID_ALTITUDE-2]
+	_ = x[ADSB_FLAGS_VALID_HEADING-4]
+	_ = x[ADSB_FLAGS_VALID_VELOCITY-8]
+	_ = x[ADSB_FLAGS_VALID_CALLSIGN-16]
+	_ = x[ADSB_FLAGS_VALID_SQUAWK-32]
+	_ = x[ADSB_FLAGS_SIMULATED-64]
 }
 
 const (
@@ -1602,6 +2930,12 @@ func (i AdsbFlags) String() string {
 		return "AdsbFlags(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_DO_REPOSITION_FLAGS_CHANGE_MODE-1]
+}
 
 const _MavDoRepositionFlags_name = "MAV_DO_REPOSITION_FLAGS_CHANGE_MODE"
 
@@ -1613,6 +2947,23 @@ func (i MavDoRepositionFlags) String() string {
 		return "MavDoRepositionFlags(" + strconv.FormatInt(int64(i+1), 10) + ")"
 	}
 	return _MavDoRepositionFlags_name[_MavDoRepositionFlags_index[i]:_MavDoRepositionFlags_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[ESTIMATOR_ATTITUDE-1]
+	_ = x[ESTIMATOR_VELOCITY_HORIZ-2]
+	_ = x[ESTIMATOR_VELOCITY_VERT-4]
+	_ = x[ESTIMATOR_POS_HORIZ_REL-8]
+	_ = x[ESTIMATOR_POS_HORIZ_ABS-16]
+	_ = x[ESTIMATOR_POS_VERT_ABS-32]
+	_ = x[ESTIMATOR_POS_VERT_AGL-64]
+	_ = x[ESTIMATOR_CONST_POS_MODE-128]
+	_ = x[ESTIMATOR_PRED_POS_HORIZ_REL-256]
+	_ = x[ESTIMATOR_PRED_POS_HORIZ_ABS-512]
+	_ = x[ESTIMATOR_GPS_GLITCH-1024]
+	_ = x[ESTIMATOR_ACCEL_ERROR-2048]
 }
 
 const _EstimatorStatusFlags_name = "ESTIMATOR_ATTITUDEESTIMATOR_VELOCITY_HORIZESTIMATOR_VELOCITY_VERTESTIMATOR_POS_HORIZ_RELESTIMATOR_POS_HORIZ_ABSESTIMATOR_POS_VERT_ABSESTIMATOR_POS_VERT_AGLESTIMATOR_CONST_POS_MODEESTIMATOR_PRED_POS_HORIZ_RELESTIMATOR_PRED_POS_HORIZ_ABSESTIMATOR_GPS_GLITCHESTIMATOR_ACCEL_ERROR"
@@ -1638,6 +2989,14 @@ func (i EstimatorStatusFlags) String() string {
 	}
 	return "EstimatorStatusFlags(" + strconv.FormatInt(int64(i), 10) + ")"
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MOTOR_TEST_ORDER_DEFAULT-0]
+	_ = x[MOTOR_TEST_ORDER_SEQUENCE-1]
+	_ = x[MOTOR_TEST_ORDER_BOARD-2]
+}
 
 const _MotorTestOrder_name = "MOTOR_TEST_ORDER_DEFAULTMOTOR_TEST_ORDER_SEQUENCEMOTOR_TEST_ORDER_BOARD"
 
@@ -1649,6 +3008,15 @@ func (i MotorTestOrder) String() string {
 	}
 	return _MotorTestOrder_name[_MotorTestOrder_index[i]:_MotorTestOrder_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MOTOR_TEST_THROTTLE_PERCENT-0]
+	_ = x[MOTOR_TEST_THROTTLE_PWM-1]
+	_ = x[MOTOR_TEST_THROTTLE_PILOT-2]
+	_ = x[MOTOR_TEST_COMPASS_CAL-3]
+}
 
 const _MotorTestThrottleType_name = "MOTOR_TEST_THROTTLE_PERCENTMOTOR_TEST_THROTTLE_PWMMOTOR_TEST_THROTTLE_PILOTMOTOR_TEST_COMPASS_CAL"
 
@@ -1659,6 +3027,19 @@ func (i MotorTestThrottleType) String() string {
 		return "MotorTestThrottleType(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _MotorTestThrottleType_name[_MotorTestThrottleType_index[i]:_MotorTestThrottleType_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GPS_INPUT_IGNORE_FLAG_ALT-1]
+	_ = x[GPS_INPUT_IGNORE_FLAG_HDOP-2]
+	_ = x[GPS_INPUT_IGNORE_FLAG_VDOP-4]
+	_ = x[GPS_INPUT_IGNORE_FLAG_VEL_HORIZ-8]
+	_ = x[GPS_INPUT_IGNORE_FLAG_VEL_VERT-16]
+	_ = x[GPS_INPUT_IGNORE_FLAG_SPEED_ACCURACY-32]
+	_ = x[GPS_INPUT_IGNORE_FLAG_HORIZONTAL_ACCURACY-64]
+	_ = x[GPS_INPUT_IGNORE_FLAG_VERTICAL_ACCURACY-128]
 }
 
 const (
@@ -1696,6 +3077,18 @@ func (i GpsInputIgnoreFlags) String() string {
 		return "GpsInputIgnoreFlags(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_COLLISION_ACTION_NONE-0]
+	_ = x[MAV_COLLISION_ACTION_REPORT-1]
+	_ = x[MAV_COLLISION_ACTION_ASCEND_OR_DESCEND-2]
+	_ = x[MAV_COLLISION_ACTION_MOVE_HORIZONTALLY-3]
+	_ = x[MAV_COLLISION_ACTION_MOVE_PERPENDICULAR-4]
+	_ = x[MAV_COLLISION_ACTION_RTL-5]
+	_ = x[MAV_COLLISION_ACTION_HOVER-6]
+}
 
 const _MavCollisionAction_name = "MAV_COLLISION_ACTION_NONEMAV_COLLISION_ACTION_REPORTMAV_COLLISION_ACTION_ASCEND_OR_DESCENDMAV_COLLISION_ACTION_MOVE_HORIZONTALLYMAV_COLLISION_ACTION_MOVE_PERPENDICULARMAV_COLLISION_ACTION_RTLMAV_COLLISION_ACTION_HOVER"
 
@@ -1706,6 +3099,14 @@ func (i MavCollisionAction) String() string {
 		return "MavCollisionAction(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _MavCollisionAction_name[_MavCollisionAction_index[i]:_MavCollisionAction_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_COLLISION_THREAT_LEVEL_NONE-0]
+	_ = x[MAV_COLLISION_THREAT_LEVEL_LOW-1]
+	_ = x[MAV_COLLISION_THREAT_LEVEL_HIGH-2]
 }
 
 const _MavCollisionThreatLevel_name = "MAV_COLLISION_THREAT_LEVEL_NONEMAV_COLLISION_THREAT_LEVEL_LOWMAV_COLLISION_THREAT_LEVEL_HIGH"
@@ -1718,6 +3119,13 @@ func (i MavCollisionThreatLevel) String() string {
 	}
 	return _MavCollisionThreatLevel_name[_MavCollisionThreatLevel_index[i]:_MavCollisionThreatLevel_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_COLLISION_SRC_ADSB-0]
+	_ = x[MAV_COLLISION_SRC_MAVLINK_GPS_GLOBAL_INT-1]
+}
 
 const _MavCollisionSrc_name = "MAV_COLLISION_SRC_ADSBMAV_COLLISION_SRC_MAVLINK_GPS_GLOBAL_INT"
 
@@ -1728,6 +3136,20 @@ func (i MavCollisionSrc) String() string {
 		return "MavCollisionSrc(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _MavCollisionSrc_name[_MavCollisionSrc_index[i]:_MavCollisionSrc_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[GPS_FIX_TYPE_NO_GPS-0]
+	_ = x[GPS_FIX_TYPE_NO_FIX-1]
+	_ = x[GPS_FIX_TYPE_2D_FIX-2]
+	_ = x[GPS_FIX_TYPE_3D_FIX-3]
+	_ = x[GPS_FIX_TYPE_DGPS-4]
+	_ = x[GPS_FIX_TYPE_RTK_FLOAT-5]
+	_ = x[GPS_FIX_TYPE_RTK_FIXED-6]
+	_ = x[GPS_FIX_TYPE_STATIC-7]
+	_ = x[GPS_FIX_TYPE_PPP-8]
 }
 
 const _GpsFixType_name = "GPS_FIX_TYPE_NO_GPSGPS_FIX_TYPE_NO_FIXGPS_FIX_TYPE_2D_FIXGPS_FIX_TYPE_3D_FIXGPS_FIX_TYPE_DGPSGPS_FIX_TYPE_RTK_FLOATGPS_FIX_TYPE_RTK_FIXEDGPS_FIX_TYPE_STATICGPS_FIX_TYPE_PPP"
@@ -1740,6 +3162,13 @@ func (i GpsFixType) String() string {
 	}
 	return _GpsFixType_name[_GpsFixType_index[i]:_GpsFixType_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[RTK_BASELINE_COORDINATE_SYSTEM_ECEF-0]
+	_ = x[RTK_BASELINE_COORDINATE_SYSTEM_NED-1]
+}
 
 const _RtkBaselineCoordinateSystem_name = "RTK_BASELINE_COORDINATE_SYSTEM_ECEFRTK_BASELINE_COORDINATE_SYSTEM_NED"
 
@@ -1750,6 +3179,15 @@ func (i RtkBaselineCoordinateSystem) String() string {
 		return "RtkBaselineCoordinateSystem(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _RtkBaselineCoordinateSystem_name[_RtkBaselineCoordinateSystem_index[i]:_RtkBaselineCoordinateSystem_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[LANDING_TARGET_TYPE_LIGHT_BEACON-0]
+	_ = x[LANDING_TARGET_TYPE_RADIO_BEACON-1]
+	_ = x[LANDING_TARGET_TYPE_VISION_FIDUCIAL-2]
+	_ = x[LANDING_TARGET_TYPE_VISION_OTHER-3]
 }
 
 const _LandingTargetType_name = "LANDING_TARGET_TYPE_LIGHT_BEACONLANDING_TARGET_TYPE_RADIO_BEACONLANDING_TARGET_TYPE_VISION_FIDUCIALLANDING_TARGET_TYPE_VISION_OTHER"
@@ -1762,6 +3200,16 @@ func (i LandingTargetType) String() string {
 	}
 	return _LandingTargetType_name[_LandingTargetType_index[i]:_LandingTargetType_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[VTOL_TRANSITION_HEADING_VEHICLE_DEFAULT-0]
+	_ = x[VTOL_TRANSITION_HEADING_NEXT_WAYPOINT-1]
+	_ = x[VTOL_TRANSITION_HEADING_TAKEOFF-2]
+	_ = x[VTOL_TRANSITION_HEADING_SPECIFIED-3]
+	_ = x[VTOL_TRANSITION_HEADING_ANY-4]
+}
 
 const _VtolTransitionHeading_name = "VTOL_TRANSITION_HEADING_VEHICLE_DEFAULTVTOL_TRANSITION_HEADING_NEXT_WAYPOINTVTOL_TRANSITION_HEADING_TAKEOFFVTOL_TRANSITION_HEADING_SPECIFIEDVTOL_TRANSITION_HEADING_ANY"
 
@@ -1772,6 +3220,20 @@ func (i VtolTransitionHeading) String() string {
 		return "VtolTransitionHeading(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _VtolTransitionHeading_name[_VtolTransitionHeading_index[i]:_VtolTransitionHeading_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[CAMERA_CAP_FLAGS_CAPTURE_VIDEO-1]
+	_ = x[CAMERA_CAP_FLAGS_CAPTURE_IMAGE-2]
+	_ = x[CAMERA_CAP_FLAGS_HAS_MODES-4]
+	_ = x[CAMERA_CAP_FLAGS_CAN_CAPTURE_IMAGE_IN_VIDEO_MODE-8]
+	_ = x[CAMERA_CAP_FLAGS_CAN_CAPTURE_VIDEO_IN_IMAGE_MODE-16]
+	_ = x[CAMERA_CAP_FLAGS_HAS_IMAGE_SURVEY_MODE-32]
+	_ = x[CAMERA_CAP_FLAGS_HAS_BASIC_ZOOM-64]
+	_ = x[CAMERA_CAP_FLAGS_HAS_BASIC_FOCUS-128]
+	_ = x[CAMERA_CAP_FLAGS_HAS_VIDEO_STREAM-256]
 }
 
 const (
@@ -1812,6 +3274,13 @@ func (i CameraCapFlags) String() string {
 		return "CameraCapFlags(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[VIDEO_STREAM_STATUS_FLAGS_RUNNING-1]
+	_ = x[VIDEO_STREAM_STATUS_FLAGS_THERMAL-2]
+}
 
 const _VideoStreamStatusFlags_name = "VIDEO_STREAM_STATUS_FLAGS_RUNNINGVIDEO_STREAM_STATUS_FLAGS_THERMAL"
 
@@ -1824,6 +3293,15 @@ func (i VideoStreamStatusFlags) String() string {
 	}
 	return _VideoStreamStatusFlags_name[_VideoStreamStatusFlags_index[i]:_VideoStreamStatusFlags_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[VIDEO_STREAM_TYPE_RTSP-0]
+	_ = x[VIDEO_STREAM_TYPE_RTPUDP-1]
+	_ = x[VIDEO_STREAM_TYPE_TCP_MPEG-2]
+	_ = x[VIDEO_STREAM_TYPE_MPEG_TS_H264-3]
+}
 
 const _VideoStreamType_name = "VIDEO_STREAM_TYPE_RTSPVIDEO_STREAM_TYPE_RTPUDPVIDEO_STREAM_TYPE_TCP_MPEGVIDEO_STREAM_TYPE_MPEG_TS_H264"
 
@@ -1834,6 +3312,14 @@ func (i VideoStreamType) String() string {
 		return "VideoStreamType(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _VideoStreamType_name[_VideoStreamType_index[i]:_VideoStreamType_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[ZOOM_TYPE_STEP-0]
+	_ = x[ZOOM_TYPE_CONTINUOUS-1]
+	_ = x[ZOOM_TYPE_RANGE-2]
 }
 
 const _CameraZoomType_name = "ZOOM_TYPE_STEPZOOM_TYPE_CONTINUOUSZOOM_TYPE_RANGE"
@@ -1846,6 +3332,14 @@ func (i CameraZoomType) String() string {
 	}
 	return _CameraZoomType_name[_CameraZoomType_index[i]:_CameraZoomType_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[FOCUS_TYPE_STEP-0]
+	_ = x[FOCUS_TYPE_CONTINUOUS-1]
+	_ = x[FOCUS_TYPE_RANGE-2]
+}
 
 const _SetFocusType_name = "FOCUS_TYPE_STEPFOCUS_TYPE_CONTINUOUSFOCUS_TYPE_RANGE"
 
@@ -1856,6 +3350,15 @@ func (i SetFocusType) String() string {
 		return "SetFocusType(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _SetFocusType_name[_SetFocusType_index[i]:_SetFocusType_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[PARAM_ACK_ACCEPTED-0]
+	_ = x[PARAM_ACK_VALUE_UNSUPPORTED-1]
+	_ = x[PARAM_ACK_FAILED-2]
+	_ = x[PARAM_ACK_IN_PROGRESS-3]
 }
 
 const _ParamAck_name = "PARAM_ACK_ACCEPTEDPARAM_ACK_VALUE_UNSUPPORTEDPARAM_ACK_FAILEDPARAM_ACK_IN_PROGRESS"
@@ -1868,6 +3371,14 @@ func (i ParamAck) String() string {
 	}
 	return _ParamAck_name[_ParamAck_index[i]:_ParamAck_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[CAMERA_MODE_IMAGE-0]
+	_ = x[CAMERA_MODE_VIDEO-1]
+	_ = x[CAMERA_MODE_IMAGE_SURVEY-2]
+}
 
 const _CameraMode_name = "CAMERA_MODE_IMAGECAMERA_MODE_VIDEOCAMERA_MODE_IMAGE_SURVEY"
 
@@ -1878,6 +3389,17 @@ func (i CameraMode) String() string {
 		return "CameraMode(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _CameraMode_name[_CameraMode_index[i]:_CameraMode_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_ARM_AUTH_DENIED_REASON_GENERIC-0]
+	_ = x[MAV_ARM_AUTH_DENIED_REASON_NONE-1]
+	_ = x[MAV_ARM_AUTH_DENIED_REASON_INVALID_WAYPOINT-2]
+	_ = x[MAV_ARM_AUTH_DENIED_REASON_TIMEOUT-3]
+	_ = x[MAV_ARM_AUTH_DENIED_REASON_AIRSPACE_IN_USE-4]
+	_ = x[MAV_ARM_AUTH_DENIED_REASON_BAD_WEATHER-5]
 }
 
 const _MavArmAuthDeniedReason_name = "MAV_ARM_AUTH_DENIED_REASON_GENERICMAV_ARM_AUTH_DENIED_REASON_NONEMAV_ARM_AUTH_DENIED_REASON_INVALID_WAYPOINTMAV_ARM_AUTH_DENIED_REASON_TIMEOUTMAV_ARM_AUTH_DENIED_REASON_AIRSPACE_IN_USEMAV_ARM_AUTH_DENIED_REASON_BAD_WEATHER"
@@ -1890,6 +3412,13 @@ func (i MavArmAuthDeniedReason) String() string {
 	}
 	return _MavArmAuthDeniedReason_name[_MavArmAuthDeniedReason_index[i]:_MavArmAuthDeniedReason_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[RC_TYPE_SPEKTRUM_DSM2-0]
+	_ = x[RC_TYPE_SPEKTRUM_DSMX-1]
+}
 
 const _RcType_name = "RC_TYPE_SPEKTRUM_DSM2RC_TYPE_SPEKTRUM_DSMX"
 
@@ -1900,6 +3429,23 @@ func (i RcType) String() string {
 		return "RcType(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _RcType_name[_RcType_index[i]:_RcType_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[POSITION_TARGET_TYPEMASK_X_IGNORE-1]
+	_ = x[POSITION_TARGET_TYPEMASK_Y_IGNORE-2]
+	_ = x[POSITION_TARGET_TYPEMASK_Z_IGNORE-4]
+	_ = x[POSITION_TARGET_TYPEMASK_VX_IGNORE-8]
+	_ = x[POSITION_TARGET_TYPEMASK_VY_IGNORE-16]
+	_ = x[POSITION_TARGET_TYPEMASK_VZ_IGNORE-32]
+	_ = x[POSITION_TARGET_TYPEMASK_AX_IGNORE-64]
+	_ = x[POSITION_TARGET_TYPEMASK_AY_IGNORE-128]
+	_ = x[POSITION_TARGET_TYPEMASK_AZ_IGNORE-256]
+	_ = x[POSITION_TARGET_TYPEMASK_FORCE_SET-512]
+	_ = x[POSITION_TARGET_TYPEMASK_YAW_IGNORE-1024]
+	_ = x[POSITION_TARGET_TYPEMASK_YAW_RATE_IGNORE-2048]
 }
 
 const _PositionTargetTypemask_name = "POSITION_TARGET_TYPEMASK_X_IGNOREPOSITION_TARGET_TYPEMASK_Y_IGNOREPOSITION_TARGET_TYPEMASK_Z_IGNOREPOSITION_TARGET_TYPEMASK_VX_IGNOREPOSITION_TARGET_TYPEMASK_VY_IGNOREPOSITION_TARGET_TYPEMASK_VZ_IGNOREPOSITION_TARGET_TYPEMASK_AX_IGNOREPOSITION_TARGET_TYPEMASK_AY_IGNOREPOSITION_TARGET_TYPEMASK_AZ_IGNOREPOSITION_TARGET_TYPEMASK_FORCE_SETPOSITION_TARGET_TYPEMASK_YAW_IGNOREPOSITION_TARGET_TYPEMASK_YAW_RATE_IGNORE"
@@ -1925,6 +3471,16 @@ func (i PositionTargetTypemask) String() string {
 	}
 	return "PositionTargetTypemask(" + strconv.FormatInt(int64(i), 10) + ")"
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[UTM_FLIGHT_STATE_UNKNOWN-1]
+	_ = x[UTM_FLIGHT_STATE_GROUND-2]
+	_ = x[UTM_FLIGHT_STATE_AIRBORNE-3]
+	_ = x[UTM_FLIGHT_STATE_EMERGENCY-16]
+	_ = x[UTM_FLIGHT_STATE_NOCTRL-32]
+}
 
 const (
 	_UtmFlightState_name_0 = "UTM_FLIGHT_STATE_UNKNOWNUTM_FLIGHT_STATE_GROUNDUTM_FLIGHT_STATE_AIRBORNE"
@@ -1948,6 +3504,19 @@ func (i UtmFlightState) String() string {
 	default:
 		return "UtmFlightState(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[UTM_DATA_AVAIL_FLAGS_TIME_VALID-1]
+	_ = x[UTM_DATA_AVAIL_FLAGS_UAS_ID_AVAILABLE-2]
+	_ = x[UTM_DATA_AVAIL_FLAGS_POSITION_AVAILABLE-4]
+	_ = x[UTM_DATA_AVAIL_FLAGS_ALTITUDE_AVAILABLE-8]
+	_ = x[UTM_DATA_AVAIL_FLAGS_RELATIVE_ALTITUDE_AVAILABLE-16]
+	_ = x[UTM_DATA_AVAIL_FLAGS_HORIZONTAL_VELO_AVAILABLE-32]
+	_ = x[UTM_DATA_AVAIL_FLAGS_VERTICAL_VELO_AVAILABLE-64]
+	_ = x[UTM_DATA_AVAIL_FLAGS_NEXT_WAYPOINT_AVAILABLE-128]
 }
 
 const (
@@ -1985,6 +3554,16 @@ func (i UtmDataAvailFlags) String() string {
 		return "UtmDataAvailFlags(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[CELLULAR_NETWORK_RADIO_TYPE_NONE-0]
+	_ = x[CELLULAR_NETWORK_RADIO_TYPE_GSM-1]
+	_ = x[CELLULAR_NETWORK_RADIO_TYPE_CDMA-2]
+	_ = x[CELLULAR_NETWORK_RADIO_TYPE_WCDMA-3]
+	_ = x[CELLULAR_NETWORK_RADIO_TYPE_LTE-4]
+}
 
 const _CellularNetworkRadioType_name = "CELLULAR_NETWORK_RADIO_TYPE_NONECELLULAR_NETWORK_RADIO_TYPE_GSMCELLULAR_NETWORK_RADIO_TYPE_CDMACELLULAR_NETWORK_RADIO_TYPE_WCDMACELLULAR_NETWORK_RADIO_TYPE_LTE"
 
@@ -1995,6 +3574,12 @@ func (i CellularNetworkRadioType) String() string {
 		return "CellularNetworkRadioType(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _CellularNetworkRadioType_name[_CellularNetworkRadioType_index[i]:_CellularNetworkRadioType_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[CELLULAR_NETWORK_STATUS_FLAG_ROAMING-1]
 }
 
 const _CellularNetworkStatusFlag_name = "CELLULAR_NETWORK_STATUS_FLAG_ROAMING"
@@ -2008,6 +3593,14 @@ func (i CellularNetworkStatusFlag) String() string {
 	}
 	return _CellularNetworkStatusFlag_name[_CellularNetworkStatusFlag_index[i]:_CellularNetworkStatusFlag_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[PRECISION_LAND_MODE_DISABLED-0]
+	_ = x[PRECISION_LAND_MODE_OPPORTUNISTIC-1]
+	_ = x[PRECISION_LAND_MODE_REQUIRED-2]
+}
 
 const _PrecisionLandMode_name = "PRECISION_LAND_MODE_DISABLEDPRECISION_LAND_MODE_OPPORTUNISTICPRECISION_LAND_MODE_REQUIRED"
 
@@ -2019,6 +3612,14 @@ func (i PrecisionLandMode) String() string {
 	}
 	return _PrecisionLandMode_name[_PrecisionLandMode_index[i]:_PrecisionLandMode_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[PARACHUTE_DISABLE-0]
+	_ = x[PARACHUTE_ENABLE-1]
+	_ = x[PARACHUTE_RELEASE-2]
+}
 
 const _ParachuteAction_name = "PARACHUTE_DISABLEPARACHUTE_ENABLEPARACHUTE_RELEASE"
 
@@ -2029,6 +3630,16 @@ func (i ParachuteAction) String() string {
 		return "ParachuteAction(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _ParachuteAction_name[_ParachuteAction_index[i]:_ParachuteAction_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[UAVIONIX_ADSB_OUT_DYNAMIC_STATE_INTENT_CHANGE-1]
+	_ = x[UAVIONIX_ADSB_OUT_DYNAMIC_STATE_AUTOPILOT_ENABLED-2]
+	_ = x[UAVIONIX_ADSB_OUT_DYNAMIC_STATE_NICBARO_CROSSCHECKED-4]
+	_ = x[UAVIONIX_ADSB_OUT_DYNAMIC_STATE_ON_GROUND-8]
+	_ = x[UAVIONIX_ADSB_OUT_DYNAMIC_STATE_IDENT-16]
 }
 
 const (
@@ -2057,6 +3668,14 @@ func (i UavionixAdsbOutDynamicState) String() string {
 		return "UavionixAdsbOutDynamicState(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[UAVIONIX_ADSB_OUT_RF_SELECT_STANDBY-0]
+	_ = x[UAVIONIX_ADSB_OUT_RF_SELECT_RX_ENABLED-1]
+	_ = x[UAVIONIX_ADSB_OUT_RF_SELECT_TX_ENABLED-2]
+}
 
 const _UavionixAdsbOutRfSelect_name = "UAVIONIX_ADSB_OUT_RF_SELECT_STANDBYUAVIONIX_ADSB_OUT_RF_SELECT_RX_ENABLEDUAVIONIX_ADSB_OUT_RF_SELECT_TX_ENABLED"
 
@@ -2068,6 +3687,17 @@ func (i UavionixAdsbOutRfSelect) String() string {
 	}
 	return _UavionixAdsbOutRfSelect_name[_UavionixAdsbOutRfSelect_index[i]:_UavionixAdsbOutRfSelect_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[UAVIONIX_ADSB_OUT_DYNAMIC_GPS_FIX_NONE_0-0]
+	_ = x[UAVIONIX_ADSB_OUT_DYNAMIC_GPS_FIX_NONE_1-1]
+	_ = x[UAVIONIX_ADSB_OUT_DYNAMIC_GPS_FIX_2D-2]
+	_ = x[UAVIONIX_ADSB_OUT_DYNAMIC_GPS_FIX_3D-3]
+	_ = x[UAVIONIX_ADSB_OUT_DYNAMIC_GPS_FIX_DGPS-4]
+	_ = x[UAVIONIX_ADSB_OUT_DYNAMIC_GPS_FIX_RTK-5]
+}
 
 const _UavionixAdsbOutDynamicGpsFix_name = "UAVIONIX_ADSB_OUT_DYNAMIC_GPS_FIX_NONE_0UAVIONIX_ADSB_OUT_DYNAMIC_GPS_FIX_NONE_1UAVIONIX_ADSB_OUT_DYNAMIC_GPS_FIX_2DUAVIONIX_ADSB_OUT_DYNAMIC_GPS_FIX_3DUAVIONIX_ADSB_OUT_DYNAMIC_GPS_FIX_DGPSUAVIONIX_ADSB_OUT_DYNAMIC_GPS_FIX_RTK"
 
@@ -2078,6 +3708,15 @@ func (i UavionixAdsbOutDynamicGpsFix) String() string {
 		return "UavionixAdsbOutDynamicGpsFix(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _UavionixAdsbOutDynamicGpsFix_name[_UavionixAdsbOutDynamicGpsFix_index[i]:_UavionixAdsbOutDynamicGpsFix_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[UAVIONIX_ADSB_RF_HEALTH_INITIALIZING-0]
+	_ = x[UAVIONIX_ADSB_RF_HEALTH_OK-1]
+	_ = x[UAVIONIX_ADSB_RF_HEALTH_FAIL_TX-2]
+	_ = x[UAVIONIX_ADSB_RF_HEALTH_FAIL_RX-16]
 }
 
 const (
@@ -2099,6 +3738,27 @@ func (i UavionixAdsbRfHealth) String() string {
 		return "UavionixAdsbRfHealth(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_NO_DATA-0]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L15M_W23M-1]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L25M_W28P5M-2]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L25_34M-3]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L35_33M-4]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L35_38M-5]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L45_39P5M-6]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L45_45M-7]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L55_45M-8]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L55_52M-9]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L65_59P5M-10]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L65_67M-11]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L75_W72P5M-12]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L75_W80M-13]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L85_W80M-14]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L85_W90M-15]
+}
 
 const _UavionixAdsbOutCfgAircraftSize_name = "UAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_NO_DATAUAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L15M_W23MUAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L25M_W28P5MUAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L25_34MUAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L35_33MUAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L35_38MUAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L45_39P5MUAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L45_45MUAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L55_45MUAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L55_52MUAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L65_59P5MUAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L65_67MUAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L75_W72P5MUAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L75_W80MUAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L85_W80MUAVIONIX_ADSB_OUT_CFG_AIRCRAFT_SIZE_L85_W90M"
 
@@ -2109,6 +3769,19 @@ func (i UavionixAdsbOutCfgAircraftSize) String() string {
 		return "UavionixAdsbOutCfgAircraftSize(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _UavionixAdsbOutCfgAircraftSize_name[_UavionixAdsbOutCfgAircraftSize_index[i]:_UavionixAdsbOutCfgAircraftSize_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_NO_DATA-0]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_LEFT_2M-1]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_LEFT_4M-2]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_LEFT_6M-3]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_RIGHT_0M-4]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_RIGHT_2M-5]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_RIGHT_4M-6]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_RIGHT_6M-7]
 }
 
 const _UavionixAdsbOutCfgGpsOffsetLat_name = "UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_NO_DATAUAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_LEFT_2MUAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_LEFT_4MUAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_LEFT_6MUAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_RIGHT_0MUAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_RIGHT_2MUAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_RIGHT_4MUAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LAT_RIGHT_6M"
@@ -2121,6 +3794,13 @@ func (i UavionixAdsbOutCfgGpsOffsetLat) String() string {
 	}
 	return _UavionixAdsbOutCfgGpsOffsetLat_name[_UavionixAdsbOutCfgGpsOffsetLat_index[i]:_UavionixAdsbOutCfgGpsOffsetLat_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LON_NO_DATA-0]
+	_ = x[UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LON_APPLIED_BY_SENSOR-1]
+}
 
 const _UavionixAdsbOutCfgGpsOffsetLon_name = "UAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LON_NO_DATAUAVIONIX_ADSB_OUT_CFG_GPS_OFFSET_LON_APPLIED_BY_SENSOR"
 
@@ -2131,6 +3811,19 @@ func (i UavionixAdsbOutCfgGpsOffsetLon) String() string {
 		return "UavionixAdsbOutCfgGpsOffsetLon(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _UavionixAdsbOutCfgGpsOffsetLon_name[_UavionixAdsbOutCfgGpsOffsetLon_index[i]:_UavionixAdsbOutCfgGpsOffsetLon_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[UAVIONIX_ADSB_OUT_NO_EMERGENCY-0]
+	_ = x[UAVIONIX_ADSB_OUT_GENERAL_EMERGENCY-1]
+	_ = x[UAVIONIX_ADSB_OUT_LIFEGUARD_EMERGENCY-2]
+	_ = x[UAVIONIX_ADSB_OUT_MINIMUM_FUEL_EMERGENCY-3]
+	_ = x[UAVIONIX_ADSB_OUT_NO_COMM_EMERGENCY-4]
+	_ = x[UAVIONIX_ADSB_OUT_UNLAWFUL_INTERFERANCE_EMERGENCY-5]
+	_ = x[UAVIONIX_ADSB_OUT_DOWNED_AIRCRAFT_EMERGENCY-6]
+	_ = x[UAVIONIX_ADSB_OUT_RESERVED-7]
 }
 
 const _UavionixAdsbEmergencyStatus_name = "UAVIONIX_ADSB_OUT_NO_EMERGENCYUAVIONIX_ADSB_OUT_GENERAL_EMERGENCYUAVIONIX_ADSB_OUT_LIFEGUARD_EMERGENCYUAVIONIX_ADSB_OUT_MINIMUM_FUEL_EMERGENCYUAVIONIX_ADSB_OUT_NO_COMM_EMERGENCYUAVIONIX_ADSB_OUT_UNLAWFUL_INTERFERANCE_EMERGENCYUAVIONIX_ADSB_OUT_DOWNED_AIRCRAFT_EMERGENCYUAVIONIX_ADSB_OUT_RESERVED"
@@ -2143,6 +3836,14 @@ func (i UavionixAdsbEmergencyStatus) String() string {
 	}
 	return _UavionixAdsbEmergencyStatus_name[_UavionixAdsbEmergencyStatus_index[i]:_UavionixAdsbEmergencyStatus_index[i+1]]
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[ICAROUS_TRACK_BAND_TYPE_NONE-0]
+	_ = x[ICAROUS_TRACK_BAND_TYPE_NEAR-1]
+	_ = x[ICAROUS_TRACK_BAND_TYPE_RECOVERY-2]
+}
 
 const _IcarousTrackBandTypes_name = "ICAROUS_TRACK_BAND_TYPE_NONEICAROUS_TRACK_BAND_TYPE_NEARICAROUS_TRACK_BAND_TYPE_RECOVERY"
 
@@ -2153,6 +3854,17 @@ func (i IcarousTrackBandTypes) String() string {
 		return "IcarousTrackBandTypes(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _IcarousTrackBandTypes_name[_IcarousTrackBandTypes_index[i]:_IcarousTrackBandTypes_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[ICAROUS_FMS_STATE_IDLE-0]
+	_ = x[ICAROUS_FMS_STATE_TAKEOFF-1]
+	_ = x[ICAROUS_FMS_STATE_CLIMB-2]
+	_ = x[ICAROUS_FMS_STATE_CRUISE-3]
+	_ = x[ICAROUS_FMS_STATE_APPROACH-4]
+	_ = x[ICAROUS_FMS_STATE_LAND-5]
 }
 
 const _IcarousFmsState_name = "ICAROUS_FMS_STATE_IDLEICAROUS_FMS_STATE_TAKEOFFICAROUS_FMS_STATE_CLIMBICAROUS_FMS_STATE_CRUISEICAROUS_FMS_STATE_APPROACHICAROUS_FMS_STATE_LAND"

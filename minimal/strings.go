@@ -4,6 +4,32 @@ package minimal
 
 import "strconv"
 
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_AUTOPILOT_GENERIC-0]
+	_ = x[MAV_AUTOPILOT_RESERVED-1]
+	_ = x[MAV_AUTOPILOT_SLUGS-2]
+	_ = x[MAV_AUTOPILOT_ARDUPILOTMEGA-3]
+	_ = x[MAV_AUTOPILOT_OPENPILOT-4]
+	_ = x[MAV_AUTOPILOT_GENERIC_WAYPOINTS_ONLY-5]
+	_ = x[MAV_AUTOPILOT_GENERIC_WAYPOINTS_AND_SIMPLE_NAVIGATION_ONLY-6]
+	_ = x[MAV_AUTOPILOT_GENERIC_MISSION_FULL-7]
+	_ = x[MAV_AUTOPILOT_INVALID-8]
+	_ = x[MAV_AUTOPILOT_PPZ-9]
+	_ = x[MAV_AUTOPILOT_UDB-10]
+	_ = x[MAV_AUTOPILOT_FP-11]
+	_ = x[MAV_AUTOPILOT_PX4-12]
+	_ = x[MAV_AUTOPILOT_SMACCMPILOT-13]
+	_ = x[MAV_AUTOPILOT_AUTOQUAD-14]
+	_ = x[MAV_AUTOPILOT_ARMAZILA-15]
+	_ = x[MAV_AUTOPILOT_AEROB-16]
+	_ = x[MAV_AUTOPILOT_ASLUAV-17]
+	_ = x[MAV_AUTOPILOT_SMARTAP-18]
+	_ = x[MAV_AUTOPILOT_AIRRAILS-19]
+}
+
 const _MavAutopilot_name = "MAV_AUTOPILOT_GENERICMAV_AUTOPILOT_RESERVEDMAV_AUTOPILOT_SLUGSMAV_AUTOPILOT_ARDUPILOTMEGAMAV_AUTOPILOT_OPENPILOTMAV_AUTOPILOT_GENERIC_WAYPOINTS_ONLYMAV_AUTOPILOT_GENERIC_WAYPOINTS_AND_SIMPLE_NAVIGATION_ONLYMAV_AUTOPILOT_GENERIC_MISSION_FULLMAV_AUTOPILOT_INVALIDMAV_AUTOPILOT_PPZMAV_AUTOPILOT_UDBMAV_AUTOPILOT_FPMAV_AUTOPILOT_PX4MAV_AUTOPILOT_SMACCMPILOTMAV_AUTOPILOT_AUTOQUADMAV_AUTOPILOT_ARMAZILAMAV_AUTOPILOT_AEROBMAV_AUTOPILOT_ASLUAVMAV_AUTOPILOT_SMARTAPMAV_AUTOPILOT_AIRRAILS"
 
 var _MavAutopilot_index = [...]uint16{0, 21, 43, 62, 89, 112, 148, 206, 240, 261, 278, 295, 311, 328, 353, 375, 397, 416, 436, 457, 479}
@@ -13,6 +39,44 @@ func (i MavAutopilot) String() string {
 		return "MavAutopilot(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _MavAutopilot_name[_MavAutopilot_index[i]:_MavAutopilot_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_TYPE_GENERIC-0]
+	_ = x[MAV_TYPE_FIXED_WING-1]
+	_ = x[MAV_TYPE_QUADROTOR-2]
+	_ = x[MAV_TYPE_COAXIAL-3]
+	_ = x[MAV_TYPE_HELICOPTER-4]
+	_ = x[MAV_TYPE_ANTENNA_TRACKER-5]
+	_ = x[MAV_TYPE_GCS-6]
+	_ = x[MAV_TYPE_AIRSHIP-7]
+	_ = x[MAV_TYPE_FREE_BALLOON-8]
+	_ = x[MAV_TYPE_ROCKET-9]
+	_ = x[MAV_TYPE_GROUND_ROVER-10]
+	_ = x[MAV_TYPE_SURFACE_BOAT-11]
+	_ = x[MAV_TYPE_SUBMARINE-12]
+	_ = x[MAV_TYPE_HEXAROTOR-13]
+	_ = x[MAV_TYPE_OCTOROTOR-14]
+	_ = x[MAV_TYPE_TRICOPTER-15]
+	_ = x[MAV_TYPE_FLAPPING_WING-16]
+	_ = x[MAV_TYPE_KITE-17]
+	_ = x[MAV_TYPE_ONBOARD_CONTROLLER-18]
+	_ = x[MAV_TYPE_VTOL_DUOROTOR-19]
+	_ = x[MAV_TYPE_VTOL_QUADROTOR-20]
+	_ = x[MAV_TYPE_VTOL_TILTROTOR-21]
+	_ = x[MAV_TYPE_VTOL_RESERVED2-22]
+	_ = x[MAV_TYPE_VTOL_RESERVED3-23]
+	_ = x[MAV_TYPE_VTOL_RESERVED4-24]
+	_ = x[MAV_TYPE_VTOL_RESERVED5-25]
+	_ = x[MAV_TYPE_GIMBAL-26]
+	_ = x[MAV_TYPE_ADSB-27]
+	_ = x[MAV_TYPE_PARAFOIL-28]
+	_ = x[MAV_TYPE_DODECAROTOR-29]
+	_ = x[MAV_TYPE_CAMERA-30]
+	_ = x[MAV_TYPE_CHARGING_STATION-31]
+	_ = x[MAV_TYPE_FLARM-32]
 }
 
 const _MavType_name = "MAV_TYPE_GENERICMAV_TYPE_FIXED_WINGMAV_TYPE_QUADROTORMAV_TYPE_COAXIALMAV_TYPE_HELICOPTERMAV_TYPE_ANTENNA_TRACKERMAV_TYPE_GCSMAV_TYPE_AIRSHIPMAV_TYPE_FREE_BALLOONMAV_TYPE_ROCKETMAV_TYPE_GROUND_ROVERMAV_TYPE_SURFACE_BOATMAV_TYPE_SUBMARINEMAV_TYPE_HEXAROTORMAV_TYPE_OCTOROTORMAV_TYPE_TRICOPTERMAV_TYPE_FLAPPING_WINGMAV_TYPE_KITEMAV_TYPE_ONBOARD_CONTROLLERMAV_TYPE_VTOL_DUOROTORMAV_TYPE_VTOL_QUADROTORMAV_TYPE_VTOL_TILTROTORMAV_TYPE_VTOL_RESERVED2MAV_TYPE_VTOL_RESERVED3MAV_TYPE_VTOL_RESERVED4MAV_TYPE_VTOL_RESERVED5MAV_TYPE_GIMBALMAV_TYPE_ADSBMAV_TYPE_PARAFOILMAV_TYPE_DODECAROTORMAV_TYPE_CAMERAMAV_TYPE_CHARGING_STATIONMAV_TYPE_FLARM"
@@ -24,6 +88,19 @@ func (i MavType) String() string {
 		return "MavType(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _MavType_name[_MavType_index[i]:_MavType_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_MODE_FLAG_SAFETY_ARMED-128]
+	_ = x[MAV_MODE_FLAG_MANUAL_INPUT_ENABLED-64]
+	_ = x[MAV_MODE_FLAG_HIL_ENABLED-32]
+	_ = x[MAV_MODE_FLAG_STABILIZE_ENABLED-16]
+	_ = x[MAV_MODE_FLAG_GUIDED_ENABLED-8]
+	_ = x[MAV_MODE_FLAG_AUTO_ENABLED-4]
+	_ = x[MAV_MODE_FLAG_TEST_ENABLED-2]
+	_ = x[MAV_MODE_FLAG_CUSTOM_MODE_ENABLED-1]
 }
 
 const (
@@ -61,6 +138,19 @@ func (i MavModeFlag) String() string {
 		return "MavModeFlag(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_MODE_FLAG_DECODE_POSITION_SAFETY-128]
+	_ = x[MAV_MODE_FLAG_DECODE_POSITION_MANUAL-64]
+	_ = x[MAV_MODE_FLAG_DECODE_POSITION_HIL-32]
+	_ = x[MAV_MODE_FLAG_DECODE_POSITION_STABILIZE-16]
+	_ = x[MAV_MODE_FLAG_DECODE_POSITION_GUIDED-8]
+	_ = x[MAV_MODE_FLAG_DECODE_POSITION_AUTO-4]
+	_ = x[MAV_MODE_FLAG_DECODE_POSITION_TEST-2]
+	_ = x[MAV_MODE_FLAG_DECODE_POSITION_CUSTOM_MODE-1]
+}
 
 const (
 	_MavModeFlagDecodePosition_name_0 = "MAV_MODE_FLAG_DECODE_POSITION_CUSTOM_MODEMAV_MODE_FLAG_DECODE_POSITION_TEST"
@@ -97,6 +187,20 @@ func (i MavModeFlagDecodePosition) String() string {
 		return "MavModeFlagDecodePosition(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 }
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_STATE_UNINIT-0]
+	_ = x[MAV_STATE_BOOT-2]
+	_ = x[MAV_STATE_CALIBRATING-3]
+	_ = x[MAV_STATE_STANDBY-4]
+	_ = x[MAV_STATE_ACTIVE-5]
+	_ = x[MAV_STATE_CRITICAL-6]
+	_ = x[MAV_STATE_EMERGENCY-7]
+	_ = x[MAV_STATE_POWEROFF-8]
+	_ = x[MAV_STATE_FLIGHT_TERMINATION-9]
+}
 
 const (
 	_MavState_name_0 = "MAV_STATE_UNINIT"
@@ -117,6 +221,52 @@ func (i MavState) String() string {
 	default:
 		return "MavState(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[MAV_COMP_ID_ALL-0]
+	_ = x[MAV_COMP_ID_AUTOPILOT1-1]
+	_ = x[MAV_COMP_ID_CAMERA-100]
+	_ = x[MAV_COMP_ID_CAMERA2-101]
+	_ = x[MAV_COMP_ID_CAMERA3-102]
+	_ = x[MAV_COMP_ID_CAMERA4-103]
+	_ = x[MAV_COMP_ID_CAMERA5-104]
+	_ = x[MAV_COMP_ID_CAMERA6-105]
+	_ = x[MAV_COMP_ID_SERVO1-140]
+	_ = x[MAV_COMP_ID_SERVO2-141]
+	_ = x[MAV_COMP_ID_SERVO3-142]
+	_ = x[MAV_COMP_ID_SERVO4-143]
+	_ = x[MAV_COMP_ID_SERVO5-144]
+	_ = x[MAV_COMP_ID_SERVO6-145]
+	_ = x[MAV_COMP_ID_SERVO7-146]
+	_ = x[MAV_COMP_ID_SERVO8-147]
+	_ = x[MAV_COMP_ID_SERVO9-148]
+	_ = x[MAV_COMP_ID_SERVO10-149]
+	_ = x[MAV_COMP_ID_SERVO11-150]
+	_ = x[MAV_COMP_ID_SERVO12-151]
+	_ = x[MAV_COMP_ID_SERVO13-152]
+	_ = x[MAV_COMP_ID_SERVO14-153]
+	_ = x[MAV_COMP_ID_GIMBAL-154]
+	_ = x[MAV_COMP_ID_LOG-155]
+	_ = x[MAV_COMP_ID_ADSB-156]
+	_ = x[MAV_COMP_ID_OSD-157]
+	_ = x[MAV_COMP_ID_PERIPHERAL-158]
+	_ = x[MAV_COMP_ID_QX1_GIMBAL-159]
+	_ = x[MAV_COMP_ID_FLARM-160]
+	_ = x[MAV_COMP_ID_MISSIONPLANNER-190]
+	_ = x[MAV_COMP_ID_PATHPLANNER-195]
+	_ = x[MAV_COMP_ID_OBSTACLE_AVOIDANCE-196]
+	_ = x[MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY-197]
+	_ = x[MAV_COMP_ID_IMU-200]
+	_ = x[MAV_COMP_ID_IMU_2-201]
+	_ = x[MAV_COMP_ID_IMU_3-202]
+	_ = x[MAV_COMP_ID_GPS-220]
+	_ = x[MAV_COMP_ID_GPS2-221]
+	_ = x[MAV_COMP_ID_UDP_BRIDGE-240]
+	_ = x[MAV_COMP_ID_UART_BRIDGE-241]
+	_ = x[MAV_COMP_ID_SYSTEM_CONTROL-250]
 }
 
 const (

@@ -17,7 +17,7 @@ func main() {
 	enc := json.NewEncoder(os.Stdout)
 	enc.SetIndent("", "\t")
 
-	dec := mavlink.NewDecoder(os.Stdin, ardupilotmega.Dialect)
+	dec := mavlink.NewDecoder(os.Stdin, ardupilotmega.New)
 	for {
 		msg, sysid, compid, err := dec.Decode()
 		if err == io.EOF {

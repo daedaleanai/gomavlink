@@ -4,6 +4,15 @@ package icarous
 
 import "strconv"
 
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[ICAROUS_TRACK_BAND_TYPE_NONE-0]
+	_ = x[ICAROUS_TRACK_BAND_TYPE_NEAR-1]
+	_ = x[ICAROUS_TRACK_BAND_TYPE_RECOVERY-2]
+}
+
 const _IcarousTrackBandTypes_name = "ICAROUS_TRACK_BAND_TYPE_NONEICAROUS_TRACK_BAND_TYPE_NEARICAROUS_TRACK_BAND_TYPE_RECOVERY"
 
 var _IcarousTrackBandTypes_index = [...]uint8{0, 28, 56, 88}
@@ -13,6 +22,17 @@ func (i IcarousTrackBandTypes) String() string {
 		return "IcarousTrackBandTypes(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
 	return _IcarousTrackBandTypes_name[_IcarousTrackBandTypes_index[i]:_IcarousTrackBandTypes_index[i+1]]
+}
+func _() {
+	// An "invalid array index" compiler error signifies that the constant values have changed.
+	// Re-run the stringer command to generate them again.
+	var x [1]struct{}
+	_ = x[ICAROUS_FMS_STATE_IDLE-0]
+	_ = x[ICAROUS_FMS_STATE_TAKEOFF-1]
+	_ = x[ICAROUS_FMS_STATE_CLIMB-2]
+	_ = x[ICAROUS_FMS_STATE_CRUISE-3]
+	_ = x[ICAROUS_FMS_STATE_APPROACH-4]
+	_ = x[ICAROUS_FMS_STATE_LAND-5]
 }
 
 const _IcarousFmsState_name = "ICAROUS_FMS_STATE_IDLEICAROUS_FMS_STATE_TAKEOFFICAROUS_FMS_STATE_CLIMBICAROUS_FMS_STATE_CRUISEICAROUS_FMS_STATE_APPROACHICAROUS_FMS_STATE_LAND"
