@@ -164,7 +164,12 @@ func (m *Message) CRCExtra() byte {
 		if len(parts) != 3 {
 			log.Fatalf("Can't parse message %q field %q as ctype", m.Name, v.CType)
 		}
-		x.Update([]byte(parts[1]))
+		// srsly guys.
+		if parts[1] == "uint8_t_mavlink_version" {
+			parts[1] = "uint8_t"
+		}
+
+		x.Update([]byte(parts[1])) // i suspect that the uint8_t_mavlink_version field in Heartbeat  messes things up
 		x.Update([]byte(" "))
 		x.Update([]byte(v.Name))
 		x.Update([]byte(" "))

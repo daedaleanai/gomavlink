@@ -3228,7 +3228,7 @@ type Heartbeat struct {
 }
 
 func (m *Heartbeat) ID() int        { return 0 }
-func (m *Heartbeat) CRCExtra() byte { return 239 }
+func (m *Heartbeat) CRCExtra() byte { return 50 }
 
 func (m *Heartbeat) MarshalV1(buf []byte) []byte {
 	buf = marshalUint32(buf, (m.CustomMode))
