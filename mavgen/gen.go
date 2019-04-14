@@ -81,6 +81,7 @@ func (m *{{$tpe}}) MarshalV1(buf []byte) []byte {
 {{end}}
 	return buf
 }
+
 func (m *{{$tpe}}) MarshalV2(buf []byte) []byte {
 	buf = m.MarshalV1(buf)
 {{range .ExtFields}}
@@ -94,7 +95,68 @@ func (m *{{$tpe}}) MarshalV2(buf []byte) []byte {
 {{end}}
 	return buf
 }
+
+func (m *{{$tpe}}) UnmarshalV1(buf []byte) []byte {
+{{- range .BaseFields}}
+{{if goarraysize .CType -}}
+	for i, _ := range m.{{underscoreToCamel .Name}} {
+	{{if .Enum -}}
+		{
+			var v {{goscalartype .CType}}
+			buf, v = unmarshal{{goscalartype .CType|title}}(buf)
+			m.{{underscoreToCamel .Name}}[i] = {{underscoreToCamel .Enum}}(v)
+		}
+	{{- else -}}
+		buf, m.{{underscoreToCamel .Name}}[i] = unmarshal{{goscalartype .CType|title}}(buf)
+	{{- end}}
+	}
+{{- else -}}
+	{{if .Enum -}}
+		{
+			var v {{goscalartype .CType}}
+			buf, v = unmarshal{{goscalartype .CType|title}}(buf)
+			m.{{underscoreToCamel .Name}} = {{underscoreToCamel .Enum}}(v)
+		}
+	{{- else -}}
+		buf, m.{{underscoreToCamel .Name}} = unmarshal{{goscalartype .CType|title}}(buf)
+	{{- end}}
+{{- end}}
 {{end}}
+	return buf
+}
+
+func (m *{{$tpe}}) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+{{- range .ExtFields}}
+{{if goarraysize .CType -}}
+	for i, _ := range m.{{underscoreToCamel .Name}} {
+	{{if .Enum -}}
+		{
+			var v {{goscalartype .CType}}
+			buf, v = unmarshal{{goscalartype .CType|title}}(buf)
+			m.{{underscoreToCamel .Name}}[i] = {{underscoreToCamel .Enum}}(v)
+		}
+	{{- else -}}
+		buf, m.{{underscoreToCamel .Name}}[i] = unmarshal{{goscalartype .CType|title}}(buf)
+	{{- end}}
+	}
+{{- else -}}
+	{{if .Enum -}}
+		{
+			var v {{goscalartype .CType}}
+			buf, v = unmarshal{{goscalartype .CType|title}}(buf)
+			m.{{underscoreToCamel .Name}} = {{underscoreToCamel .Enum}}(v)
+		}
+	{{- else -}}
+		buf, m.{{underscoreToCamel .Name}} = unmarshal{{goscalartype .CType|title}}(buf)
+	{{- end}}
+{{- end}}
+{{end}}
+
+	return buf
+}
+{{end}}
+
 
 {{if.Messages}}// These will be inlined.
 func marshalByte(b []byte, v byte) []byte { return append(b, v) }
@@ -107,6 +169,24 @@ func marshalInt64(b []byte, v int64) []byte { return append(b, byte(v), byte(v>>
 func marshalUint64(b []byte, v uint64) []byte { return append(b, byte(v), byte(v>>8), byte(v>>16), byte(v>>24), byte(v>>32), byte(v>>40), byte(v>>48), byte(v>>56)) }
 func marshalFloat32(b []byte, v float32) []byte { return marshalUint32(b, math.Float32bits(v)) }
 func marshalFloat64(b []byte, v float64) []byte { return marshalUint64(b, math.Float64bits(v)) }
+
+func unmarshalByte(b []byte) ([]byte, byte) { return b[1:], b[0] }
+func unmarshalInt8(b []byte) ([]byte, int8) { return b[1:], int8(b[0]) }
+func unmarshalInt16(b []byte) ([]byte, int16) { return b[2:], int16(b[0]) | int16(b[1])<<8 }
+func unmarshalUint16(b []byte) ([]byte, uint16) { return b[2:], uint16(b[0]) | uint16(b[1])<<8 }
+func unmarshalInt32(b []byte) ([]byte, int32) { return b[4:], int32(b[0]) | int32(b[1])<<8 | int32(b[2])<<16 | int32(b[3])<<24}
+func unmarshalUint32(b []byte) ([]byte, uint32) { return b[4:], uint32(b[0]) | uint32(b[1])<<8 | uint32(b[2])<<16 | uint32(b[3])<<24}
+func unmarshalInt64(b []byte) ([]byte, int64) { return b[8:], int64(b[0]) | int64(b[1])<<8 | int64(b[2])<<16 | int64(b[3])<<24 | int64(b[4])<<32 | int64(b[5])<<40 | int64(b[6])<<48 | int64(b[7])<<56 }
+func unmarshalUint64(b []byte) ([]byte, uint64) { return b[8:], uint64(b[0]) | uint64(b[1])<<8 | uint64(b[2])<<16 | uint64(b[3])<<24 | uint64(b[4])<<32 | uint64(b[5])<<40 | uint64(b[6])<<48 | uint64(b[7])<<56 }
+func unmarshalFloat32(b []byte) ([]byte, float32) { 
+	b, v := unmarshalUint32(b)
+	return b, math.Float32frombits(v)
+}
+func unmarshalFloat64(b []byte) ([]byte, float64) { 
+	b, v := unmarshalUint64(b)
+	return b, math.Float64frombits(v)
+}
+
 {{end}}
 
 `))

@@ -39,7 +39,10 @@ func (d *Decoder) Resync() (n int, err error) {
 	return
 }
 
-var ErrMustSync = errors.New("Stream must resync")
+var (
+	ErrMustSync = errors.New("Stream must resync")
+	ErrBadCRC   = errors.New("Bad x25 CRC")
+)
 
 func (d *Decoder) Decode() (msg Message, str StreamID, err error) {
 
@@ -58,7 +61,7 @@ func (d *Decoder) Decode() (msg Message, str StreamID, err error) {
 		}
 	}()
 
-	mustReadByte := func() byte {
+	get := func() byte {
 		b, err := d.r.ReadByte()
 		if err != nil {
 			panic(err)
@@ -67,7 +70,7 @@ func (d *Decoder) Decode() (msg Message, str StreamID, err error) {
 		return b
 	}
 
-	stx = mustReadByte()
+	stx = get()
 	switch stx {
 	case 0xFD, 0xFE:
 		// nix
@@ -77,19 +80,19 @@ func (d *Decoder) Decode() (msg Message, str StreamID, err error) {
 	}
 
 	crc = 0xffff
-	paylen = mustReadByte()
+	paylen = get()
 	if stx == 0xFD {
-		incomp = mustReadByte()
-		_ = mustReadByte() // compat field, not used by anyone
+		incomp = get()
+		_ = get() // compat field, not used by anyone
 	}
-	_ = mustReadByte() // seq field not used yet, TODO use for stats
-	sysid := mustReadByte()
-	compid := mustReadByte()
+	_ = get() // seq field not used yet, TODO use for stats
+	sysid := get()
+	compid := get()
 	str = Stream(sysid, compid, 0)
-	msgId = int(mustReadByte())
+	msgId = int(get())
 	if stx == 0xFD {
-		msgId |= int(mustReadByte()) << 8
-		msgId |= int(mustReadByte()) << 16
+		msgId |= int(get()) << 8
+		msgId |= int(get()) << 16
 	}
 
 	pld = pld[:paylen]
@@ -115,15 +118,19 @@ func (d *Decoder) Decode() (msg Message, str StreamID, err error) {
 	if msg != nil {
 		crc.Update([]byte{msg.CRCExtra()})
 	}
-	log.Printf("chkxsum: %x, %x", uint16(chksum[1])<<8|uint16(chksum[0]), crc)
+	if chk := uint16(chksum[1])<<8 | uint16(chksum[0]); uint16(crc) != chk {
+		panic(ErrBadCRC)
+	}
 
 	switch {
 	case msg == nil:
-		panic(fmt.Errorf("Cannot decode message type %d", msgId))
+		panic(fmt.Errorf("Cannot decode message type id %d", msgId))
 	case stx == 0xFE:
 		log.Printf("Decoding %T %d bytes (V1) %v", msg, len(pld), pld)
+		msg.UnmarshalV1(pld)
 	case stx == 0xFD:
 		log.Printf("Decoding %T %d bytes (V2) %v", msg, len(pld), pld)
+		msg.UnmarshalV2(pld[:256]) // zero padded
 	}
 
 	return

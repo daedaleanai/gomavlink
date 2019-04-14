@@ -62,8 +62,25 @@ func (m *IcarousHeartbeat) MarshalV1(buf []byte) []byte {
 
 	return buf
 }
+
 func (m *IcarousHeartbeat) MarshalV2(buf []byte) []byte {
 	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *IcarousHeartbeat) UnmarshalV1(buf []byte) []byte {
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Status = IcarousFmsState(v)
+	}
+
+	return buf
+}
+
+func (m *IcarousHeartbeat) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
 
 	return buf
 }
@@ -143,8 +160,71 @@ func (m *IcarousKinematicBands) MarshalV1(buf []byte) []byte {
 
 	return buf
 }
+
 func (m *IcarousKinematicBands) MarshalV2(buf []byte) []byte {
 	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *IcarousKinematicBands) UnmarshalV1(buf []byte) []byte {
+	buf, m.Min1 = unmarshalFloat32(buf)
+
+	buf, m.Max1 = unmarshalFloat32(buf)
+
+	buf, m.Min2 = unmarshalFloat32(buf)
+
+	buf, m.Max2 = unmarshalFloat32(buf)
+
+	buf, m.Min3 = unmarshalFloat32(buf)
+
+	buf, m.Max3 = unmarshalFloat32(buf)
+
+	buf, m.Min4 = unmarshalFloat32(buf)
+
+	buf, m.Max4 = unmarshalFloat32(buf)
+
+	buf, m.Min5 = unmarshalFloat32(buf)
+
+	buf, m.Max5 = unmarshalFloat32(buf)
+
+	buf, m.Numbands = unmarshalInt8(buf)
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Type1 = IcarousTrackBandTypes(v)
+	}
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Type2 = IcarousTrackBandTypes(v)
+	}
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Type3 = IcarousTrackBandTypes(v)
+	}
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Type4 = IcarousTrackBandTypes(v)
+	}
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Type5 = IcarousTrackBandTypes(v)
+	}
+
+	return buf
+}
+
+func (m *IcarousKinematicBands) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
 
 	return buf
 }
@@ -168,3 +248,28 @@ func marshalUint64(b []byte, v uint64) []byte {
 }
 func marshalFloat32(b []byte, v float32) []byte { return marshalUint32(b, math.Float32bits(v)) }
 func marshalFloat64(b []byte, v float64) []byte { return marshalUint64(b, math.Float64bits(v)) }
+
+func unmarshalByte(b []byte) ([]byte, byte)     { return b[1:], b[0] }
+func unmarshalInt8(b []byte) ([]byte, int8)     { return b[1:], int8(b[0]) }
+func unmarshalInt16(b []byte) ([]byte, int16)   { return b[2:], int16(b[0]) | int16(b[1])<<8 }
+func unmarshalUint16(b []byte) ([]byte, uint16) { return b[2:], uint16(b[0]) | uint16(b[1])<<8 }
+func unmarshalInt32(b []byte) ([]byte, int32) {
+	return b[4:], int32(b[0]) | int32(b[1])<<8 | int32(b[2])<<16 | int32(b[3])<<24
+}
+func unmarshalUint32(b []byte) ([]byte, uint32) {
+	return b[4:], uint32(b[0]) | uint32(b[1])<<8 | uint32(b[2])<<16 | uint32(b[3])<<24
+}
+func unmarshalInt64(b []byte) ([]byte, int64) {
+	return b[8:], int64(b[0]) | int64(b[1])<<8 | int64(b[2])<<16 | int64(b[3])<<24 | int64(b[4])<<32 | int64(b[5])<<40 | int64(b[6])<<48 | int64(b[7])<<56
+}
+func unmarshalUint64(b []byte) ([]byte, uint64) {
+	return b[8:], uint64(b[0]) | uint64(b[1])<<8 | uint64(b[2])<<16 | uint64(b[3])<<24 | uint64(b[4])<<32 | uint64(b[5])<<40 | uint64(b[6])<<48 | uint64(b[7])<<56
+}
+func unmarshalFloat32(b []byte) ([]byte, float32) {
+	b, v := unmarshalUint32(b)
+	return b, math.Float32frombits(v)
+}
+func unmarshalFloat64(b []byte) ([]byte, float64) {
+	b, v := unmarshalUint64(b)
+	return b, math.Float64frombits(v)
+}

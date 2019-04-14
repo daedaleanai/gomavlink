@@ -16,6 +16,8 @@ type Message interface {
 	CRCExtra() byte
 	MarshalV1([]byte) []byte
 	MarshalV2([]byte) []byte
+	UnmarshalV1([]byte) []byte
+	UnmarshalV2([]byte) []byte
 }
 
 // A StreamID encodes link/system/component bytes in a single uint.
