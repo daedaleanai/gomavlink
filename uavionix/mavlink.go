@@ -924,7 +924,7 @@ const (
 	UAVCAN_NODE_MODE_OFFLINE UavcanNodeMode = 7
 )
 
-/* Commands to be executed by the MAV. They can be executed on user request, or as part of a mission script. If the action is used in a mission, the parameter mapping to the waypoint/mission message is as follows: Param 1, Param 2, Param 3, Param 4, X: Param 5, Y:Param 6, Z:Param 7. This command list is similar what ARINC 424 is for commercial aircraft: A data format how to interpret waypoint/mission data. */
+/* Commands to be executed by the MAV. They can be executed on user request, or as part of a mission script. If the action is used in a mission, the parameter mapping to the waypoint/mission message is as follows: Param 1, Param 2, Param 3, Param 4, X: Param 5, Y:Param 6, Z:Param 7. This command list is similar what ARINC 424 is for commercial aircraft: A data format how to interpret waypoint/mission data. See https://mavlink.io/en/guide/xml_schema.html#MAV_CMD for information about the structure of the MAV_CMD entries */
 type MavCmd uint32
 
 const (
@@ -3262,7 +3262,7 @@ func (m *UavionixAdsbTransceiverHealthReport) UnmarshalV2(buf []byte) []byte {
 	return buf
 }
 
-/* The heartbeat message shows that a system or component is present and responding. The type and autopilot fields (along with the message component id), allow the receiving system to treat further messages from this system appropriately (e.g. by laying out the user interface based on the autopilot). */
+/* The heartbeat message shows that a system or component is present and responding. The type and autopilot fields (along with the message component id), allow the receiving system to treat further messages from this system appropriately (e.g. by laying out the user interface based on the autopilot). This microservice is documented at https://mavlink.io/en/services/heartbeat.html */
 type Heartbeat struct {
 	/* A bitfield for use for autopilot-specific flags */
 	CustomMode uint32
@@ -3479,7 +3479,7 @@ func (m *SystemTime) UnmarshalV2(buf []byte) []byte {
 	return buf
 }
 
-/* A ping message either requesting or responding to a ping. This allows to measure the system latencies, including serial port, radio modem and UDP connections. */
+/* A ping message either requesting or responding to a ping. This allows to measure the system latencies, including serial port, radio modem and UDP connections. The ping microservice is documented at https://mavlink.io/en/services/ping.html */
 type Ping struct {
 	/* Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number. */
 	TimeUsec uint64
@@ -3759,7 +3759,7 @@ func (m *ParamRequestRead) UnmarshalV2(buf []byte) []byte {
 	return buf
 }
 
-/* Request all parameters of this component. After this request, all parameters are emitted. */
+/* Request all parameters of this component. After this request, all parameters are emitted. The parameter microservice is documented at https://mavlink.io/en/services/parameter.html */
 type ParamRequestList struct {
 	/* System ID */
 	TargetSystem byte
@@ -3797,7 +3797,7 @@ func (m *ParamRequestList) UnmarshalV2(buf []byte) []byte {
 	return buf
 }
 
-/* Emit the value of a onboard parameter. The inclusion of param_count and param_index in the message allows the recipient to keep track of received parameters and allows him to re-request missing parameters after a loss or timeout. */
+/* Emit the value of a onboard parameter. The inclusion of param_count and param_index in the message allows the recipient to keep track of received parameters and allows him to re-request missing parameters after a loss or timeout. The parameter microservice is documented at https://mavlink.io/en/services/parameter.html */
 type ParamValue struct {
 	/* Onboard parameter value */
 	ParamValue float32
@@ -3859,7 +3859,7 @@ func (m *ParamValue) UnmarshalV2(buf []byte) []byte {
 	return buf
 }
 
-/* Set a parameter value (write new value to permanent storage). IMPORTANT: The receiving component should acknowledge the new parameter value by sending a PARAM_VALUE message to all communication partners. This will also ensure that multiple GCS all have an up-to-date list of all parameters. If the sending GCS did not receive a PARAM_VALUE message within its timeout time, it should re-send the PARAM_SET message. */
+/* Set a parameter value (write new value to permanent storage). IMPORTANT: The receiving component should acknowledge the new parameter value by sending a PARAM_VALUE message to all communication partners. This will also ensure that multiple GCS all have an up-to-date list of all parameters. If the sending GCS did not receive a PARAM_VALUE message within its timeout time, it should re-send the PARAM_SET message. The parameter microservice is documented at https://mavlink.io/en/services/parameter.html */
 type ParamSet struct {
 	/* Onboard parameter value */
 	ParamValue float32
@@ -6803,7 +6803,7 @@ func (m *VfrHud) UnmarshalV2(buf []byte) []byte {
 	return buf
 }
 
-/* Message encoding a command with parameters as scaled integers. Scaling depends on the actual command value. */
+/* Message encoding a command with parameters as scaled integers. Scaling depends on the actual command value. The command microservice is documented at https://mavlink.io/en/services/command.html */
 type CommandInt struct {
 	/* PARAM1, see MAV_CMD enum */
 	Param1 float32
@@ -6904,7 +6904,7 @@ func (m *CommandInt) UnmarshalV2(buf []byte) []byte {
 	return buf
 }
 
-/* Send a command with up to seven parameters to the MAV */
+/* Send a command with up to seven parameters to the MAV. The command microservice is documented at https://mavlink.io/en/services/command.html */
 type CommandLong struct {
 	/* Parameter 1 (for the specific command). */
 	Param1 float32
@@ -6991,7 +6991,7 @@ func (m *CommandLong) UnmarshalV2(buf []byte) []byte {
 	return buf
 }
 
-/* Report status of a command. Includes feedback whether the command was executed. */
+/* Report status of a command. Includes feedback whether the command was executed. The command microservice is documented at https://mavlink.io/en/services/command.html */
 type CommandAck struct {
 	/* Command ID (of acknowledged command). */
 	Command MavCmd // uint16
