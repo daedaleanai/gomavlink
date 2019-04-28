@@ -126,10 +126,10 @@ func (d *Decoder) Decode() (msg Message, str StreamID, err error) {
 	case msg == nil:
 		panic(fmt.Errorf("Cannot decode message type id %d", msgId))
 	case stx == 0xFE:
-		log.Printf("Decoding %T %d bytes (V1) %v", msg, len(pld), pld)
+		//log.Printf("Decoding %T %d bytes (V1) %v", msg, len(pld), pld)
 		msg.UnmarshalV1(pld)
 	case stx == 0xFD:
-		log.Printf("Decoding %T %d bytes (V2) %v", msg, len(pld), pld)
+		//log.Printf("Decoding %T %d bytes (V2) %v", msg, len(pld), pld)
 		msg.UnmarshalV2(pld[:256]) // zero padded
 	}
 

@@ -46,7 +46,7 @@ const (
 ){{end}}
 
 {{if .Messages}}
-func New(mid int) mavlink.Message {
+func Dialect(mid int) mavlink.Message {
 	switch mid {
 {{- range .Messages}}
 	case {{.ID}}: return &{{underscoreToCamel .Name}}{}
