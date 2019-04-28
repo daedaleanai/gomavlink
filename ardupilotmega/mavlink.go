@@ -3666,7 +3666,7 @@ const (
 	ICAROUS_FMS_STATE_LAND IcarousFmsState = 5
 )
 
-func New(mid int) mavlink.Message {
+func Dialect(mid int) mavlink.Message {
 	switch mid {
 	case 150:
 		return &SensorOffsets{}

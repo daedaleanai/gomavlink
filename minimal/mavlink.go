@@ -397,7 +397,7 @@ const (
 	MAV_COMP_ID_SYSTEM_CONTROL MavComponent = 250
 )
 
-func New(mid int) mavlink.Message {
+func Dialect(mid int) mavlink.Message {
 	switch mid {
 	case 0:
 		return &Heartbeat{}

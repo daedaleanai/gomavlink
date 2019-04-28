@@ -9,7 +9,7 @@ import (
 	mavlink "github.com/daedaleanai/gomavlink"
 )
 
-func New(mid int) mavlink.Message {
+func Dialect(mid int) mavlink.Message {
 	switch mid {
 	case 0:
 		return &TestTypes{}

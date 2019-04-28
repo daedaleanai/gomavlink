@@ -13,7 +13,7 @@ import (
 
 func main() {
 
-	dec := mavlink.NewDecoder(os.Stdin, ardupilotmega.New)
+	dec := mavlink.NewDecoder(os.Stdin, ardupilotmega.Dialect)
 	for {
 		msg, strid, err := dec.Decode()
 		if err == io.EOF {

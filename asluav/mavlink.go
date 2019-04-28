@@ -2540,7 +2540,7 @@ const (
 	PARACHUTE_RELEASE ParachuteAction = 2
 )
 
-func New(mid int) mavlink.Message {
+func Dialect(mid int) mavlink.Message {
 	switch mid {
 	case 78:
 		return &CommandIntStamped{}
