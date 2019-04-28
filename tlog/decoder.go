@@ -38,12 +38,12 @@ func (r *Record) String() string {
 }
 
 func (d *Decoder) Decode() (rec Record, err error) {
-	var ts int64
+	var ts uint64
 	err = binary.Read(d.r, binary.BigEndian, &ts)
 	if err != nil {
 		return
 	}
-	rec.Time = time.Unix(0, 100*ts)
+	rec.Time = time.Unix(0, int64(1000*ts))
 	rec.Message, rec.StreamID, err = d.d.Decode()
 	return
 }
