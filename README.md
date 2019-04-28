@@ -17,4 +17,5 @@ TODO:
 - decent test suite
 - test V2 decoding/encoding
 - test V1 encoding
+- String() method for generated message types that prints [n]byte as string 
 
