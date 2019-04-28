@@ -16,7 +16,7 @@ type Decoder struct {
 
 // NewDecoder constructs a new decoder from a reader and a dialect.
 // The dialect is specified by a factory function that can construct empty Messages from a given Message Id.
-// Mavgen generates the subpackage New functions for this purpose.
+// Mavgen generates the subpackage Dialect functions for this purpose.
 func NewDecoder(r io.Reader, dialect func(int) Message) *Decoder {
 	return &Decoder{bufio.NewReaderSize(r, 280), dialect}
 }
