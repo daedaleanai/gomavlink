@@ -1,3 +1,4 @@
+// Package tlog decodes ardupilot (timestamp,mavlink) telemetry log files.
 package tlog
 
 import (
@@ -11,7 +12,7 @@ import (
 	"github.com/daedaleanai/gomavlink/ardupilotmega"
 )
 
-// A Decoder decodes the (big endian 100ns since unix epoch, ardupilot mavlink message) pairs of a tlog file.
+// A Decoder decodes the (big endian microseconds(?) since unix epoch, ardupilot mavlink message) pairs of a tlog file.
 type Decoder struct {
 	r *bufio.Reader
 	d *mavlink.Decoder
