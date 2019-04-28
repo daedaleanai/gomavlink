@@ -3666,6 +3666,7 @@ const (
 	ICAROUS_FMS_STATE_LAND IcarousFmsState = 5
 )
 
+// The Dialect factory function constructs the proper empty message given the message ID.
 func Dialect(mid int) mavlink.Message {
 	switch mid {
 	case 150:

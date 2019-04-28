@@ -46,6 +46,7 @@ const (
 ){{end}}
 
 {{if .Messages}}
+// The Dialect factory function constructs the proper empty message given the message ID.
 func Dialect(mid int) mavlink.Message {
 	switch mid {
 {{- range .Messages}}

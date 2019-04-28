@@ -397,6 +397,7 @@ const (
 	MAV_COMP_ID_SYSTEM_CONTROL MavComponent = 250
 )
 
+// The Dialect factory function constructs the proper empty message given the message ID.
 func Dialect(mid int) mavlink.Message {
 	switch mid {
 	case 0:

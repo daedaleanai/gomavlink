@@ -2593,6 +2593,7 @@ const (
 	PARACHUTE_RELEASE ParachuteAction = 2
 )
 
+// The Dialect factory function constructs the proper empty message given the message ID.
 func Dialect(mid int) mavlink.Message {
 	switch mid {
 	case 170:

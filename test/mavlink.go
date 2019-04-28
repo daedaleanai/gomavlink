@@ -9,6 +9,7 @@ import (
 	mavlink "github.com/daedaleanai/gomavlink"
 )
 
+// The Dialect factory function constructs the proper empty message given the message ID.
 func Dialect(mid int) mavlink.Message {
 	switch mid {
 	case 0:
