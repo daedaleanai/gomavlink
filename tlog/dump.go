@@ -1,5 +1,7 @@
 // +build ignore
 
+// Usage:
+//    go run tlog/dump.go < ~/Downloads/flight.tlog 2>&1 | less
 package main
 
 import (
