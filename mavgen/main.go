@@ -10,6 +10,7 @@ import (
 	"path/filepath"
 	"sort"
 	"strings"
+	"text/template"
 )
 
 func main() {
@@ -18,10 +19,26 @@ func main() {
 	log.SetPrefix("gomavgen: ")
 	flag.Parse()
 
-	if len(flag.Args()) != 1 {
-		log.Fatalf("Usage: %s path/to/dialect.xml", os.Args[0])
+	if len(flag.Args()) != 2 {
+		log.Fatalf("Usage: %s path/to/lang.tmpl path/to/dialect.xml", os.Args[0])
 	}
-	f, err := os.Open(flag.Arg(0))
+
+	tmpl, err := template.New(filepath.Base(flag.Arg(0))).Funcs(template.FuncMap{
+		"lower":             strings.ToLower,
+		"upper":             strings.ToUpper,
+		"title":             strings.Title,
+		"underscoreToCamel": underscoreToCamel,
+		"gotype":            goType,
+		"goscalartype":      goScalarType,
+		"goarraysize":       goArraySize,
+		"notabs":            notabs,
+	}).ParseFiles(flag.Arg(0))
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Println("template file:", tmpl.Name())
+
+	f, err := os.Open(flag.Arg(1))
 	if err != nil {
 		log.Fatal(err)
 	}
