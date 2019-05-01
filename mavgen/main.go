@@ -2,11 +2,9 @@
 package main
 
 import (
-	"bytes"
 	"encoding/xml"
 	"flag"
 	"fmt"
-	"go/format"
 	"log"
 	"os"
 	"path/filepath"
@@ -95,27 +93,7 @@ func main() {
 		sort.Stable(bySerialisationOrder(v.Fields))
 	}
 
-	if err := os.MkdirAll(basename, 0755); err != nil {
-		log.Fatalln(err)
-	}
-
-	of, err := os.Create(filepath.Join(basename, "mavlink.go"))
-	if err != nil {
-		log.Fatalln(err)
-	}
-	defer of.Close()
-
-	var b bytes.Buffer
-	if err := tmpl.Execute(&b, dialect); err != nil {
-		log.Fatal(err)
-	}
-	out := b.Bytes()
-	out, err = format.Source(out)
-	if err != nil {
-		log.Println("not formatting, ill-formed source:", err)
-		out = b.Bytes()
-	}
-	if _, err := of.Write(out); err != nil {
+	if err := tmpl.Execute(os.Stdout, dialect); err != nil {
 		log.Fatal(err)
 	}
 

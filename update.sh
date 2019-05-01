@@ -10,7 +10,8 @@
 
 #for dialect in /tmp/mavlink/message_definitions/v1.0/*.xml; do 
 for dialect in ~/Project/mavlink/message_definitions/v1.0/*.xml; do 
-	go run mavgen/*.go $dialect
-	(cd $(basename -s .xml $dialect | tr '[A-Z]' '[a-z]'); go generate; go build)
+	ddir=$(basename -s .xml $dialect | tr '[A-Z]' '[a-z]')
+	go run mavgen/*.go $dialect > ${ddir}/mavlink.go
+	(cd ${ddir}; go generate; go fmt; go build)
 	echo
 done
