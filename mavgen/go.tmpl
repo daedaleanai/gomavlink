@@ -52,7 +52,7 @@ func (m *{{$tpe}}) ID() int { return {{.ID}} }
 func (m *{{$tpe}}) CRCExtra() byte { return {{.CRCExtra}} }
 
 func (m *{{$tpe}}) MarshalV1(buf []byte) []byte {
-{{- range .BaseFields}}
+{{range .BaseFields}}
 {{- if goarraysize .CType -}}
 	for _, v := range m.{{underscoreToCamel .Name}} {
 		buf = marshal{{goscalartype .CType|title}}(buf, {{if .Enum}}{{goscalartype .CType}}{{end}}(v))
@@ -79,30 +79,30 @@ func (m *{{$tpe}}) MarshalV2(buf []byte) []byte {
 }
 
 func (m *{{$tpe}}) UnmarshalV1(buf []byte) []byte {
-{{- range .BaseFields}}
-{{- if goarraysize .CType -}}
+{{range .BaseFields}}
+{{if goarraysize .CType}}
 	for i, _ := range m.{{underscoreToCamel .Name}} {
-	{{if .Enum -}}
+	{{if .Enum}}
 		{
 			var v {{goscalartype .CType}}
 			buf, v = unmarshal{{goscalartype .CType|title}}(buf)
 			m.{{underscoreToCamel .Name}}[i] = {{underscoreToCamel .Enum}}(v)
 		}
-	{{- else -}}
+	{{else}}
 		buf, m.{{underscoreToCamel .Name}}[i] = unmarshal{{goscalartype .CType|title}}(buf)
-	{{- end}}
+	{{end}}
 	}
-{{- else -}}
-	{{if .Enum -}}
+{{else}}
+	{{if .Enum}}
 		{
 			var v {{goscalartype .CType}}
 			buf, v = unmarshal{{goscalartype .CType|title}}(buf)
 			m.{{underscoreToCamel .Name}} = {{underscoreToCamel .Enum}}(v)
 		}
-	{{- else -}}
+	{{else}}
 		buf, m.{{underscoreToCamel .Name}} = unmarshal{{goscalartype .CType|title}}(buf)
-	{{- end}}
-{{- end}}
+	{{end}}
+{{end}}
 {{end}}
 	return buf
 }
