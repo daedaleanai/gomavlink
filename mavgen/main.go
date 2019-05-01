@@ -32,6 +32,7 @@ func main() {
 		"goscalartype":      goScalarType,
 		"goarraysize":       goArraySize,
 		"notabs":            notabs,
+		"cscalartype":       cScalarType,
 	}).ParseFiles(flag.Arg(0))
 	if err != nil {
 		log.Fatal(err)

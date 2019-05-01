@@ -122,3 +122,14 @@ func goArraySize(ctype string) (int, error) {
 	}
 	return int(n), nil
 }
+
+func cScalarType(ctype string) (string, error) {
+	parts := reCType.FindStringSubmatch(ctype)
+	if len(parts) != 3 {
+		return "", fmt.Errorf("Cannot parse %q as ctype([arraylen])", ctype)
+	}
+	if parts[1] == "uint8_t_mavlink_version" {
+		return "uint8_t", nil
+	}
+	return parts[1], nil
+}
