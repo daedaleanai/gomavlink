@@ -20,13 +20,21 @@ type Message interface {
 	UnmarshalV2([]byte) []byte
 }
 
-// A StreamID encodes link/system/component bytes in a single uint.
+// A StreamID encodes link/system/component ID bytes in a single uint.
+// THe Component ID is really an enum defined in the generated common subpackage but we can't have
+// circular dependencies.
 type StreamID uint32
 
 func Stream(sysId, compId, linkId byte) StreamID {
 	return StreamID(sysId)<<16 | StreamID(compId)<<8 | StreamID(linkId)
 }
-func (s StreamID) SysID() uint8   { return uint8(s >> 16) }
-func (s StreamID) CompID() uint8  { return uint8(s >> 8) }
+
+// SysID represents the ID of the system
+func (s StreamID) SysID() uint8 { return uint8(s >> 16) }
+
+// CompID represents the ID of the system component (see common/#MavComponent)
+func (s StreamID) CompID() uint8 { return uint8(s >> 8) }
+
+// LinkID allows for system/components to send the same message over different links.
 func (s StreamID) LinkID() uint8  { return uint8(s) }
 func (s StreamID) String() string { return fmt.Sprintf("(%d.%d.%d)", s.SysID(), s.CompID(), s.LinkID()) }
