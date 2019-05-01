@@ -80,29 +80,29 @@ func (m *{{$tpe}}) MarshalV2(buf []byte) []byte {
 
 func (m *{{$tpe}}) UnmarshalV1(buf []byte) []byte {
 {{range .BaseFields}}
-{{if goarraysize .CType}}
+{{- if goarraysize .CType}}
 	for i, _ := range m.{{underscoreToCamel .Name}} {
-	{{if .Enum}}
+	{{- if .Enum}}
 		{
 			var v {{goscalartype .CType}}
 			buf, v = unmarshal{{goscalartype .CType|title}}(buf)
 			m.{{underscoreToCamel .Name}}[i] = {{underscoreToCamel .Enum}}(v)
 		}
-	{{else}}
+	{{- else}}
 		buf, m.{{underscoreToCamel .Name}}[i] = unmarshal{{goscalartype .CType|title}}(buf)
-	{{end}}
+	{{- end}}
 	}
-{{else}}
-	{{if .Enum}}
+{{- else -}}
+	{{- if .Enum}}
 		{
 			var v {{goscalartype .CType}}
 			buf, v = unmarshal{{goscalartype .CType|title}}(buf)
 			m.{{underscoreToCamel .Name}} = {{underscoreToCamel .Enum}}(v)
 		}
-	{{else}}
+	{{- else}}
 		buf, m.{{underscoreToCamel .Name}} = unmarshal{{goscalartype .CType|title}}(buf)
-	{{end}}
-{{end}}
+	{{- end}}
+{{- end}}
 {{end}}
 	return buf
 }

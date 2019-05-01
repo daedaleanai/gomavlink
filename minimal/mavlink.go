@@ -448,27 +448,33 @@ func (m *Heartbeat) MarshalV2(buf []byte) []byte {
 }
 
 func (m *Heartbeat) UnmarshalV1(buf []byte) []byte {
+
 	buf, m.CustomMode = unmarshalUint32(buf)
+
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Type = MavType(v)
 	}
+
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.Autopilot = MavAutopilot(v)
 	}
+
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.BaseMode = MavModeFlag(v)
 	}
+
 	{
 		var v byte
 		buf, v = unmarshalByte(buf)
 		m.SystemStatus = MavState(v)
 	}
+
 	buf, m.MavlinkVersion = unmarshalByte(buf)
 
 	return buf
