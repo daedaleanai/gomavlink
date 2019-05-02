@@ -19,10 +19,75 @@ enum {{$tpe}} {
 };
 {{end}}
 
+class Message {
+public:
+
+	// Decode deserializes a frame from *buf, not reading more than size bytes.
+	// It returns a message of the appropriate derived type if decoding was successful
+	// or one of the reserved Error messages defined below.
+	// the sequence number will be updated and used to calculate the apparent number of missed frames.
+	static Message* Decode(const uint8_t** buf, size_t size, uint64_t* seqnr);
+
+	// for decoded messages Len() returns the number of bytes consumed
+	// by the Decode call.  For freshly constructed concrete subtype messages
+	// Len() returns zero.
+	size_t Len() const { return len_; }
+
+	// Encode serializes a frame into buf.  Format and header 
+	// are controlled by the encoding, sysId, compId and linkId fields.
+	// The sequence number will be incremented;
+	size_t Encode(const uint8_t** buf, size_t size, uint64_t* seqnr);
+
+	virtual int id();
+	virtual uint8_t crcextra();
+
+	// Parameters that control the frame encoding and header or reflect the frame that was decoded.
+	// The user may freely set these before any call to Encode() to control the next emitted frame.
+	enum Protocol { V2 = 0, V1 = 1, V2Signed = 2 } encoding;
+	uint8_t sysId;
+	uint8_t compId;
+	uint8_t linkId;
+
+	// for V2Signed messages, returns false if the signature was not valid
+	// for V1 always returns true
+	bool isValidSignature();
+
+	// for decoded frames, the number of apparently skipped frames as calculated from the sequence number.
+	int skippedFrames();
+
+
+	// a virtual constructor shouldnt be necesary(?)
+	virtual ~Message() {};
+
+protected:
+	Message(): encoding(V2), sysId(0), compId(0), linkId(0), len_(0), skipped_(0) {}
+
+	// the generated appendToBuf methods serialize the payload fields of the derived type to buf[0:size]
+	// Returns the number of bytes needed to serialize this message even if it did not fit.
+	virtual size_t appendToBuf(uint8_t* buf, size_t size) = 0;
+
+private:
+	size_t len_; 		// number of bytes consumed when decoding;
+	uint8_t skipped_;	// apparent number of dropped frames in the decoded stream
+};
+
+// Message::Decode returns a message of these types if it could not find a valid message in the buffer
+class PartialMessage public Message {}; // premature EOF, Len() == size
+class InvalidMessage public Message {}; // unknown message ID
+class CorruptMessage public Message {}; // bad CRC
+
+// Message::Decode returns a message of this type if there is leading garbage before an STX marker
+// Len() will indicate the number of bytes to skip before the marker.
+class ResyncMessage public Message {};
+
+
 {{range .Messages}}
 {{- $tpe := underscoreToCamel .Name}}
 {{if .Description}}/* {{notabs .Description}} */{{end}}
-struct {{$tpe}} {
+class {{$tpe}} public Message {
+public:
+	static const int ID = {{.ID}};
+
 {{- range .Fields}}
 	/* {{notabs .Description}} */
 	{{if .Enum -}} {{underscoreToCamel .Enum}} {{- else -}} {{cscalartype .CType}} {{- end}} {{underscoreToCamel .Name}}
@@ -30,8 +95,8 @@ struct {{$tpe}} {
 	{{- if or .Enum .IsExtension}}	//{{end}} {{if .Enum -}}({{.CType}}){{end}} {{if .IsExtension}}EXTENSION{{end}}
 {{end}}
 
-	int id() { return {{.ID}}; }
-	uint8_t crcextra() { return {{.CRCExtra}}; }
+	virtual int id() { return ID; }
+	virtual uint8_t crcextra() { return {{.CRCExtra}}; }
 };
 
 {{end}}
@@ -39,6 +104,7 @@ struct {{$tpe}} {
 
 
 {{if .Messages}}
+// this toes to the cpp.tmpl
 // The Dialect factory function constructs the proper empty message given the message ID.
 void* Dialect(int mid) {
 	switch (mid) {
