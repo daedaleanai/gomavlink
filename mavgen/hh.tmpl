@@ -19,6 +19,9 @@ enum {{$tpe}} {
 };
 {{end}}
 
+// Message is the base class for all message classed generated from the xml.
+// You can construct a concrete derived class or decode an abstract base class
+// from a stream and use the id() to decide what to cast to.
 class Message {
 public:
 
