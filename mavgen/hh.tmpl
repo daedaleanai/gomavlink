@@ -27,7 +27,8 @@ public:
 
 	// Decode deserializes a frame from *buf, not reading more than size bytes.
 	// It returns a message of the appropriate derived type if decoding was successful
-	// or one of the reserved Error messages defined below.
+	// or one of the reserved Error messages defined below.  Use len() to find out how many
+	// bytes to advance buf by.
 	// The sequence number will be updated and used to calculate the apparent number of missed frames.
 	static Message* decode(const uint8_t* buf, size_t size, uint64_t* seqnr);
 
@@ -36,7 +37,10 @@ public:
 	size_t len() const { return len_; }
 
 	// Encode serializes a frame into buf.  Format and header  are controlled by the encoding, 
-	// sysId, compId and linkId fields. The sequence number will be incremented;
+	// sysId, compId and linkId fields.
+	// Encode returns the number of bytes that are needed to encode this message into a frame
+	// but will not write beyond size bytes into buffer.
+	// The sequence number will be incremented.
 	size_t encode(uint8_t* buf, size_t size, uint64_t* seqnr) const;
 
 	// The generated id() method can be used to compare the derived class' message id to 
