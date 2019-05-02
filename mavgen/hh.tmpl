@@ -88,9 +88,9 @@ private:
 // Message::Decode returns a message of these types if it could not find a valid message in the buffer
 class ErrorMessage public Message {
 protected:
-	virtual size_t appendToBuf(uint8_t* buf, size_t size) {return 0;};
-	virtual void   readFromBuf(uint8_t* buf, size_t size) {};
-	virtual uint8_t crcExtra() const {return 0};
+	virtual size_t  appendToBuf(uint8_t* buf, size_t size) {return 0; };
+	virtual void    readFromBuf(uint8_t* buf, size_t size) {};
+	virtual uint8_t crcExtra() const                       { return 0; };
 }
 
 
@@ -100,7 +100,7 @@ class CorruptMessage public ErrorMessage { static const int ID = -3; virtual int
 
 // Message::Decode returns a message of this type if there is leading garbage before an STX marker
 // Len() will indicate the number of bytes to skip before the marker.
-class ResyncMessage public Message { static const int ID = -4; virtual int id() const { return ID; } };
+class ResyncMessage public ErrorMessage { static const int ID = -4; virtual int id() const { return ID; } };
 
 
 {{range .Messages}}
