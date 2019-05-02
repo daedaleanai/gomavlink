@@ -48,9 +48,9 @@ public:
 	virtual int id() const = 0;
 
 	// TODO(lvd) maybe move this and seqnr, timestamp into a nested struct type and keep outside?
-	// Parameters that control the frame encoding and header or reflect the frame that was decoded.
+	// Parameters that control the frame encodingor reflect the frame that was decoded.
 	// The user may freely set these before any call to encode() to control the next emitted frame.
-	enum Protocol { V2 = 0, V1 = 1, V2Signed = 2 } encoding;
+	enum Protocol { V2 = 0, V1 = 1, V2Signed = 2 } protocol;
 	uint8_t sysId;
 	uint8_t compId;
 	uint8_t linkId;
@@ -70,7 +70,7 @@ public:
 	virtual ~Message() {};
 
 protected:
-	Message(): encoding(V2), sysId(0), compId(0), linkId(0), len_(0), skipped_(0) {}
+	Message(): protocol(V2), sysId(0), compId(0), linkId(0), len_(0), skipped_(0) {}
 
 	// the generated appendToBuf methods de/serialize the payload fields of the derived type from/to buf[0:size]
 	// append returns the number of bytes needed to serialize this message even if it did not fit.  readFrom
