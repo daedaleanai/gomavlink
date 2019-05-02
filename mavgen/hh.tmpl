@@ -28,24 +28,23 @@ public:
 	// Decode deserializes a frame from *buf, not reading more than size bytes.
 	// It returns a message of the appropriate derived type if decoding was successful
 	// or one of the reserved Error messages defined below.
-	// the sequence number will be updated and used to calculate the apparent number of missed frames.
-	static Message* Decode(const uint8_t** buf, size_t size, uint64_t* seqnr);
+	// The sequence number will be updated and used to calculate the apparent number of missed frames.
+	static Message* decode(const uint8_t** buf, size_t size, uint64_t* seqnr);
 
-	// for decoded messages Len() returns the number of bytes consumed
-	// by the Decode call.  For freshly constructed concrete subtype messages
-	// Len() returns zero.
-	size_t Len() const { return len_; }
+	// for decoded messages len() returns the number of bytes consumed by the decode() call.
+	// For freshly constructed concrete subtype messageslen() returns zero.
+	size_t len() const { return len_; }
 
-	// Encode serializes a frame into buf.  Format and header 
-	// are controlled by the encoding, sysId, compId and linkId fields.
-	// The sequence number will be incremented;
-	size_t Encode(const uint8_t** buf, size_t size, uint64_t* seqnr);
+	// Encode serializes a frame into buf.  Format and header  are controlled by the encoding, 
+	// sysId, compId and linkId fields. The sequence number will be incremented;
+	size_t encode(const uint8_t** buf, size_t size, uint64_t* seqnr) const;
 
-	virtual int id() = 0;
-	virtual uint8_t crcextra() = 0;
+	// The generated id() method can be used to compare the derived class' message id to 
+	// their static ID members, to switch type casts.
+	virtual int id() const = 0;
 
 	// Parameters that control the frame encoding and header or reflect the frame that was decoded.
-	// The user may freely set these before any call to Encode() to control the next emitted frame.
+	// The user may freely set these before any call to encode() to control the next emitted frame.
 	enum Protocol { V2 = 0, V1 = 1, V2Signed = 2 } encoding;
 	uint8_t sysId;
 	uint8_t compId;
@@ -53,11 +52,10 @@ public:
 
 	// for V2Signed messages, returns false if the signature was not valid
 	// for V1 always returns true
-	bool isValidSignature();
+	bool isValidSignature() const;
 
 	// for decoded frames, the number of apparently skipped frames as calculated from the sequence number.
-	int skippedFrames();
-
+	int skippedFrames() const;
 
 	// a virtual constructor shouldnt be necesary(?)
 	virtual ~Message() {};
@@ -68,11 +66,13 @@ protected:
 	// the generated appendToBuf methods de/serialize the payload fields of the derived type from/to buf[0:size]
 	// append returns the number of bytes needed to serialize this message even if it did not fit.  readFrom
 	// uses zeros when reading beyond size.
-	virtual size_t appendToBuf(uint8_t* buf, size_t size) = 0;
-	virtual void readFromBuf(uint8_t* buf, size_t size) = 0;
+	virtual size_t appendToBuf(uint8_t* buf, size_t size) const = 0;
+	virtual void   readFromBuf(uint8_t* buf, size_t size) = 0;
+
+	virtual uint8_t crcExtra() const = 0;
 
 private:
-	size_t len_; 		// number of bytes consumed when decoding;
+	size_t  len_; 		// number of bytes consumed when decoding;
 	uint8_t skipped_;	// apparent number of dropped frames in the decoded stream
 };
 
@@ -92,16 +92,20 @@ class ResyncMessage public Message {};
 class {{$tpe}} public Message {
 public:
 	static const int ID = {{.ID}};
+	virtual int id() const { return ID; }
 
-{{- range .Fields}}
+{{range .Fields}}
 	/* {{notabs .Description}} */
 	{{if .Enum -}} {{underscoreToCamel .Enum}} {{- else -}} {{cscalartype .CType}} {{- end}} {{underscoreToCamel .Name}}
 	{{- if goarraysize .CType}}[{{goarraysize .CType}}]{{end}}; 
 	{{- if or .Enum .IsExtension}}	//{{end}} {{if .Enum -}}({{.CType}}){{end}} {{if .IsExtension}}EXTENSION{{end}}
 {{end}}
 
-	virtual int id() { return ID; }
-	virtual uint8_t crcextra() { return {{.CRCExtra}}; }
+protected:
+	virtual size_t appendToBuf(uint8_t* buf, size_t size) const;
+	virtual void   readFromBuf(uint8_t* buf, size_t size);
+
+	virtual uint8_t crcExtra() const { return {{.CRCExtra}}; }
 };
 
 {{end}}
@@ -109,7 +113,7 @@ public:
 
 
 {{if .Messages}}
-// this toes to the cpp.tmpl
+//**** this goes to the cpp.tmpl
 // The Dialect factory function constructs the proper empty message given the message ID.
 void* Dialect(int mid) {
 	switch (mid) {
@@ -119,6 +123,7 @@ void* Dialect(int mid) {
 	}
 	return 0;
 }
+*/
 {{end}}
 
 
