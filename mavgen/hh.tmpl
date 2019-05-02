@@ -43,6 +43,7 @@ public:
 	// their static ID members, to switch type casts.
 	virtual int id() const = 0;
 
+	// TODO(lvd) maybe move this and seqnr, timestamp into a nested struct type and keep outside?
 	// Parameters that control the frame encoding and header or reflect the frame that was decoded.
 	// The user may freely set these before any call to encode() to control the next emitted frame.
 	enum Protocol { V2 = 0, V1 = 1, V2Signed = 2 } encoding;
@@ -50,9 +51,13 @@ public:
 	uint8_t compId;
 	uint8_t linkId;
 
-	// for V2Signed messages, returns false if the signature was not valid
+	/* TODO 
+	// For V2Signed messages, isValidSignature returns false if the signature was not valid,
 	// for V1 always returns true
-	bool isValidSignature() const;
+	bool isValidSignature(const uint8_t shared_secret[32) const;
+	void sign(const uint8_t shared_secret[32], uint64_t timestamp);
+	uint64_t timestamp(); // only for decoded V2 signed messages
+	*/
 
 	// for decoded frames, the number of apparently skipped frames as calculated from the sequence number.
 	int skippedFrames() const;
@@ -77,13 +82,21 @@ private:
 };
 
 // Message::Decode returns a message of these types if it could not find a valid message in the buffer
-class PartialMessage public Message {}; // premature EOF, Len() == size
-class InvalidMessage public Message {}; // unknown message ID
-class CorruptMessage public Message {}; // bad CRC
+class ErrorMessage public Message {
+protected:
+	virtual size_t appendToBuf(uint8_t* buf, size_t size) {return 0;};
+	virtual void   readFromBuf(uint8_t* buf, size_t size) {};
+	virtual uint8_t crcExtra() const {return 0};
+}
+
+
+class PartialMessage public ErrorMessage { static const int ID = -1; virtual int id() const { return ID; } }; // premature EOF, Len() == size
+class InvalidMessage public ErrorMessage { static const int ID = -2; virtual int id() const { return ID; } }; // unknown message ID
+class CorruptMessage public ErrorMessage { static const int ID = -3; virtual int id() const { return ID; } }; // bad CRC
 
 // Message::Decode returns a message of this type if there is leading garbage before an STX marker
 // Len() will indicate the number of bytes to skip before the marker.
-class ResyncMessage public Message {};
+class ResyncMessage public Message { static const int ID = -4; virtual int id() const { return ID; } };
 
 
 {{range .Messages}}
