@@ -23,17 +23,7 @@ func main() {
 		log.Fatalf("Usage: %s path/to/lang.tmpl path/to/dialect.xml", os.Args[0])
 	}
 
-	tmpl, err := template.New(filepath.Base(flag.Arg(0))).Funcs(template.FuncMap{
-		"lower":             strings.ToLower,
-		"upper":             strings.ToUpper,
-		"title":             strings.Title,
-		"underscoreToCamel": underscoreToCamel,
-		"gotype":            goType,
-		"goscalartype":      goScalarType,
-		"goarraysize":       goArraySize,
-		"notabs":            notabs,
-		"cscalartype":       cScalarType,
-	}).ParseFiles(flag.Arg(0))
+	tmpl, err := template.New(filepath.Base(flag.Arg(0))).Funcs(tmplfuncs).ParseFiles(flag.Arg(0))
 	if err != nil {
 		log.Fatal(err)
 	}

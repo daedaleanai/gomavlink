@@ -54,6 +54,14 @@ type Message struct {
 	Fields      []*Field `xml:"field"`
 }
 
+type Field struct {
+	CType       string `xml:"type,attr"`
+	Name        string `xml:"name,attr"`
+	Enum        string `xml:"enum,attr"`
+	Description string `xml:",innerxml"`
+	IsExtension bool
+}
+
 // Need to unmarshal Message by hand because '<extensions/>' changes the value of an attribute of nested tag 'field'
 func (m *Message) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	for _, v := range start.Attr {
@@ -116,14 +124,6 @@ func (m *Message) ExtFields() []*Field {
 		}
 	}
 	return r
-}
-
-type Field struct {
-	CType       string `xml:"type,attr"`
-	Name        string `xml:"name,attr"`
-	Enum        string `xml:"enum,attr"`
-	Description string `xml:",innerxml"`
-	IsExtension bool
 }
 
 type bySerialisationOrder []*Field

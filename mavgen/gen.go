@@ -5,7 +5,20 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"text/template"
 )
+
+var tmplfuncs = template.FuncMap{
+	"lower":             strings.ToLower,
+	"upper":             strings.ToUpper,
+	"title":             strings.Title,
+	"underscoreToCamel": underscoreToCamel,
+	"gotype":            goType,
+	"goscalartype":      goScalarType,
+	"goarraysize":       goArraySize,
+	"notabs":            notabs,
+	"cscalartype":       cScalarType,
+}
 
 func underscoreToCamel(s string) string {
 	parts := strings.Split(s, "_")
