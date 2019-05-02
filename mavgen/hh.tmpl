@@ -29,7 +29,7 @@ public:
 	// It returns a message of the appropriate derived type if decoding was successful
 	// or one of the reserved Error messages defined below.
 	// The sequence number will be updated and used to calculate the apparent number of missed frames.
-	static Message* decode(const uint8_t** buf, size_t size, uint64_t* seqnr);
+	static Message* decode(const uint8_t* buf, size_t size, uint64_t* seqnr);
 
 	// for decoded messages len() returns the number of bytes consumed by the decode() call.
 	// For freshly constructed concrete subtype messageslen() returns zero.
@@ -37,7 +37,7 @@ public:
 
 	// Encode serializes a frame into buf.  Format and header  are controlled by the encoding, 
 	// sysId, compId and linkId fields. The sequence number will be incremented;
-	size_t encode(const uint8_t** buf, size_t size, uint64_t* seqnr) const;
+	size_t encode(uint8_t* buf, size_t size, uint64_t* seqnr) const;
 
 	// The generated id() method can be used to compare the derived class' message id to 
 	// their static ID members, to switch type casts.
