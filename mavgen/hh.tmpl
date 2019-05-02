@@ -41,8 +41,8 @@ public:
 	// The sequence number will be incremented;
 	size_t Encode(const uint8_t** buf, size_t size, uint64_t* seqnr);
 
-	virtual int id();
-	virtual uint8_t crcextra();
+	virtual int id() = 0;
+	virtual uint8_t crcextra() = 0;
 
 	// Parameters that control the frame encoding and header or reflect the frame that was decoded.
 	// The user may freely set these before any call to Encode() to control the next emitted frame.
@@ -65,9 +65,11 @@ public:
 protected:
 	Message(): encoding(V2), sysId(0), compId(0), linkId(0), len_(0), skipped_(0) {}
 
-	// the generated appendToBuf methods serialize the payload fields of the derived type to buf[0:size]
-	// Returns the number of bytes needed to serialize this message even if it did not fit.
+	// the generated appendToBuf methods de/serialize the payload fields of the derived type from/to buf[0:size]
+	// append returns the number of bytes needed to serialize this message even if it did not fit.  readFrom
+	// uses zeros when reading beyond size.
 	virtual size_t appendToBuf(uint8_t* buf, size_t size) = 0;
+	virtual void readFromBuf(uint8_t* buf, size_t size) = 0;
 
 private:
 	size_t len_; 		// number of bytes consumed when decoding;
