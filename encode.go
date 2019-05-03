@@ -58,7 +58,7 @@ func (e *Encoder) Encode(m Message) error {
 	x := crc16x25(0xffff)
 	x.Update(buf[1:])
 	c := m.CRCExtra()
-	x.Update([]byte{byte(c), byte(c >> 8)})
+	x.Update([]byte{byte(c)})
 	buf = append(buf, byte(x), byte(x>>8))
 
 	if e.Protocol == V2Signed {
