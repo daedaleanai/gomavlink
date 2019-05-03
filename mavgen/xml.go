@@ -126,6 +126,12 @@ func (m *Message) ExtFields() []*Field {
 	return r
 }
 
+type byMessageID []*Message
+
+func (s byMessageID) Len() int           { return len(s) }
+func (s byMessageID) Less(i, j int) bool { return s[i].ID < s[j].ID }
+func (s byMessageID) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
+
 type bySerialisationOrder []*Field
 
 func (s bySerialisationOrder) Len() int { return len(s) }

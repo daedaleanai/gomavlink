@@ -96,6 +96,7 @@ func main() {
 		}
 	}
 
+	sort.Sort(byMessageID(dialect.Messages))
 	// stable reorder fields by their scalar size
 	for _, v := range dialect.Messages {
 		sort.Stable(bySerialisationOrder(v.Fields))
