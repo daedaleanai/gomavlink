@@ -2509,16 +2509,6 @@ const (
 // The Dialect factory function constructs the proper empty message given the message ID.
 func Dialect(mid int) mavlink.Message {
 	switch mid {
-	case 180:
-		return &ScriptItem{}
-	case 181:
-		return &ScriptRequest{}
-	case 182:
-		return &ScriptRequestList{}
-	case 183:
-		return &ScriptCount{}
-	case 184:
-		return &ScriptCurrent{}
 	case 0:
 		return &Heartbeat{}
 	case 1:
@@ -2753,6 +2743,16 @@ func Dialect(mid int) mavlink.Message {
 		return &AutopilotVersion{}
 	case 149:
 		return &LandingTarget{}
+	case 180:
+		return &ScriptItem{}
+	case 181:
+		return &ScriptRequest{}
+	case 182:
+		return &ScriptRequestList{}
+	case 183:
+		return &ScriptCount{}
+	case 184:
+		return &ScriptCurrent{}
 	case 230:
 		return &EstimatorStatus{}
 	case 231:
@@ -2869,228 +2869,6 @@ func Dialect(mid int) mavlink.Message {
 		return &WheelDistance{}
 	}
 	return nil
-}
-
-/* Message encoding a mission script item. This message is emitted upon a request for the next script item. */
-type ScriptItem struct {
-	/* Sequence */
-	Seq uint16
-
-	/* System ID */
-	TargetSystem byte
-
-	/* Component ID */
-	TargetComponent byte
-
-	/* The name of the mission script, NULL terminated. */
-	Name [50]byte
-}
-
-func (m *ScriptItem) ID() int        { return 180 }
-func (m *ScriptItem) CRCExtra() byte { return 231 }
-
-func (m *ScriptItem) MarshalV1(buf []byte) []byte {
-	buf = marshalUint16(buf, (m.Seq))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-	for _, v := range m.Name {
-		buf = marshalByte(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *ScriptItem) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *ScriptItem) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Seq = unmarshalUint16(buf)
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	for i, _ := range m.Name {
-		buf, m.Name[i] = unmarshalByte(buf)
-	}
-
-	return buf
-}
-
-func (m *ScriptItem) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Request script item with the sequence number seq. The response of the system to this message should be a SCRIPT_ITEM message. */
-type ScriptRequest struct {
-	/* Sequence */
-	Seq uint16
-
-	/* System ID */
-	TargetSystem byte
-
-	/* Component ID */
-	TargetComponent byte
-}
-
-func (m *ScriptRequest) ID() int        { return 181 }
-func (m *ScriptRequest) CRCExtra() byte { return 129 }
-
-func (m *ScriptRequest) MarshalV1(buf []byte) []byte {
-	buf = marshalUint16(buf, (m.Seq))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-
-	return buf
-}
-
-func (m *ScriptRequest) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *ScriptRequest) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Seq = unmarshalUint16(buf)
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *ScriptRequest) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Request the overall list of mission items from the system/component. */
-type ScriptRequestList struct {
-	/* System ID */
-	TargetSystem byte
-
-	/* Component ID */
-	TargetComponent byte
-}
-
-func (m *ScriptRequestList) ID() int        { return 182 }
-func (m *ScriptRequestList) CRCExtra() byte { return 115 }
-
-func (m *ScriptRequestList) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-
-	return buf
-}
-
-func (m *ScriptRequestList) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *ScriptRequestList) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *ScriptRequestList) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* This message is emitted as response to SCRIPT_REQUEST_LIST by the MAV to get the number of mission scripts. */
-type ScriptCount struct {
-	/* Number of script items in the sequence */
-	Count uint16
-
-	/* System ID */
-	TargetSystem byte
-
-	/* Component ID */
-	TargetComponent byte
-}
-
-func (m *ScriptCount) ID() int        { return 183 }
-func (m *ScriptCount) CRCExtra() byte { return 186 }
-
-func (m *ScriptCount) MarshalV1(buf []byte) []byte {
-	buf = marshalUint16(buf, (m.Count))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-
-	return buf
-}
-
-func (m *ScriptCount) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *ScriptCount) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Count = unmarshalUint16(buf)
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *ScriptCount) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* This message informs about the currently active SCRIPT. */
-type ScriptCurrent struct {
-	/* Active Sequence */
-	Seq uint16
-}
-
-func (m *ScriptCurrent) ID() int        { return 184 }
-func (m *ScriptCurrent) CRCExtra() byte { return 40 }
-
-func (m *ScriptCurrent) MarshalV1(buf []byte) []byte {
-	buf = marshalUint16(buf, (m.Seq))
-
-	return buf
-}
-
-func (m *ScriptCurrent) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *ScriptCurrent) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Seq = unmarshalUint16(buf)
-
-	return buf
-}
-
-func (m *ScriptCurrent) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
 }
 
 /* The heartbeat message shows that a system or component is present and responding. The type and autopilot fields (along with the message component id), allow the receiving system to treat further messages from this system appropriately (e.g. by laying out the user interface based on the autopilot). This microservice is documented at https://mavlink.io/en/services/heartbeat.html */
@@ -12347,6 +12125,228 @@ func (m *LandingTarget) UnmarshalV2(buf []byte) []byte {
 		m.Type = LandingTargetType(v)
 	}
 	buf, m.PositionValid = unmarshalByte(buf)
+
+	return buf
+}
+
+/* Message encoding a mission script item. This message is emitted upon a request for the next script item. */
+type ScriptItem struct {
+	/* Sequence */
+	Seq uint16
+
+	/* System ID */
+	TargetSystem byte
+
+	/* Component ID */
+	TargetComponent byte
+
+	/* The name of the mission script, NULL terminated. */
+	Name [50]byte
+}
+
+func (m *ScriptItem) ID() int        { return 180 }
+func (m *ScriptItem) CRCExtra() byte { return 231 }
+
+func (m *ScriptItem) MarshalV1(buf []byte) []byte {
+	buf = marshalUint16(buf, (m.Seq))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+	for _, v := range m.Name {
+		buf = marshalByte(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *ScriptItem) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *ScriptItem) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Seq = unmarshalUint16(buf)
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	for i, _ := range m.Name {
+		buf, m.Name[i] = unmarshalByte(buf)
+	}
+
+	return buf
+}
+
+func (m *ScriptItem) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Request script item with the sequence number seq. The response of the system to this message should be a SCRIPT_ITEM message. */
+type ScriptRequest struct {
+	/* Sequence */
+	Seq uint16
+
+	/* System ID */
+	TargetSystem byte
+
+	/* Component ID */
+	TargetComponent byte
+}
+
+func (m *ScriptRequest) ID() int        { return 181 }
+func (m *ScriptRequest) CRCExtra() byte { return 129 }
+
+func (m *ScriptRequest) MarshalV1(buf []byte) []byte {
+	buf = marshalUint16(buf, (m.Seq))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+
+	return buf
+}
+
+func (m *ScriptRequest) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *ScriptRequest) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Seq = unmarshalUint16(buf)
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *ScriptRequest) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Request the overall list of mission items from the system/component. */
+type ScriptRequestList struct {
+	/* System ID */
+	TargetSystem byte
+
+	/* Component ID */
+	TargetComponent byte
+}
+
+func (m *ScriptRequestList) ID() int        { return 182 }
+func (m *ScriptRequestList) CRCExtra() byte { return 115 }
+
+func (m *ScriptRequestList) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+
+	return buf
+}
+
+func (m *ScriptRequestList) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *ScriptRequestList) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *ScriptRequestList) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* This message is emitted as response to SCRIPT_REQUEST_LIST by the MAV to get the number of mission scripts. */
+type ScriptCount struct {
+	/* Number of script items in the sequence */
+	Count uint16
+
+	/* System ID */
+	TargetSystem byte
+
+	/* Component ID */
+	TargetComponent byte
+}
+
+func (m *ScriptCount) ID() int        { return 183 }
+func (m *ScriptCount) CRCExtra() byte { return 186 }
+
+func (m *ScriptCount) MarshalV1(buf []byte) []byte {
+	buf = marshalUint16(buf, (m.Count))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+
+	return buf
+}
+
+func (m *ScriptCount) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *ScriptCount) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Count = unmarshalUint16(buf)
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *ScriptCount) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* This message informs about the currently active SCRIPT. */
+type ScriptCurrent struct {
+	/* Active Sequence */
+	Seq uint16
+}
+
+func (m *ScriptCurrent) ID() int        { return 184 }
+func (m *ScriptCurrent) CRCExtra() byte { return 40 }
+
+func (m *ScriptCurrent) MarshalV1(buf []byte) []byte {
+	buf = marshalUint16(buf, (m.Seq))
+
+	return buf
+}
+
+func (m *ScriptCurrent) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *ScriptCurrent) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Seq = unmarshalUint16(buf)
+
+	return buf
+}
+
+func (m *ScriptCurrent) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
 
 	return buf
 }

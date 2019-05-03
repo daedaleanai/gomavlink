@@ -2537,60 +2537,6 @@ const (
 // The Dialect factory function constructs the proper empty message given the message ID.
 func Dialect(mid int) mavlink.Message {
 	switch mid {
-	case 150:
-		return &FlexifunctionSet{}
-	case 151:
-		return &FlexifunctionReadReq{}
-	case 152:
-		return &FlexifunctionBufferFunction{}
-	case 153:
-		return &FlexifunctionBufferFunctionAck{}
-	case 155:
-		return &FlexifunctionDirectory{}
-	case 156:
-		return &FlexifunctionDirectoryAck{}
-	case 157:
-		return &FlexifunctionCommand{}
-	case 158:
-		return &FlexifunctionCommandAck{}
-	case 170:
-		return &SerialUdbExtraF2A{}
-	case 171:
-		return &SerialUdbExtraF2B{}
-	case 172:
-		return &SerialUdbExtraF4{}
-	case 173:
-		return &SerialUdbExtraF5{}
-	case 174:
-		return &SerialUdbExtraF6{}
-	case 175:
-		return &SerialUdbExtraF7{}
-	case 176:
-		return &SerialUdbExtraF8{}
-	case 177:
-		return &SerialUdbExtraF13{}
-	case 178:
-		return &SerialUdbExtraF14{}
-	case 179:
-		return &SerialUdbExtraF15{}
-	case 180:
-		return &SerialUdbExtraF16{}
-	case 181:
-		return &Altitudes{}
-	case 182:
-		return &Airspeeds{}
-	case 183:
-		return &SerialUdbExtraF17{}
-	case 184:
-		return &SerialUdbExtraF18{}
-	case 185:
-		return &SerialUdbExtraF19{}
-	case 186:
-		return &SerialUdbExtraF20{}
-	case 187:
-		return &SerialUdbExtraF21{}
-	case 188:
-		return &SerialUdbExtraF22{}
 	case 0:
 		return &Heartbeat{}
 	case 1:
@@ -2825,6 +2771,60 @@ func Dialect(mid int) mavlink.Message {
 		return &AutopilotVersion{}
 	case 149:
 		return &LandingTarget{}
+	case 150:
+		return &FlexifunctionSet{}
+	case 151:
+		return &FlexifunctionReadReq{}
+	case 152:
+		return &FlexifunctionBufferFunction{}
+	case 153:
+		return &FlexifunctionBufferFunctionAck{}
+	case 155:
+		return &FlexifunctionDirectory{}
+	case 156:
+		return &FlexifunctionDirectoryAck{}
+	case 157:
+		return &FlexifunctionCommand{}
+	case 158:
+		return &FlexifunctionCommandAck{}
+	case 170:
+		return &SerialUdbExtraF2A{}
+	case 171:
+		return &SerialUdbExtraF2B{}
+	case 172:
+		return &SerialUdbExtraF4{}
+	case 173:
+		return &SerialUdbExtraF5{}
+	case 174:
+		return &SerialUdbExtraF6{}
+	case 175:
+		return &SerialUdbExtraF7{}
+	case 176:
+		return &SerialUdbExtraF8{}
+	case 177:
+		return &SerialUdbExtraF13{}
+	case 178:
+		return &SerialUdbExtraF14{}
+	case 179:
+		return &SerialUdbExtraF15{}
+	case 180:
+		return &SerialUdbExtraF16{}
+	case 181:
+		return &Altitudes{}
+	case 182:
+		return &Airspeeds{}
+	case 183:
+		return &SerialUdbExtraF17{}
+	case 184:
+		return &SerialUdbExtraF18{}
+	case 185:
+		return &SerialUdbExtraF19{}
+	case 186:
+		return &SerialUdbExtraF20{}
+	case 187:
+		return &SerialUdbExtraF21{}
+	case 188:
+		return &SerialUdbExtraF22{}
 	case 230:
 		return &EstimatorStatus{}
 	case 231:
@@ -2941,2088 +2941,6 @@ func Dialect(mid int) mavlink.Message {
 		return &WheelDistance{}
 	}
 	return nil
-}
-
-/* Depreciated but used as a compiler flag.  Do not remove */
-type FlexifunctionSet struct {
-	/* System ID */
-	TargetSystem byte
-
-	/* Component ID */
-	TargetComponent byte
-}
-
-func (m *FlexifunctionSet) ID() int        { return 150 }
-func (m *FlexifunctionSet) CRCExtra() byte { return 181 }
-
-func (m *FlexifunctionSet) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-
-	return buf
-}
-
-func (m *FlexifunctionSet) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *FlexifunctionSet) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *FlexifunctionSet) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Reqest reading of flexifunction data */
-type FlexifunctionReadReq struct {
-	/* Type of flexifunction data requested */
-	ReadReqType int16
-
-	/* index into data where needed */
-	DataIndex int16
-
-	/* System ID */
-	TargetSystem byte
-
-	/* Component ID */
-	TargetComponent byte
-}
-
-func (m *FlexifunctionReadReq) ID() int        { return 151 }
-func (m *FlexifunctionReadReq) CRCExtra() byte { return 26 }
-
-func (m *FlexifunctionReadReq) MarshalV1(buf []byte) []byte {
-	buf = marshalInt16(buf, (m.ReadReqType))
-	buf = marshalInt16(buf, (m.DataIndex))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-
-	return buf
-}
-
-func (m *FlexifunctionReadReq) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *FlexifunctionReadReq) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.ReadReqType = unmarshalInt16(buf)
-
-	buf, m.DataIndex = unmarshalInt16(buf)
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *FlexifunctionReadReq) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Flexifunction type and parameters for component at function index from buffer */
-type FlexifunctionBufferFunction struct {
-	/* Function index */
-	FuncIndex uint16
-
-	/* Total count of functions */
-	FuncCount uint16
-
-	/* Address in the flexifunction data, Set to 0xFFFF to use address in target memory */
-	DataAddress uint16
-
-	/* Size of the  */
-	DataSize uint16
-
-	/* System ID */
-	TargetSystem byte
-
-	/* Component ID */
-	TargetComponent byte
-
-	/* Settings data */
-	Data [48]int8
-}
-
-func (m *FlexifunctionBufferFunction) ID() int        { return 152 }
-func (m *FlexifunctionBufferFunction) CRCExtra() byte { return 101 }
-
-func (m *FlexifunctionBufferFunction) MarshalV1(buf []byte) []byte {
-	buf = marshalUint16(buf, (m.FuncIndex))
-	buf = marshalUint16(buf, (m.FuncCount))
-	buf = marshalUint16(buf, (m.DataAddress))
-	buf = marshalUint16(buf, (m.DataSize))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-	for _, v := range m.Data {
-		buf = marshalInt8(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *FlexifunctionBufferFunction) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *FlexifunctionBufferFunction) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.FuncIndex = unmarshalUint16(buf)
-
-	buf, m.FuncCount = unmarshalUint16(buf)
-
-	buf, m.DataAddress = unmarshalUint16(buf)
-
-	buf, m.DataSize = unmarshalUint16(buf)
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	for i, _ := range m.Data {
-		buf, m.Data[i] = unmarshalInt8(buf)
-	}
-
-	return buf
-}
-
-func (m *FlexifunctionBufferFunction) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Flexifunction type and parameters for component at function index from buffer */
-type FlexifunctionBufferFunctionAck struct {
-	/* Function index */
-	FuncIndex uint16
-
-	/* result of acknowledge, 0=fail, 1=good */
-	Result uint16
-
-	/* System ID */
-	TargetSystem byte
-
-	/* Component ID */
-	TargetComponent byte
-}
-
-func (m *FlexifunctionBufferFunctionAck) ID() int        { return 153 }
-func (m *FlexifunctionBufferFunctionAck) CRCExtra() byte { return 109 }
-
-func (m *FlexifunctionBufferFunctionAck) MarshalV1(buf []byte) []byte {
-	buf = marshalUint16(buf, (m.FuncIndex))
-	buf = marshalUint16(buf, (m.Result))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-
-	return buf
-}
-
-func (m *FlexifunctionBufferFunctionAck) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *FlexifunctionBufferFunctionAck) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.FuncIndex = unmarshalUint16(buf)
-
-	buf, m.Result = unmarshalUint16(buf)
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *FlexifunctionBufferFunctionAck) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Acknowldge sucess or failure of a flexifunction command */
-type FlexifunctionDirectory struct {
-	/* System ID */
-	TargetSystem byte
-
-	/* Component ID */
-	TargetComponent byte
-
-	/* 0=inputs, 1=outputs */
-	DirectoryType byte
-
-	/* index of first directory entry to write */
-	StartIndex byte
-
-	/* count of directory entries to write */
-	Count byte
-
-	/* Settings data */
-	DirectoryData [48]int8
-}
-
-func (m *FlexifunctionDirectory) ID() int        { return 155 }
-func (m *FlexifunctionDirectory) CRCExtra() byte { return 12 }
-
-func (m *FlexifunctionDirectory) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-	buf = marshalByte(buf, (m.DirectoryType))
-	buf = marshalByte(buf, (m.StartIndex))
-	buf = marshalByte(buf, (m.Count))
-	for _, v := range m.DirectoryData {
-		buf = marshalInt8(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *FlexifunctionDirectory) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *FlexifunctionDirectory) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	buf, m.DirectoryType = unmarshalByte(buf)
-
-	buf, m.StartIndex = unmarshalByte(buf)
-
-	buf, m.Count = unmarshalByte(buf)
-
-	for i, _ := range m.DirectoryData {
-		buf, m.DirectoryData[i] = unmarshalInt8(buf)
-	}
-
-	return buf
-}
-
-func (m *FlexifunctionDirectory) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Acknowldge sucess or failure of a flexifunction command */
-type FlexifunctionDirectoryAck struct {
-	/* result of acknowledge, 0=fail, 1=good */
-	Result uint16
-
-	/* System ID */
-	TargetSystem byte
-
-	/* Component ID */
-	TargetComponent byte
-
-	/* 0=inputs, 1=outputs */
-	DirectoryType byte
-
-	/* index of first directory entry to write */
-	StartIndex byte
-
-	/* count of directory entries to write */
-	Count byte
-}
-
-func (m *FlexifunctionDirectoryAck) ID() int        { return 156 }
-func (m *FlexifunctionDirectoryAck) CRCExtra() byte { return 218 }
-
-func (m *FlexifunctionDirectoryAck) MarshalV1(buf []byte) []byte {
-	buf = marshalUint16(buf, (m.Result))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-	buf = marshalByte(buf, (m.DirectoryType))
-	buf = marshalByte(buf, (m.StartIndex))
-	buf = marshalByte(buf, (m.Count))
-
-	return buf
-}
-
-func (m *FlexifunctionDirectoryAck) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *FlexifunctionDirectoryAck) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Result = unmarshalUint16(buf)
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	buf, m.DirectoryType = unmarshalByte(buf)
-
-	buf, m.StartIndex = unmarshalByte(buf)
-
-	buf, m.Count = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *FlexifunctionDirectoryAck) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Acknowldge sucess or failure of a flexifunction command */
-type FlexifunctionCommand struct {
-	/* System ID */
-	TargetSystem byte
-
-	/* Component ID */
-	TargetComponent byte
-
-	/* Flexifunction command type */
-	CommandType byte
-}
-
-func (m *FlexifunctionCommand) ID() int        { return 157 }
-func (m *FlexifunctionCommand) CRCExtra() byte { return 133 }
-
-func (m *FlexifunctionCommand) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-	buf = marshalByte(buf, (m.CommandType))
-
-	return buf
-}
-
-func (m *FlexifunctionCommand) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *FlexifunctionCommand) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	buf, m.CommandType = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *FlexifunctionCommand) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Acknowldge sucess or failure of a flexifunction command */
-type FlexifunctionCommandAck struct {
-	/* Command acknowledged */
-	CommandType uint16
-
-	/* result of acknowledge */
-	Result uint16
-}
-
-func (m *FlexifunctionCommandAck) ID() int        { return 158 }
-func (m *FlexifunctionCommandAck) CRCExtra() byte { return 208 }
-
-func (m *FlexifunctionCommandAck) MarshalV1(buf []byte) []byte {
-	buf = marshalUint16(buf, (m.CommandType))
-	buf = marshalUint16(buf, (m.Result))
-
-	return buf
-}
-
-func (m *FlexifunctionCommandAck) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *FlexifunctionCommandAck) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.CommandType = unmarshalUint16(buf)
-
-	buf, m.Result = unmarshalUint16(buf)
-
-	return buf
-}
-
-func (m *FlexifunctionCommandAck) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Backwards compatible MAVLink version of SERIAL_UDB_EXTRA - F2: Format Part A */
-type SerialUdbExtraF2A struct {
-	/* Serial UDB Extra Time */
-	SueTime uint32
-
-	/* Serial UDB Extra Latitude */
-	SueLatitude int32
-
-	/* Serial UDB Extra Longitude */
-	SueLongitude int32
-
-	/* Serial UDB Extra Altitude */
-	SueAltitude int32
-
-	/* Serial UDB Extra Waypoint Index */
-	SueWaypointIndex uint16
-
-	/* Serial UDB Extra Rmat 0 */
-	SueRmat0 int16
-
-	/* Serial UDB Extra Rmat 1 */
-	SueRmat1 int16
-
-	/* Serial UDB Extra Rmat 2 */
-	SueRmat2 int16
-
-	/* Serial UDB Extra Rmat 3 */
-	SueRmat3 int16
-
-	/* Serial UDB Extra Rmat 4 */
-	SueRmat4 int16
-
-	/* Serial UDB Extra Rmat 5 */
-	SueRmat5 int16
-
-	/* Serial UDB Extra Rmat 6 */
-	SueRmat6 int16
-
-	/* Serial UDB Extra Rmat 7 */
-	SueRmat7 int16
-
-	/* Serial UDB Extra Rmat 8 */
-	SueRmat8 int16
-
-	/* Serial UDB Extra GPS Course Over Ground */
-	SueCog uint16
-
-	/* Serial UDB Extra Speed Over Ground */
-	SueSog int16
-
-	/* Serial UDB Extra CPU Load */
-	SueCpuLoad uint16
-
-	/* Serial UDB Extra 3D IMU Air Speed */
-	SueAirSpeed3dimu uint16
-
-	/* Serial UDB Extra Estimated Wind 0 */
-	SueEstimatedWind0 int16
-
-	/* Serial UDB Extra Estimated Wind 1 */
-	SueEstimatedWind1 int16
-
-	/* Serial UDB Extra Estimated Wind 2 */
-	SueEstimatedWind2 int16
-
-	/* Serial UDB Extra Magnetic Field Earth 0  */
-	SueMagfieldearth0 int16
-
-	/* Serial UDB Extra Magnetic Field Earth 1  */
-	SueMagfieldearth1 int16
-
-	/* Serial UDB Extra Magnetic Field Earth 2  */
-	SueMagfieldearth2 int16
-
-	/* Serial UDB Extra Number of Sattelites in View */
-	SueSvs int16
-
-	/* Serial UDB Extra GPS Horizontal Dilution of Precision */
-	SueHdop int16
-
-	/* Serial UDB Extra Status */
-	SueStatus byte
-}
-
-func (m *SerialUdbExtraF2A) ID() int        { return 170 }
-func (m *SerialUdbExtraF2A) CRCExtra() byte { return 103 }
-
-func (m *SerialUdbExtraF2A) MarshalV1(buf []byte) []byte {
-	buf = marshalUint32(buf, (m.SueTime))
-	buf = marshalInt32(buf, (m.SueLatitude))
-	buf = marshalInt32(buf, (m.SueLongitude))
-	buf = marshalInt32(buf, (m.SueAltitude))
-	buf = marshalUint16(buf, (m.SueWaypointIndex))
-	buf = marshalInt16(buf, (m.SueRmat0))
-	buf = marshalInt16(buf, (m.SueRmat1))
-	buf = marshalInt16(buf, (m.SueRmat2))
-	buf = marshalInt16(buf, (m.SueRmat3))
-	buf = marshalInt16(buf, (m.SueRmat4))
-	buf = marshalInt16(buf, (m.SueRmat5))
-	buf = marshalInt16(buf, (m.SueRmat6))
-	buf = marshalInt16(buf, (m.SueRmat7))
-	buf = marshalInt16(buf, (m.SueRmat8))
-	buf = marshalUint16(buf, (m.SueCog))
-	buf = marshalInt16(buf, (m.SueSog))
-	buf = marshalUint16(buf, (m.SueCpuLoad))
-	buf = marshalUint16(buf, (m.SueAirSpeed3dimu))
-	buf = marshalInt16(buf, (m.SueEstimatedWind0))
-	buf = marshalInt16(buf, (m.SueEstimatedWind1))
-	buf = marshalInt16(buf, (m.SueEstimatedWind2))
-	buf = marshalInt16(buf, (m.SueMagfieldearth0))
-	buf = marshalInt16(buf, (m.SueMagfieldearth1))
-	buf = marshalInt16(buf, (m.SueMagfieldearth2))
-	buf = marshalInt16(buf, (m.SueSvs))
-	buf = marshalInt16(buf, (m.SueHdop))
-	buf = marshalByte(buf, (m.SueStatus))
-
-	return buf
-}
-
-func (m *SerialUdbExtraF2A) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF2A) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.SueTime = unmarshalUint32(buf)
-
-	buf, m.SueLatitude = unmarshalInt32(buf)
-
-	buf, m.SueLongitude = unmarshalInt32(buf)
-
-	buf, m.SueAltitude = unmarshalInt32(buf)
-
-	buf, m.SueWaypointIndex = unmarshalUint16(buf)
-
-	buf, m.SueRmat0 = unmarshalInt16(buf)
-
-	buf, m.SueRmat1 = unmarshalInt16(buf)
-
-	buf, m.SueRmat2 = unmarshalInt16(buf)
-
-	buf, m.SueRmat3 = unmarshalInt16(buf)
-
-	buf, m.SueRmat4 = unmarshalInt16(buf)
-
-	buf, m.SueRmat5 = unmarshalInt16(buf)
-
-	buf, m.SueRmat6 = unmarshalInt16(buf)
-
-	buf, m.SueRmat7 = unmarshalInt16(buf)
-
-	buf, m.SueRmat8 = unmarshalInt16(buf)
-
-	buf, m.SueCog = unmarshalUint16(buf)
-
-	buf, m.SueSog = unmarshalInt16(buf)
-
-	buf, m.SueCpuLoad = unmarshalUint16(buf)
-
-	buf, m.SueAirSpeed3dimu = unmarshalUint16(buf)
-
-	buf, m.SueEstimatedWind0 = unmarshalInt16(buf)
-
-	buf, m.SueEstimatedWind1 = unmarshalInt16(buf)
-
-	buf, m.SueEstimatedWind2 = unmarshalInt16(buf)
-
-	buf, m.SueMagfieldearth0 = unmarshalInt16(buf)
-
-	buf, m.SueMagfieldearth1 = unmarshalInt16(buf)
-
-	buf, m.SueMagfieldearth2 = unmarshalInt16(buf)
-
-	buf, m.SueSvs = unmarshalInt16(buf)
-
-	buf, m.SueHdop = unmarshalInt16(buf)
-
-	buf, m.SueStatus = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF2A) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Backwards compatible version of SERIAL_UDB_EXTRA - F2: Part B */
-type SerialUdbExtraF2B struct {
-	/* Serial UDB Extra Time */
-	SueTime uint32
-
-	/* Serial UDB Extra Status Flags */
-	SueFlags uint32
-
-	/* SUE barometer pressure */
-	SueBaromPress int32
-
-	/* SUE barometer altitude */
-	SueBaromAlt int32
-
-	/* Serial UDB Extra PWM Input Channel 1 */
-	SuePwmInput1 int16
-
-	/* Serial UDB Extra PWM Input Channel 2 */
-	SuePwmInput2 int16
-
-	/* Serial UDB Extra PWM Input Channel 3 */
-	SuePwmInput3 int16
-
-	/* Serial UDB Extra PWM Input Channel 4 */
-	SuePwmInput4 int16
-
-	/* Serial UDB Extra PWM Input Channel 5 */
-	SuePwmInput5 int16
-
-	/* Serial UDB Extra PWM Input Channel 6 */
-	SuePwmInput6 int16
-
-	/* Serial UDB Extra PWM Input Channel 7 */
-	SuePwmInput7 int16
-
-	/* Serial UDB Extra PWM Input Channel 8 */
-	SuePwmInput8 int16
-
-	/* Serial UDB Extra PWM Input Channel 9 */
-	SuePwmInput9 int16
-
-	/* Serial UDB Extra PWM Input Channel 10 */
-	SuePwmInput10 int16
-
-	/* Serial UDB Extra PWM Input Channel 11 */
-	SuePwmInput11 int16
-
-	/* Serial UDB Extra PWM Input Channel 12 */
-	SuePwmInput12 int16
-
-	/* Serial UDB Extra PWM Output Channel 1 */
-	SuePwmOutput1 int16
-
-	/* Serial UDB Extra PWM Output Channel 2 */
-	SuePwmOutput2 int16
-
-	/* Serial UDB Extra PWM Output Channel 3 */
-	SuePwmOutput3 int16
-
-	/* Serial UDB Extra PWM Output Channel 4 */
-	SuePwmOutput4 int16
-
-	/* Serial UDB Extra PWM Output Channel 5 */
-	SuePwmOutput5 int16
-
-	/* Serial UDB Extra PWM Output Channel 6 */
-	SuePwmOutput6 int16
-
-	/* Serial UDB Extra PWM Output Channel 7 */
-	SuePwmOutput7 int16
-
-	/* Serial UDB Extra PWM Output Channel 8 */
-	SuePwmOutput8 int16
-
-	/* Serial UDB Extra PWM Output Channel 9 */
-	SuePwmOutput9 int16
-
-	/* Serial UDB Extra PWM Output Channel 10 */
-	SuePwmOutput10 int16
-
-	/* Serial UDB Extra PWM Output Channel 11 */
-	SuePwmOutput11 int16
-
-	/* Serial UDB Extra PWM Output Channel 12 */
-	SuePwmOutput12 int16
-
-	/* Serial UDB Extra IMU Location X */
-	SueImuLocationX int16
-
-	/* Serial UDB Extra IMU Location Y */
-	SueImuLocationY int16
-
-	/* Serial UDB Extra IMU Location Z */
-	SueImuLocationZ int16
-
-	/* Serial UDB Location Error Earth X */
-	SueLocationErrorEarthX int16
-
-	/* Serial UDB Location Error Earth Y */
-	SueLocationErrorEarthY int16
-
-	/* Serial UDB Location Error Earth Z */
-	SueLocationErrorEarthZ int16
-
-	/* Serial UDB Extra Oscillator Failure Count */
-	SueOscFails int16
-
-	/* Serial UDB Extra IMU Velocity X */
-	SueImuVelocityX int16
-
-	/* Serial UDB Extra IMU Velocity Y */
-	SueImuVelocityY int16
-
-	/* Serial UDB Extra IMU Velocity Z */
-	SueImuVelocityZ int16
-
-	/* Serial UDB Extra Current Waypoint Goal X */
-	SueWaypointGoalX int16
-
-	/* Serial UDB Extra Current Waypoint Goal Y */
-	SueWaypointGoalY int16
-
-	/* Serial UDB Extra Current Waypoint Goal Z */
-	SueWaypointGoalZ int16
-
-	/* Aeroforce in UDB X Axis */
-	SueAeroX int16
-
-	/* Aeroforce in UDB Y Axis */
-	SueAeroY int16
-
-	/* Aeroforce in UDB Z axis */
-	SueAeroZ int16
-
-	/* SUE barometer temperature */
-	SueBaromTemp int16
-
-	/* SUE battery voltage */
-	SueBatVolt int16
-
-	/* SUE battery current */
-	SueBatAmp int16
-
-	/* SUE battery milli amp hours used */
-	SueBatAmpHours int16
-
-	/* Sue autopilot desired height */
-	SueDesiredHeight int16
-
-	/* Serial UDB Extra Stack Memory Free */
-	SueMemoryStackFree int16
-}
-
-func (m *SerialUdbExtraF2B) ID() int        { return 171 }
-func (m *SerialUdbExtraF2B) CRCExtra() byte { return 245 }
-
-func (m *SerialUdbExtraF2B) MarshalV1(buf []byte) []byte {
-	buf = marshalUint32(buf, (m.SueTime))
-	buf = marshalUint32(buf, (m.SueFlags))
-	buf = marshalInt32(buf, (m.SueBaromPress))
-	buf = marshalInt32(buf, (m.SueBaromAlt))
-	buf = marshalInt16(buf, (m.SuePwmInput1))
-	buf = marshalInt16(buf, (m.SuePwmInput2))
-	buf = marshalInt16(buf, (m.SuePwmInput3))
-	buf = marshalInt16(buf, (m.SuePwmInput4))
-	buf = marshalInt16(buf, (m.SuePwmInput5))
-	buf = marshalInt16(buf, (m.SuePwmInput6))
-	buf = marshalInt16(buf, (m.SuePwmInput7))
-	buf = marshalInt16(buf, (m.SuePwmInput8))
-	buf = marshalInt16(buf, (m.SuePwmInput9))
-	buf = marshalInt16(buf, (m.SuePwmInput10))
-	buf = marshalInt16(buf, (m.SuePwmInput11))
-	buf = marshalInt16(buf, (m.SuePwmInput12))
-	buf = marshalInt16(buf, (m.SuePwmOutput1))
-	buf = marshalInt16(buf, (m.SuePwmOutput2))
-	buf = marshalInt16(buf, (m.SuePwmOutput3))
-	buf = marshalInt16(buf, (m.SuePwmOutput4))
-	buf = marshalInt16(buf, (m.SuePwmOutput5))
-	buf = marshalInt16(buf, (m.SuePwmOutput6))
-	buf = marshalInt16(buf, (m.SuePwmOutput7))
-	buf = marshalInt16(buf, (m.SuePwmOutput8))
-	buf = marshalInt16(buf, (m.SuePwmOutput9))
-	buf = marshalInt16(buf, (m.SuePwmOutput10))
-	buf = marshalInt16(buf, (m.SuePwmOutput11))
-	buf = marshalInt16(buf, (m.SuePwmOutput12))
-	buf = marshalInt16(buf, (m.SueImuLocationX))
-	buf = marshalInt16(buf, (m.SueImuLocationY))
-	buf = marshalInt16(buf, (m.SueImuLocationZ))
-	buf = marshalInt16(buf, (m.SueLocationErrorEarthX))
-	buf = marshalInt16(buf, (m.SueLocationErrorEarthY))
-	buf = marshalInt16(buf, (m.SueLocationErrorEarthZ))
-	buf = marshalInt16(buf, (m.SueOscFails))
-	buf = marshalInt16(buf, (m.SueImuVelocityX))
-	buf = marshalInt16(buf, (m.SueImuVelocityY))
-	buf = marshalInt16(buf, (m.SueImuVelocityZ))
-	buf = marshalInt16(buf, (m.SueWaypointGoalX))
-	buf = marshalInt16(buf, (m.SueWaypointGoalY))
-	buf = marshalInt16(buf, (m.SueWaypointGoalZ))
-	buf = marshalInt16(buf, (m.SueAeroX))
-	buf = marshalInt16(buf, (m.SueAeroY))
-	buf = marshalInt16(buf, (m.SueAeroZ))
-	buf = marshalInt16(buf, (m.SueBaromTemp))
-	buf = marshalInt16(buf, (m.SueBatVolt))
-	buf = marshalInt16(buf, (m.SueBatAmp))
-	buf = marshalInt16(buf, (m.SueBatAmpHours))
-	buf = marshalInt16(buf, (m.SueDesiredHeight))
-	buf = marshalInt16(buf, (m.SueMemoryStackFree))
-
-	return buf
-}
-
-func (m *SerialUdbExtraF2B) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF2B) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.SueTime = unmarshalUint32(buf)
-
-	buf, m.SueFlags = unmarshalUint32(buf)
-
-	buf, m.SueBaromPress = unmarshalInt32(buf)
-
-	buf, m.SueBaromAlt = unmarshalInt32(buf)
-
-	buf, m.SuePwmInput1 = unmarshalInt16(buf)
-
-	buf, m.SuePwmInput2 = unmarshalInt16(buf)
-
-	buf, m.SuePwmInput3 = unmarshalInt16(buf)
-
-	buf, m.SuePwmInput4 = unmarshalInt16(buf)
-
-	buf, m.SuePwmInput5 = unmarshalInt16(buf)
-
-	buf, m.SuePwmInput6 = unmarshalInt16(buf)
-
-	buf, m.SuePwmInput7 = unmarshalInt16(buf)
-
-	buf, m.SuePwmInput8 = unmarshalInt16(buf)
-
-	buf, m.SuePwmInput9 = unmarshalInt16(buf)
-
-	buf, m.SuePwmInput10 = unmarshalInt16(buf)
-
-	buf, m.SuePwmInput11 = unmarshalInt16(buf)
-
-	buf, m.SuePwmInput12 = unmarshalInt16(buf)
-
-	buf, m.SuePwmOutput1 = unmarshalInt16(buf)
-
-	buf, m.SuePwmOutput2 = unmarshalInt16(buf)
-
-	buf, m.SuePwmOutput3 = unmarshalInt16(buf)
-
-	buf, m.SuePwmOutput4 = unmarshalInt16(buf)
-
-	buf, m.SuePwmOutput5 = unmarshalInt16(buf)
-
-	buf, m.SuePwmOutput6 = unmarshalInt16(buf)
-
-	buf, m.SuePwmOutput7 = unmarshalInt16(buf)
-
-	buf, m.SuePwmOutput8 = unmarshalInt16(buf)
-
-	buf, m.SuePwmOutput9 = unmarshalInt16(buf)
-
-	buf, m.SuePwmOutput10 = unmarshalInt16(buf)
-
-	buf, m.SuePwmOutput11 = unmarshalInt16(buf)
-
-	buf, m.SuePwmOutput12 = unmarshalInt16(buf)
-
-	buf, m.SueImuLocationX = unmarshalInt16(buf)
-
-	buf, m.SueImuLocationY = unmarshalInt16(buf)
-
-	buf, m.SueImuLocationZ = unmarshalInt16(buf)
-
-	buf, m.SueLocationErrorEarthX = unmarshalInt16(buf)
-
-	buf, m.SueLocationErrorEarthY = unmarshalInt16(buf)
-
-	buf, m.SueLocationErrorEarthZ = unmarshalInt16(buf)
-
-	buf, m.SueOscFails = unmarshalInt16(buf)
-
-	buf, m.SueImuVelocityX = unmarshalInt16(buf)
-
-	buf, m.SueImuVelocityY = unmarshalInt16(buf)
-
-	buf, m.SueImuVelocityZ = unmarshalInt16(buf)
-
-	buf, m.SueWaypointGoalX = unmarshalInt16(buf)
-
-	buf, m.SueWaypointGoalY = unmarshalInt16(buf)
-
-	buf, m.SueWaypointGoalZ = unmarshalInt16(buf)
-
-	buf, m.SueAeroX = unmarshalInt16(buf)
-
-	buf, m.SueAeroY = unmarshalInt16(buf)
-
-	buf, m.SueAeroZ = unmarshalInt16(buf)
-
-	buf, m.SueBaromTemp = unmarshalInt16(buf)
-
-	buf, m.SueBatVolt = unmarshalInt16(buf)
-
-	buf, m.SueBatAmp = unmarshalInt16(buf)
-
-	buf, m.SueBatAmpHours = unmarshalInt16(buf)
-
-	buf, m.SueDesiredHeight = unmarshalInt16(buf)
-
-	buf, m.SueMemoryStackFree = unmarshalInt16(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF2B) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Backwards compatible version of SERIAL_UDB_EXTRA F4: format */
-type SerialUdbExtraF4 struct {
-	/* Serial UDB Extra Roll Stabilization with Ailerons Enabled */
-	SueRollStabilizationAilerons byte
-
-	/* Serial UDB Extra Roll Stabilization with Rudder Enabled */
-	SueRollStabilizationRudder byte
-
-	/* Serial UDB Extra Pitch Stabilization Enabled */
-	SuePitchStabilization byte
-
-	/* Serial UDB Extra Yaw Stabilization using Rudder Enabled */
-	SueYawStabilizationRudder byte
-
-	/* Serial UDB Extra Yaw Stabilization using Ailerons Enabled */
-	SueYawStabilizationAileron byte
-
-	/* Serial UDB Extra Navigation with Ailerons Enabled */
-	SueAileronNavigation byte
-
-	/* Serial UDB Extra Navigation with Rudder Enabled */
-	SueRudderNavigation byte
-
-	/* Serial UDB Extra Type of Alitude Hold when in Stabilized Mode */
-	SueAltitudeholdStabilized byte
-
-	/* Serial UDB Extra Type of Alitude Hold when in Waypoint Mode */
-	SueAltitudeholdWaypoint byte
-
-	/* Serial UDB Extra Firmware racing mode enabled */
-	SueRacingMode byte
-}
-
-func (m *SerialUdbExtraF4) ID() int        { return 172 }
-func (m *SerialUdbExtraF4) CRCExtra() byte { return 191 }
-
-func (m *SerialUdbExtraF4) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, (m.SueRollStabilizationAilerons))
-	buf = marshalByte(buf, (m.SueRollStabilizationRudder))
-	buf = marshalByte(buf, (m.SuePitchStabilization))
-	buf = marshalByte(buf, (m.SueYawStabilizationRudder))
-	buf = marshalByte(buf, (m.SueYawStabilizationAileron))
-	buf = marshalByte(buf, (m.SueAileronNavigation))
-	buf = marshalByte(buf, (m.SueRudderNavigation))
-	buf = marshalByte(buf, (m.SueAltitudeholdStabilized))
-	buf = marshalByte(buf, (m.SueAltitudeholdWaypoint))
-	buf = marshalByte(buf, (m.SueRacingMode))
-
-	return buf
-}
-
-func (m *SerialUdbExtraF4) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF4) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.SueRollStabilizationAilerons = unmarshalByte(buf)
-
-	buf, m.SueRollStabilizationRudder = unmarshalByte(buf)
-
-	buf, m.SuePitchStabilization = unmarshalByte(buf)
-
-	buf, m.SueYawStabilizationRudder = unmarshalByte(buf)
-
-	buf, m.SueYawStabilizationAileron = unmarshalByte(buf)
-
-	buf, m.SueAileronNavigation = unmarshalByte(buf)
-
-	buf, m.SueRudderNavigation = unmarshalByte(buf)
-
-	buf, m.SueAltitudeholdStabilized = unmarshalByte(buf)
-
-	buf, m.SueAltitudeholdWaypoint = unmarshalByte(buf)
-
-	buf, m.SueRacingMode = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF4) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Backwards compatible version of SERIAL_UDB_EXTRA F5: format */
-type SerialUdbExtraF5 struct {
-	/* Serial UDB YAWKP_AILERON Gain for Proporional control of navigation */
-	SueYawkpAileron float32
-
-	/* Serial UDB YAWKD_AILERON Gain for Rate control of navigation */
-	SueYawkdAileron float32
-
-	/* Serial UDB Extra ROLLKP Gain for Proportional control of roll stabilization */
-	SueRollkp float32
-
-	/* Serial UDB Extra ROLLKD Gain for Rate control of roll stabilization */
-	SueRollkd float32
-}
-
-func (m *SerialUdbExtraF5) ID() int        { return 173 }
-func (m *SerialUdbExtraF5) CRCExtra() byte { return 54 }
-
-func (m *SerialUdbExtraF5) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.SueYawkpAileron))
-	buf = marshalFloat32(buf, (m.SueYawkdAileron))
-	buf = marshalFloat32(buf, (m.SueRollkp))
-	buf = marshalFloat32(buf, (m.SueRollkd))
-
-	return buf
-}
-
-func (m *SerialUdbExtraF5) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF5) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.SueYawkpAileron = unmarshalFloat32(buf)
-
-	buf, m.SueYawkdAileron = unmarshalFloat32(buf)
-
-	buf, m.SueRollkp = unmarshalFloat32(buf)
-
-	buf, m.SueRollkd = unmarshalFloat32(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF5) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Backwards compatible version of SERIAL_UDB_EXTRA F6: format */
-type SerialUdbExtraF6 struct {
-	/* Serial UDB Extra PITCHGAIN Proportional Control */
-	SuePitchgain float32
-
-	/* Serial UDB Extra Pitch Rate Control */
-	SuePitchkd float32
-
-	/* Serial UDB Extra Rudder to Elevator Mix */
-	SueRudderElevMix float32
-
-	/* Serial UDB Extra Roll to Elevator Mix */
-	SueRollElevMix float32
-
-	/* Gain For Boosting Manual Elevator control When Plane Stabilized */
-	SueElevatorBoost float32
-}
-
-func (m *SerialUdbExtraF6) ID() int        { return 174 }
-func (m *SerialUdbExtraF6) CRCExtra() byte { return 54 }
-
-func (m *SerialUdbExtraF6) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.SuePitchgain))
-	buf = marshalFloat32(buf, (m.SuePitchkd))
-	buf = marshalFloat32(buf, (m.SueRudderElevMix))
-	buf = marshalFloat32(buf, (m.SueRollElevMix))
-	buf = marshalFloat32(buf, (m.SueElevatorBoost))
-
-	return buf
-}
-
-func (m *SerialUdbExtraF6) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF6) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.SuePitchgain = unmarshalFloat32(buf)
-
-	buf, m.SuePitchkd = unmarshalFloat32(buf)
-
-	buf, m.SueRudderElevMix = unmarshalFloat32(buf)
-
-	buf, m.SueRollElevMix = unmarshalFloat32(buf)
-
-	buf, m.SueElevatorBoost = unmarshalFloat32(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF6) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Backwards compatible version of SERIAL_UDB_EXTRA F7: format */
-type SerialUdbExtraF7 struct {
-	/* Serial UDB YAWKP_RUDDER Gain for Proporional control of navigation */
-	SueYawkpRudder float32
-
-	/* Serial UDB YAWKD_RUDDER Gain for Rate control of navigation */
-	SueYawkdRudder float32
-
-	/* Serial UDB Extra ROLLKP_RUDDER Gain for Proportional control of roll stabilization */
-	SueRollkpRudder float32
-
-	/* Serial UDB Extra ROLLKD_RUDDER Gain for Rate control of roll stabilization */
-	SueRollkdRudder float32
-
-	/* SERIAL UDB EXTRA Rudder Boost Gain to Manual Control when stabilized */
-	SueRudderBoost float32
-
-	/* Serial UDB Extra Return To Landing - Angle to Pitch Plane Down */
-	SueRtlPitchDown float32
-}
-
-func (m *SerialUdbExtraF7) ID() int        { return 175 }
-func (m *SerialUdbExtraF7) CRCExtra() byte { return 171 }
-
-func (m *SerialUdbExtraF7) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.SueYawkpRudder))
-	buf = marshalFloat32(buf, (m.SueYawkdRudder))
-	buf = marshalFloat32(buf, (m.SueRollkpRudder))
-	buf = marshalFloat32(buf, (m.SueRollkdRudder))
-	buf = marshalFloat32(buf, (m.SueRudderBoost))
-	buf = marshalFloat32(buf, (m.SueRtlPitchDown))
-
-	return buf
-}
-
-func (m *SerialUdbExtraF7) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF7) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.SueYawkpRudder = unmarshalFloat32(buf)
-
-	buf, m.SueYawkdRudder = unmarshalFloat32(buf)
-
-	buf, m.SueRollkpRudder = unmarshalFloat32(buf)
-
-	buf, m.SueRollkdRudder = unmarshalFloat32(buf)
-
-	buf, m.SueRudderBoost = unmarshalFloat32(buf)
-
-	buf, m.SueRtlPitchDown = unmarshalFloat32(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF7) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Backwards compatible version of SERIAL_UDB_EXTRA F8: format */
-type SerialUdbExtraF8 struct {
-	/* Serial UDB Extra HEIGHT_TARGET_MAX */
-	SueHeightTargetMax float32
-
-	/* Serial UDB Extra HEIGHT_TARGET_MIN */
-	SueHeightTargetMin float32
-
-	/* Serial UDB Extra ALT_HOLD_THROTTLE_MIN */
-	SueAltHoldThrottleMin float32
-
-	/* Serial UDB Extra ALT_HOLD_THROTTLE_MAX */
-	SueAltHoldThrottleMax float32
-
-	/* Serial UDB Extra ALT_HOLD_PITCH_MIN */
-	SueAltHoldPitchMin float32
-
-	/* Serial UDB Extra ALT_HOLD_PITCH_MAX */
-	SueAltHoldPitchMax float32
-
-	/* Serial UDB Extra ALT_HOLD_PITCH_HIGH */
-	SueAltHoldPitchHigh float32
-}
-
-func (m *SerialUdbExtraF8) ID() int        { return 176 }
-func (m *SerialUdbExtraF8) CRCExtra() byte { return 142 }
-
-func (m *SerialUdbExtraF8) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.SueHeightTargetMax))
-	buf = marshalFloat32(buf, (m.SueHeightTargetMin))
-	buf = marshalFloat32(buf, (m.SueAltHoldThrottleMin))
-	buf = marshalFloat32(buf, (m.SueAltHoldThrottleMax))
-	buf = marshalFloat32(buf, (m.SueAltHoldPitchMin))
-	buf = marshalFloat32(buf, (m.SueAltHoldPitchMax))
-	buf = marshalFloat32(buf, (m.SueAltHoldPitchHigh))
-
-	return buf
-}
-
-func (m *SerialUdbExtraF8) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF8) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.SueHeightTargetMax = unmarshalFloat32(buf)
-
-	buf, m.SueHeightTargetMin = unmarshalFloat32(buf)
-
-	buf, m.SueAltHoldThrottleMin = unmarshalFloat32(buf)
-
-	buf, m.SueAltHoldThrottleMax = unmarshalFloat32(buf)
-
-	buf, m.SueAltHoldPitchMin = unmarshalFloat32(buf)
-
-	buf, m.SueAltHoldPitchMax = unmarshalFloat32(buf)
-
-	buf, m.SueAltHoldPitchHigh = unmarshalFloat32(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF8) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Backwards compatible version of SERIAL_UDB_EXTRA F13: format */
-type SerialUdbExtraF13 struct {
-	/* Serial UDB Extra MP Origin Latitude */
-	SueLatOrigin int32
-
-	/* Serial UDB Extra MP Origin Longitude */
-	SueLonOrigin int32
-
-	/* Serial UDB Extra MP Origin Altitude Above Sea Level */
-	SueAltOrigin int32
-
-	/* Serial UDB Extra GPS Week Number */
-	SueWeekNo int16
-}
-
-func (m *SerialUdbExtraF13) ID() int        { return 177 }
-func (m *SerialUdbExtraF13) CRCExtra() byte { return 249 }
-
-func (m *SerialUdbExtraF13) MarshalV1(buf []byte) []byte {
-	buf = marshalInt32(buf, (m.SueLatOrigin))
-	buf = marshalInt32(buf, (m.SueLonOrigin))
-	buf = marshalInt32(buf, (m.SueAltOrigin))
-	buf = marshalInt16(buf, (m.SueWeekNo))
-
-	return buf
-}
-
-func (m *SerialUdbExtraF13) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF13) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.SueLatOrigin = unmarshalInt32(buf)
-
-	buf, m.SueLonOrigin = unmarshalInt32(buf)
-
-	buf, m.SueAltOrigin = unmarshalInt32(buf)
-
-	buf, m.SueWeekNo = unmarshalInt16(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF13) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Backwards compatible version of SERIAL_UDB_EXTRA F14: format */
-type SerialUdbExtraF14 struct {
-	/* Serial UDB Extra Type Program Address of Last Trap */
-	SueTrapSource uint32
-
-	/* Serial UDB Extra Reboot Register of DSPIC */
-	SueRcon int16
-
-	/* Serial UDB Extra  Last dspic Trap Flags */
-	SueTrapFlags int16
-
-	/* Serial UDB Extra Number of Ocillator Failures */
-	SueOscFailCount int16
-
-	/* Serial UDB Extra Wind Estimation Enabled */
-	SueWindEstimation byte
-
-	/* Serial UDB Extra Type of GPS Unit */
-	SueGpsType byte
-
-	/* Serial UDB Extra Dead Reckoning Enabled */
-	SueDr byte
-
-	/* Serial UDB Extra Type of UDB Hardware */
-	SueBoardType byte
-
-	/* Serial UDB Extra Type of Airframe */
-	SueAirframe byte
-
-	/* Serial UDB Extra UDB Internal Clock Configuration */
-	SueClockConfig byte
-
-	/* Serial UDB Extra Type of Flight Plan */
-	SueFlightPlanType byte
-}
-
-func (m *SerialUdbExtraF14) ID() int        { return 178 }
-func (m *SerialUdbExtraF14) CRCExtra() byte { return 123 }
-
-func (m *SerialUdbExtraF14) MarshalV1(buf []byte) []byte {
-	buf = marshalUint32(buf, (m.SueTrapSource))
-	buf = marshalInt16(buf, (m.SueRcon))
-	buf = marshalInt16(buf, (m.SueTrapFlags))
-	buf = marshalInt16(buf, (m.SueOscFailCount))
-	buf = marshalByte(buf, (m.SueWindEstimation))
-	buf = marshalByte(buf, (m.SueGpsType))
-	buf = marshalByte(buf, (m.SueDr))
-	buf = marshalByte(buf, (m.SueBoardType))
-	buf = marshalByte(buf, (m.SueAirframe))
-	buf = marshalByte(buf, (m.SueClockConfig))
-	buf = marshalByte(buf, (m.SueFlightPlanType))
-
-	return buf
-}
-
-func (m *SerialUdbExtraF14) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF14) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.SueTrapSource = unmarshalUint32(buf)
-
-	buf, m.SueRcon = unmarshalInt16(buf)
-
-	buf, m.SueTrapFlags = unmarshalInt16(buf)
-
-	buf, m.SueOscFailCount = unmarshalInt16(buf)
-
-	buf, m.SueWindEstimation = unmarshalByte(buf)
-
-	buf, m.SueGpsType = unmarshalByte(buf)
-
-	buf, m.SueDr = unmarshalByte(buf)
-
-	buf, m.SueBoardType = unmarshalByte(buf)
-
-	buf, m.SueAirframe = unmarshalByte(buf)
-
-	buf, m.SueClockConfig = unmarshalByte(buf)
-
-	buf, m.SueFlightPlanType = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF14) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Backwards compatible version of SERIAL_UDB_EXTRA F15 format */
-type SerialUdbExtraF15 struct {
-	/* Serial UDB Extra Model Name Of Vehicle */
-	SueIdVehicleModelName [40]byte
-
-	/* Serial UDB Extra Registraton Number of Vehicle */
-	SueIdVehicleRegistration [20]byte
-}
-
-func (m *SerialUdbExtraF15) ID() int        { return 179 }
-func (m *SerialUdbExtraF15) CRCExtra() byte { return 7 }
-
-func (m *SerialUdbExtraF15) MarshalV1(buf []byte) []byte {
-	for _, v := range m.SueIdVehicleModelName {
-		buf = marshalByte(buf, (v))
-	}
-	for _, v := range m.SueIdVehicleRegistration {
-		buf = marshalByte(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *SerialUdbExtraF15) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF15) UnmarshalV1(buf []byte) []byte {
-
-	for i, _ := range m.SueIdVehicleModelName {
-		buf, m.SueIdVehicleModelName[i] = unmarshalByte(buf)
-	}
-
-	for i, _ := range m.SueIdVehicleRegistration {
-		buf, m.SueIdVehicleRegistration[i] = unmarshalByte(buf)
-	}
-
-	return buf
-}
-
-func (m *SerialUdbExtraF15) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Backwards compatible version of SERIAL_UDB_EXTRA F16 format */
-type SerialUdbExtraF16 struct {
-	/* Serial UDB Extra Name of Expected Lead Pilot */
-	SueIdLeadPilot [40]byte
-
-	/* Serial UDB Extra URL of Lead Pilot or Team */
-	SueIdDiyDronesUrl [70]byte
-}
-
-func (m *SerialUdbExtraF16) ID() int        { return 180 }
-func (m *SerialUdbExtraF16) CRCExtra() byte { return 222 }
-
-func (m *SerialUdbExtraF16) MarshalV1(buf []byte) []byte {
-	for _, v := range m.SueIdLeadPilot {
-		buf = marshalByte(buf, (v))
-	}
-	for _, v := range m.SueIdDiyDronesUrl {
-		buf = marshalByte(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *SerialUdbExtraF16) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF16) UnmarshalV1(buf []byte) []byte {
-
-	for i, _ := range m.SueIdLeadPilot {
-		buf, m.SueIdLeadPilot[i] = unmarshalByte(buf)
-	}
-
-	for i, _ := range m.SueIdDiyDronesUrl {
-		buf, m.SueIdDiyDronesUrl[i] = unmarshalByte(buf)
-	}
-
-	return buf
-}
-
-func (m *SerialUdbExtraF16) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* The altitude measured by sensors and IMU */
-type Altitudes struct {
-	/* Timestamp (milliseconds since system boot) */
-	TimeBootMs uint32
-
-	/* GPS altitude (MSL) in meters, expressed as * 1000 (millimeters) */
-	AltGps int32
-
-	/* IMU altitude above ground in meters, expressed as * 1000 (millimeters) */
-	AltImu int32
-
-	/* barometeric altitude above ground in meters, expressed as * 1000 (millimeters) */
-	AltBarometric int32
-
-	/* Optical flow altitude above ground in meters, expressed as * 1000 (millimeters) */
-	AltOpticalFlow int32
-
-	/* Rangefinder Altitude above ground in meters, expressed as * 1000 (millimeters) */
-	AltRangeFinder int32
-
-	/* Extra altitude above ground in meters, expressed as * 1000 (millimeters) */
-	AltExtra int32
-}
-
-func (m *Altitudes) ID() int        { return 181 }
-func (m *Altitudes) CRCExtra() byte { return 55 }
-
-func (m *Altitudes) MarshalV1(buf []byte) []byte {
-	buf = marshalUint32(buf, (m.TimeBootMs))
-	buf = marshalInt32(buf, (m.AltGps))
-	buf = marshalInt32(buf, (m.AltImu))
-	buf = marshalInt32(buf, (m.AltBarometric))
-	buf = marshalInt32(buf, (m.AltOpticalFlow))
-	buf = marshalInt32(buf, (m.AltRangeFinder))
-	buf = marshalInt32(buf, (m.AltExtra))
-
-	return buf
-}
-
-func (m *Altitudes) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *Altitudes) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.TimeBootMs = unmarshalUint32(buf)
-
-	buf, m.AltGps = unmarshalInt32(buf)
-
-	buf, m.AltImu = unmarshalInt32(buf)
-
-	buf, m.AltBarometric = unmarshalInt32(buf)
-
-	buf, m.AltOpticalFlow = unmarshalInt32(buf)
-
-	buf, m.AltRangeFinder = unmarshalInt32(buf)
-
-	buf, m.AltExtra = unmarshalInt32(buf)
-
-	return buf
-}
-
-func (m *Altitudes) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* The airspeed measured by sensors and IMU */
-type Airspeeds struct {
-	/* Timestamp (milliseconds since system boot) */
-	TimeBootMs uint32
-
-	/* Airspeed estimate from IMU, cm/s */
-	AirspeedImu int16
-
-	/* Pitot measured forward airpseed, cm/s */
-	AirspeedPitot int16
-
-	/* Hot wire anenometer measured airspeed, cm/s */
-	AirspeedHotWire int16
-
-	/* Ultrasonic measured airspeed, cm/s */
-	AirspeedUltrasonic int16
-
-	/* Angle of attack sensor, degrees * 10 */
-	Aoa int16
-
-	/* Yaw angle sensor, degrees * 10 */
-	Aoy int16
-}
-
-func (m *Airspeeds) ID() int        { return 182 }
-func (m *Airspeeds) CRCExtra() byte { return 154 }
-
-func (m *Airspeeds) MarshalV1(buf []byte) []byte {
-	buf = marshalUint32(buf, (m.TimeBootMs))
-	buf = marshalInt16(buf, (m.AirspeedImu))
-	buf = marshalInt16(buf, (m.AirspeedPitot))
-	buf = marshalInt16(buf, (m.AirspeedHotWire))
-	buf = marshalInt16(buf, (m.AirspeedUltrasonic))
-	buf = marshalInt16(buf, (m.Aoa))
-	buf = marshalInt16(buf, (m.Aoy))
-
-	return buf
-}
-
-func (m *Airspeeds) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *Airspeeds) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.TimeBootMs = unmarshalUint32(buf)
-
-	buf, m.AirspeedImu = unmarshalInt16(buf)
-
-	buf, m.AirspeedPitot = unmarshalInt16(buf)
-
-	buf, m.AirspeedHotWire = unmarshalInt16(buf)
-
-	buf, m.AirspeedUltrasonic = unmarshalInt16(buf)
-
-	buf, m.Aoa = unmarshalInt16(buf)
-
-	buf, m.Aoy = unmarshalInt16(buf)
-
-	return buf
-}
-
-func (m *Airspeeds) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Backwards compatible version of SERIAL_UDB_EXTRA F17 format */
-type SerialUdbExtraF17 struct {
-	/* SUE Feed Forward Gain */
-	SueFeedForward float32
-
-	/* SUE Max Turn Rate when Navigating */
-	SueTurnRateNav float32
-
-	/* SUE Max Turn Rate in Fly By Wire Mode */
-	SueTurnRateFbw float32
-}
-
-func (m *SerialUdbExtraF17) ID() int        { return 183 }
-func (m *SerialUdbExtraF17) CRCExtra() byte { return 175 }
-
-func (m *SerialUdbExtraF17) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.SueFeedForward))
-	buf = marshalFloat32(buf, (m.SueTurnRateNav))
-	buf = marshalFloat32(buf, (m.SueTurnRateFbw))
-
-	return buf
-}
-
-func (m *SerialUdbExtraF17) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF17) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.SueFeedForward = unmarshalFloat32(buf)
-
-	buf, m.SueTurnRateNav = unmarshalFloat32(buf)
-
-	buf, m.SueTurnRateFbw = unmarshalFloat32(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF17) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Backwards compatible version of SERIAL_UDB_EXTRA F18 format */
-type SerialUdbExtraF18 struct {
-	/* SUE Angle of Attack Normal */
-	AngleOfAttackNormal float32
-
-	/* SUE Angle of Attack Inverted */
-	AngleOfAttackInverted float32
-
-	/* SUE Elevator Trim Normal */
-	ElevatorTrimNormal float32
-
-	/* SUE Elevator Trim Inverted */
-	ElevatorTrimInverted float32
-
-	/* SUE reference_speed */
-	ReferenceSpeed float32
-}
-
-func (m *SerialUdbExtraF18) ID() int        { return 184 }
-func (m *SerialUdbExtraF18) CRCExtra() byte { return 41 }
-
-func (m *SerialUdbExtraF18) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.AngleOfAttackNormal))
-	buf = marshalFloat32(buf, (m.AngleOfAttackInverted))
-	buf = marshalFloat32(buf, (m.ElevatorTrimNormal))
-	buf = marshalFloat32(buf, (m.ElevatorTrimInverted))
-	buf = marshalFloat32(buf, (m.ReferenceSpeed))
-
-	return buf
-}
-
-func (m *SerialUdbExtraF18) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF18) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.AngleOfAttackNormal = unmarshalFloat32(buf)
-
-	buf, m.AngleOfAttackInverted = unmarshalFloat32(buf)
-
-	buf, m.ElevatorTrimNormal = unmarshalFloat32(buf)
-
-	buf, m.ElevatorTrimInverted = unmarshalFloat32(buf)
-
-	buf, m.ReferenceSpeed = unmarshalFloat32(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF18) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Backwards compatible version of SERIAL_UDB_EXTRA F19 format */
-type SerialUdbExtraF19 struct {
-	/* SUE aileron output channel */
-	SueAileronOutputChannel byte
-
-	/* SUE aileron reversed */
-	SueAileronReversed byte
-
-	/* SUE elevator output channel */
-	SueElevatorOutputChannel byte
-
-	/* SUE elevator reversed */
-	SueElevatorReversed byte
-
-	/* SUE throttle output channel */
-	SueThrottleOutputChannel byte
-
-	/* SUE throttle reversed */
-	SueThrottleReversed byte
-
-	/* SUE rudder output channel */
-	SueRudderOutputChannel byte
-
-	/* SUE rudder reversed */
-	SueRudderReversed byte
-}
-
-func (m *SerialUdbExtraF19) ID() int        { return 185 }
-func (m *SerialUdbExtraF19) CRCExtra() byte { return 87 }
-
-func (m *SerialUdbExtraF19) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, (m.SueAileronOutputChannel))
-	buf = marshalByte(buf, (m.SueAileronReversed))
-	buf = marshalByte(buf, (m.SueElevatorOutputChannel))
-	buf = marshalByte(buf, (m.SueElevatorReversed))
-	buf = marshalByte(buf, (m.SueThrottleOutputChannel))
-	buf = marshalByte(buf, (m.SueThrottleReversed))
-	buf = marshalByte(buf, (m.SueRudderOutputChannel))
-	buf = marshalByte(buf, (m.SueRudderReversed))
-
-	return buf
-}
-
-func (m *SerialUdbExtraF19) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF19) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.SueAileronOutputChannel = unmarshalByte(buf)
-
-	buf, m.SueAileronReversed = unmarshalByte(buf)
-
-	buf, m.SueElevatorOutputChannel = unmarshalByte(buf)
-
-	buf, m.SueElevatorReversed = unmarshalByte(buf)
-
-	buf, m.SueThrottleOutputChannel = unmarshalByte(buf)
-
-	buf, m.SueThrottleReversed = unmarshalByte(buf)
-
-	buf, m.SueRudderOutputChannel = unmarshalByte(buf)
-
-	buf, m.SueRudderReversed = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF19) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Backwards compatible version of SERIAL_UDB_EXTRA F20 format */
-type SerialUdbExtraF20 struct {
-	/* SUE UDB PWM Trim Value on Input 1 */
-	SueTrimValueInput1 int16
-
-	/* SUE UDB PWM Trim Value on Input 2 */
-	SueTrimValueInput2 int16
-
-	/* SUE UDB PWM Trim Value on Input 3 */
-	SueTrimValueInput3 int16
-
-	/* SUE UDB PWM Trim Value on Input 4 */
-	SueTrimValueInput4 int16
-
-	/* SUE UDB PWM Trim Value on Input 5 */
-	SueTrimValueInput5 int16
-
-	/* SUE UDB PWM Trim Value on Input 6 */
-	SueTrimValueInput6 int16
-
-	/* SUE UDB PWM Trim Value on Input 7 */
-	SueTrimValueInput7 int16
-
-	/* SUE UDB PWM Trim Value on Input 8 */
-	SueTrimValueInput8 int16
-
-	/* SUE UDB PWM Trim Value on Input 9 */
-	SueTrimValueInput9 int16
-
-	/* SUE UDB PWM Trim Value on Input 10 */
-	SueTrimValueInput10 int16
-
-	/* SUE UDB PWM Trim Value on Input 11 */
-	SueTrimValueInput11 int16
-
-	/* SUE UDB PWM Trim Value on Input 12 */
-	SueTrimValueInput12 int16
-
-	/* SUE Number of Input Channels */
-	SueNumberOfInputs byte
-}
-
-func (m *SerialUdbExtraF20) ID() int        { return 186 }
-func (m *SerialUdbExtraF20) CRCExtra() byte { return 144 }
-
-func (m *SerialUdbExtraF20) MarshalV1(buf []byte) []byte {
-	buf = marshalInt16(buf, (m.SueTrimValueInput1))
-	buf = marshalInt16(buf, (m.SueTrimValueInput2))
-	buf = marshalInt16(buf, (m.SueTrimValueInput3))
-	buf = marshalInt16(buf, (m.SueTrimValueInput4))
-	buf = marshalInt16(buf, (m.SueTrimValueInput5))
-	buf = marshalInt16(buf, (m.SueTrimValueInput6))
-	buf = marshalInt16(buf, (m.SueTrimValueInput7))
-	buf = marshalInt16(buf, (m.SueTrimValueInput8))
-	buf = marshalInt16(buf, (m.SueTrimValueInput9))
-	buf = marshalInt16(buf, (m.SueTrimValueInput10))
-	buf = marshalInt16(buf, (m.SueTrimValueInput11))
-	buf = marshalInt16(buf, (m.SueTrimValueInput12))
-	buf = marshalByte(buf, (m.SueNumberOfInputs))
-
-	return buf
-}
-
-func (m *SerialUdbExtraF20) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF20) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.SueTrimValueInput1 = unmarshalInt16(buf)
-
-	buf, m.SueTrimValueInput2 = unmarshalInt16(buf)
-
-	buf, m.SueTrimValueInput3 = unmarshalInt16(buf)
-
-	buf, m.SueTrimValueInput4 = unmarshalInt16(buf)
-
-	buf, m.SueTrimValueInput5 = unmarshalInt16(buf)
-
-	buf, m.SueTrimValueInput6 = unmarshalInt16(buf)
-
-	buf, m.SueTrimValueInput7 = unmarshalInt16(buf)
-
-	buf, m.SueTrimValueInput8 = unmarshalInt16(buf)
-
-	buf, m.SueTrimValueInput9 = unmarshalInt16(buf)
-
-	buf, m.SueTrimValueInput10 = unmarshalInt16(buf)
-
-	buf, m.SueTrimValueInput11 = unmarshalInt16(buf)
-
-	buf, m.SueTrimValueInput12 = unmarshalInt16(buf)
-
-	buf, m.SueNumberOfInputs = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF20) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Backwards compatible version of SERIAL_UDB_EXTRA F21 format */
-type SerialUdbExtraF21 struct {
-	/* SUE X accelerometer offset */
-	SueAccelXOffset int16
-
-	/* SUE Y accelerometer offset */
-	SueAccelYOffset int16
-
-	/* SUE Z accelerometer offset */
-	SueAccelZOffset int16
-
-	/* SUE X gyro offset */
-	SueGyroXOffset int16
-
-	/* SUE Y gyro offset */
-	SueGyroYOffset int16
-
-	/* SUE Z gyro offset */
-	SueGyroZOffset int16
-}
-
-func (m *SerialUdbExtraF21) ID() int        { return 187 }
-func (m *SerialUdbExtraF21) CRCExtra() byte { return 134 }
-
-func (m *SerialUdbExtraF21) MarshalV1(buf []byte) []byte {
-	buf = marshalInt16(buf, (m.SueAccelXOffset))
-	buf = marshalInt16(buf, (m.SueAccelYOffset))
-	buf = marshalInt16(buf, (m.SueAccelZOffset))
-	buf = marshalInt16(buf, (m.SueGyroXOffset))
-	buf = marshalInt16(buf, (m.SueGyroYOffset))
-	buf = marshalInt16(buf, (m.SueGyroZOffset))
-
-	return buf
-}
-
-func (m *SerialUdbExtraF21) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF21) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.SueAccelXOffset = unmarshalInt16(buf)
-
-	buf, m.SueAccelYOffset = unmarshalInt16(buf)
-
-	buf, m.SueAccelZOffset = unmarshalInt16(buf)
-
-	buf, m.SueGyroXOffset = unmarshalInt16(buf)
-
-	buf, m.SueGyroYOffset = unmarshalInt16(buf)
-
-	buf, m.SueGyroZOffset = unmarshalInt16(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF21) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Backwards compatible version of SERIAL_UDB_EXTRA F22 format */
-type SerialUdbExtraF22 struct {
-	/* SUE X accelerometer at calibration time */
-	SueAccelXAtCalibration int16
-
-	/* SUE Y accelerometer at calibration time */
-	SueAccelYAtCalibration int16
-
-	/* SUE Z accelerometer at calibration time */
-	SueAccelZAtCalibration int16
-
-	/* SUE X gyro at calibration time */
-	SueGyroXAtCalibration int16
-
-	/* SUE Y gyro at calibration time */
-	SueGyroYAtCalibration int16
-
-	/* SUE Z gyro at calibration time */
-	SueGyroZAtCalibration int16
-}
-
-func (m *SerialUdbExtraF22) ID() int        { return 188 }
-func (m *SerialUdbExtraF22) CRCExtra() byte { return 91 }
-
-func (m *SerialUdbExtraF22) MarshalV1(buf []byte) []byte {
-	buf = marshalInt16(buf, (m.SueAccelXAtCalibration))
-	buf = marshalInt16(buf, (m.SueAccelYAtCalibration))
-	buf = marshalInt16(buf, (m.SueAccelZAtCalibration))
-	buf = marshalInt16(buf, (m.SueGyroXAtCalibration))
-	buf = marshalInt16(buf, (m.SueGyroYAtCalibration))
-	buf = marshalInt16(buf, (m.SueGyroZAtCalibration))
-
-	return buf
-}
-
-func (m *SerialUdbExtraF22) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF22) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.SueAccelXAtCalibration = unmarshalInt16(buf)
-
-	buf, m.SueAccelYAtCalibration = unmarshalInt16(buf)
-
-	buf, m.SueAccelZAtCalibration = unmarshalInt16(buf)
-
-	buf, m.SueGyroXAtCalibration = unmarshalInt16(buf)
-
-	buf, m.SueGyroYAtCalibration = unmarshalInt16(buf)
-
-	buf, m.SueGyroZAtCalibration = unmarshalInt16(buf)
-
-	return buf
-}
-
-func (m *SerialUdbExtraF22) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
 }
 
 /* The heartbeat message shows that a system or component is present and responding. The type and autopilot fields (along with the message component id), allow the receiving system to treat further messages from this system appropriately (e.g. by laying out the user interface based on the autopilot). This microservice is documented at https://mavlink.io/en/services/heartbeat.html */
@@ -14279,6 +12197,2088 @@ func (m *LandingTarget) UnmarshalV2(buf []byte) []byte {
 		m.Type = LandingTargetType(v)
 	}
 	buf, m.PositionValid = unmarshalByte(buf)
+
+	return buf
+}
+
+/* Depreciated but used as a compiler flag.  Do not remove */
+type FlexifunctionSet struct {
+	/* System ID */
+	TargetSystem byte
+
+	/* Component ID */
+	TargetComponent byte
+}
+
+func (m *FlexifunctionSet) ID() int        { return 150 }
+func (m *FlexifunctionSet) CRCExtra() byte { return 181 }
+
+func (m *FlexifunctionSet) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+
+	return buf
+}
+
+func (m *FlexifunctionSet) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *FlexifunctionSet) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *FlexifunctionSet) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Reqest reading of flexifunction data */
+type FlexifunctionReadReq struct {
+	/* Type of flexifunction data requested */
+	ReadReqType int16
+
+	/* index into data where needed */
+	DataIndex int16
+
+	/* System ID */
+	TargetSystem byte
+
+	/* Component ID */
+	TargetComponent byte
+}
+
+func (m *FlexifunctionReadReq) ID() int        { return 151 }
+func (m *FlexifunctionReadReq) CRCExtra() byte { return 26 }
+
+func (m *FlexifunctionReadReq) MarshalV1(buf []byte) []byte {
+	buf = marshalInt16(buf, (m.ReadReqType))
+	buf = marshalInt16(buf, (m.DataIndex))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+
+	return buf
+}
+
+func (m *FlexifunctionReadReq) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *FlexifunctionReadReq) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.ReadReqType = unmarshalInt16(buf)
+
+	buf, m.DataIndex = unmarshalInt16(buf)
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *FlexifunctionReadReq) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Flexifunction type and parameters for component at function index from buffer */
+type FlexifunctionBufferFunction struct {
+	/* Function index */
+	FuncIndex uint16
+
+	/* Total count of functions */
+	FuncCount uint16
+
+	/* Address in the flexifunction data, Set to 0xFFFF to use address in target memory */
+	DataAddress uint16
+
+	/* Size of the  */
+	DataSize uint16
+
+	/* System ID */
+	TargetSystem byte
+
+	/* Component ID */
+	TargetComponent byte
+
+	/* Settings data */
+	Data [48]int8
+}
+
+func (m *FlexifunctionBufferFunction) ID() int        { return 152 }
+func (m *FlexifunctionBufferFunction) CRCExtra() byte { return 101 }
+
+func (m *FlexifunctionBufferFunction) MarshalV1(buf []byte) []byte {
+	buf = marshalUint16(buf, (m.FuncIndex))
+	buf = marshalUint16(buf, (m.FuncCount))
+	buf = marshalUint16(buf, (m.DataAddress))
+	buf = marshalUint16(buf, (m.DataSize))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+	for _, v := range m.Data {
+		buf = marshalInt8(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *FlexifunctionBufferFunction) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *FlexifunctionBufferFunction) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.FuncIndex = unmarshalUint16(buf)
+
+	buf, m.FuncCount = unmarshalUint16(buf)
+
+	buf, m.DataAddress = unmarshalUint16(buf)
+
+	buf, m.DataSize = unmarshalUint16(buf)
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	for i, _ := range m.Data {
+		buf, m.Data[i] = unmarshalInt8(buf)
+	}
+
+	return buf
+}
+
+func (m *FlexifunctionBufferFunction) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Flexifunction type and parameters for component at function index from buffer */
+type FlexifunctionBufferFunctionAck struct {
+	/* Function index */
+	FuncIndex uint16
+
+	/* result of acknowledge, 0=fail, 1=good */
+	Result uint16
+
+	/* System ID */
+	TargetSystem byte
+
+	/* Component ID */
+	TargetComponent byte
+}
+
+func (m *FlexifunctionBufferFunctionAck) ID() int        { return 153 }
+func (m *FlexifunctionBufferFunctionAck) CRCExtra() byte { return 109 }
+
+func (m *FlexifunctionBufferFunctionAck) MarshalV1(buf []byte) []byte {
+	buf = marshalUint16(buf, (m.FuncIndex))
+	buf = marshalUint16(buf, (m.Result))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+
+	return buf
+}
+
+func (m *FlexifunctionBufferFunctionAck) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *FlexifunctionBufferFunctionAck) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.FuncIndex = unmarshalUint16(buf)
+
+	buf, m.Result = unmarshalUint16(buf)
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *FlexifunctionBufferFunctionAck) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Acknowldge sucess or failure of a flexifunction command */
+type FlexifunctionDirectory struct {
+	/* System ID */
+	TargetSystem byte
+
+	/* Component ID */
+	TargetComponent byte
+
+	/* 0=inputs, 1=outputs */
+	DirectoryType byte
+
+	/* index of first directory entry to write */
+	StartIndex byte
+
+	/* count of directory entries to write */
+	Count byte
+
+	/* Settings data */
+	DirectoryData [48]int8
+}
+
+func (m *FlexifunctionDirectory) ID() int        { return 155 }
+func (m *FlexifunctionDirectory) CRCExtra() byte { return 12 }
+
+func (m *FlexifunctionDirectory) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+	buf = marshalByte(buf, (m.DirectoryType))
+	buf = marshalByte(buf, (m.StartIndex))
+	buf = marshalByte(buf, (m.Count))
+	for _, v := range m.DirectoryData {
+		buf = marshalInt8(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *FlexifunctionDirectory) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *FlexifunctionDirectory) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	buf, m.DirectoryType = unmarshalByte(buf)
+
+	buf, m.StartIndex = unmarshalByte(buf)
+
+	buf, m.Count = unmarshalByte(buf)
+
+	for i, _ := range m.DirectoryData {
+		buf, m.DirectoryData[i] = unmarshalInt8(buf)
+	}
+
+	return buf
+}
+
+func (m *FlexifunctionDirectory) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Acknowldge sucess or failure of a flexifunction command */
+type FlexifunctionDirectoryAck struct {
+	/* result of acknowledge, 0=fail, 1=good */
+	Result uint16
+
+	/* System ID */
+	TargetSystem byte
+
+	/* Component ID */
+	TargetComponent byte
+
+	/* 0=inputs, 1=outputs */
+	DirectoryType byte
+
+	/* index of first directory entry to write */
+	StartIndex byte
+
+	/* count of directory entries to write */
+	Count byte
+}
+
+func (m *FlexifunctionDirectoryAck) ID() int        { return 156 }
+func (m *FlexifunctionDirectoryAck) CRCExtra() byte { return 218 }
+
+func (m *FlexifunctionDirectoryAck) MarshalV1(buf []byte) []byte {
+	buf = marshalUint16(buf, (m.Result))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+	buf = marshalByte(buf, (m.DirectoryType))
+	buf = marshalByte(buf, (m.StartIndex))
+	buf = marshalByte(buf, (m.Count))
+
+	return buf
+}
+
+func (m *FlexifunctionDirectoryAck) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *FlexifunctionDirectoryAck) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Result = unmarshalUint16(buf)
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	buf, m.DirectoryType = unmarshalByte(buf)
+
+	buf, m.StartIndex = unmarshalByte(buf)
+
+	buf, m.Count = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *FlexifunctionDirectoryAck) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Acknowldge sucess or failure of a flexifunction command */
+type FlexifunctionCommand struct {
+	/* System ID */
+	TargetSystem byte
+
+	/* Component ID */
+	TargetComponent byte
+
+	/* Flexifunction command type */
+	CommandType byte
+}
+
+func (m *FlexifunctionCommand) ID() int        { return 157 }
+func (m *FlexifunctionCommand) CRCExtra() byte { return 133 }
+
+func (m *FlexifunctionCommand) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+	buf = marshalByte(buf, (m.CommandType))
+
+	return buf
+}
+
+func (m *FlexifunctionCommand) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *FlexifunctionCommand) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	buf, m.CommandType = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *FlexifunctionCommand) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Acknowldge sucess or failure of a flexifunction command */
+type FlexifunctionCommandAck struct {
+	/* Command acknowledged */
+	CommandType uint16
+
+	/* result of acknowledge */
+	Result uint16
+}
+
+func (m *FlexifunctionCommandAck) ID() int        { return 158 }
+func (m *FlexifunctionCommandAck) CRCExtra() byte { return 208 }
+
+func (m *FlexifunctionCommandAck) MarshalV1(buf []byte) []byte {
+	buf = marshalUint16(buf, (m.CommandType))
+	buf = marshalUint16(buf, (m.Result))
+
+	return buf
+}
+
+func (m *FlexifunctionCommandAck) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *FlexifunctionCommandAck) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.CommandType = unmarshalUint16(buf)
+
+	buf, m.Result = unmarshalUint16(buf)
+
+	return buf
+}
+
+func (m *FlexifunctionCommandAck) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Backwards compatible MAVLink version of SERIAL_UDB_EXTRA - F2: Format Part A */
+type SerialUdbExtraF2A struct {
+	/* Serial UDB Extra Time */
+	SueTime uint32
+
+	/* Serial UDB Extra Latitude */
+	SueLatitude int32
+
+	/* Serial UDB Extra Longitude */
+	SueLongitude int32
+
+	/* Serial UDB Extra Altitude */
+	SueAltitude int32
+
+	/* Serial UDB Extra Waypoint Index */
+	SueWaypointIndex uint16
+
+	/* Serial UDB Extra Rmat 0 */
+	SueRmat0 int16
+
+	/* Serial UDB Extra Rmat 1 */
+	SueRmat1 int16
+
+	/* Serial UDB Extra Rmat 2 */
+	SueRmat2 int16
+
+	/* Serial UDB Extra Rmat 3 */
+	SueRmat3 int16
+
+	/* Serial UDB Extra Rmat 4 */
+	SueRmat4 int16
+
+	/* Serial UDB Extra Rmat 5 */
+	SueRmat5 int16
+
+	/* Serial UDB Extra Rmat 6 */
+	SueRmat6 int16
+
+	/* Serial UDB Extra Rmat 7 */
+	SueRmat7 int16
+
+	/* Serial UDB Extra Rmat 8 */
+	SueRmat8 int16
+
+	/* Serial UDB Extra GPS Course Over Ground */
+	SueCog uint16
+
+	/* Serial UDB Extra Speed Over Ground */
+	SueSog int16
+
+	/* Serial UDB Extra CPU Load */
+	SueCpuLoad uint16
+
+	/* Serial UDB Extra 3D IMU Air Speed */
+	SueAirSpeed3dimu uint16
+
+	/* Serial UDB Extra Estimated Wind 0 */
+	SueEstimatedWind0 int16
+
+	/* Serial UDB Extra Estimated Wind 1 */
+	SueEstimatedWind1 int16
+
+	/* Serial UDB Extra Estimated Wind 2 */
+	SueEstimatedWind2 int16
+
+	/* Serial UDB Extra Magnetic Field Earth 0  */
+	SueMagfieldearth0 int16
+
+	/* Serial UDB Extra Magnetic Field Earth 1  */
+	SueMagfieldearth1 int16
+
+	/* Serial UDB Extra Magnetic Field Earth 2  */
+	SueMagfieldearth2 int16
+
+	/* Serial UDB Extra Number of Sattelites in View */
+	SueSvs int16
+
+	/* Serial UDB Extra GPS Horizontal Dilution of Precision */
+	SueHdop int16
+
+	/* Serial UDB Extra Status */
+	SueStatus byte
+}
+
+func (m *SerialUdbExtraF2A) ID() int        { return 170 }
+func (m *SerialUdbExtraF2A) CRCExtra() byte { return 103 }
+
+func (m *SerialUdbExtraF2A) MarshalV1(buf []byte) []byte {
+	buf = marshalUint32(buf, (m.SueTime))
+	buf = marshalInt32(buf, (m.SueLatitude))
+	buf = marshalInt32(buf, (m.SueLongitude))
+	buf = marshalInt32(buf, (m.SueAltitude))
+	buf = marshalUint16(buf, (m.SueWaypointIndex))
+	buf = marshalInt16(buf, (m.SueRmat0))
+	buf = marshalInt16(buf, (m.SueRmat1))
+	buf = marshalInt16(buf, (m.SueRmat2))
+	buf = marshalInt16(buf, (m.SueRmat3))
+	buf = marshalInt16(buf, (m.SueRmat4))
+	buf = marshalInt16(buf, (m.SueRmat5))
+	buf = marshalInt16(buf, (m.SueRmat6))
+	buf = marshalInt16(buf, (m.SueRmat7))
+	buf = marshalInt16(buf, (m.SueRmat8))
+	buf = marshalUint16(buf, (m.SueCog))
+	buf = marshalInt16(buf, (m.SueSog))
+	buf = marshalUint16(buf, (m.SueCpuLoad))
+	buf = marshalUint16(buf, (m.SueAirSpeed3dimu))
+	buf = marshalInt16(buf, (m.SueEstimatedWind0))
+	buf = marshalInt16(buf, (m.SueEstimatedWind1))
+	buf = marshalInt16(buf, (m.SueEstimatedWind2))
+	buf = marshalInt16(buf, (m.SueMagfieldearth0))
+	buf = marshalInt16(buf, (m.SueMagfieldearth1))
+	buf = marshalInt16(buf, (m.SueMagfieldearth2))
+	buf = marshalInt16(buf, (m.SueSvs))
+	buf = marshalInt16(buf, (m.SueHdop))
+	buf = marshalByte(buf, (m.SueStatus))
+
+	return buf
+}
+
+func (m *SerialUdbExtraF2A) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF2A) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.SueTime = unmarshalUint32(buf)
+
+	buf, m.SueLatitude = unmarshalInt32(buf)
+
+	buf, m.SueLongitude = unmarshalInt32(buf)
+
+	buf, m.SueAltitude = unmarshalInt32(buf)
+
+	buf, m.SueWaypointIndex = unmarshalUint16(buf)
+
+	buf, m.SueRmat0 = unmarshalInt16(buf)
+
+	buf, m.SueRmat1 = unmarshalInt16(buf)
+
+	buf, m.SueRmat2 = unmarshalInt16(buf)
+
+	buf, m.SueRmat3 = unmarshalInt16(buf)
+
+	buf, m.SueRmat4 = unmarshalInt16(buf)
+
+	buf, m.SueRmat5 = unmarshalInt16(buf)
+
+	buf, m.SueRmat6 = unmarshalInt16(buf)
+
+	buf, m.SueRmat7 = unmarshalInt16(buf)
+
+	buf, m.SueRmat8 = unmarshalInt16(buf)
+
+	buf, m.SueCog = unmarshalUint16(buf)
+
+	buf, m.SueSog = unmarshalInt16(buf)
+
+	buf, m.SueCpuLoad = unmarshalUint16(buf)
+
+	buf, m.SueAirSpeed3dimu = unmarshalUint16(buf)
+
+	buf, m.SueEstimatedWind0 = unmarshalInt16(buf)
+
+	buf, m.SueEstimatedWind1 = unmarshalInt16(buf)
+
+	buf, m.SueEstimatedWind2 = unmarshalInt16(buf)
+
+	buf, m.SueMagfieldearth0 = unmarshalInt16(buf)
+
+	buf, m.SueMagfieldearth1 = unmarshalInt16(buf)
+
+	buf, m.SueMagfieldearth2 = unmarshalInt16(buf)
+
+	buf, m.SueSvs = unmarshalInt16(buf)
+
+	buf, m.SueHdop = unmarshalInt16(buf)
+
+	buf, m.SueStatus = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF2A) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Backwards compatible version of SERIAL_UDB_EXTRA - F2: Part B */
+type SerialUdbExtraF2B struct {
+	/* Serial UDB Extra Time */
+	SueTime uint32
+
+	/* Serial UDB Extra Status Flags */
+	SueFlags uint32
+
+	/* SUE barometer pressure */
+	SueBaromPress int32
+
+	/* SUE barometer altitude */
+	SueBaromAlt int32
+
+	/* Serial UDB Extra PWM Input Channel 1 */
+	SuePwmInput1 int16
+
+	/* Serial UDB Extra PWM Input Channel 2 */
+	SuePwmInput2 int16
+
+	/* Serial UDB Extra PWM Input Channel 3 */
+	SuePwmInput3 int16
+
+	/* Serial UDB Extra PWM Input Channel 4 */
+	SuePwmInput4 int16
+
+	/* Serial UDB Extra PWM Input Channel 5 */
+	SuePwmInput5 int16
+
+	/* Serial UDB Extra PWM Input Channel 6 */
+	SuePwmInput6 int16
+
+	/* Serial UDB Extra PWM Input Channel 7 */
+	SuePwmInput7 int16
+
+	/* Serial UDB Extra PWM Input Channel 8 */
+	SuePwmInput8 int16
+
+	/* Serial UDB Extra PWM Input Channel 9 */
+	SuePwmInput9 int16
+
+	/* Serial UDB Extra PWM Input Channel 10 */
+	SuePwmInput10 int16
+
+	/* Serial UDB Extra PWM Input Channel 11 */
+	SuePwmInput11 int16
+
+	/* Serial UDB Extra PWM Input Channel 12 */
+	SuePwmInput12 int16
+
+	/* Serial UDB Extra PWM Output Channel 1 */
+	SuePwmOutput1 int16
+
+	/* Serial UDB Extra PWM Output Channel 2 */
+	SuePwmOutput2 int16
+
+	/* Serial UDB Extra PWM Output Channel 3 */
+	SuePwmOutput3 int16
+
+	/* Serial UDB Extra PWM Output Channel 4 */
+	SuePwmOutput4 int16
+
+	/* Serial UDB Extra PWM Output Channel 5 */
+	SuePwmOutput5 int16
+
+	/* Serial UDB Extra PWM Output Channel 6 */
+	SuePwmOutput6 int16
+
+	/* Serial UDB Extra PWM Output Channel 7 */
+	SuePwmOutput7 int16
+
+	/* Serial UDB Extra PWM Output Channel 8 */
+	SuePwmOutput8 int16
+
+	/* Serial UDB Extra PWM Output Channel 9 */
+	SuePwmOutput9 int16
+
+	/* Serial UDB Extra PWM Output Channel 10 */
+	SuePwmOutput10 int16
+
+	/* Serial UDB Extra PWM Output Channel 11 */
+	SuePwmOutput11 int16
+
+	/* Serial UDB Extra PWM Output Channel 12 */
+	SuePwmOutput12 int16
+
+	/* Serial UDB Extra IMU Location X */
+	SueImuLocationX int16
+
+	/* Serial UDB Extra IMU Location Y */
+	SueImuLocationY int16
+
+	/* Serial UDB Extra IMU Location Z */
+	SueImuLocationZ int16
+
+	/* Serial UDB Location Error Earth X */
+	SueLocationErrorEarthX int16
+
+	/* Serial UDB Location Error Earth Y */
+	SueLocationErrorEarthY int16
+
+	/* Serial UDB Location Error Earth Z */
+	SueLocationErrorEarthZ int16
+
+	/* Serial UDB Extra Oscillator Failure Count */
+	SueOscFails int16
+
+	/* Serial UDB Extra IMU Velocity X */
+	SueImuVelocityX int16
+
+	/* Serial UDB Extra IMU Velocity Y */
+	SueImuVelocityY int16
+
+	/* Serial UDB Extra IMU Velocity Z */
+	SueImuVelocityZ int16
+
+	/* Serial UDB Extra Current Waypoint Goal X */
+	SueWaypointGoalX int16
+
+	/* Serial UDB Extra Current Waypoint Goal Y */
+	SueWaypointGoalY int16
+
+	/* Serial UDB Extra Current Waypoint Goal Z */
+	SueWaypointGoalZ int16
+
+	/* Aeroforce in UDB X Axis */
+	SueAeroX int16
+
+	/* Aeroforce in UDB Y Axis */
+	SueAeroY int16
+
+	/* Aeroforce in UDB Z axis */
+	SueAeroZ int16
+
+	/* SUE barometer temperature */
+	SueBaromTemp int16
+
+	/* SUE battery voltage */
+	SueBatVolt int16
+
+	/* SUE battery current */
+	SueBatAmp int16
+
+	/* SUE battery milli amp hours used */
+	SueBatAmpHours int16
+
+	/* Sue autopilot desired height */
+	SueDesiredHeight int16
+
+	/* Serial UDB Extra Stack Memory Free */
+	SueMemoryStackFree int16
+}
+
+func (m *SerialUdbExtraF2B) ID() int        { return 171 }
+func (m *SerialUdbExtraF2B) CRCExtra() byte { return 245 }
+
+func (m *SerialUdbExtraF2B) MarshalV1(buf []byte) []byte {
+	buf = marshalUint32(buf, (m.SueTime))
+	buf = marshalUint32(buf, (m.SueFlags))
+	buf = marshalInt32(buf, (m.SueBaromPress))
+	buf = marshalInt32(buf, (m.SueBaromAlt))
+	buf = marshalInt16(buf, (m.SuePwmInput1))
+	buf = marshalInt16(buf, (m.SuePwmInput2))
+	buf = marshalInt16(buf, (m.SuePwmInput3))
+	buf = marshalInt16(buf, (m.SuePwmInput4))
+	buf = marshalInt16(buf, (m.SuePwmInput5))
+	buf = marshalInt16(buf, (m.SuePwmInput6))
+	buf = marshalInt16(buf, (m.SuePwmInput7))
+	buf = marshalInt16(buf, (m.SuePwmInput8))
+	buf = marshalInt16(buf, (m.SuePwmInput9))
+	buf = marshalInt16(buf, (m.SuePwmInput10))
+	buf = marshalInt16(buf, (m.SuePwmInput11))
+	buf = marshalInt16(buf, (m.SuePwmInput12))
+	buf = marshalInt16(buf, (m.SuePwmOutput1))
+	buf = marshalInt16(buf, (m.SuePwmOutput2))
+	buf = marshalInt16(buf, (m.SuePwmOutput3))
+	buf = marshalInt16(buf, (m.SuePwmOutput4))
+	buf = marshalInt16(buf, (m.SuePwmOutput5))
+	buf = marshalInt16(buf, (m.SuePwmOutput6))
+	buf = marshalInt16(buf, (m.SuePwmOutput7))
+	buf = marshalInt16(buf, (m.SuePwmOutput8))
+	buf = marshalInt16(buf, (m.SuePwmOutput9))
+	buf = marshalInt16(buf, (m.SuePwmOutput10))
+	buf = marshalInt16(buf, (m.SuePwmOutput11))
+	buf = marshalInt16(buf, (m.SuePwmOutput12))
+	buf = marshalInt16(buf, (m.SueImuLocationX))
+	buf = marshalInt16(buf, (m.SueImuLocationY))
+	buf = marshalInt16(buf, (m.SueImuLocationZ))
+	buf = marshalInt16(buf, (m.SueLocationErrorEarthX))
+	buf = marshalInt16(buf, (m.SueLocationErrorEarthY))
+	buf = marshalInt16(buf, (m.SueLocationErrorEarthZ))
+	buf = marshalInt16(buf, (m.SueOscFails))
+	buf = marshalInt16(buf, (m.SueImuVelocityX))
+	buf = marshalInt16(buf, (m.SueImuVelocityY))
+	buf = marshalInt16(buf, (m.SueImuVelocityZ))
+	buf = marshalInt16(buf, (m.SueWaypointGoalX))
+	buf = marshalInt16(buf, (m.SueWaypointGoalY))
+	buf = marshalInt16(buf, (m.SueWaypointGoalZ))
+	buf = marshalInt16(buf, (m.SueAeroX))
+	buf = marshalInt16(buf, (m.SueAeroY))
+	buf = marshalInt16(buf, (m.SueAeroZ))
+	buf = marshalInt16(buf, (m.SueBaromTemp))
+	buf = marshalInt16(buf, (m.SueBatVolt))
+	buf = marshalInt16(buf, (m.SueBatAmp))
+	buf = marshalInt16(buf, (m.SueBatAmpHours))
+	buf = marshalInt16(buf, (m.SueDesiredHeight))
+	buf = marshalInt16(buf, (m.SueMemoryStackFree))
+
+	return buf
+}
+
+func (m *SerialUdbExtraF2B) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF2B) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.SueTime = unmarshalUint32(buf)
+
+	buf, m.SueFlags = unmarshalUint32(buf)
+
+	buf, m.SueBaromPress = unmarshalInt32(buf)
+
+	buf, m.SueBaromAlt = unmarshalInt32(buf)
+
+	buf, m.SuePwmInput1 = unmarshalInt16(buf)
+
+	buf, m.SuePwmInput2 = unmarshalInt16(buf)
+
+	buf, m.SuePwmInput3 = unmarshalInt16(buf)
+
+	buf, m.SuePwmInput4 = unmarshalInt16(buf)
+
+	buf, m.SuePwmInput5 = unmarshalInt16(buf)
+
+	buf, m.SuePwmInput6 = unmarshalInt16(buf)
+
+	buf, m.SuePwmInput7 = unmarshalInt16(buf)
+
+	buf, m.SuePwmInput8 = unmarshalInt16(buf)
+
+	buf, m.SuePwmInput9 = unmarshalInt16(buf)
+
+	buf, m.SuePwmInput10 = unmarshalInt16(buf)
+
+	buf, m.SuePwmInput11 = unmarshalInt16(buf)
+
+	buf, m.SuePwmInput12 = unmarshalInt16(buf)
+
+	buf, m.SuePwmOutput1 = unmarshalInt16(buf)
+
+	buf, m.SuePwmOutput2 = unmarshalInt16(buf)
+
+	buf, m.SuePwmOutput3 = unmarshalInt16(buf)
+
+	buf, m.SuePwmOutput4 = unmarshalInt16(buf)
+
+	buf, m.SuePwmOutput5 = unmarshalInt16(buf)
+
+	buf, m.SuePwmOutput6 = unmarshalInt16(buf)
+
+	buf, m.SuePwmOutput7 = unmarshalInt16(buf)
+
+	buf, m.SuePwmOutput8 = unmarshalInt16(buf)
+
+	buf, m.SuePwmOutput9 = unmarshalInt16(buf)
+
+	buf, m.SuePwmOutput10 = unmarshalInt16(buf)
+
+	buf, m.SuePwmOutput11 = unmarshalInt16(buf)
+
+	buf, m.SuePwmOutput12 = unmarshalInt16(buf)
+
+	buf, m.SueImuLocationX = unmarshalInt16(buf)
+
+	buf, m.SueImuLocationY = unmarshalInt16(buf)
+
+	buf, m.SueImuLocationZ = unmarshalInt16(buf)
+
+	buf, m.SueLocationErrorEarthX = unmarshalInt16(buf)
+
+	buf, m.SueLocationErrorEarthY = unmarshalInt16(buf)
+
+	buf, m.SueLocationErrorEarthZ = unmarshalInt16(buf)
+
+	buf, m.SueOscFails = unmarshalInt16(buf)
+
+	buf, m.SueImuVelocityX = unmarshalInt16(buf)
+
+	buf, m.SueImuVelocityY = unmarshalInt16(buf)
+
+	buf, m.SueImuVelocityZ = unmarshalInt16(buf)
+
+	buf, m.SueWaypointGoalX = unmarshalInt16(buf)
+
+	buf, m.SueWaypointGoalY = unmarshalInt16(buf)
+
+	buf, m.SueWaypointGoalZ = unmarshalInt16(buf)
+
+	buf, m.SueAeroX = unmarshalInt16(buf)
+
+	buf, m.SueAeroY = unmarshalInt16(buf)
+
+	buf, m.SueAeroZ = unmarshalInt16(buf)
+
+	buf, m.SueBaromTemp = unmarshalInt16(buf)
+
+	buf, m.SueBatVolt = unmarshalInt16(buf)
+
+	buf, m.SueBatAmp = unmarshalInt16(buf)
+
+	buf, m.SueBatAmpHours = unmarshalInt16(buf)
+
+	buf, m.SueDesiredHeight = unmarshalInt16(buf)
+
+	buf, m.SueMemoryStackFree = unmarshalInt16(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF2B) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Backwards compatible version of SERIAL_UDB_EXTRA F4: format */
+type SerialUdbExtraF4 struct {
+	/* Serial UDB Extra Roll Stabilization with Ailerons Enabled */
+	SueRollStabilizationAilerons byte
+
+	/* Serial UDB Extra Roll Stabilization with Rudder Enabled */
+	SueRollStabilizationRudder byte
+
+	/* Serial UDB Extra Pitch Stabilization Enabled */
+	SuePitchStabilization byte
+
+	/* Serial UDB Extra Yaw Stabilization using Rudder Enabled */
+	SueYawStabilizationRudder byte
+
+	/* Serial UDB Extra Yaw Stabilization using Ailerons Enabled */
+	SueYawStabilizationAileron byte
+
+	/* Serial UDB Extra Navigation with Ailerons Enabled */
+	SueAileronNavigation byte
+
+	/* Serial UDB Extra Navigation with Rudder Enabled */
+	SueRudderNavigation byte
+
+	/* Serial UDB Extra Type of Alitude Hold when in Stabilized Mode */
+	SueAltitudeholdStabilized byte
+
+	/* Serial UDB Extra Type of Alitude Hold when in Waypoint Mode */
+	SueAltitudeholdWaypoint byte
+
+	/* Serial UDB Extra Firmware racing mode enabled */
+	SueRacingMode byte
+}
+
+func (m *SerialUdbExtraF4) ID() int        { return 172 }
+func (m *SerialUdbExtraF4) CRCExtra() byte { return 191 }
+
+func (m *SerialUdbExtraF4) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, (m.SueRollStabilizationAilerons))
+	buf = marshalByte(buf, (m.SueRollStabilizationRudder))
+	buf = marshalByte(buf, (m.SuePitchStabilization))
+	buf = marshalByte(buf, (m.SueYawStabilizationRudder))
+	buf = marshalByte(buf, (m.SueYawStabilizationAileron))
+	buf = marshalByte(buf, (m.SueAileronNavigation))
+	buf = marshalByte(buf, (m.SueRudderNavigation))
+	buf = marshalByte(buf, (m.SueAltitudeholdStabilized))
+	buf = marshalByte(buf, (m.SueAltitudeholdWaypoint))
+	buf = marshalByte(buf, (m.SueRacingMode))
+
+	return buf
+}
+
+func (m *SerialUdbExtraF4) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF4) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.SueRollStabilizationAilerons = unmarshalByte(buf)
+
+	buf, m.SueRollStabilizationRudder = unmarshalByte(buf)
+
+	buf, m.SuePitchStabilization = unmarshalByte(buf)
+
+	buf, m.SueYawStabilizationRudder = unmarshalByte(buf)
+
+	buf, m.SueYawStabilizationAileron = unmarshalByte(buf)
+
+	buf, m.SueAileronNavigation = unmarshalByte(buf)
+
+	buf, m.SueRudderNavigation = unmarshalByte(buf)
+
+	buf, m.SueAltitudeholdStabilized = unmarshalByte(buf)
+
+	buf, m.SueAltitudeholdWaypoint = unmarshalByte(buf)
+
+	buf, m.SueRacingMode = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF4) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Backwards compatible version of SERIAL_UDB_EXTRA F5: format */
+type SerialUdbExtraF5 struct {
+	/* Serial UDB YAWKP_AILERON Gain for Proporional control of navigation */
+	SueYawkpAileron float32
+
+	/* Serial UDB YAWKD_AILERON Gain for Rate control of navigation */
+	SueYawkdAileron float32
+
+	/* Serial UDB Extra ROLLKP Gain for Proportional control of roll stabilization */
+	SueRollkp float32
+
+	/* Serial UDB Extra ROLLKD Gain for Rate control of roll stabilization */
+	SueRollkd float32
+}
+
+func (m *SerialUdbExtraF5) ID() int        { return 173 }
+func (m *SerialUdbExtraF5) CRCExtra() byte { return 54 }
+
+func (m *SerialUdbExtraF5) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.SueYawkpAileron))
+	buf = marshalFloat32(buf, (m.SueYawkdAileron))
+	buf = marshalFloat32(buf, (m.SueRollkp))
+	buf = marshalFloat32(buf, (m.SueRollkd))
+
+	return buf
+}
+
+func (m *SerialUdbExtraF5) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF5) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.SueYawkpAileron = unmarshalFloat32(buf)
+
+	buf, m.SueYawkdAileron = unmarshalFloat32(buf)
+
+	buf, m.SueRollkp = unmarshalFloat32(buf)
+
+	buf, m.SueRollkd = unmarshalFloat32(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF5) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Backwards compatible version of SERIAL_UDB_EXTRA F6: format */
+type SerialUdbExtraF6 struct {
+	/* Serial UDB Extra PITCHGAIN Proportional Control */
+	SuePitchgain float32
+
+	/* Serial UDB Extra Pitch Rate Control */
+	SuePitchkd float32
+
+	/* Serial UDB Extra Rudder to Elevator Mix */
+	SueRudderElevMix float32
+
+	/* Serial UDB Extra Roll to Elevator Mix */
+	SueRollElevMix float32
+
+	/* Gain For Boosting Manual Elevator control When Plane Stabilized */
+	SueElevatorBoost float32
+}
+
+func (m *SerialUdbExtraF6) ID() int        { return 174 }
+func (m *SerialUdbExtraF6) CRCExtra() byte { return 54 }
+
+func (m *SerialUdbExtraF6) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.SuePitchgain))
+	buf = marshalFloat32(buf, (m.SuePitchkd))
+	buf = marshalFloat32(buf, (m.SueRudderElevMix))
+	buf = marshalFloat32(buf, (m.SueRollElevMix))
+	buf = marshalFloat32(buf, (m.SueElevatorBoost))
+
+	return buf
+}
+
+func (m *SerialUdbExtraF6) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF6) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.SuePitchgain = unmarshalFloat32(buf)
+
+	buf, m.SuePitchkd = unmarshalFloat32(buf)
+
+	buf, m.SueRudderElevMix = unmarshalFloat32(buf)
+
+	buf, m.SueRollElevMix = unmarshalFloat32(buf)
+
+	buf, m.SueElevatorBoost = unmarshalFloat32(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF6) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Backwards compatible version of SERIAL_UDB_EXTRA F7: format */
+type SerialUdbExtraF7 struct {
+	/* Serial UDB YAWKP_RUDDER Gain for Proporional control of navigation */
+	SueYawkpRudder float32
+
+	/* Serial UDB YAWKD_RUDDER Gain for Rate control of navigation */
+	SueYawkdRudder float32
+
+	/* Serial UDB Extra ROLLKP_RUDDER Gain for Proportional control of roll stabilization */
+	SueRollkpRudder float32
+
+	/* Serial UDB Extra ROLLKD_RUDDER Gain for Rate control of roll stabilization */
+	SueRollkdRudder float32
+
+	/* SERIAL UDB EXTRA Rudder Boost Gain to Manual Control when stabilized */
+	SueRudderBoost float32
+
+	/* Serial UDB Extra Return To Landing - Angle to Pitch Plane Down */
+	SueRtlPitchDown float32
+}
+
+func (m *SerialUdbExtraF7) ID() int        { return 175 }
+func (m *SerialUdbExtraF7) CRCExtra() byte { return 171 }
+
+func (m *SerialUdbExtraF7) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.SueYawkpRudder))
+	buf = marshalFloat32(buf, (m.SueYawkdRudder))
+	buf = marshalFloat32(buf, (m.SueRollkpRudder))
+	buf = marshalFloat32(buf, (m.SueRollkdRudder))
+	buf = marshalFloat32(buf, (m.SueRudderBoost))
+	buf = marshalFloat32(buf, (m.SueRtlPitchDown))
+
+	return buf
+}
+
+func (m *SerialUdbExtraF7) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF7) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.SueYawkpRudder = unmarshalFloat32(buf)
+
+	buf, m.SueYawkdRudder = unmarshalFloat32(buf)
+
+	buf, m.SueRollkpRudder = unmarshalFloat32(buf)
+
+	buf, m.SueRollkdRudder = unmarshalFloat32(buf)
+
+	buf, m.SueRudderBoost = unmarshalFloat32(buf)
+
+	buf, m.SueRtlPitchDown = unmarshalFloat32(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF7) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Backwards compatible version of SERIAL_UDB_EXTRA F8: format */
+type SerialUdbExtraF8 struct {
+	/* Serial UDB Extra HEIGHT_TARGET_MAX */
+	SueHeightTargetMax float32
+
+	/* Serial UDB Extra HEIGHT_TARGET_MIN */
+	SueHeightTargetMin float32
+
+	/* Serial UDB Extra ALT_HOLD_THROTTLE_MIN */
+	SueAltHoldThrottleMin float32
+
+	/* Serial UDB Extra ALT_HOLD_THROTTLE_MAX */
+	SueAltHoldThrottleMax float32
+
+	/* Serial UDB Extra ALT_HOLD_PITCH_MIN */
+	SueAltHoldPitchMin float32
+
+	/* Serial UDB Extra ALT_HOLD_PITCH_MAX */
+	SueAltHoldPitchMax float32
+
+	/* Serial UDB Extra ALT_HOLD_PITCH_HIGH */
+	SueAltHoldPitchHigh float32
+}
+
+func (m *SerialUdbExtraF8) ID() int        { return 176 }
+func (m *SerialUdbExtraF8) CRCExtra() byte { return 142 }
+
+func (m *SerialUdbExtraF8) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.SueHeightTargetMax))
+	buf = marshalFloat32(buf, (m.SueHeightTargetMin))
+	buf = marshalFloat32(buf, (m.SueAltHoldThrottleMin))
+	buf = marshalFloat32(buf, (m.SueAltHoldThrottleMax))
+	buf = marshalFloat32(buf, (m.SueAltHoldPitchMin))
+	buf = marshalFloat32(buf, (m.SueAltHoldPitchMax))
+	buf = marshalFloat32(buf, (m.SueAltHoldPitchHigh))
+
+	return buf
+}
+
+func (m *SerialUdbExtraF8) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF8) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.SueHeightTargetMax = unmarshalFloat32(buf)
+
+	buf, m.SueHeightTargetMin = unmarshalFloat32(buf)
+
+	buf, m.SueAltHoldThrottleMin = unmarshalFloat32(buf)
+
+	buf, m.SueAltHoldThrottleMax = unmarshalFloat32(buf)
+
+	buf, m.SueAltHoldPitchMin = unmarshalFloat32(buf)
+
+	buf, m.SueAltHoldPitchMax = unmarshalFloat32(buf)
+
+	buf, m.SueAltHoldPitchHigh = unmarshalFloat32(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF8) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Backwards compatible version of SERIAL_UDB_EXTRA F13: format */
+type SerialUdbExtraF13 struct {
+	/* Serial UDB Extra MP Origin Latitude */
+	SueLatOrigin int32
+
+	/* Serial UDB Extra MP Origin Longitude */
+	SueLonOrigin int32
+
+	/* Serial UDB Extra MP Origin Altitude Above Sea Level */
+	SueAltOrigin int32
+
+	/* Serial UDB Extra GPS Week Number */
+	SueWeekNo int16
+}
+
+func (m *SerialUdbExtraF13) ID() int        { return 177 }
+func (m *SerialUdbExtraF13) CRCExtra() byte { return 249 }
+
+func (m *SerialUdbExtraF13) MarshalV1(buf []byte) []byte {
+	buf = marshalInt32(buf, (m.SueLatOrigin))
+	buf = marshalInt32(buf, (m.SueLonOrigin))
+	buf = marshalInt32(buf, (m.SueAltOrigin))
+	buf = marshalInt16(buf, (m.SueWeekNo))
+
+	return buf
+}
+
+func (m *SerialUdbExtraF13) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF13) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.SueLatOrigin = unmarshalInt32(buf)
+
+	buf, m.SueLonOrigin = unmarshalInt32(buf)
+
+	buf, m.SueAltOrigin = unmarshalInt32(buf)
+
+	buf, m.SueWeekNo = unmarshalInt16(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF13) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Backwards compatible version of SERIAL_UDB_EXTRA F14: format */
+type SerialUdbExtraF14 struct {
+	/* Serial UDB Extra Type Program Address of Last Trap */
+	SueTrapSource uint32
+
+	/* Serial UDB Extra Reboot Register of DSPIC */
+	SueRcon int16
+
+	/* Serial UDB Extra  Last dspic Trap Flags */
+	SueTrapFlags int16
+
+	/* Serial UDB Extra Number of Ocillator Failures */
+	SueOscFailCount int16
+
+	/* Serial UDB Extra Wind Estimation Enabled */
+	SueWindEstimation byte
+
+	/* Serial UDB Extra Type of GPS Unit */
+	SueGpsType byte
+
+	/* Serial UDB Extra Dead Reckoning Enabled */
+	SueDr byte
+
+	/* Serial UDB Extra Type of UDB Hardware */
+	SueBoardType byte
+
+	/* Serial UDB Extra Type of Airframe */
+	SueAirframe byte
+
+	/* Serial UDB Extra UDB Internal Clock Configuration */
+	SueClockConfig byte
+
+	/* Serial UDB Extra Type of Flight Plan */
+	SueFlightPlanType byte
+}
+
+func (m *SerialUdbExtraF14) ID() int        { return 178 }
+func (m *SerialUdbExtraF14) CRCExtra() byte { return 123 }
+
+func (m *SerialUdbExtraF14) MarshalV1(buf []byte) []byte {
+	buf = marshalUint32(buf, (m.SueTrapSource))
+	buf = marshalInt16(buf, (m.SueRcon))
+	buf = marshalInt16(buf, (m.SueTrapFlags))
+	buf = marshalInt16(buf, (m.SueOscFailCount))
+	buf = marshalByte(buf, (m.SueWindEstimation))
+	buf = marshalByte(buf, (m.SueGpsType))
+	buf = marshalByte(buf, (m.SueDr))
+	buf = marshalByte(buf, (m.SueBoardType))
+	buf = marshalByte(buf, (m.SueAirframe))
+	buf = marshalByte(buf, (m.SueClockConfig))
+	buf = marshalByte(buf, (m.SueFlightPlanType))
+
+	return buf
+}
+
+func (m *SerialUdbExtraF14) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF14) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.SueTrapSource = unmarshalUint32(buf)
+
+	buf, m.SueRcon = unmarshalInt16(buf)
+
+	buf, m.SueTrapFlags = unmarshalInt16(buf)
+
+	buf, m.SueOscFailCount = unmarshalInt16(buf)
+
+	buf, m.SueWindEstimation = unmarshalByte(buf)
+
+	buf, m.SueGpsType = unmarshalByte(buf)
+
+	buf, m.SueDr = unmarshalByte(buf)
+
+	buf, m.SueBoardType = unmarshalByte(buf)
+
+	buf, m.SueAirframe = unmarshalByte(buf)
+
+	buf, m.SueClockConfig = unmarshalByte(buf)
+
+	buf, m.SueFlightPlanType = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF14) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Backwards compatible version of SERIAL_UDB_EXTRA F15 format */
+type SerialUdbExtraF15 struct {
+	/* Serial UDB Extra Model Name Of Vehicle */
+	SueIdVehicleModelName [40]byte
+
+	/* Serial UDB Extra Registraton Number of Vehicle */
+	SueIdVehicleRegistration [20]byte
+}
+
+func (m *SerialUdbExtraF15) ID() int        { return 179 }
+func (m *SerialUdbExtraF15) CRCExtra() byte { return 7 }
+
+func (m *SerialUdbExtraF15) MarshalV1(buf []byte) []byte {
+	for _, v := range m.SueIdVehicleModelName {
+		buf = marshalByte(buf, (v))
+	}
+	for _, v := range m.SueIdVehicleRegistration {
+		buf = marshalByte(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *SerialUdbExtraF15) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF15) UnmarshalV1(buf []byte) []byte {
+
+	for i, _ := range m.SueIdVehicleModelName {
+		buf, m.SueIdVehicleModelName[i] = unmarshalByte(buf)
+	}
+
+	for i, _ := range m.SueIdVehicleRegistration {
+		buf, m.SueIdVehicleRegistration[i] = unmarshalByte(buf)
+	}
+
+	return buf
+}
+
+func (m *SerialUdbExtraF15) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Backwards compatible version of SERIAL_UDB_EXTRA F16 format */
+type SerialUdbExtraF16 struct {
+	/* Serial UDB Extra Name of Expected Lead Pilot */
+	SueIdLeadPilot [40]byte
+
+	/* Serial UDB Extra URL of Lead Pilot or Team */
+	SueIdDiyDronesUrl [70]byte
+}
+
+func (m *SerialUdbExtraF16) ID() int        { return 180 }
+func (m *SerialUdbExtraF16) CRCExtra() byte { return 222 }
+
+func (m *SerialUdbExtraF16) MarshalV1(buf []byte) []byte {
+	for _, v := range m.SueIdLeadPilot {
+		buf = marshalByte(buf, (v))
+	}
+	for _, v := range m.SueIdDiyDronesUrl {
+		buf = marshalByte(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *SerialUdbExtraF16) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF16) UnmarshalV1(buf []byte) []byte {
+
+	for i, _ := range m.SueIdLeadPilot {
+		buf, m.SueIdLeadPilot[i] = unmarshalByte(buf)
+	}
+
+	for i, _ := range m.SueIdDiyDronesUrl {
+		buf, m.SueIdDiyDronesUrl[i] = unmarshalByte(buf)
+	}
+
+	return buf
+}
+
+func (m *SerialUdbExtraF16) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* The altitude measured by sensors and IMU */
+type Altitudes struct {
+	/* Timestamp (milliseconds since system boot) */
+	TimeBootMs uint32
+
+	/* GPS altitude (MSL) in meters, expressed as * 1000 (millimeters) */
+	AltGps int32
+
+	/* IMU altitude above ground in meters, expressed as * 1000 (millimeters) */
+	AltImu int32
+
+	/* barometeric altitude above ground in meters, expressed as * 1000 (millimeters) */
+	AltBarometric int32
+
+	/* Optical flow altitude above ground in meters, expressed as * 1000 (millimeters) */
+	AltOpticalFlow int32
+
+	/* Rangefinder Altitude above ground in meters, expressed as * 1000 (millimeters) */
+	AltRangeFinder int32
+
+	/* Extra altitude above ground in meters, expressed as * 1000 (millimeters) */
+	AltExtra int32
+}
+
+func (m *Altitudes) ID() int        { return 181 }
+func (m *Altitudes) CRCExtra() byte { return 55 }
+
+func (m *Altitudes) MarshalV1(buf []byte) []byte {
+	buf = marshalUint32(buf, (m.TimeBootMs))
+	buf = marshalInt32(buf, (m.AltGps))
+	buf = marshalInt32(buf, (m.AltImu))
+	buf = marshalInt32(buf, (m.AltBarometric))
+	buf = marshalInt32(buf, (m.AltOpticalFlow))
+	buf = marshalInt32(buf, (m.AltRangeFinder))
+	buf = marshalInt32(buf, (m.AltExtra))
+
+	return buf
+}
+
+func (m *Altitudes) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *Altitudes) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.TimeBootMs = unmarshalUint32(buf)
+
+	buf, m.AltGps = unmarshalInt32(buf)
+
+	buf, m.AltImu = unmarshalInt32(buf)
+
+	buf, m.AltBarometric = unmarshalInt32(buf)
+
+	buf, m.AltOpticalFlow = unmarshalInt32(buf)
+
+	buf, m.AltRangeFinder = unmarshalInt32(buf)
+
+	buf, m.AltExtra = unmarshalInt32(buf)
+
+	return buf
+}
+
+func (m *Altitudes) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* The airspeed measured by sensors and IMU */
+type Airspeeds struct {
+	/* Timestamp (milliseconds since system boot) */
+	TimeBootMs uint32
+
+	/* Airspeed estimate from IMU, cm/s */
+	AirspeedImu int16
+
+	/* Pitot measured forward airpseed, cm/s */
+	AirspeedPitot int16
+
+	/* Hot wire anenometer measured airspeed, cm/s */
+	AirspeedHotWire int16
+
+	/* Ultrasonic measured airspeed, cm/s */
+	AirspeedUltrasonic int16
+
+	/* Angle of attack sensor, degrees * 10 */
+	Aoa int16
+
+	/* Yaw angle sensor, degrees * 10 */
+	Aoy int16
+}
+
+func (m *Airspeeds) ID() int        { return 182 }
+func (m *Airspeeds) CRCExtra() byte { return 154 }
+
+func (m *Airspeeds) MarshalV1(buf []byte) []byte {
+	buf = marshalUint32(buf, (m.TimeBootMs))
+	buf = marshalInt16(buf, (m.AirspeedImu))
+	buf = marshalInt16(buf, (m.AirspeedPitot))
+	buf = marshalInt16(buf, (m.AirspeedHotWire))
+	buf = marshalInt16(buf, (m.AirspeedUltrasonic))
+	buf = marshalInt16(buf, (m.Aoa))
+	buf = marshalInt16(buf, (m.Aoy))
+
+	return buf
+}
+
+func (m *Airspeeds) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *Airspeeds) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.TimeBootMs = unmarshalUint32(buf)
+
+	buf, m.AirspeedImu = unmarshalInt16(buf)
+
+	buf, m.AirspeedPitot = unmarshalInt16(buf)
+
+	buf, m.AirspeedHotWire = unmarshalInt16(buf)
+
+	buf, m.AirspeedUltrasonic = unmarshalInt16(buf)
+
+	buf, m.Aoa = unmarshalInt16(buf)
+
+	buf, m.Aoy = unmarshalInt16(buf)
+
+	return buf
+}
+
+func (m *Airspeeds) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Backwards compatible version of SERIAL_UDB_EXTRA F17 format */
+type SerialUdbExtraF17 struct {
+	/* SUE Feed Forward Gain */
+	SueFeedForward float32
+
+	/* SUE Max Turn Rate when Navigating */
+	SueTurnRateNav float32
+
+	/* SUE Max Turn Rate in Fly By Wire Mode */
+	SueTurnRateFbw float32
+}
+
+func (m *SerialUdbExtraF17) ID() int        { return 183 }
+func (m *SerialUdbExtraF17) CRCExtra() byte { return 175 }
+
+func (m *SerialUdbExtraF17) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.SueFeedForward))
+	buf = marshalFloat32(buf, (m.SueTurnRateNav))
+	buf = marshalFloat32(buf, (m.SueTurnRateFbw))
+
+	return buf
+}
+
+func (m *SerialUdbExtraF17) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF17) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.SueFeedForward = unmarshalFloat32(buf)
+
+	buf, m.SueTurnRateNav = unmarshalFloat32(buf)
+
+	buf, m.SueTurnRateFbw = unmarshalFloat32(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF17) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Backwards compatible version of SERIAL_UDB_EXTRA F18 format */
+type SerialUdbExtraF18 struct {
+	/* SUE Angle of Attack Normal */
+	AngleOfAttackNormal float32
+
+	/* SUE Angle of Attack Inverted */
+	AngleOfAttackInverted float32
+
+	/* SUE Elevator Trim Normal */
+	ElevatorTrimNormal float32
+
+	/* SUE Elevator Trim Inverted */
+	ElevatorTrimInverted float32
+
+	/* SUE reference_speed */
+	ReferenceSpeed float32
+}
+
+func (m *SerialUdbExtraF18) ID() int        { return 184 }
+func (m *SerialUdbExtraF18) CRCExtra() byte { return 41 }
+
+func (m *SerialUdbExtraF18) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.AngleOfAttackNormal))
+	buf = marshalFloat32(buf, (m.AngleOfAttackInverted))
+	buf = marshalFloat32(buf, (m.ElevatorTrimNormal))
+	buf = marshalFloat32(buf, (m.ElevatorTrimInverted))
+	buf = marshalFloat32(buf, (m.ReferenceSpeed))
+
+	return buf
+}
+
+func (m *SerialUdbExtraF18) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF18) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.AngleOfAttackNormal = unmarshalFloat32(buf)
+
+	buf, m.AngleOfAttackInverted = unmarshalFloat32(buf)
+
+	buf, m.ElevatorTrimNormal = unmarshalFloat32(buf)
+
+	buf, m.ElevatorTrimInverted = unmarshalFloat32(buf)
+
+	buf, m.ReferenceSpeed = unmarshalFloat32(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF18) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Backwards compatible version of SERIAL_UDB_EXTRA F19 format */
+type SerialUdbExtraF19 struct {
+	/* SUE aileron output channel */
+	SueAileronOutputChannel byte
+
+	/* SUE aileron reversed */
+	SueAileronReversed byte
+
+	/* SUE elevator output channel */
+	SueElevatorOutputChannel byte
+
+	/* SUE elevator reversed */
+	SueElevatorReversed byte
+
+	/* SUE throttle output channel */
+	SueThrottleOutputChannel byte
+
+	/* SUE throttle reversed */
+	SueThrottleReversed byte
+
+	/* SUE rudder output channel */
+	SueRudderOutputChannel byte
+
+	/* SUE rudder reversed */
+	SueRudderReversed byte
+}
+
+func (m *SerialUdbExtraF19) ID() int        { return 185 }
+func (m *SerialUdbExtraF19) CRCExtra() byte { return 87 }
+
+func (m *SerialUdbExtraF19) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, (m.SueAileronOutputChannel))
+	buf = marshalByte(buf, (m.SueAileronReversed))
+	buf = marshalByte(buf, (m.SueElevatorOutputChannel))
+	buf = marshalByte(buf, (m.SueElevatorReversed))
+	buf = marshalByte(buf, (m.SueThrottleOutputChannel))
+	buf = marshalByte(buf, (m.SueThrottleReversed))
+	buf = marshalByte(buf, (m.SueRudderOutputChannel))
+	buf = marshalByte(buf, (m.SueRudderReversed))
+
+	return buf
+}
+
+func (m *SerialUdbExtraF19) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF19) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.SueAileronOutputChannel = unmarshalByte(buf)
+
+	buf, m.SueAileronReversed = unmarshalByte(buf)
+
+	buf, m.SueElevatorOutputChannel = unmarshalByte(buf)
+
+	buf, m.SueElevatorReversed = unmarshalByte(buf)
+
+	buf, m.SueThrottleOutputChannel = unmarshalByte(buf)
+
+	buf, m.SueThrottleReversed = unmarshalByte(buf)
+
+	buf, m.SueRudderOutputChannel = unmarshalByte(buf)
+
+	buf, m.SueRudderReversed = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF19) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Backwards compatible version of SERIAL_UDB_EXTRA F20 format */
+type SerialUdbExtraF20 struct {
+	/* SUE UDB PWM Trim Value on Input 1 */
+	SueTrimValueInput1 int16
+
+	/* SUE UDB PWM Trim Value on Input 2 */
+	SueTrimValueInput2 int16
+
+	/* SUE UDB PWM Trim Value on Input 3 */
+	SueTrimValueInput3 int16
+
+	/* SUE UDB PWM Trim Value on Input 4 */
+	SueTrimValueInput4 int16
+
+	/* SUE UDB PWM Trim Value on Input 5 */
+	SueTrimValueInput5 int16
+
+	/* SUE UDB PWM Trim Value on Input 6 */
+	SueTrimValueInput6 int16
+
+	/* SUE UDB PWM Trim Value on Input 7 */
+	SueTrimValueInput7 int16
+
+	/* SUE UDB PWM Trim Value on Input 8 */
+	SueTrimValueInput8 int16
+
+	/* SUE UDB PWM Trim Value on Input 9 */
+	SueTrimValueInput9 int16
+
+	/* SUE UDB PWM Trim Value on Input 10 */
+	SueTrimValueInput10 int16
+
+	/* SUE UDB PWM Trim Value on Input 11 */
+	SueTrimValueInput11 int16
+
+	/* SUE UDB PWM Trim Value on Input 12 */
+	SueTrimValueInput12 int16
+
+	/* SUE Number of Input Channels */
+	SueNumberOfInputs byte
+}
+
+func (m *SerialUdbExtraF20) ID() int        { return 186 }
+func (m *SerialUdbExtraF20) CRCExtra() byte { return 144 }
+
+func (m *SerialUdbExtraF20) MarshalV1(buf []byte) []byte {
+	buf = marshalInt16(buf, (m.SueTrimValueInput1))
+	buf = marshalInt16(buf, (m.SueTrimValueInput2))
+	buf = marshalInt16(buf, (m.SueTrimValueInput3))
+	buf = marshalInt16(buf, (m.SueTrimValueInput4))
+	buf = marshalInt16(buf, (m.SueTrimValueInput5))
+	buf = marshalInt16(buf, (m.SueTrimValueInput6))
+	buf = marshalInt16(buf, (m.SueTrimValueInput7))
+	buf = marshalInt16(buf, (m.SueTrimValueInput8))
+	buf = marshalInt16(buf, (m.SueTrimValueInput9))
+	buf = marshalInt16(buf, (m.SueTrimValueInput10))
+	buf = marshalInt16(buf, (m.SueTrimValueInput11))
+	buf = marshalInt16(buf, (m.SueTrimValueInput12))
+	buf = marshalByte(buf, (m.SueNumberOfInputs))
+
+	return buf
+}
+
+func (m *SerialUdbExtraF20) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF20) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.SueTrimValueInput1 = unmarshalInt16(buf)
+
+	buf, m.SueTrimValueInput2 = unmarshalInt16(buf)
+
+	buf, m.SueTrimValueInput3 = unmarshalInt16(buf)
+
+	buf, m.SueTrimValueInput4 = unmarshalInt16(buf)
+
+	buf, m.SueTrimValueInput5 = unmarshalInt16(buf)
+
+	buf, m.SueTrimValueInput6 = unmarshalInt16(buf)
+
+	buf, m.SueTrimValueInput7 = unmarshalInt16(buf)
+
+	buf, m.SueTrimValueInput8 = unmarshalInt16(buf)
+
+	buf, m.SueTrimValueInput9 = unmarshalInt16(buf)
+
+	buf, m.SueTrimValueInput10 = unmarshalInt16(buf)
+
+	buf, m.SueTrimValueInput11 = unmarshalInt16(buf)
+
+	buf, m.SueTrimValueInput12 = unmarshalInt16(buf)
+
+	buf, m.SueNumberOfInputs = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF20) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Backwards compatible version of SERIAL_UDB_EXTRA F21 format */
+type SerialUdbExtraF21 struct {
+	/* SUE X accelerometer offset */
+	SueAccelXOffset int16
+
+	/* SUE Y accelerometer offset */
+	SueAccelYOffset int16
+
+	/* SUE Z accelerometer offset */
+	SueAccelZOffset int16
+
+	/* SUE X gyro offset */
+	SueGyroXOffset int16
+
+	/* SUE Y gyro offset */
+	SueGyroYOffset int16
+
+	/* SUE Z gyro offset */
+	SueGyroZOffset int16
+}
+
+func (m *SerialUdbExtraF21) ID() int        { return 187 }
+func (m *SerialUdbExtraF21) CRCExtra() byte { return 134 }
+
+func (m *SerialUdbExtraF21) MarshalV1(buf []byte) []byte {
+	buf = marshalInt16(buf, (m.SueAccelXOffset))
+	buf = marshalInt16(buf, (m.SueAccelYOffset))
+	buf = marshalInt16(buf, (m.SueAccelZOffset))
+	buf = marshalInt16(buf, (m.SueGyroXOffset))
+	buf = marshalInt16(buf, (m.SueGyroYOffset))
+	buf = marshalInt16(buf, (m.SueGyroZOffset))
+
+	return buf
+}
+
+func (m *SerialUdbExtraF21) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF21) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.SueAccelXOffset = unmarshalInt16(buf)
+
+	buf, m.SueAccelYOffset = unmarshalInt16(buf)
+
+	buf, m.SueAccelZOffset = unmarshalInt16(buf)
+
+	buf, m.SueGyroXOffset = unmarshalInt16(buf)
+
+	buf, m.SueGyroYOffset = unmarshalInt16(buf)
+
+	buf, m.SueGyroZOffset = unmarshalInt16(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF21) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Backwards compatible version of SERIAL_UDB_EXTRA F22 format */
+type SerialUdbExtraF22 struct {
+	/* SUE X accelerometer at calibration time */
+	SueAccelXAtCalibration int16
+
+	/* SUE Y accelerometer at calibration time */
+	SueAccelYAtCalibration int16
+
+	/* SUE Z accelerometer at calibration time */
+	SueAccelZAtCalibration int16
+
+	/* SUE X gyro at calibration time */
+	SueGyroXAtCalibration int16
+
+	/* SUE Y gyro at calibration time */
+	SueGyroYAtCalibration int16
+
+	/* SUE Z gyro at calibration time */
+	SueGyroZAtCalibration int16
+}
+
+func (m *SerialUdbExtraF22) ID() int        { return 188 }
+func (m *SerialUdbExtraF22) CRCExtra() byte { return 91 }
+
+func (m *SerialUdbExtraF22) MarshalV1(buf []byte) []byte {
+	buf = marshalInt16(buf, (m.SueAccelXAtCalibration))
+	buf = marshalInt16(buf, (m.SueAccelYAtCalibration))
+	buf = marshalInt16(buf, (m.SueAccelZAtCalibration))
+	buf = marshalInt16(buf, (m.SueGyroXAtCalibration))
+	buf = marshalInt16(buf, (m.SueGyroYAtCalibration))
+	buf = marshalInt16(buf, (m.SueGyroZAtCalibration))
+
+	return buf
+}
+
+func (m *SerialUdbExtraF22) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF22) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.SueAccelXAtCalibration = unmarshalInt16(buf)
+
+	buf, m.SueAccelYAtCalibration = unmarshalInt16(buf)
+
+	buf, m.SueAccelZAtCalibration = unmarshalInt16(buf)
+
+	buf, m.SueGyroXAtCalibration = unmarshalInt16(buf)
+
+	buf, m.SueGyroYAtCalibration = unmarshalInt16(buf)
+
+	buf, m.SueGyroZAtCalibration = unmarshalInt16(buf)
+
+	return buf
+}
+
+func (m *SerialUdbExtraF22) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
 
 	return buf
 }

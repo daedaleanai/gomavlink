@@ -2509,22 +2509,6 @@ const (
 // The Dialect factory function constructs the proper empty message given the message ID.
 func Dialect(mid int) mavlink.Message {
 	switch mid {
-	case 150:
-		return &ArrayTest0{}
-	case 151:
-		return &ArrayTest1{}
-	case 153:
-		return &ArrayTest3{}
-	case 154:
-		return &ArrayTest4{}
-	case 155:
-		return &ArrayTest5{}
-	case 156:
-		return &ArrayTest6{}
-	case 157:
-		return &ArrayTest7{}
-	case 158:
-		return &ArrayTest8{}
 	case 0:
 		return &Heartbeat{}
 	case 1:
@@ -2759,6 +2743,22 @@ func Dialect(mid int) mavlink.Message {
 		return &AutopilotVersion{}
 	case 149:
 		return &LandingTarget{}
+	case 150:
+		return &ArrayTest0{}
+	case 151:
+		return &ArrayTest1{}
+	case 153:
+		return &ArrayTest3{}
+	case 154:
+		return &ArrayTest4{}
+	case 155:
+		return &ArrayTest5{}
+	case 156:
+		return &ArrayTest6{}
+	case 157:
+		return &ArrayTest7{}
+	case 158:
+		return &ArrayTest8{}
 	case 230:
 		return &EstimatorStatus{}
 	case 231:
@@ -2875,562 +2875,6 @@ func Dialect(mid int) mavlink.Message {
 		return &WheelDistance{}
 	}
 	return nil
-}
-
-/* Array test #0. */
-type ArrayTest0 struct {
-	/* Value array */
-	ArU32 [4]uint32
-
-	/* Value array */
-	ArU16 [4]uint16
-
-	/* Stub field */
-	V1 byte
-
-	/* Value array */
-	ArI8 [4]int8
-
-	/* Value array */
-	ArU8 [4]byte
-}
-
-func (m *ArrayTest0) ID() int        { return 150 }
-func (m *ArrayTest0) CRCExtra() byte { return 26 }
-
-func (m *ArrayTest0) MarshalV1(buf []byte) []byte {
-	for _, v := range m.ArU32 {
-		buf = marshalUint32(buf, (v))
-	}
-	for _, v := range m.ArU16 {
-		buf = marshalUint16(buf, (v))
-	}
-	buf = marshalByte(buf, (m.V1))
-	for _, v := range m.ArI8 {
-		buf = marshalInt8(buf, (v))
-	}
-	for _, v := range m.ArU8 {
-		buf = marshalByte(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *ArrayTest0) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *ArrayTest0) UnmarshalV1(buf []byte) []byte {
-
-	for i, _ := range m.ArU32 {
-		buf, m.ArU32[i] = unmarshalUint32(buf)
-	}
-
-	for i, _ := range m.ArU16 {
-		buf, m.ArU16[i] = unmarshalUint16(buf)
-	}
-
-	buf, m.V1 = unmarshalByte(buf)
-
-	for i, _ := range m.ArI8 {
-		buf, m.ArI8[i] = unmarshalInt8(buf)
-	}
-
-	for i, _ := range m.ArU8 {
-		buf, m.ArU8[i] = unmarshalByte(buf)
-	}
-
-	return buf
-}
-
-func (m *ArrayTest0) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Array test #1. */
-type ArrayTest1 struct {
-	/* Value array */
-	ArU32 [4]uint32
-}
-
-func (m *ArrayTest1) ID() int        { return 151 }
-func (m *ArrayTest1) CRCExtra() byte { return 72 }
-
-func (m *ArrayTest1) MarshalV1(buf []byte) []byte {
-	for _, v := range m.ArU32 {
-		buf = marshalUint32(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *ArrayTest1) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *ArrayTest1) UnmarshalV1(buf []byte) []byte {
-
-	for i, _ := range m.ArU32 {
-		buf, m.ArU32[i] = unmarshalUint32(buf)
-	}
-
-	return buf
-}
-
-func (m *ArrayTest1) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Array test #3. */
-type ArrayTest3 struct {
-	/* Value array */
-	ArU32 [4]uint32
-
-	/* Stub field */
-	V byte
-}
-
-func (m *ArrayTest3) ID() int        { return 153 }
-func (m *ArrayTest3) CRCExtra() byte { return 19 }
-
-func (m *ArrayTest3) MarshalV1(buf []byte) []byte {
-	for _, v := range m.ArU32 {
-		buf = marshalUint32(buf, (v))
-	}
-	buf = marshalByte(buf, (m.V))
-
-	return buf
-}
-
-func (m *ArrayTest3) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *ArrayTest3) UnmarshalV1(buf []byte) []byte {
-
-	for i, _ := range m.ArU32 {
-		buf, m.ArU32[i] = unmarshalUint32(buf)
-	}
-
-	buf, m.V = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *ArrayTest3) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Array test #4. */
-type ArrayTest4 struct {
-	/* Value array */
-	ArU32 [4]uint32
-
-	/* Stub field */
-	V byte
-}
-
-func (m *ArrayTest4) ID() int        { return 154 }
-func (m *ArrayTest4) CRCExtra() byte { return 89 }
-
-func (m *ArrayTest4) MarshalV1(buf []byte) []byte {
-	for _, v := range m.ArU32 {
-		buf = marshalUint32(buf, (v))
-	}
-	buf = marshalByte(buf, (m.V))
-
-	return buf
-}
-
-func (m *ArrayTest4) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *ArrayTest4) UnmarshalV1(buf []byte) []byte {
-
-	for i, _ := range m.ArU32 {
-		buf, m.ArU32[i] = unmarshalUint32(buf)
-	}
-
-	buf, m.V = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *ArrayTest4) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Array test #5. */
-type ArrayTest5 struct {
-	/* Value array */
-	C1 [5]byte
-
-	/* Value array */
-	C2 [5]byte
-}
-
-func (m *ArrayTest5) ID() int        { return 155 }
-func (m *ArrayTest5) CRCExtra() byte { return 27 }
-
-func (m *ArrayTest5) MarshalV1(buf []byte) []byte {
-	for _, v := range m.C1 {
-		buf = marshalByte(buf, (v))
-	}
-	for _, v := range m.C2 {
-		buf = marshalByte(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *ArrayTest5) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *ArrayTest5) UnmarshalV1(buf []byte) []byte {
-
-	for i, _ := range m.C1 {
-		buf, m.C1[i] = unmarshalByte(buf)
-	}
-
-	for i, _ := range m.C2 {
-		buf, m.C2[i] = unmarshalByte(buf)
-	}
-
-	return buf
-}
-
-func (m *ArrayTest5) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Array test #6. */
-type ArrayTest6 struct {
-	/* Value array */
-	ArD [2]float64
-
-	/* Stub field */
-	V3 uint32
-
-	/* Value array */
-	ArU32 [2]uint32
-
-	/* Value array */
-	ArI32 [2]int32
-
-	/* Value array */
-	ArF [2]float32
-
-	/* Stub field */
-	V2 uint16
-
-	/* Value array */
-	ArU16 [2]uint16
-
-	/* Value array */
-	ArI16 [2]int16
-
-	/* Stub field */
-	V1 byte
-
-	/* Value array */
-	ArU8 [2]byte
-
-	/* Value array */
-	ArI8 [2]int8
-
-	/* Value array */
-	ArC [32]byte
-}
-
-func (m *ArrayTest6) ID() int        { return 156 }
-func (m *ArrayTest6) CRCExtra() byte { return 14 }
-
-func (m *ArrayTest6) MarshalV1(buf []byte) []byte {
-	for _, v := range m.ArD {
-		buf = marshalFloat64(buf, (v))
-	}
-	buf = marshalUint32(buf, (m.V3))
-	for _, v := range m.ArU32 {
-		buf = marshalUint32(buf, (v))
-	}
-	for _, v := range m.ArI32 {
-		buf = marshalInt32(buf, (v))
-	}
-	for _, v := range m.ArF {
-		buf = marshalFloat32(buf, (v))
-	}
-	buf = marshalUint16(buf, (m.V2))
-	for _, v := range m.ArU16 {
-		buf = marshalUint16(buf, (v))
-	}
-	for _, v := range m.ArI16 {
-		buf = marshalInt16(buf, (v))
-	}
-	buf = marshalByte(buf, (m.V1))
-	for _, v := range m.ArU8 {
-		buf = marshalByte(buf, (v))
-	}
-	for _, v := range m.ArI8 {
-		buf = marshalInt8(buf, (v))
-	}
-	for _, v := range m.ArC {
-		buf = marshalByte(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *ArrayTest6) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *ArrayTest6) UnmarshalV1(buf []byte) []byte {
-
-	for i, _ := range m.ArD {
-		buf, m.ArD[i] = unmarshalFloat64(buf)
-	}
-
-	buf, m.V3 = unmarshalUint32(buf)
-
-	for i, _ := range m.ArU32 {
-		buf, m.ArU32[i] = unmarshalUint32(buf)
-	}
-
-	for i, _ := range m.ArI32 {
-		buf, m.ArI32[i] = unmarshalInt32(buf)
-	}
-
-	for i, _ := range m.ArF {
-		buf, m.ArF[i] = unmarshalFloat32(buf)
-	}
-
-	buf, m.V2 = unmarshalUint16(buf)
-
-	for i, _ := range m.ArU16 {
-		buf, m.ArU16[i] = unmarshalUint16(buf)
-	}
-
-	for i, _ := range m.ArI16 {
-		buf, m.ArI16[i] = unmarshalInt16(buf)
-	}
-
-	buf, m.V1 = unmarshalByte(buf)
-
-	for i, _ := range m.ArU8 {
-		buf, m.ArU8[i] = unmarshalByte(buf)
-	}
-
-	for i, _ := range m.ArI8 {
-		buf, m.ArI8[i] = unmarshalInt8(buf)
-	}
-
-	for i, _ := range m.ArC {
-		buf, m.ArC[i] = unmarshalByte(buf)
-	}
-
-	return buf
-}
-
-func (m *ArrayTest6) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Array test #7. */
-type ArrayTest7 struct {
-	/* Value array */
-	ArD [2]float64
-
-	/* Value array */
-	ArF [2]float32
-
-	/* Value array */
-	ArU32 [2]uint32
-
-	/* Value array */
-	ArI32 [2]int32
-
-	/* Value array */
-	ArU16 [2]uint16
-
-	/* Value array */
-	ArI16 [2]int16
-
-	/* Value array */
-	ArU8 [2]byte
-
-	/* Value array */
-	ArI8 [2]int8
-
-	/* Value array */
-	ArC [32]byte
-}
-
-func (m *ArrayTest7) ID() int        { return 157 }
-func (m *ArrayTest7) CRCExtra() byte { return 187 }
-
-func (m *ArrayTest7) MarshalV1(buf []byte) []byte {
-	for _, v := range m.ArD {
-		buf = marshalFloat64(buf, (v))
-	}
-	for _, v := range m.ArF {
-		buf = marshalFloat32(buf, (v))
-	}
-	for _, v := range m.ArU32 {
-		buf = marshalUint32(buf, (v))
-	}
-	for _, v := range m.ArI32 {
-		buf = marshalInt32(buf, (v))
-	}
-	for _, v := range m.ArU16 {
-		buf = marshalUint16(buf, (v))
-	}
-	for _, v := range m.ArI16 {
-		buf = marshalInt16(buf, (v))
-	}
-	for _, v := range m.ArU8 {
-		buf = marshalByte(buf, (v))
-	}
-	for _, v := range m.ArI8 {
-		buf = marshalInt8(buf, (v))
-	}
-	for _, v := range m.ArC {
-		buf = marshalByte(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *ArrayTest7) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *ArrayTest7) UnmarshalV1(buf []byte) []byte {
-
-	for i, _ := range m.ArD {
-		buf, m.ArD[i] = unmarshalFloat64(buf)
-	}
-
-	for i, _ := range m.ArF {
-		buf, m.ArF[i] = unmarshalFloat32(buf)
-	}
-
-	for i, _ := range m.ArU32 {
-		buf, m.ArU32[i] = unmarshalUint32(buf)
-	}
-
-	for i, _ := range m.ArI32 {
-		buf, m.ArI32[i] = unmarshalInt32(buf)
-	}
-
-	for i, _ := range m.ArU16 {
-		buf, m.ArU16[i] = unmarshalUint16(buf)
-	}
-
-	for i, _ := range m.ArI16 {
-		buf, m.ArI16[i] = unmarshalInt16(buf)
-	}
-
-	for i, _ := range m.ArU8 {
-		buf, m.ArU8[i] = unmarshalByte(buf)
-	}
-
-	for i, _ := range m.ArI8 {
-		buf, m.ArI8[i] = unmarshalInt8(buf)
-	}
-
-	for i, _ := range m.ArC {
-		buf, m.ArC[i] = unmarshalByte(buf)
-	}
-
-	return buf
-}
-
-func (m *ArrayTest7) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Array test #8. */
-type ArrayTest8 struct {
-	/* Value array */
-	ArD [2]float64
-
-	/* Stub field */
-	V3 uint32
-
-	/* Value array */
-	ArU16 [2]uint16
-}
-
-func (m *ArrayTest8) ID() int        { return 158 }
-func (m *ArrayTest8) CRCExtra() byte { return 106 }
-
-func (m *ArrayTest8) MarshalV1(buf []byte) []byte {
-	for _, v := range m.ArD {
-		buf = marshalFloat64(buf, (v))
-	}
-	buf = marshalUint32(buf, (m.V3))
-	for _, v := range m.ArU16 {
-		buf = marshalUint16(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *ArrayTest8) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *ArrayTest8) UnmarshalV1(buf []byte) []byte {
-
-	for i, _ := range m.ArD {
-		buf, m.ArD[i] = unmarshalFloat64(buf)
-	}
-
-	buf, m.V3 = unmarshalUint32(buf)
-
-	for i, _ := range m.ArU16 {
-		buf, m.ArU16[i] = unmarshalUint16(buf)
-	}
-
-	return buf
-}
-
-func (m *ArrayTest8) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
 }
 
 /* The heartbeat message shows that a system or component is present and responding. The type and autopilot fields (along with the message component id), allow the receiving system to treat further messages from this system appropriately (e.g. by laying out the user interface based on the autopilot). This microservice is documented at https://mavlink.io/en/services/heartbeat.html */
@@ -12687,6 +12131,562 @@ func (m *LandingTarget) UnmarshalV2(buf []byte) []byte {
 		m.Type = LandingTargetType(v)
 	}
 	buf, m.PositionValid = unmarshalByte(buf)
+
+	return buf
+}
+
+/* Array test #0. */
+type ArrayTest0 struct {
+	/* Value array */
+	ArU32 [4]uint32
+
+	/* Value array */
+	ArU16 [4]uint16
+
+	/* Stub field */
+	V1 byte
+
+	/* Value array */
+	ArI8 [4]int8
+
+	/* Value array */
+	ArU8 [4]byte
+}
+
+func (m *ArrayTest0) ID() int        { return 150 }
+func (m *ArrayTest0) CRCExtra() byte { return 26 }
+
+func (m *ArrayTest0) MarshalV1(buf []byte) []byte {
+	for _, v := range m.ArU32 {
+		buf = marshalUint32(buf, (v))
+	}
+	for _, v := range m.ArU16 {
+		buf = marshalUint16(buf, (v))
+	}
+	buf = marshalByte(buf, (m.V1))
+	for _, v := range m.ArI8 {
+		buf = marshalInt8(buf, (v))
+	}
+	for _, v := range m.ArU8 {
+		buf = marshalByte(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *ArrayTest0) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *ArrayTest0) UnmarshalV1(buf []byte) []byte {
+
+	for i, _ := range m.ArU32 {
+		buf, m.ArU32[i] = unmarshalUint32(buf)
+	}
+
+	for i, _ := range m.ArU16 {
+		buf, m.ArU16[i] = unmarshalUint16(buf)
+	}
+
+	buf, m.V1 = unmarshalByte(buf)
+
+	for i, _ := range m.ArI8 {
+		buf, m.ArI8[i] = unmarshalInt8(buf)
+	}
+
+	for i, _ := range m.ArU8 {
+		buf, m.ArU8[i] = unmarshalByte(buf)
+	}
+
+	return buf
+}
+
+func (m *ArrayTest0) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Array test #1. */
+type ArrayTest1 struct {
+	/* Value array */
+	ArU32 [4]uint32
+}
+
+func (m *ArrayTest1) ID() int        { return 151 }
+func (m *ArrayTest1) CRCExtra() byte { return 72 }
+
+func (m *ArrayTest1) MarshalV1(buf []byte) []byte {
+	for _, v := range m.ArU32 {
+		buf = marshalUint32(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *ArrayTest1) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *ArrayTest1) UnmarshalV1(buf []byte) []byte {
+
+	for i, _ := range m.ArU32 {
+		buf, m.ArU32[i] = unmarshalUint32(buf)
+	}
+
+	return buf
+}
+
+func (m *ArrayTest1) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Array test #3. */
+type ArrayTest3 struct {
+	/* Value array */
+	ArU32 [4]uint32
+
+	/* Stub field */
+	V byte
+}
+
+func (m *ArrayTest3) ID() int        { return 153 }
+func (m *ArrayTest3) CRCExtra() byte { return 19 }
+
+func (m *ArrayTest3) MarshalV1(buf []byte) []byte {
+	for _, v := range m.ArU32 {
+		buf = marshalUint32(buf, (v))
+	}
+	buf = marshalByte(buf, (m.V))
+
+	return buf
+}
+
+func (m *ArrayTest3) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *ArrayTest3) UnmarshalV1(buf []byte) []byte {
+
+	for i, _ := range m.ArU32 {
+		buf, m.ArU32[i] = unmarshalUint32(buf)
+	}
+
+	buf, m.V = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *ArrayTest3) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Array test #4. */
+type ArrayTest4 struct {
+	/* Value array */
+	ArU32 [4]uint32
+
+	/* Stub field */
+	V byte
+}
+
+func (m *ArrayTest4) ID() int        { return 154 }
+func (m *ArrayTest4) CRCExtra() byte { return 89 }
+
+func (m *ArrayTest4) MarshalV1(buf []byte) []byte {
+	for _, v := range m.ArU32 {
+		buf = marshalUint32(buf, (v))
+	}
+	buf = marshalByte(buf, (m.V))
+
+	return buf
+}
+
+func (m *ArrayTest4) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *ArrayTest4) UnmarshalV1(buf []byte) []byte {
+
+	for i, _ := range m.ArU32 {
+		buf, m.ArU32[i] = unmarshalUint32(buf)
+	}
+
+	buf, m.V = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *ArrayTest4) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Array test #5. */
+type ArrayTest5 struct {
+	/* Value array */
+	C1 [5]byte
+
+	/* Value array */
+	C2 [5]byte
+}
+
+func (m *ArrayTest5) ID() int        { return 155 }
+func (m *ArrayTest5) CRCExtra() byte { return 27 }
+
+func (m *ArrayTest5) MarshalV1(buf []byte) []byte {
+	for _, v := range m.C1 {
+		buf = marshalByte(buf, (v))
+	}
+	for _, v := range m.C2 {
+		buf = marshalByte(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *ArrayTest5) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *ArrayTest5) UnmarshalV1(buf []byte) []byte {
+
+	for i, _ := range m.C1 {
+		buf, m.C1[i] = unmarshalByte(buf)
+	}
+
+	for i, _ := range m.C2 {
+		buf, m.C2[i] = unmarshalByte(buf)
+	}
+
+	return buf
+}
+
+func (m *ArrayTest5) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Array test #6. */
+type ArrayTest6 struct {
+	/* Value array */
+	ArD [2]float64
+
+	/* Stub field */
+	V3 uint32
+
+	/* Value array */
+	ArU32 [2]uint32
+
+	/* Value array */
+	ArI32 [2]int32
+
+	/* Value array */
+	ArF [2]float32
+
+	/* Stub field */
+	V2 uint16
+
+	/* Value array */
+	ArU16 [2]uint16
+
+	/* Value array */
+	ArI16 [2]int16
+
+	/* Stub field */
+	V1 byte
+
+	/* Value array */
+	ArU8 [2]byte
+
+	/* Value array */
+	ArI8 [2]int8
+
+	/* Value array */
+	ArC [32]byte
+}
+
+func (m *ArrayTest6) ID() int        { return 156 }
+func (m *ArrayTest6) CRCExtra() byte { return 14 }
+
+func (m *ArrayTest6) MarshalV1(buf []byte) []byte {
+	for _, v := range m.ArD {
+		buf = marshalFloat64(buf, (v))
+	}
+	buf = marshalUint32(buf, (m.V3))
+	for _, v := range m.ArU32 {
+		buf = marshalUint32(buf, (v))
+	}
+	for _, v := range m.ArI32 {
+		buf = marshalInt32(buf, (v))
+	}
+	for _, v := range m.ArF {
+		buf = marshalFloat32(buf, (v))
+	}
+	buf = marshalUint16(buf, (m.V2))
+	for _, v := range m.ArU16 {
+		buf = marshalUint16(buf, (v))
+	}
+	for _, v := range m.ArI16 {
+		buf = marshalInt16(buf, (v))
+	}
+	buf = marshalByte(buf, (m.V1))
+	for _, v := range m.ArU8 {
+		buf = marshalByte(buf, (v))
+	}
+	for _, v := range m.ArI8 {
+		buf = marshalInt8(buf, (v))
+	}
+	for _, v := range m.ArC {
+		buf = marshalByte(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *ArrayTest6) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *ArrayTest6) UnmarshalV1(buf []byte) []byte {
+
+	for i, _ := range m.ArD {
+		buf, m.ArD[i] = unmarshalFloat64(buf)
+	}
+
+	buf, m.V3 = unmarshalUint32(buf)
+
+	for i, _ := range m.ArU32 {
+		buf, m.ArU32[i] = unmarshalUint32(buf)
+	}
+
+	for i, _ := range m.ArI32 {
+		buf, m.ArI32[i] = unmarshalInt32(buf)
+	}
+
+	for i, _ := range m.ArF {
+		buf, m.ArF[i] = unmarshalFloat32(buf)
+	}
+
+	buf, m.V2 = unmarshalUint16(buf)
+
+	for i, _ := range m.ArU16 {
+		buf, m.ArU16[i] = unmarshalUint16(buf)
+	}
+
+	for i, _ := range m.ArI16 {
+		buf, m.ArI16[i] = unmarshalInt16(buf)
+	}
+
+	buf, m.V1 = unmarshalByte(buf)
+
+	for i, _ := range m.ArU8 {
+		buf, m.ArU8[i] = unmarshalByte(buf)
+	}
+
+	for i, _ := range m.ArI8 {
+		buf, m.ArI8[i] = unmarshalInt8(buf)
+	}
+
+	for i, _ := range m.ArC {
+		buf, m.ArC[i] = unmarshalByte(buf)
+	}
+
+	return buf
+}
+
+func (m *ArrayTest6) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Array test #7. */
+type ArrayTest7 struct {
+	/* Value array */
+	ArD [2]float64
+
+	/* Value array */
+	ArF [2]float32
+
+	/* Value array */
+	ArU32 [2]uint32
+
+	/* Value array */
+	ArI32 [2]int32
+
+	/* Value array */
+	ArU16 [2]uint16
+
+	/* Value array */
+	ArI16 [2]int16
+
+	/* Value array */
+	ArU8 [2]byte
+
+	/* Value array */
+	ArI8 [2]int8
+
+	/* Value array */
+	ArC [32]byte
+}
+
+func (m *ArrayTest7) ID() int        { return 157 }
+func (m *ArrayTest7) CRCExtra() byte { return 187 }
+
+func (m *ArrayTest7) MarshalV1(buf []byte) []byte {
+	for _, v := range m.ArD {
+		buf = marshalFloat64(buf, (v))
+	}
+	for _, v := range m.ArF {
+		buf = marshalFloat32(buf, (v))
+	}
+	for _, v := range m.ArU32 {
+		buf = marshalUint32(buf, (v))
+	}
+	for _, v := range m.ArI32 {
+		buf = marshalInt32(buf, (v))
+	}
+	for _, v := range m.ArU16 {
+		buf = marshalUint16(buf, (v))
+	}
+	for _, v := range m.ArI16 {
+		buf = marshalInt16(buf, (v))
+	}
+	for _, v := range m.ArU8 {
+		buf = marshalByte(buf, (v))
+	}
+	for _, v := range m.ArI8 {
+		buf = marshalInt8(buf, (v))
+	}
+	for _, v := range m.ArC {
+		buf = marshalByte(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *ArrayTest7) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *ArrayTest7) UnmarshalV1(buf []byte) []byte {
+
+	for i, _ := range m.ArD {
+		buf, m.ArD[i] = unmarshalFloat64(buf)
+	}
+
+	for i, _ := range m.ArF {
+		buf, m.ArF[i] = unmarshalFloat32(buf)
+	}
+
+	for i, _ := range m.ArU32 {
+		buf, m.ArU32[i] = unmarshalUint32(buf)
+	}
+
+	for i, _ := range m.ArI32 {
+		buf, m.ArI32[i] = unmarshalInt32(buf)
+	}
+
+	for i, _ := range m.ArU16 {
+		buf, m.ArU16[i] = unmarshalUint16(buf)
+	}
+
+	for i, _ := range m.ArI16 {
+		buf, m.ArI16[i] = unmarshalInt16(buf)
+	}
+
+	for i, _ := range m.ArU8 {
+		buf, m.ArU8[i] = unmarshalByte(buf)
+	}
+
+	for i, _ := range m.ArI8 {
+		buf, m.ArI8[i] = unmarshalInt8(buf)
+	}
+
+	for i, _ := range m.ArC {
+		buf, m.ArC[i] = unmarshalByte(buf)
+	}
+
+	return buf
+}
+
+func (m *ArrayTest7) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Array test #8. */
+type ArrayTest8 struct {
+	/* Value array */
+	ArD [2]float64
+
+	/* Stub field */
+	V3 uint32
+
+	/* Value array */
+	ArU16 [2]uint16
+}
+
+func (m *ArrayTest8) ID() int        { return 158 }
+func (m *ArrayTest8) CRCExtra() byte { return 106 }
+
+func (m *ArrayTest8) MarshalV1(buf []byte) []byte {
+	for _, v := range m.ArD {
+		buf = marshalFloat64(buf, (v))
+	}
+	buf = marshalUint32(buf, (m.V3))
+	for _, v := range m.ArU16 {
+		buf = marshalUint16(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *ArrayTest8) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *ArrayTest8) UnmarshalV1(buf []byte) []byte {
+
+	for i, _ := range m.ArD {
+		buf, m.ArD[i] = unmarshalFloat64(buf)
+	}
+
+	buf, m.V3 = unmarshalUint32(buf)
+
+	for i, _ := range m.ArU16 {
+		buf, m.ArU16[i] = unmarshalUint16(buf)
+	}
+
+	return buf
+}
+
+func (m *ArrayTest8) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
 
 	return buf
 }

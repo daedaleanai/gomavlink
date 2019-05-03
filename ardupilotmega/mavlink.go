@@ -3669,126 +3669,6 @@ const (
 // The Dialect factory function constructs the proper empty message given the message ID.
 func Dialect(mid int) mavlink.Message {
 	switch mid {
-	case 150:
-		return &SensorOffsets{}
-	case 151:
-		return &SetMagOffsets{}
-	case 152:
-		return &Meminfo{}
-	case 153:
-		return &ApAdc{}
-	case 154:
-		return &DigicamConfigure{}
-	case 155:
-		return &DigicamControl{}
-	case 156:
-		return &MountConfigure{}
-	case 157:
-		return &MountControl{}
-	case 158:
-		return &MountStatus{}
-	case 160:
-		return &FencePoint{}
-	case 161:
-		return &FenceFetchPoint{}
-	case 162:
-		return &FenceStatus{}
-	case 163:
-		return &Ahrs{}
-	case 164:
-		return &Simstate{}
-	case 165:
-		return &Hwstatus{}
-	case 166:
-		return &Radio{}
-	case 167:
-		return &LimitsStatus{}
-	case 168:
-		return &Wind{}
-	case 169:
-		return &Data16{}
-	case 170:
-		return &Data32{}
-	case 171:
-		return &Data64{}
-	case 172:
-		return &Data96{}
-	case 173:
-		return &Rangefinder{}
-	case 174:
-		return &AirspeedAutocal{}
-	case 175:
-		return &RallyPoint{}
-	case 176:
-		return &RallyFetchPoint{}
-	case 177:
-		return &CompassmotStatus{}
-	case 178:
-		return &Ahrs2{}
-	case 179:
-		return &CameraStatus{}
-	case 180:
-		return &CameraFeedback{}
-	case 181:
-		return &Battery2{}
-	case 182:
-		return &Ahrs3{}
-	case 183:
-		return &AutopilotVersionRequest{}
-	case 184:
-		return &RemoteLogDataBlock{}
-	case 185:
-		return &RemoteLogBlockStatus{}
-	case 186:
-		return &LedControl{}
-	case 191:
-		return &MagCalProgress{}
-	case 192:
-		return &MagCalReport{}
-	case 193:
-		return &EkfStatusReport{}
-	case 194:
-		return &PidTuning{}
-	case 195:
-		return &Deepstall{}
-	case 200:
-		return &GimbalReport{}
-	case 201:
-		return &GimbalControl{}
-	case 214:
-		return &GimbalTorqueCmdReport{}
-	case 215:
-		return &GoproHeartbeat{}
-	case 216:
-		return &GoproGetRequest{}
-	case 217:
-		return &GoproGetResponse{}
-	case 218:
-		return &GoproSetRequest{}
-	case 219:
-		return &GoproSetResponse{}
-	case 226:
-		return &Rpm{}
-	case 11000:
-		return &DeviceOpRead{}
-	case 11001:
-		return &DeviceOpReadReply{}
-	case 11002:
-		return &DeviceOpWrite{}
-	case 11003:
-		return &DeviceOpWriteReply{}
-	case 11010:
-		return &AdapTuning{}
-	case 11011:
-		return &VisionPositionDelta{}
-	case 11020:
-		return &AoaSsa{}
-	case 11030:
-		return &EscTelemetry1To4{}
-	case 11031:
-		return &EscTelemetry5To8{}
-	case 11032:
-		return &EscTelemetry9To12{}
 	case 0:
 		return &Heartbeat{}
 	case 1:
@@ -4023,6 +3903,106 @@ func Dialect(mid int) mavlink.Message {
 		return &AutopilotVersion{}
 	case 149:
 		return &LandingTarget{}
+	case 150:
+		return &SensorOffsets{}
+	case 151:
+		return &SetMagOffsets{}
+	case 152:
+		return &Meminfo{}
+	case 153:
+		return &ApAdc{}
+	case 154:
+		return &DigicamConfigure{}
+	case 155:
+		return &DigicamControl{}
+	case 156:
+		return &MountConfigure{}
+	case 157:
+		return &MountControl{}
+	case 158:
+		return &MountStatus{}
+	case 160:
+		return &FencePoint{}
+	case 161:
+		return &FenceFetchPoint{}
+	case 162:
+		return &FenceStatus{}
+	case 163:
+		return &Ahrs{}
+	case 164:
+		return &Simstate{}
+	case 165:
+		return &Hwstatus{}
+	case 166:
+		return &Radio{}
+	case 167:
+		return &LimitsStatus{}
+	case 168:
+		return &Wind{}
+	case 169:
+		return &Data16{}
+	case 170:
+		return &Data32{}
+	case 171:
+		return &Data64{}
+	case 172:
+		return &Data96{}
+	case 173:
+		return &Rangefinder{}
+	case 174:
+		return &AirspeedAutocal{}
+	case 175:
+		return &RallyPoint{}
+	case 176:
+		return &RallyFetchPoint{}
+	case 177:
+		return &CompassmotStatus{}
+	case 178:
+		return &Ahrs2{}
+	case 179:
+		return &CameraStatus{}
+	case 180:
+		return &CameraFeedback{}
+	case 181:
+		return &Battery2{}
+	case 182:
+		return &Ahrs3{}
+	case 183:
+		return &AutopilotVersionRequest{}
+	case 184:
+		return &RemoteLogDataBlock{}
+	case 185:
+		return &RemoteLogBlockStatus{}
+	case 186:
+		return &LedControl{}
+	case 191:
+		return &MagCalProgress{}
+	case 192:
+		return &MagCalReport{}
+	case 193:
+		return &EkfStatusReport{}
+	case 194:
+		return &PidTuning{}
+	case 195:
+		return &Deepstall{}
+	case 200:
+		return &GimbalReport{}
+	case 201:
+		return &GimbalControl{}
+	case 214:
+		return &GimbalTorqueCmdReport{}
+	case 215:
+		return &GoproHeartbeat{}
+	case 216:
+		return &GoproGetRequest{}
+	case 217:
+		return &GoproGetResponse{}
+	case 218:
+		return &GoproSetRequest{}
+	case 219:
+		return &GoproSetResponse{}
+	case 226:
+		return &Rpm{}
 	case 230:
 		return &EstimatorStatus{}
 	case 231:
@@ -4143,4185 +4123,32 @@ func Dialect(mid int) mavlink.Message {
 		return &UavionixAdsbOutDynamic{}
 	case 10003:
 		return &UavionixAdsbTransceiverHealthReport{}
+	case 11000:
+		return &DeviceOpRead{}
+	case 11001:
+		return &DeviceOpReadReply{}
+	case 11002:
+		return &DeviceOpWrite{}
+	case 11003:
+		return &DeviceOpWriteReply{}
+	case 11010:
+		return &AdapTuning{}
+	case 11011:
+		return &VisionPositionDelta{}
+	case 11020:
+		return &AoaSsa{}
+	case 11030:
+		return &EscTelemetry1To4{}
+	case 11031:
+		return &EscTelemetry5To8{}
+	case 11032:
+		return &EscTelemetry9To12{}
 	case 42000:
 		return &IcarousHeartbeat{}
 	case 42001:
 		return &IcarousKinematicBands{}
 	}
 	return nil
-}
-
-/* Offsets and calibrations values for hardware sensors. This makes it easier to debug the calibration process. */
-type SensorOffsets struct {
-	/* Magnetic declination. */
-	MagDeclination float32
-
-	/* Raw pressure from barometer. */
-	RawPress int32
-
-	/* Raw temperature from barometer. */
-	RawTemp int32
-
-	/* Gyro X calibration. */
-	GyroCalX float32
-
-	/* Gyro Y calibration. */
-	GyroCalY float32
-
-	/* Gyro Z calibration. */
-	GyroCalZ float32
-
-	/* Accel X calibration. */
-	AccelCalX float32
-
-	/* Accel Y calibration. */
-	AccelCalY float32
-
-	/* Accel Z calibration. */
-	AccelCalZ float32
-
-	/* Magnetometer X offset. */
-	MagOfsX int16
-
-	/* Magnetometer Y offset. */
-	MagOfsY int16
-
-	/* Magnetometer Z offset. */
-	MagOfsZ int16
-}
-
-func (m *SensorOffsets) ID() int        { return 150 }
-func (m *SensorOffsets) CRCExtra() byte { return 134 }
-
-func (m *SensorOffsets) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.MagDeclination))
-	buf = marshalInt32(buf, (m.RawPress))
-	buf = marshalInt32(buf, (m.RawTemp))
-	buf = marshalFloat32(buf, (m.GyroCalX))
-	buf = marshalFloat32(buf, (m.GyroCalY))
-	buf = marshalFloat32(buf, (m.GyroCalZ))
-	buf = marshalFloat32(buf, (m.AccelCalX))
-	buf = marshalFloat32(buf, (m.AccelCalY))
-	buf = marshalFloat32(buf, (m.AccelCalZ))
-	buf = marshalInt16(buf, (m.MagOfsX))
-	buf = marshalInt16(buf, (m.MagOfsY))
-	buf = marshalInt16(buf, (m.MagOfsZ))
-
-	return buf
-}
-
-func (m *SensorOffsets) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SensorOffsets) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.MagDeclination = unmarshalFloat32(buf)
-
-	buf, m.RawPress = unmarshalInt32(buf)
-
-	buf, m.RawTemp = unmarshalInt32(buf)
-
-	buf, m.GyroCalX = unmarshalFloat32(buf)
-
-	buf, m.GyroCalY = unmarshalFloat32(buf)
-
-	buf, m.GyroCalZ = unmarshalFloat32(buf)
-
-	buf, m.AccelCalX = unmarshalFloat32(buf)
-
-	buf, m.AccelCalY = unmarshalFloat32(buf)
-
-	buf, m.AccelCalZ = unmarshalFloat32(buf)
-
-	buf, m.MagOfsX = unmarshalInt16(buf)
-
-	buf, m.MagOfsY = unmarshalInt16(buf)
-
-	buf, m.MagOfsZ = unmarshalInt16(buf)
-
-	return buf
-}
-
-func (m *SensorOffsets) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Set the magnetometer offsets */
-type SetMagOffsets struct {
-	/* Magnetometer X offset. */
-	MagOfsX int16
-
-	/* Magnetometer Y offset. */
-	MagOfsY int16
-
-	/* Magnetometer Z offset. */
-	MagOfsZ int16
-
-	/* System ID. */
-	TargetSystem byte
-
-	/* Component ID. */
-	TargetComponent byte
-}
-
-func (m *SetMagOffsets) ID() int        { return 151 }
-func (m *SetMagOffsets) CRCExtra() byte { return 219 }
-
-func (m *SetMagOffsets) MarshalV1(buf []byte) []byte {
-	buf = marshalInt16(buf, (m.MagOfsX))
-	buf = marshalInt16(buf, (m.MagOfsY))
-	buf = marshalInt16(buf, (m.MagOfsZ))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-
-	return buf
-}
-
-func (m *SetMagOffsets) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SetMagOffsets) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.MagOfsX = unmarshalInt16(buf)
-
-	buf, m.MagOfsY = unmarshalInt16(buf)
-
-	buf, m.MagOfsZ = unmarshalInt16(buf)
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *SetMagOffsets) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* State of APM memory. */
-type Meminfo struct {
-	/* Heap top. */
-	Brkval uint16
-
-	/* Free memory. */
-	Freemem uint16
-
-	/* Free memory (32 bit). */
-	Freemem32 uint32 /*EXTENSION*/
-
-}
-
-func (m *Meminfo) ID() int        { return 152 }
-func (m *Meminfo) CRCExtra() byte { return 208 }
-
-func (m *Meminfo) MarshalV1(buf []byte) []byte {
-	buf = marshalUint16(buf, (m.Brkval))
-	buf = marshalUint16(buf, (m.Freemem))
-
-	return buf
-}
-
-func (m *Meminfo) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-	buf = marshalUint32(buf, (m.Freemem32))
-
-	return buf
-}
-
-func (m *Meminfo) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Brkval = unmarshalUint16(buf)
-
-	buf, m.Freemem = unmarshalUint16(buf)
-
-	return buf
-}
-
-func (m *Meminfo) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-	buf, m.Freemem32 = unmarshalUint32(buf)
-
-	return buf
-}
-
-/* Raw ADC output. */
-type ApAdc struct {
-	/* ADC output 1. */
-	Adc1 uint16
-
-	/* ADC output 2. */
-	Adc2 uint16
-
-	/* ADC output 3. */
-	Adc3 uint16
-
-	/* ADC output 4. */
-	Adc4 uint16
-
-	/* ADC output 5. */
-	Adc5 uint16
-
-	/* ADC output 6. */
-	Adc6 uint16
-}
-
-func (m *ApAdc) ID() int        { return 153 }
-func (m *ApAdc) CRCExtra() byte { return 188 }
-
-func (m *ApAdc) MarshalV1(buf []byte) []byte {
-	buf = marshalUint16(buf, (m.Adc1))
-	buf = marshalUint16(buf, (m.Adc2))
-	buf = marshalUint16(buf, (m.Adc3))
-	buf = marshalUint16(buf, (m.Adc4))
-	buf = marshalUint16(buf, (m.Adc5))
-	buf = marshalUint16(buf, (m.Adc6))
-
-	return buf
-}
-
-func (m *ApAdc) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *ApAdc) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Adc1 = unmarshalUint16(buf)
-
-	buf, m.Adc2 = unmarshalUint16(buf)
-
-	buf, m.Adc3 = unmarshalUint16(buf)
-
-	buf, m.Adc4 = unmarshalUint16(buf)
-
-	buf, m.Adc5 = unmarshalUint16(buf)
-
-	buf, m.Adc6 = unmarshalUint16(buf)
-
-	return buf
-}
-
-func (m *ApAdc) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Configure on-board Camera Control System. */
-type DigicamConfigure struct {
-	/* Correspondent value to given extra_param. */
-	ExtraValue float32
-
-	/* Divisor number //e.g. 1000 means 1/1000 (0 means ignore). */
-	ShutterSpeed uint16
-
-	/* System ID. */
-	TargetSystem byte
-
-	/* Component ID. */
-	TargetComponent byte
-
-	/* Mode enumeration from 1 to N //P, TV, AV, M, etc. (0 means ignore). */
-	Mode byte
-
-	/* F stop number x 10 //e.g. 28 means 2.8 (0 means ignore). */
-	Aperture byte
-
-	/* ISO enumeration from 1 to N //e.g. 80, 100, 200, Etc (0 means ignore). */
-	Iso byte
-
-	/* Exposure type enumeration from 1 to N (0 means ignore). */
-	ExposureType byte
-
-	/* Command Identity (incremental loop: 0 to 255). //A command sent multiple times will be executed or pooled just once. */
-	CommandId byte
-
-	/* Main engine cut-off time before camera trigger (0 means no cut-off). */
-	EngineCutOff byte
-
-	/* Extra parameters enumeration (0 means ignore). */
-	ExtraParam byte
-}
-
-func (m *DigicamConfigure) ID() int        { return 154 }
-func (m *DigicamConfigure) CRCExtra() byte { return 84 }
-
-func (m *DigicamConfigure) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.ExtraValue))
-	buf = marshalUint16(buf, (m.ShutterSpeed))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-	buf = marshalByte(buf, (m.Mode))
-	buf = marshalByte(buf, (m.Aperture))
-	buf = marshalByte(buf, (m.Iso))
-	buf = marshalByte(buf, (m.ExposureType))
-	buf = marshalByte(buf, (m.CommandId))
-	buf = marshalByte(buf, (m.EngineCutOff))
-	buf = marshalByte(buf, (m.ExtraParam))
-
-	return buf
-}
-
-func (m *DigicamConfigure) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *DigicamConfigure) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.ExtraValue = unmarshalFloat32(buf)
-
-	buf, m.ShutterSpeed = unmarshalUint16(buf)
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	buf, m.Mode = unmarshalByte(buf)
-
-	buf, m.Aperture = unmarshalByte(buf)
-
-	buf, m.Iso = unmarshalByte(buf)
-
-	buf, m.ExposureType = unmarshalByte(buf)
-
-	buf, m.CommandId = unmarshalByte(buf)
-
-	buf, m.EngineCutOff = unmarshalByte(buf)
-
-	buf, m.ExtraParam = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *DigicamConfigure) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Control on-board Camera Control System to take shots. */
-type DigicamControl struct {
-	/* Correspondent value to given extra_param. */
-	ExtraValue float32
-
-	/* System ID. */
-	TargetSystem byte
-
-	/* Component ID. */
-	TargetComponent byte
-
-	/* 0: stop, 1: start or keep it up //Session control e.g. show/hide lens. */
-	Session byte
-
-	/* 1 to N //Zoom's absolute position (0 means ignore). */
-	ZoomPos byte
-
-	/* -100 to 100 //Zooming step value to offset zoom from the current position. */
-	ZoomStep int8
-
-	/* 0: unlock focus or keep unlocked, 1: lock focus or keep locked, 3: re-lock focus. */
-	FocusLock byte
-
-	/* 0: ignore, 1: shot or start filming. */
-	Shot byte
-
-	/* Command Identity (incremental loop: 0 to 255)//A command sent multiple times will be executed or pooled just once. */
-	CommandId byte
-
-	/* Extra parameters enumeration (0 means ignore). */
-	ExtraParam byte
-}
-
-func (m *DigicamControl) ID() int        { return 155 }
-func (m *DigicamControl) CRCExtra() byte { return 22 }
-
-func (m *DigicamControl) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.ExtraValue))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-	buf = marshalByte(buf, (m.Session))
-	buf = marshalByte(buf, (m.ZoomPos))
-	buf = marshalInt8(buf, (m.ZoomStep))
-	buf = marshalByte(buf, (m.FocusLock))
-	buf = marshalByte(buf, (m.Shot))
-	buf = marshalByte(buf, (m.CommandId))
-	buf = marshalByte(buf, (m.ExtraParam))
-
-	return buf
-}
-
-func (m *DigicamControl) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *DigicamControl) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.ExtraValue = unmarshalFloat32(buf)
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	buf, m.Session = unmarshalByte(buf)
-
-	buf, m.ZoomPos = unmarshalByte(buf)
-
-	buf, m.ZoomStep = unmarshalInt8(buf)
-
-	buf, m.FocusLock = unmarshalByte(buf)
-
-	buf, m.Shot = unmarshalByte(buf)
-
-	buf, m.CommandId = unmarshalByte(buf)
-
-	buf, m.ExtraParam = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *DigicamControl) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Message to configure a camera mount, directional antenna, etc. */
-type MountConfigure struct {
-	/* System ID. */
-	TargetSystem byte
-
-	/* Component ID. */
-	TargetComponent byte
-
-	/* Mount operating mode. */
-	MountMode MavMountMode // byte
-
-	/* (1 = yes, 0 = no). */
-	StabRoll byte
-
-	/* (1 = yes, 0 = no). */
-	StabPitch byte
-
-	/* (1 = yes, 0 = no). */
-	StabYaw byte
-}
-
-func (m *MountConfigure) ID() int        { return 156 }
-func (m *MountConfigure) CRCExtra() byte { return 19 }
-
-func (m *MountConfigure) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-	buf = marshalByte(buf, byte(m.MountMode))
-	buf = marshalByte(buf, (m.StabRoll))
-	buf = marshalByte(buf, (m.StabPitch))
-	buf = marshalByte(buf, (m.StabYaw))
-
-	return buf
-}
-
-func (m *MountConfigure) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *MountConfigure) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.MountMode = MavMountMode(v)
-	}
-
-	buf, m.StabRoll = unmarshalByte(buf)
-
-	buf, m.StabPitch = unmarshalByte(buf)
-
-	buf, m.StabYaw = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *MountConfigure) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Message to control a camera mount, directional antenna, etc. */
-type MountControl struct {
-	/* Pitch (centi-degrees) or lat (degE7), depending on mount mode. */
-	InputA int32
-
-	/* Roll (centi-degrees) or lon (degE7) depending on mount mode. */
-	InputB int32
-
-	/* Yaw (centi-degrees) or alt (cm) depending on mount mode. */
-	InputC int32
-
-	/* System ID. */
-	TargetSystem byte
-
-	/* Component ID. */
-	TargetComponent byte
-
-	/* If "1" it will save current trimmed position on EEPROM (just valid for NEUTRAL and LANDING). */
-	SavePosition byte
-}
-
-func (m *MountControl) ID() int        { return 157 }
-func (m *MountControl) CRCExtra() byte { return 21 }
-
-func (m *MountControl) MarshalV1(buf []byte) []byte {
-	buf = marshalInt32(buf, (m.InputA))
-	buf = marshalInt32(buf, (m.InputB))
-	buf = marshalInt32(buf, (m.InputC))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-	buf = marshalByte(buf, (m.SavePosition))
-
-	return buf
-}
-
-func (m *MountControl) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *MountControl) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.InputA = unmarshalInt32(buf)
-
-	buf, m.InputB = unmarshalInt32(buf)
-
-	buf, m.InputC = unmarshalInt32(buf)
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	buf, m.SavePosition = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *MountControl) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Message with some status from APM to GCS about camera or antenna mount. */
-type MountStatus struct {
-	/* Pitch. */
-	PointingA int32
-
-	/* Roll. */
-	PointingB int32
-
-	/* Yaw. */
-	PointingC int32
-
-	/* System ID. */
-	TargetSystem byte
-
-	/* Component ID. */
-	TargetComponent byte
-}
-
-func (m *MountStatus) ID() int        { return 158 }
-func (m *MountStatus) CRCExtra() byte { return 134 }
-
-func (m *MountStatus) MarshalV1(buf []byte) []byte {
-	buf = marshalInt32(buf, (m.PointingA))
-	buf = marshalInt32(buf, (m.PointingB))
-	buf = marshalInt32(buf, (m.PointingC))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-
-	return buf
-}
-
-func (m *MountStatus) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *MountStatus) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.PointingA = unmarshalInt32(buf)
-
-	buf, m.PointingB = unmarshalInt32(buf)
-
-	buf, m.PointingC = unmarshalInt32(buf)
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *MountStatus) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* A fence point. Used to set a point when from GCS -> MAV. Also used to return a point from MAV -> GCS. */
-type FencePoint struct {
-	/* Latitude of point. */
-	Lat float32
-
-	/* Longitude of point. */
-	Lng float32
-
-	/* System ID. */
-	TargetSystem byte
-
-	/* Component ID. */
-	TargetComponent byte
-
-	/* Point index (first point is 1, 0 is for return point). */
-	Idx byte
-
-	/* Total number of points (for sanity checking). */
-	Count byte
-}
-
-func (m *FencePoint) ID() int        { return 160 }
-func (m *FencePoint) CRCExtra() byte { return 78 }
-
-func (m *FencePoint) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Lat))
-	buf = marshalFloat32(buf, (m.Lng))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-	buf = marshalByte(buf, (m.Idx))
-	buf = marshalByte(buf, (m.Count))
-
-	return buf
-}
-
-func (m *FencePoint) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *FencePoint) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Lat = unmarshalFloat32(buf)
-
-	buf, m.Lng = unmarshalFloat32(buf)
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	buf, m.Idx = unmarshalByte(buf)
-
-	buf, m.Count = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *FencePoint) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Request a current fence point from MAV. */
-type FenceFetchPoint struct {
-	/* System ID. */
-	TargetSystem byte
-
-	/* Component ID. */
-	TargetComponent byte
-
-	/* Point index (first point is 1, 0 is for return point). */
-	Idx byte
-}
-
-func (m *FenceFetchPoint) ID() int        { return 161 }
-func (m *FenceFetchPoint) CRCExtra() byte { return 68 }
-
-func (m *FenceFetchPoint) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-	buf = marshalByte(buf, (m.Idx))
-
-	return buf
-}
-
-func (m *FenceFetchPoint) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *FenceFetchPoint) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	buf, m.Idx = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *FenceFetchPoint) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Status of geo-fencing. Sent in extended status stream when fencing enabled. */
-type FenceStatus struct {
-	/* Time (since boot) of last breach. */
-	BreachTime uint32
-
-	/* Number of fence breaches. */
-	BreachCount uint16
-
-	/* Breach status (0 if currently inside fence, 1 if outside). */
-	BreachStatus byte
-
-	/* Last breach type. */
-	BreachType FenceBreach // byte
-
-}
-
-func (m *FenceStatus) ID() int        { return 162 }
-func (m *FenceStatus) CRCExtra() byte { return 189 }
-
-func (m *FenceStatus) MarshalV1(buf []byte) []byte {
-	buf = marshalUint32(buf, (m.BreachTime))
-	buf = marshalUint16(buf, (m.BreachCount))
-	buf = marshalByte(buf, (m.BreachStatus))
-	buf = marshalByte(buf, byte(m.BreachType))
-
-	return buf
-}
-
-func (m *FenceStatus) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *FenceStatus) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.BreachTime = unmarshalUint32(buf)
-
-	buf, m.BreachCount = unmarshalUint16(buf)
-
-	buf, m.BreachStatus = unmarshalByte(buf)
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.BreachType = FenceBreach(v)
-	}
-
-	return buf
-}
-
-func (m *FenceStatus) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Status of DCM attitude estimator. */
-type Ahrs struct {
-	/* X gyro drift estimate. */
-	Omegaix float32
-
-	/* Y gyro drift estimate. */
-	Omegaiy float32
-
-	/* Z gyro drift estimate. */
-	Omegaiz float32
-
-	/* Average accel_weight. */
-	AccelWeight float32
-
-	/* Average renormalisation value. */
-	RenormVal float32
-
-	/* Average error_roll_pitch value. */
-	ErrorRp float32
-
-	/* Average error_yaw value. */
-	ErrorYaw float32
-}
-
-func (m *Ahrs) ID() int        { return 163 }
-func (m *Ahrs) CRCExtra() byte { return 127 }
-
-func (m *Ahrs) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Omegaix))
-	buf = marshalFloat32(buf, (m.Omegaiy))
-	buf = marshalFloat32(buf, (m.Omegaiz))
-	buf = marshalFloat32(buf, (m.AccelWeight))
-	buf = marshalFloat32(buf, (m.RenormVal))
-	buf = marshalFloat32(buf, (m.ErrorRp))
-	buf = marshalFloat32(buf, (m.ErrorYaw))
-
-	return buf
-}
-
-func (m *Ahrs) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *Ahrs) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Omegaix = unmarshalFloat32(buf)
-
-	buf, m.Omegaiy = unmarshalFloat32(buf)
-
-	buf, m.Omegaiz = unmarshalFloat32(buf)
-
-	buf, m.AccelWeight = unmarshalFloat32(buf)
-
-	buf, m.RenormVal = unmarshalFloat32(buf)
-
-	buf, m.ErrorRp = unmarshalFloat32(buf)
-
-	buf, m.ErrorYaw = unmarshalFloat32(buf)
-
-	return buf
-}
-
-func (m *Ahrs) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Status of simulation environment, if used. */
-type Simstate struct {
-	/* Roll angle. */
-	Roll float32
-
-	/* Pitch angle. */
-	Pitch float32
-
-	/* Yaw angle. */
-	Yaw float32
-
-	/* X acceleration. */
-	Xacc float32
-
-	/* Y acceleration. */
-	Yacc float32
-
-	/* Z acceleration. */
-	Zacc float32
-
-	/* Angular speed around X axis. */
-	Xgyro float32
-
-	/* Angular speed around Y axis. */
-	Ygyro float32
-
-	/* Angular speed around Z axis. */
-	Zgyro float32
-
-	/* Latitude. */
-	Lat int32
-
-	/* Longitude. */
-	Lng int32
-}
-
-func (m *Simstate) ID() int        { return 164 }
-func (m *Simstate) CRCExtra() byte { return 154 }
-
-func (m *Simstate) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Roll))
-	buf = marshalFloat32(buf, (m.Pitch))
-	buf = marshalFloat32(buf, (m.Yaw))
-	buf = marshalFloat32(buf, (m.Xacc))
-	buf = marshalFloat32(buf, (m.Yacc))
-	buf = marshalFloat32(buf, (m.Zacc))
-	buf = marshalFloat32(buf, (m.Xgyro))
-	buf = marshalFloat32(buf, (m.Ygyro))
-	buf = marshalFloat32(buf, (m.Zgyro))
-	buf = marshalInt32(buf, (m.Lat))
-	buf = marshalInt32(buf, (m.Lng))
-
-	return buf
-}
-
-func (m *Simstate) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *Simstate) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Roll = unmarshalFloat32(buf)
-
-	buf, m.Pitch = unmarshalFloat32(buf)
-
-	buf, m.Yaw = unmarshalFloat32(buf)
-
-	buf, m.Xacc = unmarshalFloat32(buf)
-
-	buf, m.Yacc = unmarshalFloat32(buf)
-
-	buf, m.Zacc = unmarshalFloat32(buf)
-
-	buf, m.Xgyro = unmarshalFloat32(buf)
-
-	buf, m.Ygyro = unmarshalFloat32(buf)
-
-	buf, m.Zgyro = unmarshalFloat32(buf)
-
-	buf, m.Lat = unmarshalInt32(buf)
-
-	buf, m.Lng = unmarshalInt32(buf)
-
-	return buf
-}
-
-func (m *Simstate) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Status of key hardware. */
-type Hwstatus struct {
-	/* Board voltage. */
-	Vcc uint16
-
-	/* I2C error count. */
-	I2cerr byte
-}
-
-func (m *Hwstatus) ID() int        { return 165 }
-func (m *Hwstatus) CRCExtra() byte { return 21 }
-
-func (m *Hwstatus) MarshalV1(buf []byte) []byte {
-	buf = marshalUint16(buf, (m.Vcc))
-	buf = marshalByte(buf, (m.I2cerr))
-
-	return buf
-}
-
-func (m *Hwstatus) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *Hwstatus) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Vcc = unmarshalUint16(buf)
-
-	buf, m.I2cerr = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *Hwstatus) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Status generated by radio. */
-type Radio struct {
-	/* Receive errors. */
-	Rxerrors uint16
-
-	/* Count of error corrected packets. */
-	Fixed uint16
-
-	/* Local signal strength. */
-	Rssi byte
-
-	/* Remote signal strength. */
-	Remrssi byte
-
-	/* How full the tx buffer is. */
-	Txbuf byte
-
-	/* Background noise level. */
-	Noise byte
-
-	/* Remote background noise level. */
-	Remnoise byte
-}
-
-func (m *Radio) ID() int        { return 166 }
-func (m *Radio) CRCExtra() byte { return 21 }
-
-func (m *Radio) MarshalV1(buf []byte) []byte {
-	buf = marshalUint16(buf, (m.Rxerrors))
-	buf = marshalUint16(buf, (m.Fixed))
-	buf = marshalByte(buf, (m.Rssi))
-	buf = marshalByte(buf, (m.Remrssi))
-	buf = marshalByte(buf, (m.Txbuf))
-	buf = marshalByte(buf, (m.Noise))
-	buf = marshalByte(buf, (m.Remnoise))
-
-	return buf
-}
-
-func (m *Radio) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *Radio) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Rxerrors = unmarshalUint16(buf)
-
-	buf, m.Fixed = unmarshalUint16(buf)
-
-	buf, m.Rssi = unmarshalByte(buf)
-
-	buf, m.Remrssi = unmarshalByte(buf)
-
-	buf, m.Txbuf = unmarshalByte(buf)
-
-	buf, m.Noise = unmarshalByte(buf)
-
-	buf, m.Remnoise = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *Radio) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Status of AP_Limits. Sent in extended status stream when AP_Limits is enabled. */
-type LimitsStatus struct {
-	/* Time (since boot) of last breach. */
-	LastTrigger uint32
-
-	/* Time (since boot) of last recovery action. */
-	LastAction uint32
-
-	/* Time (since boot) of last successful recovery. */
-	LastRecovery uint32
-
-	/* Time (since boot) of last all-clear. */
-	LastClear uint32
-
-	/* Number of fence breaches. */
-	BreachCount uint16
-
-	/* State of AP_Limits. */
-	LimitsState LimitsState // byte
-
-	/* AP_Limit_Module bitfield of enabled modules. */
-	ModsEnabled LimitModule // byte
-
-	/* AP_Limit_Module bitfield of required modules. */
-	ModsRequired LimitModule // byte
-
-	/* AP_Limit_Module bitfield of triggered modules. */
-	ModsTriggered LimitModule // byte
-
-}
-
-func (m *LimitsStatus) ID() int        { return 167 }
-func (m *LimitsStatus) CRCExtra() byte { return 144 }
-
-func (m *LimitsStatus) MarshalV1(buf []byte) []byte {
-	buf = marshalUint32(buf, (m.LastTrigger))
-	buf = marshalUint32(buf, (m.LastAction))
-	buf = marshalUint32(buf, (m.LastRecovery))
-	buf = marshalUint32(buf, (m.LastClear))
-	buf = marshalUint16(buf, (m.BreachCount))
-	buf = marshalByte(buf, byte(m.LimitsState))
-	buf = marshalByte(buf, byte(m.ModsEnabled))
-	buf = marshalByte(buf, byte(m.ModsRequired))
-	buf = marshalByte(buf, byte(m.ModsTriggered))
-
-	return buf
-}
-
-func (m *LimitsStatus) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *LimitsStatus) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.LastTrigger = unmarshalUint32(buf)
-
-	buf, m.LastAction = unmarshalUint32(buf)
-
-	buf, m.LastRecovery = unmarshalUint32(buf)
-
-	buf, m.LastClear = unmarshalUint32(buf)
-
-	buf, m.BreachCount = unmarshalUint16(buf)
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.LimitsState = LimitsState(v)
-	}
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.ModsEnabled = LimitModule(v)
-	}
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.ModsRequired = LimitModule(v)
-	}
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.ModsTriggered = LimitModule(v)
-	}
-
-	return buf
-}
-
-func (m *LimitsStatus) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Wind estimation. */
-type Wind struct {
-	/* Wind direction (that wind is coming from). */
-	Direction float32
-
-	/* Wind speed in ground plane. */
-	Speed float32
-
-	/* Vertical wind speed. */
-	SpeedZ float32
-}
-
-func (m *Wind) ID() int        { return 168 }
-func (m *Wind) CRCExtra() byte { return 1 }
-
-func (m *Wind) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Direction))
-	buf = marshalFloat32(buf, (m.Speed))
-	buf = marshalFloat32(buf, (m.SpeedZ))
-
-	return buf
-}
-
-func (m *Wind) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *Wind) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Direction = unmarshalFloat32(buf)
-
-	buf, m.Speed = unmarshalFloat32(buf)
-
-	buf, m.SpeedZ = unmarshalFloat32(buf)
-
-	return buf
-}
-
-func (m *Wind) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Data packet, size 16. */
-type Data16 struct {
-	/* Data type. */
-	Type byte
-
-	/* Data length. */
-	Len byte
-
-	/* Raw data. */
-	Data [16]byte
-}
-
-func (m *Data16) ID() int        { return 169 }
-func (m *Data16) CRCExtra() byte { return 234 }
-
-func (m *Data16) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, (m.Type))
-	buf = marshalByte(buf, (m.Len))
-	for _, v := range m.Data {
-		buf = marshalByte(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *Data16) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *Data16) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Type = unmarshalByte(buf)
-
-	buf, m.Len = unmarshalByte(buf)
-
-	for i, _ := range m.Data {
-		buf, m.Data[i] = unmarshalByte(buf)
-	}
-
-	return buf
-}
-
-func (m *Data16) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Data packet, size 32. */
-type Data32 struct {
-	/* Data type. */
-	Type byte
-
-	/* Data length. */
-	Len byte
-
-	/* Raw data. */
-	Data [32]byte
-}
-
-func (m *Data32) ID() int        { return 170 }
-func (m *Data32) CRCExtra() byte { return 73 }
-
-func (m *Data32) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, (m.Type))
-	buf = marshalByte(buf, (m.Len))
-	for _, v := range m.Data {
-		buf = marshalByte(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *Data32) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *Data32) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Type = unmarshalByte(buf)
-
-	buf, m.Len = unmarshalByte(buf)
-
-	for i, _ := range m.Data {
-		buf, m.Data[i] = unmarshalByte(buf)
-	}
-
-	return buf
-}
-
-func (m *Data32) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Data packet, size 64. */
-type Data64 struct {
-	/* Data type. */
-	Type byte
-
-	/* Data length. */
-	Len byte
-
-	/* Raw data. */
-	Data [64]byte
-}
-
-func (m *Data64) ID() int        { return 171 }
-func (m *Data64) CRCExtra() byte { return 181 }
-
-func (m *Data64) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, (m.Type))
-	buf = marshalByte(buf, (m.Len))
-	for _, v := range m.Data {
-		buf = marshalByte(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *Data64) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *Data64) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Type = unmarshalByte(buf)
-
-	buf, m.Len = unmarshalByte(buf)
-
-	for i, _ := range m.Data {
-		buf, m.Data[i] = unmarshalByte(buf)
-	}
-
-	return buf
-}
-
-func (m *Data64) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Data packet, size 96. */
-type Data96 struct {
-	/* Data type. */
-	Type byte
-
-	/* Data length. */
-	Len byte
-
-	/* Raw data. */
-	Data [96]byte
-}
-
-func (m *Data96) ID() int        { return 172 }
-func (m *Data96) CRCExtra() byte { return 22 }
-
-func (m *Data96) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, (m.Type))
-	buf = marshalByte(buf, (m.Len))
-	for _, v := range m.Data {
-		buf = marshalByte(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *Data96) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *Data96) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Type = unmarshalByte(buf)
-
-	buf, m.Len = unmarshalByte(buf)
-
-	for i, _ := range m.Data {
-		buf, m.Data[i] = unmarshalByte(buf)
-	}
-
-	return buf
-}
-
-func (m *Data96) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Rangefinder reporting. */
-type Rangefinder struct {
-	/* Distance. */
-	Distance float32
-
-	/* Raw voltage if available, zero otherwise. */
-	Voltage float32
-}
-
-func (m *Rangefinder) ID() int        { return 173 }
-func (m *Rangefinder) CRCExtra() byte { return 83 }
-
-func (m *Rangefinder) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Distance))
-	buf = marshalFloat32(buf, (m.Voltage))
-
-	return buf
-}
-
-func (m *Rangefinder) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *Rangefinder) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Distance = unmarshalFloat32(buf)
-
-	buf, m.Voltage = unmarshalFloat32(buf)
-
-	return buf
-}
-
-func (m *Rangefinder) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Airspeed auto-calibration. */
-type AirspeedAutocal struct {
-	/* GPS velocity north. */
-	Vx float32
-
-	/* GPS velocity east. */
-	Vy float32
-
-	/* GPS velocity down. */
-	Vz float32
-
-	/* Differential pressure. */
-	DiffPressure float32
-
-	/* Estimated to true airspeed ratio. */
-	Eas2tas float32
-
-	/* Airspeed ratio. */
-	Ratio float32
-
-	/* EKF state x. */
-	StateX float32
-
-	/* EKF state y. */
-	StateY float32
-
-	/* EKF state z. */
-	StateZ float32
-
-	/* EKF Pax. */
-	Pax float32
-
-	/* EKF Pby. */
-	Pby float32
-
-	/* EKF Pcz. */
-	Pcz float32
-}
-
-func (m *AirspeedAutocal) ID() int        { return 174 }
-func (m *AirspeedAutocal) CRCExtra() byte { return 167 }
-
-func (m *AirspeedAutocal) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Vx))
-	buf = marshalFloat32(buf, (m.Vy))
-	buf = marshalFloat32(buf, (m.Vz))
-	buf = marshalFloat32(buf, (m.DiffPressure))
-	buf = marshalFloat32(buf, (m.Eas2tas))
-	buf = marshalFloat32(buf, (m.Ratio))
-	buf = marshalFloat32(buf, (m.StateX))
-	buf = marshalFloat32(buf, (m.StateY))
-	buf = marshalFloat32(buf, (m.StateZ))
-	buf = marshalFloat32(buf, (m.Pax))
-	buf = marshalFloat32(buf, (m.Pby))
-	buf = marshalFloat32(buf, (m.Pcz))
-
-	return buf
-}
-
-func (m *AirspeedAutocal) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *AirspeedAutocal) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Vx = unmarshalFloat32(buf)
-
-	buf, m.Vy = unmarshalFloat32(buf)
-
-	buf, m.Vz = unmarshalFloat32(buf)
-
-	buf, m.DiffPressure = unmarshalFloat32(buf)
-
-	buf, m.Eas2tas = unmarshalFloat32(buf)
-
-	buf, m.Ratio = unmarshalFloat32(buf)
-
-	buf, m.StateX = unmarshalFloat32(buf)
-
-	buf, m.StateY = unmarshalFloat32(buf)
-
-	buf, m.StateZ = unmarshalFloat32(buf)
-
-	buf, m.Pax = unmarshalFloat32(buf)
-
-	buf, m.Pby = unmarshalFloat32(buf)
-
-	buf, m.Pcz = unmarshalFloat32(buf)
-
-	return buf
-}
-
-func (m *AirspeedAutocal) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* A rally point. Used to set a point when from GCS -> MAV. Also used to return a point from MAV -> GCS. */
-type RallyPoint struct {
-	/* Latitude of point. */
-	Lat int32
-
-	/* Longitude of point. */
-	Lng int32
-
-	/* Transit / loiter altitude relative to home. */
-	Alt int16
-
-	/* Break altitude relative to home. */
-	BreakAlt int16
-
-	/* Heading to aim for when landing. */
-	LandDir uint16
-
-	/* System ID. */
-	TargetSystem byte
-
-	/* Component ID. */
-	TargetComponent byte
-
-	/* Point index (first point is 0). */
-	Idx byte
-
-	/* Total number of points (for sanity checking). */
-	Count byte
-
-	/* Configuration flags. */
-	Flags RallyFlags // byte
-
-}
-
-func (m *RallyPoint) ID() int        { return 175 }
-func (m *RallyPoint) CRCExtra() byte { return 138 }
-
-func (m *RallyPoint) MarshalV1(buf []byte) []byte {
-	buf = marshalInt32(buf, (m.Lat))
-	buf = marshalInt32(buf, (m.Lng))
-	buf = marshalInt16(buf, (m.Alt))
-	buf = marshalInt16(buf, (m.BreakAlt))
-	buf = marshalUint16(buf, (m.LandDir))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-	buf = marshalByte(buf, (m.Idx))
-	buf = marshalByte(buf, (m.Count))
-	buf = marshalByte(buf, byte(m.Flags))
-
-	return buf
-}
-
-func (m *RallyPoint) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *RallyPoint) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Lat = unmarshalInt32(buf)
-
-	buf, m.Lng = unmarshalInt32(buf)
-
-	buf, m.Alt = unmarshalInt16(buf)
-
-	buf, m.BreakAlt = unmarshalInt16(buf)
-
-	buf, m.LandDir = unmarshalUint16(buf)
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	buf, m.Idx = unmarshalByte(buf)
-
-	buf, m.Count = unmarshalByte(buf)
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.Flags = RallyFlags(v)
-	}
-
-	return buf
-}
-
-func (m *RallyPoint) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Request a current rally point from MAV. MAV should respond with a RALLY_POINT message. MAV should not respond if the request is invalid. */
-type RallyFetchPoint struct {
-	/* System ID. */
-	TargetSystem byte
-
-	/* Component ID. */
-	TargetComponent byte
-
-	/* Point index (first point is 0). */
-	Idx byte
-}
-
-func (m *RallyFetchPoint) ID() int        { return 176 }
-func (m *RallyFetchPoint) CRCExtra() byte { return 234 }
-
-func (m *RallyFetchPoint) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-	buf = marshalByte(buf, (m.Idx))
-
-	return buf
-}
-
-func (m *RallyFetchPoint) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *RallyFetchPoint) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	buf, m.Idx = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *RallyFetchPoint) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Status of compassmot calibration. */
-type CompassmotStatus struct {
-	/* Current. */
-	Current float32
-
-	/* Motor Compensation X. */
-	Compensationx float32
-
-	/* Motor Compensation Y. */
-	Compensationy float32
-
-	/* Motor Compensation Z. */
-	Compensationz float32
-
-	/* Throttle. */
-	Throttle uint16
-
-	/* Interference. */
-	Interference uint16
-}
-
-func (m *CompassmotStatus) ID() int        { return 177 }
-func (m *CompassmotStatus) CRCExtra() byte { return 240 }
-
-func (m *CompassmotStatus) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Current))
-	buf = marshalFloat32(buf, (m.Compensationx))
-	buf = marshalFloat32(buf, (m.Compensationy))
-	buf = marshalFloat32(buf, (m.Compensationz))
-	buf = marshalUint16(buf, (m.Throttle))
-	buf = marshalUint16(buf, (m.Interference))
-
-	return buf
-}
-
-func (m *CompassmotStatus) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *CompassmotStatus) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Current = unmarshalFloat32(buf)
-
-	buf, m.Compensationx = unmarshalFloat32(buf)
-
-	buf, m.Compensationy = unmarshalFloat32(buf)
-
-	buf, m.Compensationz = unmarshalFloat32(buf)
-
-	buf, m.Throttle = unmarshalUint16(buf)
-
-	buf, m.Interference = unmarshalUint16(buf)
-
-	return buf
-}
-
-func (m *CompassmotStatus) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Status of secondary AHRS filter if available. */
-type Ahrs2 struct {
-	/* Roll angle. */
-	Roll float32
-
-	/* Pitch angle. */
-	Pitch float32
-
-	/* Yaw angle. */
-	Yaw float32
-
-	/* Altitude (MSL). */
-	Altitude float32
-
-	/* Latitude. */
-	Lat int32
-
-	/* Longitude. */
-	Lng int32
-}
-
-func (m *Ahrs2) ID() int        { return 178 }
-func (m *Ahrs2) CRCExtra() byte { return 47 }
-
-func (m *Ahrs2) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Roll))
-	buf = marshalFloat32(buf, (m.Pitch))
-	buf = marshalFloat32(buf, (m.Yaw))
-	buf = marshalFloat32(buf, (m.Altitude))
-	buf = marshalInt32(buf, (m.Lat))
-	buf = marshalInt32(buf, (m.Lng))
-
-	return buf
-}
-
-func (m *Ahrs2) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *Ahrs2) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Roll = unmarshalFloat32(buf)
-
-	buf, m.Pitch = unmarshalFloat32(buf)
-
-	buf, m.Yaw = unmarshalFloat32(buf)
-
-	buf, m.Altitude = unmarshalFloat32(buf)
-
-	buf, m.Lat = unmarshalInt32(buf)
-
-	buf, m.Lng = unmarshalInt32(buf)
-
-	return buf
-}
-
-func (m *Ahrs2) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Camera Event. */
-type CameraStatus struct {
-	/* Image timestamp (since UNIX epoch, according to camera clock). */
-	TimeUsec uint64
-
-	/* Parameter 1 (meaning depends on event_id, see CAMERA_STATUS_TYPES enum). */
-	P1 float32
-
-	/* Parameter 2 (meaning depends on event_id, see CAMERA_STATUS_TYPES enum). */
-	P2 float32
-
-	/* Parameter 3 (meaning depends on event_id, see CAMERA_STATUS_TYPES enum). */
-	P3 float32
-
-	/* Parameter 4 (meaning depends on event_id, see CAMERA_STATUS_TYPES enum). */
-	P4 float32
-
-	/* Image index. */
-	ImgIdx uint16
-
-	/* System ID. */
-	TargetSystem byte
-
-	/* Camera ID. */
-	CamIdx byte
-
-	/* Event type. */
-	EventId CameraStatusTypes // byte
-
-}
-
-func (m *CameraStatus) ID() int        { return 179 }
-func (m *CameraStatus) CRCExtra() byte { return 189 }
-
-func (m *CameraStatus) MarshalV1(buf []byte) []byte {
-	buf = marshalUint64(buf, (m.TimeUsec))
-	buf = marshalFloat32(buf, (m.P1))
-	buf = marshalFloat32(buf, (m.P2))
-	buf = marshalFloat32(buf, (m.P3))
-	buf = marshalFloat32(buf, (m.P4))
-	buf = marshalUint16(buf, (m.ImgIdx))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.CamIdx))
-	buf = marshalByte(buf, byte(m.EventId))
-
-	return buf
-}
-
-func (m *CameraStatus) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *CameraStatus) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.TimeUsec = unmarshalUint64(buf)
-
-	buf, m.P1 = unmarshalFloat32(buf)
-
-	buf, m.P2 = unmarshalFloat32(buf)
-
-	buf, m.P3 = unmarshalFloat32(buf)
-
-	buf, m.P4 = unmarshalFloat32(buf)
-
-	buf, m.ImgIdx = unmarshalUint16(buf)
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.CamIdx = unmarshalByte(buf)
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.EventId = CameraStatusTypes(v)
-	}
-
-	return buf
-}
-
-func (m *CameraStatus) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Camera Capture Feedback. */
-type CameraFeedback struct {
-	/* Image timestamp (since UNIX epoch), as passed in by CAMERA_STATUS message (or autopilot if no CCB). */
-	TimeUsec uint64
-
-	/* Latitude. */
-	Lat int32
-
-	/* Longitude. */
-	Lng int32
-
-	/* Altitude (MSL). */
-	AltMsl float32
-
-	/* Altitude (Relative to HOME location). */
-	AltRel float32
-
-	/* Camera Roll angle (earth frame, +-180). */
-	Roll float32
-
-	/* Camera Pitch angle (earth frame, +-180). */
-	Pitch float32
-
-	/* Camera Yaw (earth frame, 0-360, true). */
-	Yaw float32
-
-	/* Focal Length. */
-	FocLen float32
-
-	/* Image index. */
-	ImgIdx uint16
-
-	/* System ID. */
-	TargetSystem byte
-
-	/* Camera ID. */
-	CamIdx byte
-
-	/* Feedback flags. */
-	Flags CameraFeedbackFlags // byte
-
-	/* Completed image captures. */
-	CompletedCaptures uint16 /*EXTENSION*/
-
-}
-
-func (m *CameraFeedback) ID() int        { return 180 }
-func (m *CameraFeedback) CRCExtra() byte { return 52 }
-
-func (m *CameraFeedback) MarshalV1(buf []byte) []byte {
-	buf = marshalUint64(buf, (m.TimeUsec))
-	buf = marshalInt32(buf, (m.Lat))
-	buf = marshalInt32(buf, (m.Lng))
-	buf = marshalFloat32(buf, (m.AltMsl))
-	buf = marshalFloat32(buf, (m.AltRel))
-	buf = marshalFloat32(buf, (m.Roll))
-	buf = marshalFloat32(buf, (m.Pitch))
-	buf = marshalFloat32(buf, (m.Yaw))
-	buf = marshalFloat32(buf, (m.FocLen))
-	buf = marshalUint16(buf, (m.ImgIdx))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.CamIdx))
-	buf = marshalByte(buf, byte(m.Flags))
-
-	return buf
-}
-
-func (m *CameraFeedback) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-	buf = marshalUint16(buf, (m.CompletedCaptures))
-
-	return buf
-}
-
-func (m *CameraFeedback) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.TimeUsec = unmarshalUint64(buf)
-
-	buf, m.Lat = unmarshalInt32(buf)
-
-	buf, m.Lng = unmarshalInt32(buf)
-
-	buf, m.AltMsl = unmarshalFloat32(buf)
-
-	buf, m.AltRel = unmarshalFloat32(buf)
-
-	buf, m.Roll = unmarshalFloat32(buf)
-
-	buf, m.Pitch = unmarshalFloat32(buf)
-
-	buf, m.Yaw = unmarshalFloat32(buf)
-
-	buf, m.FocLen = unmarshalFloat32(buf)
-
-	buf, m.ImgIdx = unmarshalUint16(buf)
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.CamIdx = unmarshalByte(buf)
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.Flags = CameraFeedbackFlags(v)
-	}
-
-	return buf
-}
-
-func (m *CameraFeedback) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-	buf, m.CompletedCaptures = unmarshalUint16(buf)
-
-	return buf
-}
-
-/* 2nd Battery status */
-type Battery2 struct {
-	/* Voltage. */
-	Voltage uint16
-
-	/* Battery current, -1: autopilot does not measure the current. */
-	CurrentBattery int16
-}
-
-func (m *Battery2) ID() int        { return 181 }
-func (m *Battery2) CRCExtra() byte { return 174 }
-
-func (m *Battery2) MarshalV1(buf []byte) []byte {
-	buf = marshalUint16(buf, (m.Voltage))
-	buf = marshalInt16(buf, (m.CurrentBattery))
-
-	return buf
-}
-
-func (m *Battery2) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *Battery2) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Voltage = unmarshalUint16(buf)
-
-	buf, m.CurrentBattery = unmarshalInt16(buf)
-
-	return buf
-}
-
-func (m *Battery2) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Status of third AHRS filter if available. This is for ANU research group (Ali and Sean). */
-type Ahrs3 struct {
-	/* Roll angle. */
-	Roll float32
-
-	/* Pitch angle. */
-	Pitch float32
-
-	/* Yaw angle. */
-	Yaw float32
-
-	/* Altitude (MSL). */
-	Altitude float32
-
-	/* Latitude. */
-	Lat int32
-
-	/* Longitude. */
-	Lng int32
-
-	/* Test variable1. */
-	V1 float32
-
-	/* Test variable2. */
-	V2 float32
-
-	/* Test variable3. */
-	V3 float32
-
-	/* Test variable4. */
-	V4 float32
-}
-
-func (m *Ahrs3) ID() int        { return 182 }
-func (m *Ahrs3) CRCExtra() byte { return 229 }
-
-func (m *Ahrs3) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Roll))
-	buf = marshalFloat32(buf, (m.Pitch))
-	buf = marshalFloat32(buf, (m.Yaw))
-	buf = marshalFloat32(buf, (m.Altitude))
-	buf = marshalInt32(buf, (m.Lat))
-	buf = marshalInt32(buf, (m.Lng))
-	buf = marshalFloat32(buf, (m.V1))
-	buf = marshalFloat32(buf, (m.V2))
-	buf = marshalFloat32(buf, (m.V3))
-	buf = marshalFloat32(buf, (m.V4))
-
-	return buf
-}
-
-func (m *Ahrs3) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *Ahrs3) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Roll = unmarshalFloat32(buf)
-
-	buf, m.Pitch = unmarshalFloat32(buf)
-
-	buf, m.Yaw = unmarshalFloat32(buf)
-
-	buf, m.Altitude = unmarshalFloat32(buf)
-
-	buf, m.Lat = unmarshalInt32(buf)
-
-	buf, m.Lng = unmarshalInt32(buf)
-
-	buf, m.V1 = unmarshalFloat32(buf)
-
-	buf, m.V2 = unmarshalFloat32(buf)
-
-	buf, m.V3 = unmarshalFloat32(buf)
-
-	buf, m.V4 = unmarshalFloat32(buf)
-
-	return buf
-}
-
-func (m *Ahrs3) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Request the autopilot version from the system/component. */
-type AutopilotVersionRequest struct {
-	/* System ID. */
-	TargetSystem byte
-
-	/* Component ID. */
-	TargetComponent byte
-}
-
-func (m *AutopilotVersionRequest) ID() int        { return 183 }
-func (m *AutopilotVersionRequest) CRCExtra() byte { return 85 }
-
-func (m *AutopilotVersionRequest) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-
-	return buf
-}
-
-func (m *AutopilotVersionRequest) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *AutopilotVersionRequest) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *AutopilotVersionRequest) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Send a block of log data to remote location. */
-type RemoteLogDataBlock struct {
-	/* Log data block sequence number. */
-	Seqno MavRemoteLogDataBlockCommands // uint32
-
-	/* System ID. */
-	TargetSystem byte
-
-	/* Component ID. */
-	TargetComponent byte
-
-	/* Log data block. */
-	Data [200]byte
-}
-
-func (m *RemoteLogDataBlock) ID() int        { return 184 }
-func (m *RemoteLogDataBlock) CRCExtra() byte { return 159 }
-
-func (m *RemoteLogDataBlock) MarshalV1(buf []byte) []byte {
-	buf = marshalUint32(buf, uint32(m.Seqno))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-	for _, v := range m.Data {
-		buf = marshalByte(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *RemoteLogDataBlock) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *RemoteLogDataBlock) UnmarshalV1(buf []byte) []byte {
-
-	{
-		var v uint32
-		buf, v = unmarshalUint32(buf)
-		m.Seqno = MavRemoteLogDataBlockCommands(v)
-	}
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	for i, _ := range m.Data {
-		buf, m.Data[i] = unmarshalByte(buf)
-	}
-
-	return buf
-}
-
-func (m *RemoteLogDataBlock) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Send Status of each log block that autopilot board might have sent. */
-type RemoteLogBlockStatus struct {
-	/* Log data block sequence number. */
-	Seqno uint32
-
-	/* System ID. */
-	TargetSystem byte
-
-	/* Component ID. */
-	TargetComponent byte
-
-	/* Log data block status. */
-	Status MavRemoteLogDataBlockStatuses // byte
-
-}
-
-func (m *RemoteLogBlockStatus) ID() int        { return 185 }
-func (m *RemoteLogBlockStatus) CRCExtra() byte { return 186 }
-
-func (m *RemoteLogBlockStatus) MarshalV1(buf []byte) []byte {
-	buf = marshalUint32(buf, (m.Seqno))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-	buf = marshalByte(buf, byte(m.Status))
-
-	return buf
-}
-
-func (m *RemoteLogBlockStatus) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *RemoteLogBlockStatus) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Seqno = unmarshalUint32(buf)
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.Status = MavRemoteLogDataBlockStatuses(v)
-	}
-
-	return buf
-}
-
-func (m *RemoteLogBlockStatus) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Control vehicle LEDs. */
-type LedControl struct {
-	/* System ID. */
-	TargetSystem byte
-
-	/* Component ID. */
-	TargetComponent byte
-
-	/* Instance (LED instance to control or 255 for all LEDs). */
-	Instance byte
-
-	/* Pattern (see LED_PATTERN_ENUM). */
-	Pattern byte
-
-	/* Custom Byte Length. */
-	CustomLen byte
-
-	/* Custom Bytes. */
-	CustomBytes [24]byte
-}
-
-func (m *LedControl) ID() int        { return 186 }
-func (m *LedControl) CRCExtra() byte { return 72 }
-
-func (m *LedControl) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-	buf = marshalByte(buf, (m.Instance))
-	buf = marshalByte(buf, (m.Pattern))
-	buf = marshalByte(buf, (m.CustomLen))
-	for _, v := range m.CustomBytes {
-		buf = marshalByte(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *LedControl) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *LedControl) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	buf, m.Instance = unmarshalByte(buf)
-
-	buf, m.Pattern = unmarshalByte(buf)
-
-	buf, m.CustomLen = unmarshalByte(buf)
-
-	for i, _ := range m.CustomBytes {
-		buf, m.CustomBytes[i] = unmarshalByte(buf)
-	}
-
-	return buf
-}
-
-func (m *LedControl) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Reports progress of compass calibration. */
-type MagCalProgress struct {
-	/* Body frame direction vector for display. */
-	DirectionX float32
-
-	/* Body frame direction vector for display. */
-	DirectionY float32
-
-	/* Body frame direction vector for display. */
-	DirectionZ float32
-
-	/* Compass being calibrated. */
-	CompassId byte
-
-	/* Bitmask of compasses being calibrated. */
-	CalMask byte
-
-	/* Calibration Status. */
-	CalStatus MagCalStatus // byte
-
-	/* Attempt number. */
-	Attempt byte
-
-	/* Completion percentage. */
-	CompletionPct byte
-
-	/* Bitmask of sphere sections (see http://en.wikipedia.org/wiki/Geodesic_grid). */
-	CompletionMask [10]byte
-}
-
-func (m *MagCalProgress) ID() int        { return 191 }
-func (m *MagCalProgress) CRCExtra() byte { return 92 }
-
-func (m *MagCalProgress) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.DirectionX))
-	buf = marshalFloat32(buf, (m.DirectionY))
-	buf = marshalFloat32(buf, (m.DirectionZ))
-	buf = marshalByte(buf, (m.CompassId))
-	buf = marshalByte(buf, (m.CalMask))
-	buf = marshalByte(buf, byte(m.CalStatus))
-	buf = marshalByte(buf, (m.Attempt))
-	buf = marshalByte(buf, (m.CompletionPct))
-	for _, v := range m.CompletionMask {
-		buf = marshalByte(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *MagCalProgress) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *MagCalProgress) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.DirectionX = unmarshalFloat32(buf)
-
-	buf, m.DirectionY = unmarshalFloat32(buf)
-
-	buf, m.DirectionZ = unmarshalFloat32(buf)
-
-	buf, m.CompassId = unmarshalByte(buf)
-
-	buf, m.CalMask = unmarshalByte(buf)
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.CalStatus = MagCalStatus(v)
-	}
-
-	buf, m.Attempt = unmarshalByte(buf)
-
-	buf, m.CompletionPct = unmarshalByte(buf)
-
-	for i, _ := range m.CompletionMask {
-		buf, m.CompletionMask[i] = unmarshalByte(buf)
-	}
-
-	return buf
-}
-
-func (m *MagCalProgress) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Reports results of completed compass calibration. Sent until MAG_CAL_ACK received. */
-type MagCalReport struct {
-	/* RMS milligauss residuals. */
-	Fitness float32
-
-	/* X offset. */
-	OfsX float32
-
-	/* Y offset. */
-	OfsY float32
-
-	/* Z offset. */
-	OfsZ float32
-
-	/* X diagonal (matrix 11). */
-	DiagX float32
-
-	/* Y diagonal (matrix 22). */
-	DiagY float32
-
-	/* Z diagonal (matrix 33). */
-	DiagZ float32
-
-	/* X off-diagonal (matrix 12 and 21). */
-	OffdiagX float32
-
-	/* Y off-diagonal (matrix 13 and 31). */
-	OffdiagY float32
-
-	/* Z off-diagonal (matrix 32 and 23). */
-	OffdiagZ float32
-
-	/* Compass being calibrated. */
-	CompassId byte
-
-	/* Bitmask of compasses being calibrated. */
-	CalMask byte
-
-	/* Calibration Status. */
-	CalStatus MagCalStatus // byte
-
-	/* 0=requires a MAV_CMD_DO_ACCEPT_MAG_CAL, 1=saved to parameters. */
-	Autosaved byte
-
-	/* Confidence in orientation (higher is better). */
-	OrientationConfidence float32 /*EXTENSION*/
-
-	/* orientation before calibration. */
-	OldOrientation MavSensorOrientation // byte /*EXTENSION*/
-
-	/* orientation after calibration. */
-	NewOrientation MavSensorOrientation // byte /*EXTENSION*/
-
-}
-
-func (m *MagCalReport) ID() int        { return 192 }
-func (m *MagCalReport) CRCExtra() byte { return 36 }
-
-func (m *MagCalReport) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Fitness))
-	buf = marshalFloat32(buf, (m.OfsX))
-	buf = marshalFloat32(buf, (m.OfsY))
-	buf = marshalFloat32(buf, (m.OfsZ))
-	buf = marshalFloat32(buf, (m.DiagX))
-	buf = marshalFloat32(buf, (m.DiagY))
-	buf = marshalFloat32(buf, (m.DiagZ))
-	buf = marshalFloat32(buf, (m.OffdiagX))
-	buf = marshalFloat32(buf, (m.OffdiagY))
-	buf = marshalFloat32(buf, (m.OffdiagZ))
-	buf = marshalByte(buf, (m.CompassId))
-	buf = marshalByte(buf, (m.CalMask))
-	buf = marshalByte(buf, byte(m.CalStatus))
-	buf = marshalByte(buf, (m.Autosaved))
-
-	return buf
-}
-
-func (m *MagCalReport) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-	buf = marshalFloat32(buf, (m.OrientationConfidence))
-	buf = marshalByte(buf, byte(m.OldOrientation))
-	buf = marshalByte(buf, byte(m.NewOrientation))
-
-	return buf
-}
-
-func (m *MagCalReport) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Fitness = unmarshalFloat32(buf)
-
-	buf, m.OfsX = unmarshalFloat32(buf)
-
-	buf, m.OfsY = unmarshalFloat32(buf)
-
-	buf, m.OfsZ = unmarshalFloat32(buf)
-
-	buf, m.DiagX = unmarshalFloat32(buf)
-
-	buf, m.DiagY = unmarshalFloat32(buf)
-
-	buf, m.DiagZ = unmarshalFloat32(buf)
-
-	buf, m.OffdiagX = unmarshalFloat32(buf)
-
-	buf, m.OffdiagY = unmarshalFloat32(buf)
-
-	buf, m.OffdiagZ = unmarshalFloat32(buf)
-
-	buf, m.CompassId = unmarshalByte(buf)
-
-	buf, m.CalMask = unmarshalByte(buf)
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.CalStatus = MagCalStatus(v)
-	}
-
-	buf, m.Autosaved = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *MagCalReport) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-	buf, m.OrientationConfidence = unmarshalFloat32(buf)
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.OldOrientation = MavSensorOrientation(v)
-	}
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.NewOrientation = MavSensorOrientation(v)
-	}
-
-	return buf
-}
-
-/* EKF Status message including flags and variances. */
-type EkfStatusReport struct {
-	/* Velocity variance. */
-	VelocityVariance float32
-
-	/* Horizontal Position variance. */
-	PosHorizVariance float32
-
-	/* Vertical Position variance. */
-	PosVertVariance float32
-
-	/* Compass variance. */
-	CompassVariance float32
-
-	/* Terrain Altitude variance. */
-	TerrainAltVariance float32
-
-	/* Flags. */
-	Flags EkfStatusFlags // uint16
-
-	/* Airspeed variance. */
-	AirspeedVariance float32 /*EXTENSION*/
-
-}
-
-func (m *EkfStatusReport) ID() int        { return 193 }
-func (m *EkfStatusReport) CRCExtra() byte { return 71 }
-
-func (m *EkfStatusReport) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.VelocityVariance))
-	buf = marshalFloat32(buf, (m.PosHorizVariance))
-	buf = marshalFloat32(buf, (m.PosVertVariance))
-	buf = marshalFloat32(buf, (m.CompassVariance))
-	buf = marshalFloat32(buf, (m.TerrainAltVariance))
-	buf = marshalUint16(buf, uint16(m.Flags))
-
-	return buf
-}
-
-func (m *EkfStatusReport) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-	buf = marshalFloat32(buf, (m.AirspeedVariance))
-
-	return buf
-}
-
-func (m *EkfStatusReport) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.VelocityVariance = unmarshalFloat32(buf)
-
-	buf, m.PosHorizVariance = unmarshalFloat32(buf)
-
-	buf, m.PosVertVariance = unmarshalFloat32(buf)
-
-	buf, m.CompassVariance = unmarshalFloat32(buf)
-
-	buf, m.TerrainAltVariance = unmarshalFloat32(buf)
-
-	{
-		var v uint16
-		buf, v = unmarshalUint16(buf)
-		m.Flags = EkfStatusFlags(v)
-	}
-
-	return buf
-}
-
-func (m *EkfStatusReport) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-	buf, m.AirspeedVariance = unmarshalFloat32(buf)
-
-	return buf
-}
-
-/* PID tuning information. */
-type PidTuning struct {
-	/* Desired rate. */
-	Desired float32
-
-	/* Achieved rate. */
-	Achieved float32
-
-	/* FF component. */
-	Ff float32
-
-	/* P component. */
-	P float32
-
-	/* I component. */
-	I float32
-
-	/* D component. */
-	D float32
-
-	/* Axis. */
-	Axis PidTuningAxis // byte
-
-}
-
-func (m *PidTuning) ID() int        { return 194 }
-func (m *PidTuning) CRCExtra() byte { return 98 }
-
-func (m *PidTuning) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Desired))
-	buf = marshalFloat32(buf, (m.Achieved))
-	buf = marshalFloat32(buf, (m.Ff))
-	buf = marshalFloat32(buf, (m.P))
-	buf = marshalFloat32(buf, (m.I))
-	buf = marshalFloat32(buf, (m.D))
-	buf = marshalByte(buf, byte(m.Axis))
-
-	return buf
-}
-
-func (m *PidTuning) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *PidTuning) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Desired = unmarshalFloat32(buf)
-
-	buf, m.Achieved = unmarshalFloat32(buf)
-
-	buf, m.Ff = unmarshalFloat32(buf)
-
-	buf, m.P = unmarshalFloat32(buf)
-
-	buf, m.I = unmarshalFloat32(buf)
-
-	buf, m.D = unmarshalFloat32(buf)
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.Axis = PidTuningAxis(v)
-	}
-
-	return buf
-}
-
-func (m *PidTuning) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Deepstall path planning. */
-type Deepstall struct {
-	/* Landing latitude. */
-	LandingLat int32
-
-	/* Landing longitude. */
-	LandingLon int32
-
-	/* Final heading start point, latitude. */
-	PathLat int32
-
-	/* Final heading start point, longitude. */
-	PathLon int32
-
-	/* Arc entry point, latitude. */
-	ArcEntryLat int32
-
-	/* Arc entry point, longitude. */
-	ArcEntryLon int32
-
-	/* Altitude. */
-	Altitude float32
-
-	/* Distance the aircraft expects to travel during the deepstall. */
-	ExpectedTravelDistance float32
-
-	/* Deepstall cross track error (only valid when in DEEPSTALL_STAGE_LAND). */
-	CrossTrackError float32
-
-	/* Deepstall stage. */
-	Stage DeepstallStage // byte
-
-}
-
-func (m *Deepstall) ID() int        { return 195 }
-func (m *Deepstall) CRCExtra() byte { return 120 }
-
-func (m *Deepstall) MarshalV1(buf []byte) []byte {
-	buf = marshalInt32(buf, (m.LandingLat))
-	buf = marshalInt32(buf, (m.LandingLon))
-	buf = marshalInt32(buf, (m.PathLat))
-	buf = marshalInt32(buf, (m.PathLon))
-	buf = marshalInt32(buf, (m.ArcEntryLat))
-	buf = marshalInt32(buf, (m.ArcEntryLon))
-	buf = marshalFloat32(buf, (m.Altitude))
-	buf = marshalFloat32(buf, (m.ExpectedTravelDistance))
-	buf = marshalFloat32(buf, (m.CrossTrackError))
-	buf = marshalByte(buf, byte(m.Stage))
-
-	return buf
-}
-
-func (m *Deepstall) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *Deepstall) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.LandingLat = unmarshalInt32(buf)
-
-	buf, m.LandingLon = unmarshalInt32(buf)
-
-	buf, m.PathLat = unmarshalInt32(buf)
-
-	buf, m.PathLon = unmarshalInt32(buf)
-
-	buf, m.ArcEntryLat = unmarshalInt32(buf)
-
-	buf, m.ArcEntryLon = unmarshalInt32(buf)
-
-	buf, m.Altitude = unmarshalFloat32(buf)
-
-	buf, m.ExpectedTravelDistance = unmarshalFloat32(buf)
-
-	buf, m.CrossTrackError = unmarshalFloat32(buf)
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.Stage = DeepstallStage(v)
-	}
-
-	return buf
-}
-
-func (m *Deepstall) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* 3 axis gimbal measurements. */
-type GimbalReport struct {
-	/* Time since last update. */
-	DeltaTime float32
-
-	/* Delta angle X. */
-	DeltaAngleX float32
-
-	/* Delta angle Y. */
-	DeltaAngleY float32
-
-	/* Delta angle X. */
-	DeltaAngleZ float32
-
-	/* Delta velocity X. */
-	DeltaVelocityX float32
-
-	/* Delta velocity Y. */
-	DeltaVelocityY float32
-
-	/* Delta velocity Z. */
-	DeltaVelocityZ float32
-
-	/* Joint ROLL. */
-	JointRoll float32
-
-	/* Joint EL. */
-	JointEl float32
-
-	/* Joint AZ. */
-	JointAz float32
-
-	/* System ID. */
-	TargetSystem byte
-
-	/* Component ID. */
-	TargetComponent byte
-}
-
-func (m *GimbalReport) ID() int        { return 200 }
-func (m *GimbalReport) CRCExtra() byte { return 134 }
-
-func (m *GimbalReport) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.DeltaTime))
-	buf = marshalFloat32(buf, (m.DeltaAngleX))
-	buf = marshalFloat32(buf, (m.DeltaAngleY))
-	buf = marshalFloat32(buf, (m.DeltaAngleZ))
-	buf = marshalFloat32(buf, (m.DeltaVelocityX))
-	buf = marshalFloat32(buf, (m.DeltaVelocityY))
-	buf = marshalFloat32(buf, (m.DeltaVelocityZ))
-	buf = marshalFloat32(buf, (m.JointRoll))
-	buf = marshalFloat32(buf, (m.JointEl))
-	buf = marshalFloat32(buf, (m.JointAz))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-
-	return buf
-}
-
-func (m *GimbalReport) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *GimbalReport) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.DeltaTime = unmarshalFloat32(buf)
-
-	buf, m.DeltaAngleX = unmarshalFloat32(buf)
-
-	buf, m.DeltaAngleY = unmarshalFloat32(buf)
-
-	buf, m.DeltaAngleZ = unmarshalFloat32(buf)
-
-	buf, m.DeltaVelocityX = unmarshalFloat32(buf)
-
-	buf, m.DeltaVelocityY = unmarshalFloat32(buf)
-
-	buf, m.DeltaVelocityZ = unmarshalFloat32(buf)
-
-	buf, m.JointRoll = unmarshalFloat32(buf)
-
-	buf, m.JointEl = unmarshalFloat32(buf)
-
-	buf, m.JointAz = unmarshalFloat32(buf)
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *GimbalReport) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Control message for rate gimbal. */
-type GimbalControl struct {
-	/* Demanded angular rate X. */
-	DemandedRateX float32
-
-	/* Demanded angular rate Y. */
-	DemandedRateY float32
-
-	/* Demanded angular rate Z. */
-	DemandedRateZ float32
-
-	/* System ID. */
-	TargetSystem byte
-
-	/* Component ID. */
-	TargetComponent byte
-}
-
-func (m *GimbalControl) ID() int        { return 201 }
-func (m *GimbalControl) CRCExtra() byte { return 205 }
-
-func (m *GimbalControl) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.DemandedRateX))
-	buf = marshalFloat32(buf, (m.DemandedRateY))
-	buf = marshalFloat32(buf, (m.DemandedRateZ))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-
-	return buf
-}
-
-func (m *GimbalControl) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *GimbalControl) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.DemandedRateX = unmarshalFloat32(buf)
-
-	buf, m.DemandedRateY = unmarshalFloat32(buf)
-
-	buf, m.DemandedRateZ = unmarshalFloat32(buf)
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *GimbalControl) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* 100 Hz gimbal torque command telemetry. */
-type GimbalTorqueCmdReport struct {
-	/* Roll Torque Command. */
-	RlTorqueCmd int16
-
-	/* Elevation Torque Command. */
-	ElTorqueCmd int16
-
-	/* Azimuth Torque Command. */
-	AzTorqueCmd int16
-
-	/* System ID. */
-	TargetSystem byte
-
-	/* Component ID. */
-	TargetComponent byte
-}
-
-func (m *GimbalTorqueCmdReport) ID() int        { return 214 }
-func (m *GimbalTorqueCmdReport) CRCExtra() byte { return 69 }
-
-func (m *GimbalTorqueCmdReport) MarshalV1(buf []byte) []byte {
-	buf = marshalInt16(buf, (m.RlTorqueCmd))
-	buf = marshalInt16(buf, (m.ElTorqueCmd))
-	buf = marshalInt16(buf, (m.AzTorqueCmd))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-
-	return buf
-}
-
-func (m *GimbalTorqueCmdReport) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *GimbalTorqueCmdReport) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.RlTorqueCmd = unmarshalInt16(buf)
-
-	buf, m.ElTorqueCmd = unmarshalInt16(buf)
-
-	buf, m.AzTorqueCmd = unmarshalInt16(buf)
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *GimbalTorqueCmdReport) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Heartbeat from a HeroBus attached GoPro. */
-type GoproHeartbeat struct {
-	/* Status. */
-	Status GoproHeartbeatStatus // byte
-
-	/* Current capture mode. */
-	CaptureMode GoproCaptureMode // byte
-
-	/* Additional status bits. */
-	Flags GoproHeartbeatFlags // byte
-
-}
-
-func (m *GoproHeartbeat) ID() int        { return 215 }
-func (m *GoproHeartbeat) CRCExtra() byte { return 101 }
-
-func (m *GoproHeartbeat) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, byte(m.Status))
-	buf = marshalByte(buf, byte(m.CaptureMode))
-	buf = marshalByte(buf, byte(m.Flags))
-
-	return buf
-}
-
-func (m *GoproHeartbeat) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *GoproHeartbeat) UnmarshalV1(buf []byte) []byte {
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.Status = GoproHeartbeatStatus(v)
-	}
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.CaptureMode = GoproCaptureMode(v)
-	}
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.Flags = GoproHeartbeatFlags(v)
-	}
-
-	return buf
-}
-
-func (m *GoproHeartbeat) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Request a GOPRO_COMMAND response from the GoPro. */
-type GoproGetRequest struct {
-	/* System ID. */
-	TargetSystem byte
-
-	/* Component ID. */
-	TargetComponent byte
-
-	/* Command ID. */
-	CmdId GoproCommand // byte
-
-}
-
-func (m *GoproGetRequest) ID() int        { return 216 }
-func (m *GoproGetRequest) CRCExtra() byte { return 50 }
-
-func (m *GoproGetRequest) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-	buf = marshalByte(buf, byte(m.CmdId))
-
-	return buf
-}
-
-func (m *GoproGetRequest) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *GoproGetRequest) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.CmdId = GoproCommand(v)
-	}
-
-	return buf
-}
-
-func (m *GoproGetRequest) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Response from a GOPRO_COMMAND get request. */
-type GoproGetResponse struct {
-	/* Command ID. */
-	CmdId GoproCommand // byte
-
-	/* Status. */
-	Status GoproRequestStatus // byte
-
-	/* Value. */
-	Value [4]byte
-}
-
-func (m *GoproGetResponse) ID() int        { return 217 }
-func (m *GoproGetResponse) CRCExtra() byte { return 202 }
-
-func (m *GoproGetResponse) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, byte(m.CmdId))
-	buf = marshalByte(buf, byte(m.Status))
-	for _, v := range m.Value {
-		buf = marshalByte(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *GoproGetResponse) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *GoproGetResponse) UnmarshalV1(buf []byte) []byte {
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.CmdId = GoproCommand(v)
-	}
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.Status = GoproRequestStatus(v)
-	}
-
-	for i, _ := range m.Value {
-		buf, m.Value[i] = unmarshalByte(buf)
-	}
-
-	return buf
-}
-
-func (m *GoproGetResponse) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Request to set a GOPRO_COMMAND with a desired. */
-type GoproSetRequest struct {
-	/* System ID. */
-	TargetSystem byte
-
-	/* Component ID. */
-	TargetComponent byte
-
-	/* Command ID. */
-	CmdId GoproCommand // byte
-
-	/* Value. */
-	Value [4]byte
-}
-
-func (m *GoproSetRequest) ID() int        { return 218 }
-func (m *GoproSetRequest) CRCExtra() byte { return 17 }
-
-func (m *GoproSetRequest) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-	buf = marshalByte(buf, byte(m.CmdId))
-	for _, v := range m.Value {
-		buf = marshalByte(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *GoproSetRequest) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *GoproSetRequest) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.CmdId = GoproCommand(v)
-	}
-
-	for i, _ := range m.Value {
-		buf, m.Value[i] = unmarshalByte(buf)
-	}
-
-	return buf
-}
-
-func (m *GoproSetRequest) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Response from a GOPRO_COMMAND set request. */
-type GoproSetResponse struct {
-	/* Command ID. */
-	CmdId GoproCommand // byte
-
-	/* Status. */
-	Status GoproRequestStatus // byte
-
-}
-
-func (m *GoproSetResponse) ID() int        { return 219 }
-func (m *GoproSetResponse) CRCExtra() byte { return 162 }
-
-func (m *GoproSetResponse) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, byte(m.CmdId))
-	buf = marshalByte(buf, byte(m.Status))
-
-	return buf
-}
-
-func (m *GoproSetResponse) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *GoproSetResponse) UnmarshalV1(buf []byte) []byte {
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.CmdId = GoproCommand(v)
-	}
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.Status = GoproRequestStatus(v)
-	}
-
-	return buf
-}
-
-func (m *GoproSetResponse) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* RPM sensor output. */
-type Rpm struct {
-	/* RPM Sensor1. */
-	Rpm1 float32
-
-	/* RPM Sensor2. */
-	Rpm2 float32
-}
-
-func (m *Rpm) ID() int        { return 226 }
-func (m *Rpm) CRCExtra() byte { return 207 }
-
-func (m *Rpm) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Rpm1))
-	buf = marshalFloat32(buf, (m.Rpm2))
-
-	return buf
-}
-
-func (m *Rpm) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *Rpm) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Rpm1 = unmarshalFloat32(buf)
-
-	buf, m.Rpm2 = unmarshalFloat32(buf)
-
-	return buf
-}
-
-func (m *Rpm) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Read registers for a device. */
-type DeviceOpRead struct {
-	/* Request ID - copied to reply. */
-	RequestId uint32
-
-	/* System ID. */
-	TargetSystem byte
-
-	/* Component ID. */
-	TargetComponent byte
-
-	/* The bus type. */
-	Bustype DeviceOpBustype // byte
-
-	/* Bus number. */
-	Bus byte
-
-	/* Bus address. */
-	Address byte
-
-	/* Name of device on bus (for SPI). */
-	Busname [40]byte
-
-	/* First register to read. */
-	Regstart byte
-
-	/* Count of registers to read. */
-	Count byte
-}
-
-func (m *DeviceOpRead) ID() int        { return 11000 }
-func (m *DeviceOpRead) CRCExtra() byte { return 134 }
-
-func (m *DeviceOpRead) MarshalV1(buf []byte) []byte {
-	buf = marshalUint32(buf, (m.RequestId))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-	buf = marshalByte(buf, byte(m.Bustype))
-	buf = marshalByte(buf, (m.Bus))
-	buf = marshalByte(buf, (m.Address))
-	for _, v := range m.Busname {
-		buf = marshalByte(buf, (v))
-	}
-	buf = marshalByte(buf, (m.Regstart))
-	buf = marshalByte(buf, (m.Count))
-
-	return buf
-}
-
-func (m *DeviceOpRead) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *DeviceOpRead) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.RequestId = unmarshalUint32(buf)
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.Bustype = DeviceOpBustype(v)
-	}
-
-	buf, m.Bus = unmarshalByte(buf)
-
-	buf, m.Address = unmarshalByte(buf)
-
-	for i, _ := range m.Busname {
-		buf, m.Busname[i] = unmarshalByte(buf)
-	}
-
-	buf, m.Regstart = unmarshalByte(buf)
-
-	buf, m.Count = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *DeviceOpRead) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Read registers reply. */
-type DeviceOpReadReply struct {
-	/* Request ID - copied from request. */
-	RequestId uint32
-
-	/* 0 for success, anything else is failure code. */
-	Result byte
-
-	/* Starting register. */
-	Regstart byte
-
-	/* Count of bytes read. */
-	Count byte
-
-	/* Reply data. */
-	Data [128]byte
-}
-
-func (m *DeviceOpReadReply) ID() int        { return 11001 }
-func (m *DeviceOpReadReply) CRCExtra() byte { return 15 }
-
-func (m *DeviceOpReadReply) MarshalV1(buf []byte) []byte {
-	buf = marshalUint32(buf, (m.RequestId))
-	buf = marshalByte(buf, (m.Result))
-	buf = marshalByte(buf, (m.Regstart))
-	buf = marshalByte(buf, (m.Count))
-	for _, v := range m.Data {
-		buf = marshalByte(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *DeviceOpReadReply) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *DeviceOpReadReply) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.RequestId = unmarshalUint32(buf)
-
-	buf, m.Result = unmarshalByte(buf)
-
-	buf, m.Regstart = unmarshalByte(buf)
-
-	buf, m.Count = unmarshalByte(buf)
-
-	for i, _ := range m.Data {
-		buf, m.Data[i] = unmarshalByte(buf)
-	}
-
-	return buf
-}
-
-func (m *DeviceOpReadReply) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Write registers for a device. */
-type DeviceOpWrite struct {
-	/* Request ID - copied to reply. */
-	RequestId uint32
-
-	/* System ID. */
-	TargetSystem byte
-
-	/* Component ID. */
-	TargetComponent byte
-
-	/* The bus type. */
-	Bustype DeviceOpBustype // byte
-
-	/* Bus number. */
-	Bus byte
-
-	/* Bus address. */
-	Address byte
-
-	/* Name of device on bus (for SPI). */
-	Busname [40]byte
-
-	/* First register to write. */
-	Regstart byte
-
-	/* Count of registers to write. */
-	Count byte
-
-	/* Write data. */
-	Data [128]byte
-}
-
-func (m *DeviceOpWrite) ID() int        { return 11002 }
-func (m *DeviceOpWrite) CRCExtra() byte { return 234 }
-
-func (m *DeviceOpWrite) MarshalV1(buf []byte) []byte {
-	buf = marshalUint32(buf, (m.RequestId))
-	buf = marshalByte(buf, (m.TargetSystem))
-	buf = marshalByte(buf, (m.TargetComponent))
-	buf = marshalByte(buf, byte(m.Bustype))
-	buf = marshalByte(buf, (m.Bus))
-	buf = marshalByte(buf, (m.Address))
-	for _, v := range m.Busname {
-		buf = marshalByte(buf, (v))
-	}
-	buf = marshalByte(buf, (m.Regstart))
-	buf = marshalByte(buf, (m.Count))
-	for _, v := range m.Data {
-		buf = marshalByte(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *DeviceOpWrite) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *DeviceOpWrite) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.RequestId = unmarshalUint32(buf)
-
-	buf, m.TargetSystem = unmarshalByte(buf)
-
-	buf, m.TargetComponent = unmarshalByte(buf)
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.Bustype = DeviceOpBustype(v)
-	}
-
-	buf, m.Bus = unmarshalByte(buf)
-
-	buf, m.Address = unmarshalByte(buf)
-
-	for i, _ := range m.Busname {
-		buf, m.Busname[i] = unmarshalByte(buf)
-	}
-
-	buf, m.Regstart = unmarshalByte(buf)
-
-	buf, m.Count = unmarshalByte(buf)
-
-	for i, _ := range m.Data {
-		buf, m.Data[i] = unmarshalByte(buf)
-	}
-
-	return buf
-}
-
-func (m *DeviceOpWrite) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Write registers reply. */
-type DeviceOpWriteReply struct {
-	/* Request ID - copied from request. */
-	RequestId uint32
-
-	/* 0 for success, anything else is failure code. */
-	Result byte
-}
-
-func (m *DeviceOpWriteReply) ID() int        { return 11003 }
-func (m *DeviceOpWriteReply) CRCExtra() byte { return 64 }
-
-func (m *DeviceOpWriteReply) MarshalV1(buf []byte) []byte {
-	buf = marshalUint32(buf, (m.RequestId))
-	buf = marshalByte(buf, (m.Result))
-
-	return buf
-}
-
-func (m *DeviceOpWriteReply) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *DeviceOpWriteReply) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.RequestId = unmarshalUint32(buf)
-
-	buf, m.Result = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *DeviceOpWriteReply) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Adaptive Controller tuning information. */
-type AdapTuning struct {
-	/* Desired rate. */
-	Desired float32
-
-	/* Achieved rate. */
-	Achieved float32
-
-	/* Error between model and vehicle. */
-	Error float32
-
-	/* Theta estimated state predictor. */
-	Theta float32
-
-	/* Omega estimated state predictor. */
-	Omega float32
-
-	/* Sigma estimated state predictor. */
-	Sigma float32
-
-	/* Theta derivative. */
-	ThetaDot float32
-
-	/* Omega derivative. */
-	OmegaDot float32
-
-	/* Sigma derivative. */
-	SigmaDot float32
-
-	/* Projection operator value. */
-	F float32
-
-	/* Projection operator derivative. */
-	FDot float32
-
-	/* u adaptive controlled output command. */
-	U float32
-
-	/* Axis. */
-	Axis PidTuningAxis // byte
-
-}
-
-func (m *AdapTuning) ID() int        { return 11010 }
-func (m *AdapTuning) CRCExtra() byte { return 46 }
-
-func (m *AdapTuning) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Desired))
-	buf = marshalFloat32(buf, (m.Achieved))
-	buf = marshalFloat32(buf, (m.Error))
-	buf = marshalFloat32(buf, (m.Theta))
-	buf = marshalFloat32(buf, (m.Omega))
-	buf = marshalFloat32(buf, (m.Sigma))
-	buf = marshalFloat32(buf, (m.ThetaDot))
-	buf = marshalFloat32(buf, (m.OmegaDot))
-	buf = marshalFloat32(buf, (m.SigmaDot))
-	buf = marshalFloat32(buf, (m.F))
-	buf = marshalFloat32(buf, (m.FDot))
-	buf = marshalFloat32(buf, (m.U))
-	buf = marshalByte(buf, byte(m.Axis))
-
-	return buf
-}
-
-func (m *AdapTuning) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *AdapTuning) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Desired = unmarshalFloat32(buf)
-
-	buf, m.Achieved = unmarshalFloat32(buf)
-
-	buf, m.Error = unmarshalFloat32(buf)
-
-	buf, m.Theta = unmarshalFloat32(buf)
-
-	buf, m.Omega = unmarshalFloat32(buf)
-
-	buf, m.Sigma = unmarshalFloat32(buf)
-
-	buf, m.ThetaDot = unmarshalFloat32(buf)
-
-	buf, m.OmegaDot = unmarshalFloat32(buf)
-
-	buf, m.SigmaDot = unmarshalFloat32(buf)
-
-	buf, m.F = unmarshalFloat32(buf)
-
-	buf, m.FDot = unmarshalFloat32(buf)
-
-	buf, m.U = unmarshalFloat32(buf)
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.Axis = PidTuningAxis(v)
-	}
-
-	return buf
-}
-
-func (m *AdapTuning) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Camera vision based attitude and position deltas. */
-type VisionPositionDelta struct {
-	/* Timestamp (synced to UNIX time or since system boot). */
-	TimeUsec uint64
-
-	/* Time since the last reported camera frame. */
-	TimeDeltaUsec uint64
-
-	/* Defines a rotation vector in body frame that rotates the vehicle from the previous to the current orientation. */
-	AngleDelta [3]float32
-
-	/* Change in position from previous to current frame rotated into body frame (0=forward, 1=right, 2=down). */
-	PositionDelta [3]float32
-
-	/* Normalised confidence value from 0 to 100. */
-	Confidence float32
-}
-
-func (m *VisionPositionDelta) ID() int        { return 11011 }
-func (m *VisionPositionDelta) CRCExtra() byte { return 106 }
-
-func (m *VisionPositionDelta) MarshalV1(buf []byte) []byte {
-	buf = marshalUint64(buf, (m.TimeUsec))
-	buf = marshalUint64(buf, (m.TimeDeltaUsec))
-	for _, v := range m.AngleDelta {
-		buf = marshalFloat32(buf, (v))
-	}
-	for _, v := range m.PositionDelta {
-		buf = marshalFloat32(buf, (v))
-	}
-	buf = marshalFloat32(buf, (m.Confidence))
-
-	return buf
-}
-
-func (m *VisionPositionDelta) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *VisionPositionDelta) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.TimeUsec = unmarshalUint64(buf)
-
-	buf, m.TimeDeltaUsec = unmarshalUint64(buf)
-
-	for i, _ := range m.AngleDelta {
-		buf, m.AngleDelta[i] = unmarshalFloat32(buf)
-	}
-
-	for i, _ := range m.PositionDelta {
-		buf, m.PositionDelta[i] = unmarshalFloat32(buf)
-	}
-
-	buf, m.Confidence = unmarshalFloat32(buf)
-
-	return buf
-}
-
-func (m *VisionPositionDelta) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Angle of Attack and Side Slip Angle. */
-type AoaSsa struct {
-	/* Timestamp (since boot or Unix epoch). */
-	TimeUsec uint64
-
-	/* Angle of Attack. */
-	Aoa float32
-
-	/* Side Slip Angle. */
-	Ssa float32
-}
-
-func (m *AoaSsa) ID() int        { return 11020 }
-func (m *AoaSsa) CRCExtra() byte { return 205 }
-
-func (m *AoaSsa) MarshalV1(buf []byte) []byte {
-	buf = marshalUint64(buf, (m.TimeUsec))
-	buf = marshalFloat32(buf, (m.Aoa))
-	buf = marshalFloat32(buf, (m.Ssa))
-
-	return buf
-}
-
-func (m *AoaSsa) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *AoaSsa) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.TimeUsec = unmarshalUint64(buf)
-
-	buf, m.Aoa = unmarshalFloat32(buf)
-
-	buf, m.Ssa = unmarshalFloat32(buf)
-
-	return buf
-}
-
-func (m *AoaSsa) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* ESC Telemetry Data for ESCs 1 to 4, matching data sent by BLHeli ESCs. */
-type EscTelemetry1To4 struct {
-	/* Voltage. */
-	Voltage [4]uint16
-
-	/* Current. */
-	Current [4]uint16
-
-	/* Total current. */
-	Totalcurrent [4]uint16
-
-	/* RPM (eRPM). */
-	Rpm [4]uint16
-
-	/* count of telemetry packets received (wraps at 65535). */
-	Count [4]uint16
-
-	/* Temperature. */
-	Temperature [4]byte
-}
-
-func (m *EscTelemetry1To4) ID() int        { return 11030 }
-func (m *EscTelemetry1To4) CRCExtra() byte { return 144 }
-
-func (m *EscTelemetry1To4) MarshalV1(buf []byte) []byte {
-	for _, v := range m.Voltage {
-		buf = marshalUint16(buf, (v))
-	}
-	for _, v := range m.Current {
-		buf = marshalUint16(buf, (v))
-	}
-	for _, v := range m.Totalcurrent {
-		buf = marshalUint16(buf, (v))
-	}
-	for _, v := range m.Rpm {
-		buf = marshalUint16(buf, (v))
-	}
-	for _, v := range m.Count {
-		buf = marshalUint16(buf, (v))
-	}
-	for _, v := range m.Temperature {
-		buf = marshalByte(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *EscTelemetry1To4) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *EscTelemetry1To4) UnmarshalV1(buf []byte) []byte {
-
-	for i, _ := range m.Voltage {
-		buf, m.Voltage[i] = unmarshalUint16(buf)
-	}
-
-	for i, _ := range m.Current {
-		buf, m.Current[i] = unmarshalUint16(buf)
-	}
-
-	for i, _ := range m.Totalcurrent {
-		buf, m.Totalcurrent[i] = unmarshalUint16(buf)
-	}
-
-	for i, _ := range m.Rpm {
-		buf, m.Rpm[i] = unmarshalUint16(buf)
-	}
-
-	for i, _ := range m.Count {
-		buf, m.Count[i] = unmarshalUint16(buf)
-	}
-
-	for i, _ := range m.Temperature {
-		buf, m.Temperature[i] = unmarshalByte(buf)
-	}
-
-	return buf
-}
-
-func (m *EscTelemetry1To4) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* ESC Telemetry Data for ESCs 5 to 8, matching data sent by BLHeli ESCs. */
-type EscTelemetry5To8 struct {
-	/* Voltage. */
-	Voltage [4]uint16
-
-	/* Current. */
-	Current [4]uint16
-
-	/* Total current. */
-	Totalcurrent [4]uint16
-
-	/* RPM (eRPM). */
-	Rpm [4]uint16
-
-	/* count of telemetry packets received (wraps at 65535). */
-	Count [4]uint16
-
-	/* Temperature. */
-	Temperature [4]byte
-}
-
-func (m *EscTelemetry5To8) ID() int        { return 11031 }
-func (m *EscTelemetry5To8) CRCExtra() byte { return 133 }
-
-func (m *EscTelemetry5To8) MarshalV1(buf []byte) []byte {
-	for _, v := range m.Voltage {
-		buf = marshalUint16(buf, (v))
-	}
-	for _, v := range m.Current {
-		buf = marshalUint16(buf, (v))
-	}
-	for _, v := range m.Totalcurrent {
-		buf = marshalUint16(buf, (v))
-	}
-	for _, v := range m.Rpm {
-		buf = marshalUint16(buf, (v))
-	}
-	for _, v := range m.Count {
-		buf = marshalUint16(buf, (v))
-	}
-	for _, v := range m.Temperature {
-		buf = marshalByte(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *EscTelemetry5To8) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *EscTelemetry5To8) UnmarshalV1(buf []byte) []byte {
-
-	for i, _ := range m.Voltage {
-		buf, m.Voltage[i] = unmarshalUint16(buf)
-	}
-
-	for i, _ := range m.Current {
-		buf, m.Current[i] = unmarshalUint16(buf)
-	}
-
-	for i, _ := range m.Totalcurrent {
-		buf, m.Totalcurrent[i] = unmarshalUint16(buf)
-	}
-
-	for i, _ := range m.Rpm {
-		buf, m.Rpm[i] = unmarshalUint16(buf)
-	}
-
-	for i, _ := range m.Count {
-		buf, m.Count[i] = unmarshalUint16(buf)
-	}
-
-	for i, _ := range m.Temperature {
-		buf, m.Temperature[i] = unmarshalByte(buf)
-	}
-
-	return buf
-}
-
-func (m *EscTelemetry5To8) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* ESC Telemetry Data for ESCs 9 to 12, matching data sent by BLHeli ESCs. */
-type EscTelemetry9To12 struct {
-	/* Voltage. */
-	Voltage [4]uint16
-
-	/* Current. */
-	Current [4]uint16
-
-	/* Total current. */
-	Totalcurrent [4]uint16
-
-	/* RPM (eRPM). */
-	Rpm [4]uint16
-
-	/* count of telemetry packets received (wraps at 65535). */
-	Count [4]uint16
-
-	/* Temperature. */
-	Temperature [4]byte
-}
-
-func (m *EscTelemetry9To12) ID() int        { return 11032 }
-func (m *EscTelemetry9To12) CRCExtra() byte { return 85 }
-
-func (m *EscTelemetry9To12) MarshalV1(buf []byte) []byte {
-	for _, v := range m.Voltage {
-		buf = marshalUint16(buf, (v))
-	}
-	for _, v := range m.Current {
-		buf = marshalUint16(buf, (v))
-	}
-	for _, v := range m.Totalcurrent {
-		buf = marshalUint16(buf, (v))
-	}
-	for _, v := range m.Rpm {
-		buf = marshalUint16(buf, (v))
-	}
-	for _, v := range m.Count {
-		buf = marshalUint16(buf, (v))
-	}
-	for _, v := range m.Temperature {
-		buf = marshalByte(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *EscTelemetry9To12) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *EscTelemetry9To12) UnmarshalV1(buf []byte) []byte {
-
-	for i, _ := range m.Voltage {
-		buf, m.Voltage[i] = unmarshalUint16(buf)
-	}
-
-	for i, _ := range m.Current {
-		buf, m.Current[i] = unmarshalUint16(buf)
-	}
-
-	for i, _ := range m.Totalcurrent {
-		buf, m.Totalcurrent[i] = unmarshalUint16(buf)
-	}
-
-	for i, _ := range m.Rpm {
-		buf, m.Rpm[i] = unmarshalUint16(buf)
-	}
-
-	for i, _ := range m.Count {
-		buf, m.Count[i] = unmarshalUint16(buf)
-	}
-
-	for i, _ := range m.Temperature {
-		buf, m.Temperature[i] = unmarshalByte(buf)
-	}
-
-	return buf
-}
-
-func (m *EscTelemetry9To12) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
 }
 
 /* The heartbeat message shows that a system or component is present and responding. The type and autopilot fields (along with the message component id), allow the receiving system to treat further messages from this system appropriately (e.g. by laying out the user interface based on the autopilot). This microservice is documented at https://mavlink.io/en/services/heartbeat.html */
@@ -17582,6 +13409,3400 @@ func (m *LandingTarget) UnmarshalV2(buf []byte) []byte {
 	return buf
 }
 
+/* Offsets and calibrations values for hardware sensors. This makes it easier to debug the calibration process. */
+type SensorOffsets struct {
+	/* Magnetic declination. */
+	MagDeclination float32
+
+	/* Raw pressure from barometer. */
+	RawPress int32
+
+	/* Raw temperature from barometer. */
+	RawTemp int32
+
+	/* Gyro X calibration. */
+	GyroCalX float32
+
+	/* Gyro Y calibration. */
+	GyroCalY float32
+
+	/* Gyro Z calibration. */
+	GyroCalZ float32
+
+	/* Accel X calibration. */
+	AccelCalX float32
+
+	/* Accel Y calibration. */
+	AccelCalY float32
+
+	/* Accel Z calibration. */
+	AccelCalZ float32
+
+	/* Magnetometer X offset. */
+	MagOfsX int16
+
+	/* Magnetometer Y offset. */
+	MagOfsY int16
+
+	/* Magnetometer Z offset. */
+	MagOfsZ int16
+}
+
+func (m *SensorOffsets) ID() int        { return 150 }
+func (m *SensorOffsets) CRCExtra() byte { return 134 }
+
+func (m *SensorOffsets) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.MagDeclination))
+	buf = marshalInt32(buf, (m.RawPress))
+	buf = marshalInt32(buf, (m.RawTemp))
+	buf = marshalFloat32(buf, (m.GyroCalX))
+	buf = marshalFloat32(buf, (m.GyroCalY))
+	buf = marshalFloat32(buf, (m.GyroCalZ))
+	buf = marshalFloat32(buf, (m.AccelCalX))
+	buf = marshalFloat32(buf, (m.AccelCalY))
+	buf = marshalFloat32(buf, (m.AccelCalZ))
+	buf = marshalInt16(buf, (m.MagOfsX))
+	buf = marshalInt16(buf, (m.MagOfsY))
+	buf = marshalInt16(buf, (m.MagOfsZ))
+
+	return buf
+}
+
+func (m *SensorOffsets) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SensorOffsets) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.MagDeclination = unmarshalFloat32(buf)
+
+	buf, m.RawPress = unmarshalInt32(buf)
+
+	buf, m.RawTemp = unmarshalInt32(buf)
+
+	buf, m.GyroCalX = unmarshalFloat32(buf)
+
+	buf, m.GyroCalY = unmarshalFloat32(buf)
+
+	buf, m.GyroCalZ = unmarshalFloat32(buf)
+
+	buf, m.AccelCalX = unmarshalFloat32(buf)
+
+	buf, m.AccelCalY = unmarshalFloat32(buf)
+
+	buf, m.AccelCalZ = unmarshalFloat32(buf)
+
+	buf, m.MagOfsX = unmarshalInt16(buf)
+
+	buf, m.MagOfsY = unmarshalInt16(buf)
+
+	buf, m.MagOfsZ = unmarshalInt16(buf)
+
+	return buf
+}
+
+func (m *SensorOffsets) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Set the magnetometer offsets */
+type SetMagOffsets struct {
+	/* Magnetometer X offset. */
+	MagOfsX int16
+
+	/* Magnetometer Y offset. */
+	MagOfsY int16
+
+	/* Magnetometer Z offset. */
+	MagOfsZ int16
+
+	/* System ID. */
+	TargetSystem byte
+
+	/* Component ID. */
+	TargetComponent byte
+}
+
+func (m *SetMagOffsets) ID() int        { return 151 }
+func (m *SetMagOffsets) CRCExtra() byte { return 219 }
+
+func (m *SetMagOffsets) MarshalV1(buf []byte) []byte {
+	buf = marshalInt16(buf, (m.MagOfsX))
+	buf = marshalInt16(buf, (m.MagOfsY))
+	buf = marshalInt16(buf, (m.MagOfsZ))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+
+	return buf
+}
+
+func (m *SetMagOffsets) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SetMagOffsets) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.MagOfsX = unmarshalInt16(buf)
+
+	buf, m.MagOfsY = unmarshalInt16(buf)
+
+	buf, m.MagOfsZ = unmarshalInt16(buf)
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *SetMagOffsets) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* State of APM memory. */
+type Meminfo struct {
+	/* Heap top. */
+	Brkval uint16
+
+	/* Free memory. */
+	Freemem uint16
+
+	/* Free memory (32 bit). */
+	Freemem32 uint32 /*EXTENSION*/
+
+}
+
+func (m *Meminfo) ID() int        { return 152 }
+func (m *Meminfo) CRCExtra() byte { return 208 }
+
+func (m *Meminfo) MarshalV1(buf []byte) []byte {
+	buf = marshalUint16(buf, (m.Brkval))
+	buf = marshalUint16(buf, (m.Freemem))
+
+	return buf
+}
+
+func (m *Meminfo) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+	buf = marshalUint32(buf, (m.Freemem32))
+
+	return buf
+}
+
+func (m *Meminfo) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Brkval = unmarshalUint16(buf)
+
+	buf, m.Freemem = unmarshalUint16(buf)
+
+	return buf
+}
+
+func (m *Meminfo) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+	buf, m.Freemem32 = unmarshalUint32(buf)
+
+	return buf
+}
+
+/* Raw ADC output. */
+type ApAdc struct {
+	/* ADC output 1. */
+	Adc1 uint16
+
+	/* ADC output 2. */
+	Adc2 uint16
+
+	/* ADC output 3. */
+	Adc3 uint16
+
+	/* ADC output 4. */
+	Adc4 uint16
+
+	/* ADC output 5. */
+	Adc5 uint16
+
+	/* ADC output 6. */
+	Adc6 uint16
+}
+
+func (m *ApAdc) ID() int        { return 153 }
+func (m *ApAdc) CRCExtra() byte { return 188 }
+
+func (m *ApAdc) MarshalV1(buf []byte) []byte {
+	buf = marshalUint16(buf, (m.Adc1))
+	buf = marshalUint16(buf, (m.Adc2))
+	buf = marshalUint16(buf, (m.Adc3))
+	buf = marshalUint16(buf, (m.Adc4))
+	buf = marshalUint16(buf, (m.Adc5))
+	buf = marshalUint16(buf, (m.Adc6))
+
+	return buf
+}
+
+func (m *ApAdc) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *ApAdc) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Adc1 = unmarshalUint16(buf)
+
+	buf, m.Adc2 = unmarshalUint16(buf)
+
+	buf, m.Adc3 = unmarshalUint16(buf)
+
+	buf, m.Adc4 = unmarshalUint16(buf)
+
+	buf, m.Adc5 = unmarshalUint16(buf)
+
+	buf, m.Adc6 = unmarshalUint16(buf)
+
+	return buf
+}
+
+func (m *ApAdc) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Configure on-board Camera Control System. */
+type DigicamConfigure struct {
+	/* Correspondent value to given extra_param. */
+	ExtraValue float32
+
+	/* Divisor number //e.g. 1000 means 1/1000 (0 means ignore). */
+	ShutterSpeed uint16
+
+	/* System ID. */
+	TargetSystem byte
+
+	/* Component ID. */
+	TargetComponent byte
+
+	/* Mode enumeration from 1 to N //P, TV, AV, M, etc. (0 means ignore). */
+	Mode byte
+
+	/* F stop number x 10 //e.g. 28 means 2.8 (0 means ignore). */
+	Aperture byte
+
+	/* ISO enumeration from 1 to N //e.g. 80, 100, 200, Etc (0 means ignore). */
+	Iso byte
+
+	/* Exposure type enumeration from 1 to N (0 means ignore). */
+	ExposureType byte
+
+	/* Command Identity (incremental loop: 0 to 255). //A command sent multiple times will be executed or pooled just once. */
+	CommandId byte
+
+	/* Main engine cut-off time before camera trigger (0 means no cut-off). */
+	EngineCutOff byte
+
+	/* Extra parameters enumeration (0 means ignore). */
+	ExtraParam byte
+}
+
+func (m *DigicamConfigure) ID() int        { return 154 }
+func (m *DigicamConfigure) CRCExtra() byte { return 84 }
+
+func (m *DigicamConfigure) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.ExtraValue))
+	buf = marshalUint16(buf, (m.ShutterSpeed))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+	buf = marshalByte(buf, (m.Mode))
+	buf = marshalByte(buf, (m.Aperture))
+	buf = marshalByte(buf, (m.Iso))
+	buf = marshalByte(buf, (m.ExposureType))
+	buf = marshalByte(buf, (m.CommandId))
+	buf = marshalByte(buf, (m.EngineCutOff))
+	buf = marshalByte(buf, (m.ExtraParam))
+
+	return buf
+}
+
+func (m *DigicamConfigure) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *DigicamConfigure) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.ExtraValue = unmarshalFloat32(buf)
+
+	buf, m.ShutterSpeed = unmarshalUint16(buf)
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	buf, m.Mode = unmarshalByte(buf)
+
+	buf, m.Aperture = unmarshalByte(buf)
+
+	buf, m.Iso = unmarshalByte(buf)
+
+	buf, m.ExposureType = unmarshalByte(buf)
+
+	buf, m.CommandId = unmarshalByte(buf)
+
+	buf, m.EngineCutOff = unmarshalByte(buf)
+
+	buf, m.ExtraParam = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *DigicamConfigure) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Control on-board Camera Control System to take shots. */
+type DigicamControl struct {
+	/* Correspondent value to given extra_param. */
+	ExtraValue float32
+
+	/* System ID. */
+	TargetSystem byte
+
+	/* Component ID. */
+	TargetComponent byte
+
+	/* 0: stop, 1: start or keep it up //Session control e.g. show/hide lens. */
+	Session byte
+
+	/* 1 to N //Zoom's absolute position (0 means ignore). */
+	ZoomPos byte
+
+	/* -100 to 100 //Zooming step value to offset zoom from the current position. */
+	ZoomStep int8
+
+	/* 0: unlock focus or keep unlocked, 1: lock focus or keep locked, 3: re-lock focus. */
+	FocusLock byte
+
+	/* 0: ignore, 1: shot or start filming. */
+	Shot byte
+
+	/* Command Identity (incremental loop: 0 to 255)//A command sent multiple times will be executed or pooled just once. */
+	CommandId byte
+
+	/* Extra parameters enumeration (0 means ignore). */
+	ExtraParam byte
+}
+
+func (m *DigicamControl) ID() int        { return 155 }
+func (m *DigicamControl) CRCExtra() byte { return 22 }
+
+func (m *DigicamControl) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.ExtraValue))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+	buf = marshalByte(buf, (m.Session))
+	buf = marshalByte(buf, (m.ZoomPos))
+	buf = marshalInt8(buf, (m.ZoomStep))
+	buf = marshalByte(buf, (m.FocusLock))
+	buf = marshalByte(buf, (m.Shot))
+	buf = marshalByte(buf, (m.CommandId))
+	buf = marshalByte(buf, (m.ExtraParam))
+
+	return buf
+}
+
+func (m *DigicamControl) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *DigicamControl) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.ExtraValue = unmarshalFloat32(buf)
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	buf, m.Session = unmarshalByte(buf)
+
+	buf, m.ZoomPos = unmarshalByte(buf)
+
+	buf, m.ZoomStep = unmarshalInt8(buf)
+
+	buf, m.FocusLock = unmarshalByte(buf)
+
+	buf, m.Shot = unmarshalByte(buf)
+
+	buf, m.CommandId = unmarshalByte(buf)
+
+	buf, m.ExtraParam = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *DigicamControl) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Message to configure a camera mount, directional antenna, etc. */
+type MountConfigure struct {
+	/* System ID. */
+	TargetSystem byte
+
+	/* Component ID. */
+	TargetComponent byte
+
+	/* Mount operating mode. */
+	MountMode MavMountMode // byte
+
+	/* (1 = yes, 0 = no). */
+	StabRoll byte
+
+	/* (1 = yes, 0 = no). */
+	StabPitch byte
+
+	/* (1 = yes, 0 = no). */
+	StabYaw byte
+}
+
+func (m *MountConfigure) ID() int        { return 156 }
+func (m *MountConfigure) CRCExtra() byte { return 19 }
+
+func (m *MountConfigure) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+	buf = marshalByte(buf, byte(m.MountMode))
+	buf = marshalByte(buf, (m.StabRoll))
+	buf = marshalByte(buf, (m.StabPitch))
+	buf = marshalByte(buf, (m.StabYaw))
+
+	return buf
+}
+
+func (m *MountConfigure) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *MountConfigure) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.MountMode = MavMountMode(v)
+	}
+
+	buf, m.StabRoll = unmarshalByte(buf)
+
+	buf, m.StabPitch = unmarshalByte(buf)
+
+	buf, m.StabYaw = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *MountConfigure) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Message to control a camera mount, directional antenna, etc. */
+type MountControl struct {
+	/* Pitch (centi-degrees) or lat (degE7), depending on mount mode. */
+	InputA int32
+
+	/* Roll (centi-degrees) or lon (degE7) depending on mount mode. */
+	InputB int32
+
+	/* Yaw (centi-degrees) or alt (cm) depending on mount mode. */
+	InputC int32
+
+	/* System ID. */
+	TargetSystem byte
+
+	/* Component ID. */
+	TargetComponent byte
+
+	/* If "1" it will save current trimmed position on EEPROM (just valid for NEUTRAL and LANDING). */
+	SavePosition byte
+}
+
+func (m *MountControl) ID() int        { return 157 }
+func (m *MountControl) CRCExtra() byte { return 21 }
+
+func (m *MountControl) MarshalV1(buf []byte) []byte {
+	buf = marshalInt32(buf, (m.InputA))
+	buf = marshalInt32(buf, (m.InputB))
+	buf = marshalInt32(buf, (m.InputC))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+	buf = marshalByte(buf, (m.SavePosition))
+
+	return buf
+}
+
+func (m *MountControl) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *MountControl) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.InputA = unmarshalInt32(buf)
+
+	buf, m.InputB = unmarshalInt32(buf)
+
+	buf, m.InputC = unmarshalInt32(buf)
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	buf, m.SavePosition = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *MountControl) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Message with some status from APM to GCS about camera or antenna mount. */
+type MountStatus struct {
+	/* Pitch. */
+	PointingA int32
+
+	/* Roll. */
+	PointingB int32
+
+	/* Yaw. */
+	PointingC int32
+
+	/* System ID. */
+	TargetSystem byte
+
+	/* Component ID. */
+	TargetComponent byte
+}
+
+func (m *MountStatus) ID() int        { return 158 }
+func (m *MountStatus) CRCExtra() byte { return 134 }
+
+func (m *MountStatus) MarshalV1(buf []byte) []byte {
+	buf = marshalInt32(buf, (m.PointingA))
+	buf = marshalInt32(buf, (m.PointingB))
+	buf = marshalInt32(buf, (m.PointingC))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+
+	return buf
+}
+
+func (m *MountStatus) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *MountStatus) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.PointingA = unmarshalInt32(buf)
+
+	buf, m.PointingB = unmarshalInt32(buf)
+
+	buf, m.PointingC = unmarshalInt32(buf)
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *MountStatus) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* A fence point. Used to set a point when from GCS -> MAV. Also used to return a point from MAV -> GCS. */
+type FencePoint struct {
+	/* Latitude of point. */
+	Lat float32
+
+	/* Longitude of point. */
+	Lng float32
+
+	/* System ID. */
+	TargetSystem byte
+
+	/* Component ID. */
+	TargetComponent byte
+
+	/* Point index (first point is 1, 0 is for return point). */
+	Idx byte
+
+	/* Total number of points (for sanity checking). */
+	Count byte
+}
+
+func (m *FencePoint) ID() int        { return 160 }
+func (m *FencePoint) CRCExtra() byte { return 78 }
+
+func (m *FencePoint) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Lat))
+	buf = marshalFloat32(buf, (m.Lng))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+	buf = marshalByte(buf, (m.Idx))
+	buf = marshalByte(buf, (m.Count))
+
+	return buf
+}
+
+func (m *FencePoint) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *FencePoint) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Lat = unmarshalFloat32(buf)
+
+	buf, m.Lng = unmarshalFloat32(buf)
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	buf, m.Idx = unmarshalByte(buf)
+
+	buf, m.Count = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *FencePoint) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Request a current fence point from MAV. */
+type FenceFetchPoint struct {
+	/* System ID. */
+	TargetSystem byte
+
+	/* Component ID. */
+	TargetComponent byte
+
+	/* Point index (first point is 1, 0 is for return point). */
+	Idx byte
+}
+
+func (m *FenceFetchPoint) ID() int        { return 161 }
+func (m *FenceFetchPoint) CRCExtra() byte { return 68 }
+
+func (m *FenceFetchPoint) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+	buf = marshalByte(buf, (m.Idx))
+
+	return buf
+}
+
+func (m *FenceFetchPoint) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *FenceFetchPoint) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	buf, m.Idx = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *FenceFetchPoint) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Status of geo-fencing. Sent in extended status stream when fencing enabled. */
+type FenceStatus struct {
+	/* Time (since boot) of last breach. */
+	BreachTime uint32
+
+	/* Number of fence breaches. */
+	BreachCount uint16
+
+	/* Breach status (0 if currently inside fence, 1 if outside). */
+	BreachStatus byte
+
+	/* Last breach type. */
+	BreachType FenceBreach // byte
+
+}
+
+func (m *FenceStatus) ID() int        { return 162 }
+func (m *FenceStatus) CRCExtra() byte { return 189 }
+
+func (m *FenceStatus) MarshalV1(buf []byte) []byte {
+	buf = marshalUint32(buf, (m.BreachTime))
+	buf = marshalUint16(buf, (m.BreachCount))
+	buf = marshalByte(buf, (m.BreachStatus))
+	buf = marshalByte(buf, byte(m.BreachType))
+
+	return buf
+}
+
+func (m *FenceStatus) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *FenceStatus) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.BreachTime = unmarshalUint32(buf)
+
+	buf, m.BreachCount = unmarshalUint16(buf)
+
+	buf, m.BreachStatus = unmarshalByte(buf)
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.BreachType = FenceBreach(v)
+	}
+
+	return buf
+}
+
+func (m *FenceStatus) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Status of DCM attitude estimator. */
+type Ahrs struct {
+	/* X gyro drift estimate. */
+	Omegaix float32
+
+	/* Y gyro drift estimate. */
+	Omegaiy float32
+
+	/* Z gyro drift estimate. */
+	Omegaiz float32
+
+	/* Average accel_weight. */
+	AccelWeight float32
+
+	/* Average renormalisation value. */
+	RenormVal float32
+
+	/* Average error_roll_pitch value. */
+	ErrorRp float32
+
+	/* Average error_yaw value. */
+	ErrorYaw float32
+}
+
+func (m *Ahrs) ID() int        { return 163 }
+func (m *Ahrs) CRCExtra() byte { return 127 }
+
+func (m *Ahrs) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Omegaix))
+	buf = marshalFloat32(buf, (m.Omegaiy))
+	buf = marshalFloat32(buf, (m.Omegaiz))
+	buf = marshalFloat32(buf, (m.AccelWeight))
+	buf = marshalFloat32(buf, (m.RenormVal))
+	buf = marshalFloat32(buf, (m.ErrorRp))
+	buf = marshalFloat32(buf, (m.ErrorYaw))
+
+	return buf
+}
+
+func (m *Ahrs) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *Ahrs) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Omegaix = unmarshalFloat32(buf)
+
+	buf, m.Omegaiy = unmarshalFloat32(buf)
+
+	buf, m.Omegaiz = unmarshalFloat32(buf)
+
+	buf, m.AccelWeight = unmarshalFloat32(buf)
+
+	buf, m.RenormVal = unmarshalFloat32(buf)
+
+	buf, m.ErrorRp = unmarshalFloat32(buf)
+
+	buf, m.ErrorYaw = unmarshalFloat32(buf)
+
+	return buf
+}
+
+func (m *Ahrs) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Status of simulation environment, if used. */
+type Simstate struct {
+	/* Roll angle. */
+	Roll float32
+
+	/* Pitch angle. */
+	Pitch float32
+
+	/* Yaw angle. */
+	Yaw float32
+
+	/* X acceleration. */
+	Xacc float32
+
+	/* Y acceleration. */
+	Yacc float32
+
+	/* Z acceleration. */
+	Zacc float32
+
+	/* Angular speed around X axis. */
+	Xgyro float32
+
+	/* Angular speed around Y axis. */
+	Ygyro float32
+
+	/* Angular speed around Z axis. */
+	Zgyro float32
+
+	/* Latitude. */
+	Lat int32
+
+	/* Longitude. */
+	Lng int32
+}
+
+func (m *Simstate) ID() int        { return 164 }
+func (m *Simstate) CRCExtra() byte { return 154 }
+
+func (m *Simstate) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Roll))
+	buf = marshalFloat32(buf, (m.Pitch))
+	buf = marshalFloat32(buf, (m.Yaw))
+	buf = marshalFloat32(buf, (m.Xacc))
+	buf = marshalFloat32(buf, (m.Yacc))
+	buf = marshalFloat32(buf, (m.Zacc))
+	buf = marshalFloat32(buf, (m.Xgyro))
+	buf = marshalFloat32(buf, (m.Ygyro))
+	buf = marshalFloat32(buf, (m.Zgyro))
+	buf = marshalInt32(buf, (m.Lat))
+	buf = marshalInt32(buf, (m.Lng))
+
+	return buf
+}
+
+func (m *Simstate) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *Simstate) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Roll = unmarshalFloat32(buf)
+
+	buf, m.Pitch = unmarshalFloat32(buf)
+
+	buf, m.Yaw = unmarshalFloat32(buf)
+
+	buf, m.Xacc = unmarshalFloat32(buf)
+
+	buf, m.Yacc = unmarshalFloat32(buf)
+
+	buf, m.Zacc = unmarshalFloat32(buf)
+
+	buf, m.Xgyro = unmarshalFloat32(buf)
+
+	buf, m.Ygyro = unmarshalFloat32(buf)
+
+	buf, m.Zgyro = unmarshalFloat32(buf)
+
+	buf, m.Lat = unmarshalInt32(buf)
+
+	buf, m.Lng = unmarshalInt32(buf)
+
+	return buf
+}
+
+func (m *Simstate) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Status of key hardware. */
+type Hwstatus struct {
+	/* Board voltage. */
+	Vcc uint16
+
+	/* I2C error count. */
+	I2cerr byte
+}
+
+func (m *Hwstatus) ID() int        { return 165 }
+func (m *Hwstatus) CRCExtra() byte { return 21 }
+
+func (m *Hwstatus) MarshalV1(buf []byte) []byte {
+	buf = marshalUint16(buf, (m.Vcc))
+	buf = marshalByte(buf, (m.I2cerr))
+
+	return buf
+}
+
+func (m *Hwstatus) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *Hwstatus) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Vcc = unmarshalUint16(buf)
+
+	buf, m.I2cerr = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *Hwstatus) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Status generated by radio. */
+type Radio struct {
+	/* Receive errors. */
+	Rxerrors uint16
+
+	/* Count of error corrected packets. */
+	Fixed uint16
+
+	/* Local signal strength. */
+	Rssi byte
+
+	/* Remote signal strength. */
+	Remrssi byte
+
+	/* How full the tx buffer is. */
+	Txbuf byte
+
+	/* Background noise level. */
+	Noise byte
+
+	/* Remote background noise level. */
+	Remnoise byte
+}
+
+func (m *Radio) ID() int        { return 166 }
+func (m *Radio) CRCExtra() byte { return 21 }
+
+func (m *Radio) MarshalV1(buf []byte) []byte {
+	buf = marshalUint16(buf, (m.Rxerrors))
+	buf = marshalUint16(buf, (m.Fixed))
+	buf = marshalByte(buf, (m.Rssi))
+	buf = marshalByte(buf, (m.Remrssi))
+	buf = marshalByte(buf, (m.Txbuf))
+	buf = marshalByte(buf, (m.Noise))
+	buf = marshalByte(buf, (m.Remnoise))
+
+	return buf
+}
+
+func (m *Radio) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *Radio) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Rxerrors = unmarshalUint16(buf)
+
+	buf, m.Fixed = unmarshalUint16(buf)
+
+	buf, m.Rssi = unmarshalByte(buf)
+
+	buf, m.Remrssi = unmarshalByte(buf)
+
+	buf, m.Txbuf = unmarshalByte(buf)
+
+	buf, m.Noise = unmarshalByte(buf)
+
+	buf, m.Remnoise = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *Radio) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Status of AP_Limits. Sent in extended status stream when AP_Limits is enabled. */
+type LimitsStatus struct {
+	/* Time (since boot) of last breach. */
+	LastTrigger uint32
+
+	/* Time (since boot) of last recovery action. */
+	LastAction uint32
+
+	/* Time (since boot) of last successful recovery. */
+	LastRecovery uint32
+
+	/* Time (since boot) of last all-clear. */
+	LastClear uint32
+
+	/* Number of fence breaches. */
+	BreachCount uint16
+
+	/* State of AP_Limits. */
+	LimitsState LimitsState // byte
+
+	/* AP_Limit_Module bitfield of enabled modules. */
+	ModsEnabled LimitModule // byte
+
+	/* AP_Limit_Module bitfield of required modules. */
+	ModsRequired LimitModule // byte
+
+	/* AP_Limit_Module bitfield of triggered modules. */
+	ModsTriggered LimitModule // byte
+
+}
+
+func (m *LimitsStatus) ID() int        { return 167 }
+func (m *LimitsStatus) CRCExtra() byte { return 144 }
+
+func (m *LimitsStatus) MarshalV1(buf []byte) []byte {
+	buf = marshalUint32(buf, (m.LastTrigger))
+	buf = marshalUint32(buf, (m.LastAction))
+	buf = marshalUint32(buf, (m.LastRecovery))
+	buf = marshalUint32(buf, (m.LastClear))
+	buf = marshalUint16(buf, (m.BreachCount))
+	buf = marshalByte(buf, byte(m.LimitsState))
+	buf = marshalByte(buf, byte(m.ModsEnabled))
+	buf = marshalByte(buf, byte(m.ModsRequired))
+	buf = marshalByte(buf, byte(m.ModsTriggered))
+
+	return buf
+}
+
+func (m *LimitsStatus) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *LimitsStatus) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.LastTrigger = unmarshalUint32(buf)
+
+	buf, m.LastAction = unmarshalUint32(buf)
+
+	buf, m.LastRecovery = unmarshalUint32(buf)
+
+	buf, m.LastClear = unmarshalUint32(buf)
+
+	buf, m.BreachCount = unmarshalUint16(buf)
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.LimitsState = LimitsState(v)
+	}
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.ModsEnabled = LimitModule(v)
+	}
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.ModsRequired = LimitModule(v)
+	}
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.ModsTriggered = LimitModule(v)
+	}
+
+	return buf
+}
+
+func (m *LimitsStatus) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Wind estimation. */
+type Wind struct {
+	/* Wind direction (that wind is coming from). */
+	Direction float32
+
+	/* Wind speed in ground plane. */
+	Speed float32
+
+	/* Vertical wind speed. */
+	SpeedZ float32
+}
+
+func (m *Wind) ID() int        { return 168 }
+func (m *Wind) CRCExtra() byte { return 1 }
+
+func (m *Wind) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Direction))
+	buf = marshalFloat32(buf, (m.Speed))
+	buf = marshalFloat32(buf, (m.SpeedZ))
+
+	return buf
+}
+
+func (m *Wind) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *Wind) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Direction = unmarshalFloat32(buf)
+
+	buf, m.Speed = unmarshalFloat32(buf)
+
+	buf, m.SpeedZ = unmarshalFloat32(buf)
+
+	return buf
+}
+
+func (m *Wind) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Data packet, size 16. */
+type Data16 struct {
+	/* Data type. */
+	Type byte
+
+	/* Data length. */
+	Len byte
+
+	/* Raw data. */
+	Data [16]byte
+}
+
+func (m *Data16) ID() int        { return 169 }
+func (m *Data16) CRCExtra() byte { return 234 }
+
+func (m *Data16) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, (m.Type))
+	buf = marshalByte(buf, (m.Len))
+	for _, v := range m.Data {
+		buf = marshalByte(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *Data16) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *Data16) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Type = unmarshalByte(buf)
+
+	buf, m.Len = unmarshalByte(buf)
+
+	for i, _ := range m.Data {
+		buf, m.Data[i] = unmarshalByte(buf)
+	}
+
+	return buf
+}
+
+func (m *Data16) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Data packet, size 32. */
+type Data32 struct {
+	/* Data type. */
+	Type byte
+
+	/* Data length. */
+	Len byte
+
+	/* Raw data. */
+	Data [32]byte
+}
+
+func (m *Data32) ID() int        { return 170 }
+func (m *Data32) CRCExtra() byte { return 73 }
+
+func (m *Data32) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, (m.Type))
+	buf = marshalByte(buf, (m.Len))
+	for _, v := range m.Data {
+		buf = marshalByte(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *Data32) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *Data32) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Type = unmarshalByte(buf)
+
+	buf, m.Len = unmarshalByte(buf)
+
+	for i, _ := range m.Data {
+		buf, m.Data[i] = unmarshalByte(buf)
+	}
+
+	return buf
+}
+
+func (m *Data32) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Data packet, size 64. */
+type Data64 struct {
+	/* Data type. */
+	Type byte
+
+	/* Data length. */
+	Len byte
+
+	/* Raw data. */
+	Data [64]byte
+}
+
+func (m *Data64) ID() int        { return 171 }
+func (m *Data64) CRCExtra() byte { return 181 }
+
+func (m *Data64) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, (m.Type))
+	buf = marshalByte(buf, (m.Len))
+	for _, v := range m.Data {
+		buf = marshalByte(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *Data64) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *Data64) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Type = unmarshalByte(buf)
+
+	buf, m.Len = unmarshalByte(buf)
+
+	for i, _ := range m.Data {
+		buf, m.Data[i] = unmarshalByte(buf)
+	}
+
+	return buf
+}
+
+func (m *Data64) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Data packet, size 96. */
+type Data96 struct {
+	/* Data type. */
+	Type byte
+
+	/* Data length. */
+	Len byte
+
+	/* Raw data. */
+	Data [96]byte
+}
+
+func (m *Data96) ID() int        { return 172 }
+func (m *Data96) CRCExtra() byte { return 22 }
+
+func (m *Data96) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, (m.Type))
+	buf = marshalByte(buf, (m.Len))
+	for _, v := range m.Data {
+		buf = marshalByte(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *Data96) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *Data96) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Type = unmarshalByte(buf)
+
+	buf, m.Len = unmarshalByte(buf)
+
+	for i, _ := range m.Data {
+		buf, m.Data[i] = unmarshalByte(buf)
+	}
+
+	return buf
+}
+
+func (m *Data96) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Rangefinder reporting. */
+type Rangefinder struct {
+	/* Distance. */
+	Distance float32
+
+	/* Raw voltage if available, zero otherwise. */
+	Voltage float32
+}
+
+func (m *Rangefinder) ID() int        { return 173 }
+func (m *Rangefinder) CRCExtra() byte { return 83 }
+
+func (m *Rangefinder) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Distance))
+	buf = marshalFloat32(buf, (m.Voltage))
+
+	return buf
+}
+
+func (m *Rangefinder) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *Rangefinder) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Distance = unmarshalFloat32(buf)
+
+	buf, m.Voltage = unmarshalFloat32(buf)
+
+	return buf
+}
+
+func (m *Rangefinder) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Airspeed auto-calibration. */
+type AirspeedAutocal struct {
+	/* GPS velocity north. */
+	Vx float32
+
+	/* GPS velocity east. */
+	Vy float32
+
+	/* GPS velocity down. */
+	Vz float32
+
+	/* Differential pressure. */
+	DiffPressure float32
+
+	/* Estimated to true airspeed ratio. */
+	Eas2tas float32
+
+	/* Airspeed ratio. */
+	Ratio float32
+
+	/* EKF state x. */
+	StateX float32
+
+	/* EKF state y. */
+	StateY float32
+
+	/* EKF state z. */
+	StateZ float32
+
+	/* EKF Pax. */
+	Pax float32
+
+	/* EKF Pby. */
+	Pby float32
+
+	/* EKF Pcz. */
+	Pcz float32
+}
+
+func (m *AirspeedAutocal) ID() int        { return 174 }
+func (m *AirspeedAutocal) CRCExtra() byte { return 167 }
+
+func (m *AirspeedAutocal) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Vx))
+	buf = marshalFloat32(buf, (m.Vy))
+	buf = marshalFloat32(buf, (m.Vz))
+	buf = marshalFloat32(buf, (m.DiffPressure))
+	buf = marshalFloat32(buf, (m.Eas2tas))
+	buf = marshalFloat32(buf, (m.Ratio))
+	buf = marshalFloat32(buf, (m.StateX))
+	buf = marshalFloat32(buf, (m.StateY))
+	buf = marshalFloat32(buf, (m.StateZ))
+	buf = marshalFloat32(buf, (m.Pax))
+	buf = marshalFloat32(buf, (m.Pby))
+	buf = marshalFloat32(buf, (m.Pcz))
+
+	return buf
+}
+
+func (m *AirspeedAutocal) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *AirspeedAutocal) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Vx = unmarshalFloat32(buf)
+
+	buf, m.Vy = unmarshalFloat32(buf)
+
+	buf, m.Vz = unmarshalFloat32(buf)
+
+	buf, m.DiffPressure = unmarshalFloat32(buf)
+
+	buf, m.Eas2tas = unmarshalFloat32(buf)
+
+	buf, m.Ratio = unmarshalFloat32(buf)
+
+	buf, m.StateX = unmarshalFloat32(buf)
+
+	buf, m.StateY = unmarshalFloat32(buf)
+
+	buf, m.StateZ = unmarshalFloat32(buf)
+
+	buf, m.Pax = unmarshalFloat32(buf)
+
+	buf, m.Pby = unmarshalFloat32(buf)
+
+	buf, m.Pcz = unmarshalFloat32(buf)
+
+	return buf
+}
+
+func (m *AirspeedAutocal) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* A rally point. Used to set a point when from GCS -> MAV. Also used to return a point from MAV -> GCS. */
+type RallyPoint struct {
+	/* Latitude of point. */
+	Lat int32
+
+	/* Longitude of point. */
+	Lng int32
+
+	/* Transit / loiter altitude relative to home. */
+	Alt int16
+
+	/* Break altitude relative to home. */
+	BreakAlt int16
+
+	/* Heading to aim for when landing. */
+	LandDir uint16
+
+	/* System ID. */
+	TargetSystem byte
+
+	/* Component ID. */
+	TargetComponent byte
+
+	/* Point index (first point is 0). */
+	Idx byte
+
+	/* Total number of points (for sanity checking). */
+	Count byte
+
+	/* Configuration flags. */
+	Flags RallyFlags // byte
+
+}
+
+func (m *RallyPoint) ID() int        { return 175 }
+func (m *RallyPoint) CRCExtra() byte { return 138 }
+
+func (m *RallyPoint) MarshalV1(buf []byte) []byte {
+	buf = marshalInt32(buf, (m.Lat))
+	buf = marshalInt32(buf, (m.Lng))
+	buf = marshalInt16(buf, (m.Alt))
+	buf = marshalInt16(buf, (m.BreakAlt))
+	buf = marshalUint16(buf, (m.LandDir))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+	buf = marshalByte(buf, (m.Idx))
+	buf = marshalByte(buf, (m.Count))
+	buf = marshalByte(buf, byte(m.Flags))
+
+	return buf
+}
+
+func (m *RallyPoint) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *RallyPoint) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Lat = unmarshalInt32(buf)
+
+	buf, m.Lng = unmarshalInt32(buf)
+
+	buf, m.Alt = unmarshalInt16(buf)
+
+	buf, m.BreakAlt = unmarshalInt16(buf)
+
+	buf, m.LandDir = unmarshalUint16(buf)
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	buf, m.Idx = unmarshalByte(buf)
+
+	buf, m.Count = unmarshalByte(buf)
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Flags = RallyFlags(v)
+	}
+
+	return buf
+}
+
+func (m *RallyPoint) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Request a current rally point from MAV. MAV should respond with a RALLY_POINT message. MAV should not respond if the request is invalid. */
+type RallyFetchPoint struct {
+	/* System ID. */
+	TargetSystem byte
+
+	/* Component ID. */
+	TargetComponent byte
+
+	/* Point index (first point is 0). */
+	Idx byte
+}
+
+func (m *RallyFetchPoint) ID() int        { return 176 }
+func (m *RallyFetchPoint) CRCExtra() byte { return 234 }
+
+func (m *RallyFetchPoint) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+	buf = marshalByte(buf, (m.Idx))
+
+	return buf
+}
+
+func (m *RallyFetchPoint) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *RallyFetchPoint) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	buf, m.Idx = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *RallyFetchPoint) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Status of compassmot calibration. */
+type CompassmotStatus struct {
+	/* Current. */
+	Current float32
+
+	/* Motor Compensation X. */
+	Compensationx float32
+
+	/* Motor Compensation Y. */
+	Compensationy float32
+
+	/* Motor Compensation Z. */
+	Compensationz float32
+
+	/* Throttle. */
+	Throttle uint16
+
+	/* Interference. */
+	Interference uint16
+}
+
+func (m *CompassmotStatus) ID() int        { return 177 }
+func (m *CompassmotStatus) CRCExtra() byte { return 240 }
+
+func (m *CompassmotStatus) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Current))
+	buf = marshalFloat32(buf, (m.Compensationx))
+	buf = marshalFloat32(buf, (m.Compensationy))
+	buf = marshalFloat32(buf, (m.Compensationz))
+	buf = marshalUint16(buf, (m.Throttle))
+	buf = marshalUint16(buf, (m.Interference))
+
+	return buf
+}
+
+func (m *CompassmotStatus) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *CompassmotStatus) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Current = unmarshalFloat32(buf)
+
+	buf, m.Compensationx = unmarshalFloat32(buf)
+
+	buf, m.Compensationy = unmarshalFloat32(buf)
+
+	buf, m.Compensationz = unmarshalFloat32(buf)
+
+	buf, m.Throttle = unmarshalUint16(buf)
+
+	buf, m.Interference = unmarshalUint16(buf)
+
+	return buf
+}
+
+func (m *CompassmotStatus) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Status of secondary AHRS filter if available. */
+type Ahrs2 struct {
+	/* Roll angle. */
+	Roll float32
+
+	/* Pitch angle. */
+	Pitch float32
+
+	/* Yaw angle. */
+	Yaw float32
+
+	/* Altitude (MSL). */
+	Altitude float32
+
+	/* Latitude. */
+	Lat int32
+
+	/* Longitude. */
+	Lng int32
+}
+
+func (m *Ahrs2) ID() int        { return 178 }
+func (m *Ahrs2) CRCExtra() byte { return 47 }
+
+func (m *Ahrs2) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Roll))
+	buf = marshalFloat32(buf, (m.Pitch))
+	buf = marshalFloat32(buf, (m.Yaw))
+	buf = marshalFloat32(buf, (m.Altitude))
+	buf = marshalInt32(buf, (m.Lat))
+	buf = marshalInt32(buf, (m.Lng))
+
+	return buf
+}
+
+func (m *Ahrs2) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *Ahrs2) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Roll = unmarshalFloat32(buf)
+
+	buf, m.Pitch = unmarshalFloat32(buf)
+
+	buf, m.Yaw = unmarshalFloat32(buf)
+
+	buf, m.Altitude = unmarshalFloat32(buf)
+
+	buf, m.Lat = unmarshalInt32(buf)
+
+	buf, m.Lng = unmarshalInt32(buf)
+
+	return buf
+}
+
+func (m *Ahrs2) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Camera Event. */
+type CameraStatus struct {
+	/* Image timestamp (since UNIX epoch, according to camera clock). */
+	TimeUsec uint64
+
+	/* Parameter 1 (meaning depends on event_id, see CAMERA_STATUS_TYPES enum). */
+	P1 float32
+
+	/* Parameter 2 (meaning depends on event_id, see CAMERA_STATUS_TYPES enum). */
+	P2 float32
+
+	/* Parameter 3 (meaning depends on event_id, see CAMERA_STATUS_TYPES enum). */
+	P3 float32
+
+	/* Parameter 4 (meaning depends on event_id, see CAMERA_STATUS_TYPES enum). */
+	P4 float32
+
+	/* Image index. */
+	ImgIdx uint16
+
+	/* System ID. */
+	TargetSystem byte
+
+	/* Camera ID. */
+	CamIdx byte
+
+	/* Event type. */
+	EventId CameraStatusTypes // byte
+
+}
+
+func (m *CameraStatus) ID() int        { return 179 }
+func (m *CameraStatus) CRCExtra() byte { return 189 }
+
+func (m *CameraStatus) MarshalV1(buf []byte) []byte {
+	buf = marshalUint64(buf, (m.TimeUsec))
+	buf = marshalFloat32(buf, (m.P1))
+	buf = marshalFloat32(buf, (m.P2))
+	buf = marshalFloat32(buf, (m.P3))
+	buf = marshalFloat32(buf, (m.P4))
+	buf = marshalUint16(buf, (m.ImgIdx))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.CamIdx))
+	buf = marshalByte(buf, byte(m.EventId))
+
+	return buf
+}
+
+func (m *CameraStatus) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *CameraStatus) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.TimeUsec = unmarshalUint64(buf)
+
+	buf, m.P1 = unmarshalFloat32(buf)
+
+	buf, m.P2 = unmarshalFloat32(buf)
+
+	buf, m.P3 = unmarshalFloat32(buf)
+
+	buf, m.P4 = unmarshalFloat32(buf)
+
+	buf, m.ImgIdx = unmarshalUint16(buf)
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.CamIdx = unmarshalByte(buf)
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.EventId = CameraStatusTypes(v)
+	}
+
+	return buf
+}
+
+func (m *CameraStatus) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Camera Capture Feedback. */
+type CameraFeedback struct {
+	/* Image timestamp (since UNIX epoch), as passed in by CAMERA_STATUS message (or autopilot if no CCB). */
+	TimeUsec uint64
+
+	/* Latitude. */
+	Lat int32
+
+	/* Longitude. */
+	Lng int32
+
+	/* Altitude (MSL). */
+	AltMsl float32
+
+	/* Altitude (Relative to HOME location). */
+	AltRel float32
+
+	/* Camera Roll angle (earth frame, +-180). */
+	Roll float32
+
+	/* Camera Pitch angle (earth frame, +-180). */
+	Pitch float32
+
+	/* Camera Yaw (earth frame, 0-360, true). */
+	Yaw float32
+
+	/* Focal Length. */
+	FocLen float32
+
+	/* Image index. */
+	ImgIdx uint16
+
+	/* System ID. */
+	TargetSystem byte
+
+	/* Camera ID. */
+	CamIdx byte
+
+	/* Feedback flags. */
+	Flags CameraFeedbackFlags // byte
+
+	/* Completed image captures. */
+	CompletedCaptures uint16 /*EXTENSION*/
+
+}
+
+func (m *CameraFeedback) ID() int        { return 180 }
+func (m *CameraFeedback) CRCExtra() byte { return 52 }
+
+func (m *CameraFeedback) MarshalV1(buf []byte) []byte {
+	buf = marshalUint64(buf, (m.TimeUsec))
+	buf = marshalInt32(buf, (m.Lat))
+	buf = marshalInt32(buf, (m.Lng))
+	buf = marshalFloat32(buf, (m.AltMsl))
+	buf = marshalFloat32(buf, (m.AltRel))
+	buf = marshalFloat32(buf, (m.Roll))
+	buf = marshalFloat32(buf, (m.Pitch))
+	buf = marshalFloat32(buf, (m.Yaw))
+	buf = marshalFloat32(buf, (m.FocLen))
+	buf = marshalUint16(buf, (m.ImgIdx))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.CamIdx))
+	buf = marshalByte(buf, byte(m.Flags))
+
+	return buf
+}
+
+func (m *CameraFeedback) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+	buf = marshalUint16(buf, (m.CompletedCaptures))
+
+	return buf
+}
+
+func (m *CameraFeedback) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.TimeUsec = unmarshalUint64(buf)
+
+	buf, m.Lat = unmarshalInt32(buf)
+
+	buf, m.Lng = unmarshalInt32(buf)
+
+	buf, m.AltMsl = unmarshalFloat32(buf)
+
+	buf, m.AltRel = unmarshalFloat32(buf)
+
+	buf, m.Roll = unmarshalFloat32(buf)
+
+	buf, m.Pitch = unmarshalFloat32(buf)
+
+	buf, m.Yaw = unmarshalFloat32(buf)
+
+	buf, m.FocLen = unmarshalFloat32(buf)
+
+	buf, m.ImgIdx = unmarshalUint16(buf)
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.CamIdx = unmarshalByte(buf)
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Flags = CameraFeedbackFlags(v)
+	}
+
+	return buf
+}
+
+func (m *CameraFeedback) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+	buf, m.CompletedCaptures = unmarshalUint16(buf)
+
+	return buf
+}
+
+/* 2nd Battery status */
+type Battery2 struct {
+	/* Voltage. */
+	Voltage uint16
+
+	/* Battery current, -1: autopilot does not measure the current. */
+	CurrentBattery int16
+}
+
+func (m *Battery2) ID() int        { return 181 }
+func (m *Battery2) CRCExtra() byte { return 174 }
+
+func (m *Battery2) MarshalV1(buf []byte) []byte {
+	buf = marshalUint16(buf, (m.Voltage))
+	buf = marshalInt16(buf, (m.CurrentBattery))
+
+	return buf
+}
+
+func (m *Battery2) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *Battery2) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Voltage = unmarshalUint16(buf)
+
+	buf, m.CurrentBattery = unmarshalInt16(buf)
+
+	return buf
+}
+
+func (m *Battery2) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Status of third AHRS filter if available. This is for ANU research group (Ali and Sean). */
+type Ahrs3 struct {
+	/* Roll angle. */
+	Roll float32
+
+	/* Pitch angle. */
+	Pitch float32
+
+	/* Yaw angle. */
+	Yaw float32
+
+	/* Altitude (MSL). */
+	Altitude float32
+
+	/* Latitude. */
+	Lat int32
+
+	/* Longitude. */
+	Lng int32
+
+	/* Test variable1. */
+	V1 float32
+
+	/* Test variable2. */
+	V2 float32
+
+	/* Test variable3. */
+	V3 float32
+
+	/* Test variable4. */
+	V4 float32
+}
+
+func (m *Ahrs3) ID() int        { return 182 }
+func (m *Ahrs3) CRCExtra() byte { return 229 }
+
+func (m *Ahrs3) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Roll))
+	buf = marshalFloat32(buf, (m.Pitch))
+	buf = marshalFloat32(buf, (m.Yaw))
+	buf = marshalFloat32(buf, (m.Altitude))
+	buf = marshalInt32(buf, (m.Lat))
+	buf = marshalInt32(buf, (m.Lng))
+	buf = marshalFloat32(buf, (m.V1))
+	buf = marshalFloat32(buf, (m.V2))
+	buf = marshalFloat32(buf, (m.V3))
+	buf = marshalFloat32(buf, (m.V4))
+
+	return buf
+}
+
+func (m *Ahrs3) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *Ahrs3) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Roll = unmarshalFloat32(buf)
+
+	buf, m.Pitch = unmarshalFloat32(buf)
+
+	buf, m.Yaw = unmarshalFloat32(buf)
+
+	buf, m.Altitude = unmarshalFloat32(buf)
+
+	buf, m.Lat = unmarshalInt32(buf)
+
+	buf, m.Lng = unmarshalInt32(buf)
+
+	buf, m.V1 = unmarshalFloat32(buf)
+
+	buf, m.V2 = unmarshalFloat32(buf)
+
+	buf, m.V3 = unmarshalFloat32(buf)
+
+	buf, m.V4 = unmarshalFloat32(buf)
+
+	return buf
+}
+
+func (m *Ahrs3) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Request the autopilot version from the system/component. */
+type AutopilotVersionRequest struct {
+	/* System ID. */
+	TargetSystem byte
+
+	/* Component ID. */
+	TargetComponent byte
+}
+
+func (m *AutopilotVersionRequest) ID() int        { return 183 }
+func (m *AutopilotVersionRequest) CRCExtra() byte { return 85 }
+
+func (m *AutopilotVersionRequest) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+
+	return buf
+}
+
+func (m *AutopilotVersionRequest) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *AutopilotVersionRequest) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *AutopilotVersionRequest) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Send a block of log data to remote location. */
+type RemoteLogDataBlock struct {
+	/* Log data block sequence number. */
+	Seqno MavRemoteLogDataBlockCommands // uint32
+
+	/* System ID. */
+	TargetSystem byte
+
+	/* Component ID. */
+	TargetComponent byte
+
+	/* Log data block. */
+	Data [200]byte
+}
+
+func (m *RemoteLogDataBlock) ID() int        { return 184 }
+func (m *RemoteLogDataBlock) CRCExtra() byte { return 159 }
+
+func (m *RemoteLogDataBlock) MarshalV1(buf []byte) []byte {
+	buf = marshalUint32(buf, uint32(m.Seqno))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+	for _, v := range m.Data {
+		buf = marshalByte(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *RemoteLogDataBlock) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *RemoteLogDataBlock) UnmarshalV1(buf []byte) []byte {
+
+	{
+		var v uint32
+		buf, v = unmarshalUint32(buf)
+		m.Seqno = MavRemoteLogDataBlockCommands(v)
+	}
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	for i, _ := range m.Data {
+		buf, m.Data[i] = unmarshalByte(buf)
+	}
+
+	return buf
+}
+
+func (m *RemoteLogDataBlock) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Send Status of each log block that autopilot board might have sent. */
+type RemoteLogBlockStatus struct {
+	/* Log data block sequence number. */
+	Seqno uint32
+
+	/* System ID. */
+	TargetSystem byte
+
+	/* Component ID. */
+	TargetComponent byte
+
+	/* Log data block status. */
+	Status MavRemoteLogDataBlockStatuses // byte
+
+}
+
+func (m *RemoteLogBlockStatus) ID() int        { return 185 }
+func (m *RemoteLogBlockStatus) CRCExtra() byte { return 186 }
+
+func (m *RemoteLogBlockStatus) MarshalV1(buf []byte) []byte {
+	buf = marshalUint32(buf, (m.Seqno))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+	buf = marshalByte(buf, byte(m.Status))
+
+	return buf
+}
+
+func (m *RemoteLogBlockStatus) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *RemoteLogBlockStatus) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Seqno = unmarshalUint32(buf)
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Status = MavRemoteLogDataBlockStatuses(v)
+	}
+
+	return buf
+}
+
+func (m *RemoteLogBlockStatus) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Control vehicle LEDs. */
+type LedControl struct {
+	/* System ID. */
+	TargetSystem byte
+
+	/* Component ID. */
+	TargetComponent byte
+
+	/* Instance (LED instance to control or 255 for all LEDs). */
+	Instance byte
+
+	/* Pattern (see LED_PATTERN_ENUM). */
+	Pattern byte
+
+	/* Custom Byte Length. */
+	CustomLen byte
+
+	/* Custom Bytes. */
+	CustomBytes [24]byte
+}
+
+func (m *LedControl) ID() int        { return 186 }
+func (m *LedControl) CRCExtra() byte { return 72 }
+
+func (m *LedControl) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+	buf = marshalByte(buf, (m.Instance))
+	buf = marshalByte(buf, (m.Pattern))
+	buf = marshalByte(buf, (m.CustomLen))
+	for _, v := range m.CustomBytes {
+		buf = marshalByte(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *LedControl) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *LedControl) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	buf, m.Instance = unmarshalByte(buf)
+
+	buf, m.Pattern = unmarshalByte(buf)
+
+	buf, m.CustomLen = unmarshalByte(buf)
+
+	for i, _ := range m.CustomBytes {
+		buf, m.CustomBytes[i] = unmarshalByte(buf)
+	}
+
+	return buf
+}
+
+func (m *LedControl) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Reports progress of compass calibration. */
+type MagCalProgress struct {
+	/* Body frame direction vector for display. */
+	DirectionX float32
+
+	/* Body frame direction vector for display. */
+	DirectionY float32
+
+	/* Body frame direction vector for display. */
+	DirectionZ float32
+
+	/* Compass being calibrated. */
+	CompassId byte
+
+	/* Bitmask of compasses being calibrated. */
+	CalMask byte
+
+	/* Calibration Status. */
+	CalStatus MagCalStatus // byte
+
+	/* Attempt number. */
+	Attempt byte
+
+	/* Completion percentage. */
+	CompletionPct byte
+
+	/* Bitmask of sphere sections (see http://en.wikipedia.org/wiki/Geodesic_grid). */
+	CompletionMask [10]byte
+}
+
+func (m *MagCalProgress) ID() int        { return 191 }
+func (m *MagCalProgress) CRCExtra() byte { return 92 }
+
+func (m *MagCalProgress) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.DirectionX))
+	buf = marshalFloat32(buf, (m.DirectionY))
+	buf = marshalFloat32(buf, (m.DirectionZ))
+	buf = marshalByte(buf, (m.CompassId))
+	buf = marshalByte(buf, (m.CalMask))
+	buf = marshalByte(buf, byte(m.CalStatus))
+	buf = marshalByte(buf, (m.Attempt))
+	buf = marshalByte(buf, (m.CompletionPct))
+	for _, v := range m.CompletionMask {
+		buf = marshalByte(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *MagCalProgress) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *MagCalProgress) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.DirectionX = unmarshalFloat32(buf)
+
+	buf, m.DirectionY = unmarshalFloat32(buf)
+
+	buf, m.DirectionZ = unmarshalFloat32(buf)
+
+	buf, m.CompassId = unmarshalByte(buf)
+
+	buf, m.CalMask = unmarshalByte(buf)
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.CalStatus = MagCalStatus(v)
+	}
+
+	buf, m.Attempt = unmarshalByte(buf)
+
+	buf, m.CompletionPct = unmarshalByte(buf)
+
+	for i, _ := range m.CompletionMask {
+		buf, m.CompletionMask[i] = unmarshalByte(buf)
+	}
+
+	return buf
+}
+
+func (m *MagCalProgress) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Reports results of completed compass calibration. Sent until MAG_CAL_ACK received. */
+type MagCalReport struct {
+	/* RMS milligauss residuals. */
+	Fitness float32
+
+	/* X offset. */
+	OfsX float32
+
+	/* Y offset. */
+	OfsY float32
+
+	/* Z offset. */
+	OfsZ float32
+
+	/* X diagonal (matrix 11). */
+	DiagX float32
+
+	/* Y diagonal (matrix 22). */
+	DiagY float32
+
+	/* Z diagonal (matrix 33). */
+	DiagZ float32
+
+	/* X off-diagonal (matrix 12 and 21). */
+	OffdiagX float32
+
+	/* Y off-diagonal (matrix 13 and 31). */
+	OffdiagY float32
+
+	/* Z off-diagonal (matrix 32 and 23). */
+	OffdiagZ float32
+
+	/* Compass being calibrated. */
+	CompassId byte
+
+	/* Bitmask of compasses being calibrated. */
+	CalMask byte
+
+	/* Calibration Status. */
+	CalStatus MagCalStatus // byte
+
+	/* 0=requires a MAV_CMD_DO_ACCEPT_MAG_CAL, 1=saved to parameters. */
+	Autosaved byte
+
+	/* Confidence in orientation (higher is better). */
+	OrientationConfidence float32 /*EXTENSION*/
+
+	/* orientation before calibration. */
+	OldOrientation MavSensorOrientation // byte /*EXTENSION*/
+
+	/* orientation after calibration. */
+	NewOrientation MavSensorOrientation // byte /*EXTENSION*/
+
+}
+
+func (m *MagCalReport) ID() int        { return 192 }
+func (m *MagCalReport) CRCExtra() byte { return 36 }
+
+func (m *MagCalReport) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Fitness))
+	buf = marshalFloat32(buf, (m.OfsX))
+	buf = marshalFloat32(buf, (m.OfsY))
+	buf = marshalFloat32(buf, (m.OfsZ))
+	buf = marshalFloat32(buf, (m.DiagX))
+	buf = marshalFloat32(buf, (m.DiagY))
+	buf = marshalFloat32(buf, (m.DiagZ))
+	buf = marshalFloat32(buf, (m.OffdiagX))
+	buf = marshalFloat32(buf, (m.OffdiagY))
+	buf = marshalFloat32(buf, (m.OffdiagZ))
+	buf = marshalByte(buf, (m.CompassId))
+	buf = marshalByte(buf, (m.CalMask))
+	buf = marshalByte(buf, byte(m.CalStatus))
+	buf = marshalByte(buf, (m.Autosaved))
+
+	return buf
+}
+
+func (m *MagCalReport) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+	buf = marshalFloat32(buf, (m.OrientationConfidence))
+	buf = marshalByte(buf, byte(m.OldOrientation))
+	buf = marshalByte(buf, byte(m.NewOrientation))
+
+	return buf
+}
+
+func (m *MagCalReport) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Fitness = unmarshalFloat32(buf)
+
+	buf, m.OfsX = unmarshalFloat32(buf)
+
+	buf, m.OfsY = unmarshalFloat32(buf)
+
+	buf, m.OfsZ = unmarshalFloat32(buf)
+
+	buf, m.DiagX = unmarshalFloat32(buf)
+
+	buf, m.DiagY = unmarshalFloat32(buf)
+
+	buf, m.DiagZ = unmarshalFloat32(buf)
+
+	buf, m.OffdiagX = unmarshalFloat32(buf)
+
+	buf, m.OffdiagY = unmarshalFloat32(buf)
+
+	buf, m.OffdiagZ = unmarshalFloat32(buf)
+
+	buf, m.CompassId = unmarshalByte(buf)
+
+	buf, m.CalMask = unmarshalByte(buf)
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.CalStatus = MagCalStatus(v)
+	}
+
+	buf, m.Autosaved = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *MagCalReport) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+	buf, m.OrientationConfidence = unmarshalFloat32(buf)
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.OldOrientation = MavSensorOrientation(v)
+	}
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.NewOrientation = MavSensorOrientation(v)
+	}
+
+	return buf
+}
+
+/* EKF Status message including flags and variances. */
+type EkfStatusReport struct {
+	/* Velocity variance. */
+	VelocityVariance float32
+
+	/* Horizontal Position variance. */
+	PosHorizVariance float32
+
+	/* Vertical Position variance. */
+	PosVertVariance float32
+
+	/* Compass variance. */
+	CompassVariance float32
+
+	/* Terrain Altitude variance. */
+	TerrainAltVariance float32
+
+	/* Flags. */
+	Flags EkfStatusFlags // uint16
+
+	/* Airspeed variance. */
+	AirspeedVariance float32 /*EXTENSION*/
+
+}
+
+func (m *EkfStatusReport) ID() int        { return 193 }
+func (m *EkfStatusReport) CRCExtra() byte { return 71 }
+
+func (m *EkfStatusReport) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.VelocityVariance))
+	buf = marshalFloat32(buf, (m.PosHorizVariance))
+	buf = marshalFloat32(buf, (m.PosVertVariance))
+	buf = marshalFloat32(buf, (m.CompassVariance))
+	buf = marshalFloat32(buf, (m.TerrainAltVariance))
+	buf = marshalUint16(buf, uint16(m.Flags))
+
+	return buf
+}
+
+func (m *EkfStatusReport) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+	buf = marshalFloat32(buf, (m.AirspeedVariance))
+
+	return buf
+}
+
+func (m *EkfStatusReport) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.VelocityVariance = unmarshalFloat32(buf)
+
+	buf, m.PosHorizVariance = unmarshalFloat32(buf)
+
+	buf, m.PosVertVariance = unmarshalFloat32(buf)
+
+	buf, m.CompassVariance = unmarshalFloat32(buf)
+
+	buf, m.TerrainAltVariance = unmarshalFloat32(buf)
+
+	{
+		var v uint16
+		buf, v = unmarshalUint16(buf)
+		m.Flags = EkfStatusFlags(v)
+	}
+
+	return buf
+}
+
+func (m *EkfStatusReport) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+	buf, m.AirspeedVariance = unmarshalFloat32(buf)
+
+	return buf
+}
+
+/* PID tuning information. */
+type PidTuning struct {
+	/* Desired rate. */
+	Desired float32
+
+	/* Achieved rate. */
+	Achieved float32
+
+	/* FF component. */
+	Ff float32
+
+	/* P component. */
+	P float32
+
+	/* I component. */
+	I float32
+
+	/* D component. */
+	D float32
+
+	/* Axis. */
+	Axis PidTuningAxis // byte
+
+}
+
+func (m *PidTuning) ID() int        { return 194 }
+func (m *PidTuning) CRCExtra() byte { return 98 }
+
+func (m *PidTuning) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Desired))
+	buf = marshalFloat32(buf, (m.Achieved))
+	buf = marshalFloat32(buf, (m.Ff))
+	buf = marshalFloat32(buf, (m.P))
+	buf = marshalFloat32(buf, (m.I))
+	buf = marshalFloat32(buf, (m.D))
+	buf = marshalByte(buf, byte(m.Axis))
+
+	return buf
+}
+
+func (m *PidTuning) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *PidTuning) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Desired = unmarshalFloat32(buf)
+
+	buf, m.Achieved = unmarshalFloat32(buf)
+
+	buf, m.Ff = unmarshalFloat32(buf)
+
+	buf, m.P = unmarshalFloat32(buf)
+
+	buf, m.I = unmarshalFloat32(buf)
+
+	buf, m.D = unmarshalFloat32(buf)
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Axis = PidTuningAxis(v)
+	}
+
+	return buf
+}
+
+func (m *PidTuning) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Deepstall path planning. */
+type Deepstall struct {
+	/* Landing latitude. */
+	LandingLat int32
+
+	/* Landing longitude. */
+	LandingLon int32
+
+	/* Final heading start point, latitude. */
+	PathLat int32
+
+	/* Final heading start point, longitude. */
+	PathLon int32
+
+	/* Arc entry point, latitude. */
+	ArcEntryLat int32
+
+	/* Arc entry point, longitude. */
+	ArcEntryLon int32
+
+	/* Altitude. */
+	Altitude float32
+
+	/* Distance the aircraft expects to travel during the deepstall. */
+	ExpectedTravelDistance float32
+
+	/* Deepstall cross track error (only valid when in DEEPSTALL_STAGE_LAND). */
+	CrossTrackError float32
+
+	/* Deepstall stage. */
+	Stage DeepstallStage // byte
+
+}
+
+func (m *Deepstall) ID() int        { return 195 }
+func (m *Deepstall) CRCExtra() byte { return 120 }
+
+func (m *Deepstall) MarshalV1(buf []byte) []byte {
+	buf = marshalInt32(buf, (m.LandingLat))
+	buf = marshalInt32(buf, (m.LandingLon))
+	buf = marshalInt32(buf, (m.PathLat))
+	buf = marshalInt32(buf, (m.PathLon))
+	buf = marshalInt32(buf, (m.ArcEntryLat))
+	buf = marshalInt32(buf, (m.ArcEntryLon))
+	buf = marshalFloat32(buf, (m.Altitude))
+	buf = marshalFloat32(buf, (m.ExpectedTravelDistance))
+	buf = marshalFloat32(buf, (m.CrossTrackError))
+	buf = marshalByte(buf, byte(m.Stage))
+
+	return buf
+}
+
+func (m *Deepstall) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *Deepstall) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.LandingLat = unmarshalInt32(buf)
+
+	buf, m.LandingLon = unmarshalInt32(buf)
+
+	buf, m.PathLat = unmarshalInt32(buf)
+
+	buf, m.PathLon = unmarshalInt32(buf)
+
+	buf, m.ArcEntryLat = unmarshalInt32(buf)
+
+	buf, m.ArcEntryLon = unmarshalInt32(buf)
+
+	buf, m.Altitude = unmarshalFloat32(buf)
+
+	buf, m.ExpectedTravelDistance = unmarshalFloat32(buf)
+
+	buf, m.CrossTrackError = unmarshalFloat32(buf)
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Stage = DeepstallStage(v)
+	}
+
+	return buf
+}
+
+func (m *Deepstall) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* 3 axis gimbal measurements. */
+type GimbalReport struct {
+	/* Time since last update. */
+	DeltaTime float32
+
+	/* Delta angle X. */
+	DeltaAngleX float32
+
+	/* Delta angle Y. */
+	DeltaAngleY float32
+
+	/* Delta angle X. */
+	DeltaAngleZ float32
+
+	/* Delta velocity X. */
+	DeltaVelocityX float32
+
+	/* Delta velocity Y. */
+	DeltaVelocityY float32
+
+	/* Delta velocity Z. */
+	DeltaVelocityZ float32
+
+	/* Joint ROLL. */
+	JointRoll float32
+
+	/* Joint EL. */
+	JointEl float32
+
+	/* Joint AZ. */
+	JointAz float32
+
+	/* System ID. */
+	TargetSystem byte
+
+	/* Component ID. */
+	TargetComponent byte
+}
+
+func (m *GimbalReport) ID() int        { return 200 }
+func (m *GimbalReport) CRCExtra() byte { return 134 }
+
+func (m *GimbalReport) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.DeltaTime))
+	buf = marshalFloat32(buf, (m.DeltaAngleX))
+	buf = marshalFloat32(buf, (m.DeltaAngleY))
+	buf = marshalFloat32(buf, (m.DeltaAngleZ))
+	buf = marshalFloat32(buf, (m.DeltaVelocityX))
+	buf = marshalFloat32(buf, (m.DeltaVelocityY))
+	buf = marshalFloat32(buf, (m.DeltaVelocityZ))
+	buf = marshalFloat32(buf, (m.JointRoll))
+	buf = marshalFloat32(buf, (m.JointEl))
+	buf = marshalFloat32(buf, (m.JointAz))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+
+	return buf
+}
+
+func (m *GimbalReport) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *GimbalReport) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.DeltaTime = unmarshalFloat32(buf)
+
+	buf, m.DeltaAngleX = unmarshalFloat32(buf)
+
+	buf, m.DeltaAngleY = unmarshalFloat32(buf)
+
+	buf, m.DeltaAngleZ = unmarshalFloat32(buf)
+
+	buf, m.DeltaVelocityX = unmarshalFloat32(buf)
+
+	buf, m.DeltaVelocityY = unmarshalFloat32(buf)
+
+	buf, m.DeltaVelocityZ = unmarshalFloat32(buf)
+
+	buf, m.JointRoll = unmarshalFloat32(buf)
+
+	buf, m.JointEl = unmarshalFloat32(buf)
+
+	buf, m.JointAz = unmarshalFloat32(buf)
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *GimbalReport) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Control message for rate gimbal. */
+type GimbalControl struct {
+	/* Demanded angular rate X. */
+	DemandedRateX float32
+
+	/* Demanded angular rate Y. */
+	DemandedRateY float32
+
+	/* Demanded angular rate Z. */
+	DemandedRateZ float32
+
+	/* System ID. */
+	TargetSystem byte
+
+	/* Component ID. */
+	TargetComponent byte
+}
+
+func (m *GimbalControl) ID() int        { return 201 }
+func (m *GimbalControl) CRCExtra() byte { return 205 }
+
+func (m *GimbalControl) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.DemandedRateX))
+	buf = marshalFloat32(buf, (m.DemandedRateY))
+	buf = marshalFloat32(buf, (m.DemandedRateZ))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+
+	return buf
+}
+
+func (m *GimbalControl) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *GimbalControl) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.DemandedRateX = unmarshalFloat32(buf)
+
+	buf, m.DemandedRateY = unmarshalFloat32(buf)
+
+	buf, m.DemandedRateZ = unmarshalFloat32(buf)
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *GimbalControl) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* 100 Hz gimbal torque command telemetry. */
+type GimbalTorqueCmdReport struct {
+	/* Roll Torque Command. */
+	RlTorqueCmd int16
+
+	/* Elevation Torque Command. */
+	ElTorqueCmd int16
+
+	/* Azimuth Torque Command. */
+	AzTorqueCmd int16
+
+	/* System ID. */
+	TargetSystem byte
+
+	/* Component ID. */
+	TargetComponent byte
+}
+
+func (m *GimbalTorqueCmdReport) ID() int        { return 214 }
+func (m *GimbalTorqueCmdReport) CRCExtra() byte { return 69 }
+
+func (m *GimbalTorqueCmdReport) MarshalV1(buf []byte) []byte {
+	buf = marshalInt16(buf, (m.RlTorqueCmd))
+	buf = marshalInt16(buf, (m.ElTorqueCmd))
+	buf = marshalInt16(buf, (m.AzTorqueCmd))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+
+	return buf
+}
+
+func (m *GimbalTorqueCmdReport) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *GimbalTorqueCmdReport) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.RlTorqueCmd = unmarshalInt16(buf)
+
+	buf, m.ElTorqueCmd = unmarshalInt16(buf)
+
+	buf, m.AzTorqueCmd = unmarshalInt16(buf)
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *GimbalTorqueCmdReport) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Heartbeat from a HeroBus attached GoPro. */
+type GoproHeartbeat struct {
+	/* Status. */
+	Status GoproHeartbeatStatus // byte
+
+	/* Current capture mode. */
+	CaptureMode GoproCaptureMode // byte
+
+	/* Additional status bits. */
+	Flags GoproHeartbeatFlags // byte
+
+}
+
+func (m *GoproHeartbeat) ID() int        { return 215 }
+func (m *GoproHeartbeat) CRCExtra() byte { return 101 }
+
+func (m *GoproHeartbeat) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, byte(m.Status))
+	buf = marshalByte(buf, byte(m.CaptureMode))
+	buf = marshalByte(buf, byte(m.Flags))
+
+	return buf
+}
+
+func (m *GoproHeartbeat) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *GoproHeartbeat) UnmarshalV1(buf []byte) []byte {
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Status = GoproHeartbeatStatus(v)
+	}
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.CaptureMode = GoproCaptureMode(v)
+	}
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Flags = GoproHeartbeatFlags(v)
+	}
+
+	return buf
+}
+
+func (m *GoproHeartbeat) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Request a GOPRO_COMMAND response from the GoPro. */
+type GoproGetRequest struct {
+	/* System ID. */
+	TargetSystem byte
+
+	/* Component ID. */
+	TargetComponent byte
+
+	/* Command ID. */
+	CmdId GoproCommand // byte
+
+}
+
+func (m *GoproGetRequest) ID() int        { return 216 }
+func (m *GoproGetRequest) CRCExtra() byte { return 50 }
+
+func (m *GoproGetRequest) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+	buf = marshalByte(buf, byte(m.CmdId))
+
+	return buf
+}
+
+func (m *GoproGetRequest) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *GoproGetRequest) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.CmdId = GoproCommand(v)
+	}
+
+	return buf
+}
+
+func (m *GoproGetRequest) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Response from a GOPRO_COMMAND get request. */
+type GoproGetResponse struct {
+	/* Command ID. */
+	CmdId GoproCommand // byte
+
+	/* Status. */
+	Status GoproRequestStatus // byte
+
+	/* Value. */
+	Value [4]byte
+}
+
+func (m *GoproGetResponse) ID() int        { return 217 }
+func (m *GoproGetResponse) CRCExtra() byte { return 202 }
+
+func (m *GoproGetResponse) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, byte(m.CmdId))
+	buf = marshalByte(buf, byte(m.Status))
+	for _, v := range m.Value {
+		buf = marshalByte(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *GoproGetResponse) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *GoproGetResponse) UnmarshalV1(buf []byte) []byte {
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.CmdId = GoproCommand(v)
+	}
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Status = GoproRequestStatus(v)
+	}
+
+	for i, _ := range m.Value {
+		buf, m.Value[i] = unmarshalByte(buf)
+	}
+
+	return buf
+}
+
+func (m *GoproGetResponse) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Request to set a GOPRO_COMMAND with a desired. */
+type GoproSetRequest struct {
+	/* System ID. */
+	TargetSystem byte
+
+	/* Component ID. */
+	TargetComponent byte
+
+	/* Command ID. */
+	CmdId GoproCommand // byte
+
+	/* Value. */
+	Value [4]byte
+}
+
+func (m *GoproSetRequest) ID() int        { return 218 }
+func (m *GoproSetRequest) CRCExtra() byte { return 17 }
+
+func (m *GoproSetRequest) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+	buf = marshalByte(buf, byte(m.CmdId))
+	for _, v := range m.Value {
+		buf = marshalByte(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *GoproSetRequest) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *GoproSetRequest) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.CmdId = GoproCommand(v)
+	}
+
+	for i, _ := range m.Value {
+		buf, m.Value[i] = unmarshalByte(buf)
+	}
+
+	return buf
+}
+
+func (m *GoproSetRequest) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Response from a GOPRO_COMMAND set request. */
+type GoproSetResponse struct {
+	/* Command ID. */
+	CmdId GoproCommand // byte
+
+	/* Status. */
+	Status GoproRequestStatus // byte
+
+}
+
+func (m *GoproSetResponse) ID() int        { return 219 }
+func (m *GoproSetResponse) CRCExtra() byte { return 162 }
+
+func (m *GoproSetResponse) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, byte(m.CmdId))
+	buf = marshalByte(buf, byte(m.Status))
+
+	return buf
+}
+
+func (m *GoproSetResponse) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *GoproSetResponse) UnmarshalV1(buf []byte) []byte {
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.CmdId = GoproCommand(v)
+	}
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Status = GoproRequestStatus(v)
+	}
+
+	return buf
+}
+
+func (m *GoproSetResponse) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* RPM sensor output. */
+type Rpm struct {
+	/* RPM Sensor1. */
+	Rpm1 float32
+
+	/* RPM Sensor2. */
+	Rpm2 float32
+}
+
+func (m *Rpm) ID() int        { return 226 }
+func (m *Rpm) CRCExtra() byte { return 207 }
+
+func (m *Rpm) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Rpm1))
+	buf = marshalFloat32(buf, (m.Rpm2))
+
+	return buf
+}
+
+func (m *Rpm) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *Rpm) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Rpm1 = unmarshalFloat32(buf)
+
+	buf, m.Rpm2 = unmarshalFloat32(buf)
+
+	return buf
+}
+
+func (m *Rpm) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
 /* Estimator status message including flags, innovation test ratios and estimated accuracies. The flags message is an integer bitmask containing information on which EKF outputs are valid. See the ESTIMATOR_STATUS_FLAGS enum definition for further information. The innovation test ratios show the magnitude of the sensor innovation divided by the innovation check threshold. Under normal operation the innovation test ratios should be below 0.5 with occasional values up to 1.0. Values greater than 1.0 should be rare under normal operation and indicate that a measurement has been rejected by the filter. The user should be notified if an innovation test ratio greater than 1.0 is recorded. Notifications for values in the range between 0.5 and 1.0 should be optional and controllable by the user. */
 type EstimatorStatus struct {
 	/* Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number. */
@@ -22347,6 +21568,785 @@ func (m *UavionixAdsbTransceiverHealthReport) UnmarshalV1(buf []byte) []byte {
 }
 
 func (m *UavionixAdsbTransceiverHealthReport) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Read registers for a device. */
+type DeviceOpRead struct {
+	/* Request ID - copied to reply. */
+	RequestId uint32
+
+	/* System ID. */
+	TargetSystem byte
+
+	/* Component ID. */
+	TargetComponent byte
+
+	/* The bus type. */
+	Bustype DeviceOpBustype // byte
+
+	/* Bus number. */
+	Bus byte
+
+	/* Bus address. */
+	Address byte
+
+	/* Name of device on bus (for SPI). */
+	Busname [40]byte
+
+	/* First register to read. */
+	Regstart byte
+
+	/* Count of registers to read. */
+	Count byte
+}
+
+func (m *DeviceOpRead) ID() int        { return 11000 }
+func (m *DeviceOpRead) CRCExtra() byte { return 134 }
+
+func (m *DeviceOpRead) MarshalV1(buf []byte) []byte {
+	buf = marshalUint32(buf, (m.RequestId))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+	buf = marshalByte(buf, byte(m.Bustype))
+	buf = marshalByte(buf, (m.Bus))
+	buf = marshalByte(buf, (m.Address))
+	for _, v := range m.Busname {
+		buf = marshalByte(buf, (v))
+	}
+	buf = marshalByte(buf, (m.Regstart))
+	buf = marshalByte(buf, (m.Count))
+
+	return buf
+}
+
+func (m *DeviceOpRead) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *DeviceOpRead) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.RequestId = unmarshalUint32(buf)
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Bustype = DeviceOpBustype(v)
+	}
+
+	buf, m.Bus = unmarshalByte(buf)
+
+	buf, m.Address = unmarshalByte(buf)
+
+	for i, _ := range m.Busname {
+		buf, m.Busname[i] = unmarshalByte(buf)
+	}
+
+	buf, m.Regstart = unmarshalByte(buf)
+
+	buf, m.Count = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *DeviceOpRead) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Read registers reply. */
+type DeviceOpReadReply struct {
+	/* Request ID - copied from request. */
+	RequestId uint32
+
+	/* 0 for success, anything else is failure code. */
+	Result byte
+
+	/* Starting register. */
+	Regstart byte
+
+	/* Count of bytes read. */
+	Count byte
+
+	/* Reply data. */
+	Data [128]byte
+}
+
+func (m *DeviceOpReadReply) ID() int        { return 11001 }
+func (m *DeviceOpReadReply) CRCExtra() byte { return 15 }
+
+func (m *DeviceOpReadReply) MarshalV1(buf []byte) []byte {
+	buf = marshalUint32(buf, (m.RequestId))
+	buf = marshalByte(buf, (m.Result))
+	buf = marshalByte(buf, (m.Regstart))
+	buf = marshalByte(buf, (m.Count))
+	for _, v := range m.Data {
+		buf = marshalByte(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *DeviceOpReadReply) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *DeviceOpReadReply) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.RequestId = unmarshalUint32(buf)
+
+	buf, m.Result = unmarshalByte(buf)
+
+	buf, m.Regstart = unmarshalByte(buf)
+
+	buf, m.Count = unmarshalByte(buf)
+
+	for i, _ := range m.Data {
+		buf, m.Data[i] = unmarshalByte(buf)
+	}
+
+	return buf
+}
+
+func (m *DeviceOpReadReply) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Write registers for a device. */
+type DeviceOpWrite struct {
+	/* Request ID - copied to reply. */
+	RequestId uint32
+
+	/* System ID. */
+	TargetSystem byte
+
+	/* Component ID. */
+	TargetComponent byte
+
+	/* The bus type. */
+	Bustype DeviceOpBustype // byte
+
+	/* Bus number. */
+	Bus byte
+
+	/* Bus address. */
+	Address byte
+
+	/* Name of device on bus (for SPI). */
+	Busname [40]byte
+
+	/* First register to write. */
+	Regstart byte
+
+	/* Count of registers to write. */
+	Count byte
+
+	/* Write data. */
+	Data [128]byte
+}
+
+func (m *DeviceOpWrite) ID() int        { return 11002 }
+func (m *DeviceOpWrite) CRCExtra() byte { return 234 }
+
+func (m *DeviceOpWrite) MarshalV1(buf []byte) []byte {
+	buf = marshalUint32(buf, (m.RequestId))
+	buf = marshalByte(buf, (m.TargetSystem))
+	buf = marshalByte(buf, (m.TargetComponent))
+	buf = marshalByte(buf, byte(m.Bustype))
+	buf = marshalByte(buf, (m.Bus))
+	buf = marshalByte(buf, (m.Address))
+	for _, v := range m.Busname {
+		buf = marshalByte(buf, (v))
+	}
+	buf = marshalByte(buf, (m.Regstart))
+	buf = marshalByte(buf, (m.Count))
+	for _, v := range m.Data {
+		buf = marshalByte(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *DeviceOpWrite) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *DeviceOpWrite) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.RequestId = unmarshalUint32(buf)
+
+	buf, m.TargetSystem = unmarshalByte(buf)
+
+	buf, m.TargetComponent = unmarshalByte(buf)
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Bustype = DeviceOpBustype(v)
+	}
+
+	buf, m.Bus = unmarshalByte(buf)
+
+	buf, m.Address = unmarshalByte(buf)
+
+	for i, _ := range m.Busname {
+		buf, m.Busname[i] = unmarshalByte(buf)
+	}
+
+	buf, m.Regstart = unmarshalByte(buf)
+
+	buf, m.Count = unmarshalByte(buf)
+
+	for i, _ := range m.Data {
+		buf, m.Data[i] = unmarshalByte(buf)
+	}
+
+	return buf
+}
+
+func (m *DeviceOpWrite) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Write registers reply. */
+type DeviceOpWriteReply struct {
+	/* Request ID - copied from request. */
+	RequestId uint32
+
+	/* 0 for success, anything else is failure code. */
+	Result byte
+}
+
+func (m *DeviceOpWriteReply) ID() int        { return 11003 }
+func (m *DeviceOpWriteReply) CRCExtra() byte { return 64 }
+
+func (m *DeviceOpWriteReply) MarshalV1(buf []byte) []byte {
+	buf = marshalUint32(buf, (m.RequestId))
+	buf = marshalByte(buf, (m.Result))
+
+	return buf
+}
+
+func (m *DeviceOpWriteReply) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *DeviceOpWriteReply) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.RequestId = unmarshalUint32(buf)
+
+	buf, m.Result = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *DeviceOpWriteReply) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Adaptive Controller tuning information. */
+type AdapTuning struct {
+	/* Desired rate. */
+	Desired float32
+
+	/* Achieved rate. */
+	Achieved float32
+
+	/* Error between model and vehicle. */
+	Error float32
+
+	/* Theta estimated state predictor. */
+	Theta float32
+
+	/* Omega estimated state predictor. */
+	Omega float32
+
+	/* Sigma estimated state predictor. */
+	Sigma float32
+
+	/* Theta derivative. */
+	ThetaDot float32
+
+	/* Omega derivative. */
+	OmegaDot float32
+
+	/* Sigma derivative. */
+	SigmaDot float32
+
+	/* Projection operator value. */
+	F float32
+
+	/* Projection operator derivative. */
+	FDot float32
+
+	/* u adaptive controlled output command. */
+	U float32
+
+	/* Axis. */
+	Axis PidTuningAxis // byte
+
+}
+
+func (m *AdapTuning) ID() int        { return 11010 }
+func (m *AdapTuning) CRCExtra() byte { return 46 }
+
+func (m *AdapTuning) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Desired))
+	buf = marshalFloat32(buf, (m.Achieved))
+	buf = marshalFloat32(buf, (m.Error))
+	buf = marshalFloat32(buf, (m.Theta))
+	buf = marshalFloat32(buf, (m.Omega))
+	buf = marshalFloat32(buf, (m.Sigma))
+	buf = marshalFloat32(buf, (m.ThetaDot))
+	buf = marshalFloat32(buf, (m.OmegaDot))
+	buf = marshalFloat32(buf, (m.SigmaDot))
+	buf = marshalFloat32(buf, (m.F))
+	buf = marshalFloat32(buf, (m.FDot))
+	buf = marshalFloat32(buf, (m.U))
+	buf = marshalByte(buf, byte(m.Axis))
+
+	return buf
+}
+
+func (m *AdapTuning) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *AdapTuning) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Desired = unmarshalFloat32(buf)
+
+	buf, m.Achieved = unmarshalFloat32(buf)
+
+	buf, m.Error = unmarshalFloat32(buf)
+
+	buf, m.Theta = unmarshalFloat32(buf)
+
+	buf, m.Omega = unmarshalFloat32(buf)
+
+	buf, m.Sigma = unmarshalFloat32(buf)
+
+	buf, m.ThetaDot = unmarshalFloat32(buf)
+
+	buf, m.OmegaDot = unmarshalFloat32(buf)
+
+	buf, m.SigmaDot = unmarshalFloat32(buf)
+
+	buf, m.F = unmarshalFloat32(buf)
+
+	buf, m.FDot = unmarshalFloat32(buf)
+
+	buf, m.U = unmarshalFloat32(buf)
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Axis = PidTuningAxis(v)
+	}
+
+	return buf
+}
+
+func (m *AdapTuning) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Camera vision based attitude and position deltas. */
+type VisionPositionDelta struct {
+	/* Timestamp (synced to UNIX time or since system boot). */
+	TimeUsec uint64
+
+	/* Time since the last reported camera frame. */
+	TimeDeltaUsec uint64
+
+	/* Defines a rotation vector in body frame that rotates the vehicle from the previous to the current orientation. */
+	AngleDelta [3]float32
+
+	/* Change in position from previous to current frame rotated into body frame (0=forward, 1=right, 2=down). */
+	PositionDelta [3]float32
+
+	/* Normalised confidence value from 0 to 100. */
+	Confidence float32
+}
+
+func (m *VisionPositionDelta) ID() int        { return 11011 }
+func (m *VisionPositionDelta) CRCExtra() byte { return 106 }
+
+func (m *VisionPositionDelta) MarshalV1(buf []byte) []byte {
+	buf = marshalUint64(buf, (m.TimeUsec))
+	buf = marshalUint64(buf, (m.TimeDeltaUsec))
+	for _, v := range m.AngleDelta {
+		buf = marshalFloat32(buf, (v))
+	}
+	for _, v := range m.PositionDelta {
+		buf = marshalFloat32(buf, (v))
+	}
+	buf = marshalFloat32(buf, (m.Confidence))
+
+	return buf
+}
+
+func (m *VisionPositionDelta) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *VisionPositionDelta) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.TimeUsec = unmarshalUint64(buf)
+
+	buf, m.TimeDeltaUsec = unmarshalUint64(buf)
+
+	for i, _ := range m.AngleDelta {
+		buf, m.AngleDelta[i] = unmarshalFloat32(buf)
+	}
+
+	for i, _ := range m.PositionDelta {
+		buf, m.PositionDelta[i] = unmarshalFloat32(buf)
+	}
+
+	buf, m.Confidence = unmarshalFloat32(buf)
+
+	return buf
+}
+
+func (m *VisionPositionDelta) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Angle of Attack and Side Slip Angle. */
+type AoaSsa struct {
+	/* Timestamp (since boot or Unix epoch). */
+	TimeUsec uint64
+
+	/* Angle of Attack. */
+	Aoa float32
+
+	/* Side Slip Angle. */
+	Ssa float32
+}
+
+func (m *AoaSsa) ID() int        { return 11020 }
+func (m *AoaSsa) CRCExtra() byte { return 205 }
+
+func (m *AoaSsa) MarshalV1(buf []byte) []byte {
+	buf = marshalUint64(buf, (m.TimeUsec))
+	buf = marshalFloat32(buf, (m.Aoa))
+	buf = marshalFloat32(buf, (m.Ssa))
+
+	return buf
+}
+
+func (m *AoaSsa) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *AoaSsa) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.TimeUsec = unmarshalUint64(buf)
+
+	buf, m.Aoa = unmarshalFloat32(buf)
+
+	buf, m.Ssa = unmarshalFloat32(buf)
+
+	return buf
+}
+
+func (m *AoaSsa) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* ESC Telemetry Data for ESCs 1 to 4, matching data sent by BLHeli ESCs. */
+type EscTelemetry1To4 struct {
+	/* Voltage. */
+	Voltage [4]uint16
+
+	/* Current. */
+	Current [4]uint16
+
+	/* Total current. */
+	Totalcurrent [4]uint16
+
+	/* RPM (eRPM). */
+	Rpm [4]uint16
+
+	/* count of telemetry packets received (wraps at 65535). */
+	Count [4]uint16
+
+	/* Temperature. */
+	Temperature [4]byte
+}
+
+func (m *EscTelemetry1To4) ID() int        { return 11030 }
+func (m *EscTelemetry1To4) CRCExtra() byte { return 144 }
+
+func (m *EscTelemetry1To4) MarshalV1(buf []byte) []byte {
+	for _, v := range m.Voltage {
+		buf = marshalUint16(buf, (v))
+	}
+	for _, v := range m.Current {
+		buf = marshalUint16(buf, (v))
+	}
+	for _, v := range m.Totalcurrent {
+		buf = marshalUint16(buf, (v))
+	}
+	for _, v := range m.Rpm {
+		buf = marshalUint16(buf, (v))
+	}
+	for _, v := range m.Count {
+		buf = marshalUint16(buf, (v))
+	}
+	for _, v := range m.Temperature {
+		buf = marshalByte(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *EscTelemetry1To4) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *EscTelemetry1To4) UnmarshalV1(buf []byte) []byte {
+
+	for i, _ := range m.Voltage {
+		buf, m.Voltage[i] = unmarshalUint16(buf)
+	}
+
+	for i, _ := range m.Current {
+		buf, m.Current[i] = unmarshalUint16(buf)
+	}
+
+	for i, _ := range m.Totalcurrent {
+		buf, m.Totalcurrent[i] = unmarshalUint16(buf)
+	}
+
+	for i, _ := range m.Rpm {
+		buf, m.Rpm[i] = unmarshalUint16(buf)
+	}
+
+	for i, _ := range m.Count {
+		buf, m.Count[i] = unmarshalUint16(buf)
+	}
+
+	for i, _ := range m.Temperature {
+		buf, m.Temperature[i] = unmarshalByte(buf)
+	}
+
+	return buf
+}
+
+func (m *EscTelemetry1To4) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* ESC Telemetry Data for ESCs 5 to 8, matching data sent by BLHeli ESCs. */
+type EscTelemetry5To8 struct {
+	/* Voltage. */
+	Voltage [4]uint16
+
+	/* Current. */
+	Current [4]uint16
+
+	/* Total current. */
+	Totalcurrent [4]uint16
+
+	/* RPM (eRPM). */
+	Rpm [4]uint16
+
+	/* count of telemetry packets received (wraps at 65535). */
+	Count [4]uint16
+
+	/* Temperature. */
+	Temperature [4]byte
+}
+
+func (m *EscTelemetry5To8) ID() int        { return 11031 }
+func (m *EscTelemetry5To8) CRCExtra() byte { return 133 }
+
+func (m *EscTelemetry5To8) MarshalV1(buf []byte) []byte {
+	for _, v := range m.Voltage {
+		buf = marshalUint16(buf, (v))
+	}
+	for _, v := range m.Current {
+		buf = marshalUint16(buf, (v))
+	}
+	for _, v := range m.Totalcurrent {
+		buf = marshalUint16(buf, (v))
+	}
+	for _, v := range m.Rpm {
+		buf = marshalUint16(buf, (v))
+	}
+	for _, v := range m.Count {
+		buf = marshalUint16(buf, (v))
+	}
+	for _, v := range m.Temperature {
+		buf = marshalByte(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *EscTelemetry5To8) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *EscTelemetry5To8) UnmarshalV1(buf []byte) []byte {
+
+	for i, _ := range m.Voltage {
+		buf, m.Voltage[i] = unmarshalUint16(buf)
+	}
+
+	for i, _ := range m.Current {
+		buf, m.Current[i] = unmarshalUint16(buf)
+	}
+
+	for i, _ := range m.Totalcurrent {
+		buf, m.Totalcurrent[i] = unmarshalUint16(buf)
+	}
+
+	for i, _ := range m.Rpm {
+		buf, m.Rpm[i] = unmarshalUint16(buf)
+	}
+
+	for i, _ := range m.Count {
+		buf, m.Count[i] = unmarshalUint16(buf)
+	}
+
+	for i, _ := range m.Temperature {
+		buf, m.Temperature[i] = unmarshalByte(buf)
+	}
+
+	return buf
+}
+
+func (m *EscTelemetry5To8) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* ESC Telemetry Data for ESCs 9 to 12, matching data sent by BLHeli ESCs. */
+type EscTelemetry9To12 struct {
+	/* Voltage. */
+	Voltage [4]uint16
+
+	/* Current. */
+	Current [4]uint16
+
+	/* Total current. */
+	Totalcurrent [4]uint16
+
+	/* RPM (eRPM). */
+	Rpm [4]uint16
+
+	/* count of telemetry packets received (wraps at 65535). */
+	Count [4]uint16
+
+	/* Temperature. */
+	Temperature [4]byte
+}
+
+func (m *EscTelemetry9To12) ID() int        { return 11032 }
+func (m *EscTelemetry9To12) CRCExtra() byte { return 85 }
+
+func (m *EscTelemetry9To12) MarshalV1(buf []byte) []byte {
+	for _, v := range m.Voltage {
+		buf = marshalUint16(buf, (v))
+	}
+	for _, v := range m.Current {
+		buf = marshalUint16(buf, (v))
+	}
+	for _, v := range m.Totalcurrent {
+		buf = marshalUint16(buf, (v))
+	}
+	for _, v := range m.Rpm {
+		buf = marshalUint16(buf, (v))
+	}
+	for _, v := range m.Count {
+		buf = marshalUint16(buf, (v))
+	}
+	for _, v := range m.Temperature {
+		buf = marshalByte(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *EscTelemetry9To12) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *EscTelemetry9To12) UnmarshalV1(buf []byte) []byte {
+
+	for i, _ := range m.Voltage {
+		buf, m.Voltage[i] = unmarshalUint16(buf)
+	}
+
+	for i, _ := range m.Current {
+		buf, m.Current[i] = unmarshalUint16(buf)
+	}
+
+	for i, _ := range m.Totalcurrent {
+		buf, m.Totalcurrent[i] = unmarshalUint16(buf)
+	}
+
+	for i, _ := range m.Rpm {
+		buf, m.Rpm[i] = unmarshalUint16(buf)
+	}
+
+	for i, _ := range m.Count {
+		buf, m.Count[i] = unmarshalUint16(buf)
+	}
+
+	for i, _ := range m.Temperature {
+		buf, m.Temperature[i] = unmarshalByte(buf)
+	}
+
+	return buf
+}
+
+func (m *EscTelemetry9To12) UnmarshalV2(buf []byte) []byte {
 	buf = m.UnmarshalV1(buf)
 
 	return buf

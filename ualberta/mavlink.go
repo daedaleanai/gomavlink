@@ -2559,12 +2559,6 @@ const (
 // The Dialect factory function constructs the proper empty message given the message ID.
 func Dialect(mid int) mavlink.Message {
 	switch mid {
-	case 220:
-		return &NavFilterBias{}
-	case 221:
-		return &RadioCalibration{}
-	case 222:
-		return &UalbertaSysStatus{}
 	case 0:
 		return &Heartbeat{}
 	case 1:
@@ -2799,6 +2793,12 @@ func Dialect(mid int) mavlink.Message {
 		return &AutopilotVersion{}
 	case 149:
 		return &LandingTarget{}
+	case 220:
+		return &NavFilterBias{}
+	case 221:
+		return &RadioCalibration{}
+	case 222:
+		return &UalbertaSysStatus{}
 	case 230:
 		return &EstimatorStatus{}
 	case 231:
@@ -2915,210 +2915,6 @@ func Dialect(mid int) mavlink.Message {
 		return &WheelDistance{}
 	}
 	return nil
-}
-
-/* Accelerometer and Gyro biases from the navigation filter */
-type NavFilterBias struct {
-	/* Timestamp (microseconds) */
-	Usec uint64
-
-	/* b_f[0] */
-	Accel0 float32
-
-	/* b_f[1] */
-	Accel1 float32
-
-	/* b_f[2] */
-	Accel2 float32
-
-	/* b_f[0] */
-	Gyro0 float32
-
-	/* b_f[1] */
-	Gyro1 float32
-
-	/* b_f[2] */
-	Gyro2 float32
-}
-
-func (m *NavFilterBias) ID() int        { return 220 }
-func (m *NavFilterBias) CRCExtra() byte { return 34 }
-
-func (m *NavFilterBias) MarshalV1(buf []byte) []byte {
-	buf = marshalUint64(buf, (m.Usec))
-	buf = marshalFloat32(buf, (m.Accel0))
-	buf = marshalFloat32(buf, (m.Accel1))
-	buf = marshalFloat32(buf, (m.Accel2))
-	buf = marshalFloat32(buf, (m.Gyro0))
-	buf = marshalFloat32(buf, (m.Gyro1))
-	buf = marshalFloat32(buf, (m.Gyro2))
-
-	return buf
-}
-
-func (m *NavFilterBias) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *NavFilterBias) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Usec = unmarshalUint64(buf)
-
-	buf, m.Accel0 = unmarshalFloat32(buf)
-
-	buf, m.Accel1 = unmarshalFloat32(buf)
-
-	buf, m.Accel2 = unmarshalFloat32(buf)
-
-	buf, m.Gyro0 = unmarshalFloat32(buf)
-
-	buf, m.Gyro1 = unmarshalFloat32(buf)
-
-	buf, m.Gyro2 = unmarshalFloat32(buf)
-
-	return buf
-}
-
-func (m *NavFilterBias) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Complete set of calibration parameters for the radio */
-type RadioCalibration struct {
-	/* Aileron setpoints: left, center, right */
-	Aileron [3]uint16
-
-	/* Elevator setpoints: nose down, center, nose up */
-	Elevator [3]uint16
-
-	/* Rudder setpoints: nose left, center, nose right */
-	Rudder [3]uint16
-
-	/* Tail gyro mode/gain setpoints: heading hold, rate mode */
-	Gyro [2]uint16
-
-	/* Pitch curve setpoints (every 25%) */
-	Pitch [5]uint16
-
-	/* Throttle curve setpoints (every 25%) */
-	Throttle [5]uint16
-}
-
-func (m *RadioCalibration) ID() int        { return 221 }
-func (m *RadioCalibration) CRCExtra() byte { return 71 }
-
-func (m *RadioCalibration) MarshalV1(buf []byte) []byte {
-	for _, v := range m.Aileron {
-		buf = marshalUint16(buf, (v))
-	}
-	for _, v := range m.Elevator {
-		buf = marshalUint16(buf, (v))
-	}
-	for _, v := range m.Rudder {
-		buf = marshalUint16(buf, (v))
-	}
-	for _, v := range m.Gyro {
-		buf = marshalUint16(buf, (v))
-	}
-	for _, v := range m.Pitch {
-		buf = marshalUint16(buf, (v))
-	}
-	for _, v := range m.Throttle {
-		buf = marshalUint16(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *RadioCalibration) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *RadioCalibration) UnmarshalV1(buf []byte) []byte {
-
-	for i, _ := range m.Aileron {
-		buf, m.Aileron[i] = unmarshalUint16(buf)
-	}
-
-	for i, _ := range m.Elevator {
-		buf, m.Elevator[i] = unmarshalUint16(buf)
-	}
-
-	for i, _ := range m.Rudder {
-		buf, m.Rudder[i] = unmarshalUint16(buf)
-	}
-
-	for i, _ := range m.Gyro {
-		buf, m.Gyro[i] = unmarshalUint16(buf)
-	}
-
-	for i, _ := range m.Pitch {
-		buf, m.Pitch[i] = unmarshalUint16(buf)
-	}
-
-	for i, _ := range m.Throttle {
-		buf, m.Throttle[i] = unmarshalUint16(buf)
-	}
-
-	return buf
-}
-
-func (m *RadioCalibration) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* System status specific to ualberta uav */
-type UalbertaSysStatus struct {
-	/* System mode, see UALBERTA_AUTOPILOT_MODE ENUM */
-	Mode byte
-
-	/* Navigation mode, see UALBERTA_NAV_MODE ENUM */
-	NavMode byte
-
-	/* Pilot mode, see UALBERTA_PILOT_MODE */
-	Pilot byte
-}
-
-func (m *UalbertaSysStatus) ID() int        { return 222 }
-func (m *UalbertaSysStatus) CRCExtra() byte { return 15 }
-
-func (m *UalbertaSysStatus) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, (m.Mode))
-	buf = marshalByte(buf, (m.NavMode))
-	buf = marshalByte(buf, (m.Pilot))
-
-	return buf
-}
-
-func (m *UalbertaSysStatus) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *UalbertaSysStatus) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Mode = unmarshalByte(buf)
-
-	buf, m.NavMode = unmarshalByte(buf)
-
-	buf, m.Pilot = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *UalbertaSysStatus) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
 }
 
 /* The heartbeat message shows that a system or component is present and responding. The type and autopilot fields (along with the message component id), allow the receiving system to treat further messages from this system appropriately (e.g. by laying out the user interface based on the autopilot). This microservice is documented at https://mavlink.io/en/services/heartbeat.html */
@@ -12375,6 +12171,210 @@ func (m *LandingTarget) UnmarshalV2(buf []byte) []byte {
 		m.Type = LandingTargetType(v)
 	}
 	buf, m.PositionValid = unmarshalByte(buf)
+
+	return buf
+}
+
+/* Accelerometer and Gyro biases from the navigation filter */
+type NavFilterBias struct {
+	/* Timestamp (microseconds) */
+	Usec uint64
+
+	/* b_f[0] */
+	Accel0 float32
+
+	/* b_f[1] */
+	Accel1 float32
+
+	/* b_f[2] */
+	Accel2 float32
+
+	/* b_f[0] */
+	Gyro0 float32
+
+	/* b_f[1] */
+	Gyro1 float32
+
+	/* b_f[2] */
+	Gyro2 float32
+}
+
+func (m *NavFilterBias) ID() int        { return 220 }
+func (m *NavFilterBias) CRCExtra() byte { return 34 }
+
+func (m *NavFilterBias) MarshalV1(buf []byte) []byte {
+	buf = marshalUint64(buf, (m.Usec))
+	buf = marshalFloat32(buf, (m.Accel0))
+	buf = marshalFloat32(buf, (m.Accel1))
+	buf = marshalFloat32(buf, (m.Accel2))
+	buf = marshalFloat32(buf, (m.Gyro0))
+	buf = marshalFloat32(buf, (m.Gyro1))
+	buf = marshalFloat32(buf, (m.Gyro2))
+
+	return buf
+}
+
+func (m *NavFilterBias) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *NavFilterBias) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Usec = unmarshalUint64(buf)
+
+	buf, m.Accel0 = unmarshalFloat32(buf)
+
+	buf, m.Accel1 = unmarshalFloat32(buf)
+
+	buf, m.Accel2 = unmarshalFloat32(buf)
+
+	buf, m.Gyro0 = unmarshalFloat32(buf)
+
+	buf, m.Gyro1 = unmarshalFloat32(buf)
+
+	buf, m.Gyro2 = unmarshalFloat32(buf)
+
+	return buf
+}
+
+func (m *NavFilterBias) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Complete set of calibration parameters for the radio */
+type RadioCalibration struct {
+	/* Aileron setpoints: left, center, right */
+	Aileron [3]uint16
+
+	/* Elevator setpoints: nose down, center, nose up */
+	Elevator [3]uint16
+
+	/* Rudder setpoints: nose left, center, nose right */
+	Rudder [3]uint16
+
+	/* Tail gyro mode/gain setpoints: heading hold, rate mode */
+	Gyro [2]uint16
+
+	/* Pitch curve setpoints (every 25%) */
+	Pitch [5]uint16
+
+	/* Throttle curve setpoints (every 25%) */
+	Throttle [5]uint16
+}
+
+func (m *RadioCalibration) ID() int        { return 221 }
+func (m *RadioCalibration) CRCExtra() byte { return 71 }
+
+func (m *RadioCalibration) MarshalV1(buf []byte) []byte {
+	for _, v := range m.Aileron {
+		buf = marshalUint16(buf, (v))
+	}
+	for _, v := range m.Elevator {
+		buf = marshalUint16(buf, (v))
+	}
+	for _, v := range m.Rudder {
+		buf = marshalUint16(buf, (v))
+	}
+	for _, v := range m.Gyro {
+		buf = marshalUint16(buf, (v))
+	}
+	for _, v := range m.Pitch {
+		buf = marshalUint16(buf, (v))
+	}
+	for _, v := range m.Throttle {
+		buf = marshalUint16(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *RadioCalibration) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *RadioCalibration) UnmarshalV1(buf []byte) []byte {
+
+	for i, _ := range m.Aileron {
+		buf, m.Aileron[i] = unmarshalUint16(buf)
+	}
+
+	for i, _ := range m.Elevator {
+		buf, m.Elevator[i] = unmarshalUint16(buf)
+	}
+
+	for i, _ := range m.Rudder {
+		buf, m.Rudder[i] = unmarshalUint16(buf)
+	}
+
+	for i, _ := range m.Gyro {
+		buf, m.Gyro[i] = unmarshalUint16(buf)
+	}
+
+	for i, _ := range m.Pitch {
+		buf, m.Pitch[i] = unmarshalUint16(buf)
+	}
+
+	for i, _ := range m.Throttle {
+		buf, m.Throttle[i] = unmarshalUint16(buf)
+	}
+
+	return buf
+}
+
+func (m *RadioCalibration) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* System status specific to ualberta uav */
+type UalbertaSysStatus struct {
+	/* System mode, see UALBERTA_AUTOPILOT_MODE ENUM */
+	Mode byte
+
+	/* Navigation mode, see UALBERTA_NAV_MODE ENUM */
+	NavMode byte
+
+	/* Pilot mode, see UALBERTA_PILOT_MODE */
+	Pilot byte
+}
+
+func (m *UalbertaSysStatus) ID() int        { return 222 }
+func (m *UalbertaSysStatus) CRCExtra() byte { return 15 }
+
+func (m *UalbertaSysStatus) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, (m.Mode))
+	buf = marshalByte(buf, (m.NavMode))
+	buf = marshalByte(buf, (m.Pilot))
+
+	return buf
+}
+
+func (m *UalbertaSysStatus) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *UalbertaSysStatus) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Mode = unmarshalByte(buf)
+
+	buf, m.NavMode = unmarshalByte(buf)
+
+	buf, m.Pilot = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *UalbertaSysStatus) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
 
 	return buf
 }

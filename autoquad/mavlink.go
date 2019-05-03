@@ -2591,10 +2591,6 @@ const (
 // The Dialect factory function constructs the proper empty message given the message ID.
 func Dialect(mid int) mavlink.Message {
 	switch mid {
-	case 150:
-		return &AqTelemetryF{}
-	case 152:
-		return &AqEscTelemetry{}
 	case 0:
 		return &Heartbeat{}
 	case 1:
@@ -2829,6 +2825,10 @@ func Dialect(mid int) mavlink.Message {
 		return &AutopilotVersion{}
 	case 149:
 		return &LandingTarget{}
+	case 150:
+		return &AqTelemetryF{}
+	case 152:
+		return &AqEscTelemetry{}
 	case 230:
 		return &EstimatorStatus{}
 	case 231:
@@ -2945,262 +2945,6 @@ func Dialect(mid int) mavlink.Message {
 		return &WheelDistance{}
 	}
 	return nil
-}
-
-/* Sends up to 20 raw float values. */
-type AqTelemetryF struct {
-	/* value1 */
-	Value1 float32
-
-	/* value2 */
-	Value2 float32
-
-	/* value3 */
-	Value3 float32
-
-	/* value4 */
-	Value4 float32
-
-	/* value5 */
-	Value5 float32
-
-	/* value6 */
-	Value6 float32
-
-	/* value7 */
-	Value7 float32
-
-	/* value8 */
-	Value8 float32
-
-	/* value9 */
-	Value9 float32
-
-	/* value10 */
-	Value10 float32
-
-	/* value11 */
-	Value11 float32
-
-	/* value12 */
-	Value12 float32
-
-	/* value13 */
-	Value13 float32
-
-	/* value14 */
-	Value14 float32
-
-	/* value15 */
-	Value15 float32
-
-	/* value16 */
-	Value16 float32
-
-	/* value17 */
-	Value17 float32
-
-	/* value18 */
-	Value18 float32
-
-	/* value19 */
-	Value19 float32
-
-	/* value20 */
-	Value20 float32
-
-	/* Index of message */
-	Index uint16
-}
-
-func (m *AqTelemetryF) ID() int        { return 150 }
-func (m *AqTelemetryF) CRCExtra() byte { return 241 }
-
-func (m *AqTelemetryF) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Value1))
-	buf = marshalFloat32(buf, (m.Value2))
-	buf = marshalFloat32(buf, (m.Value3))
-	buf = marshalFloat32(buf, (m.Value4))
-	buf = marshalFloat32(buf, (m.Value5))
-	buf = marshalFloat32(buf, (m.Value6))
-	buf = marshalFloat32(buf, (m.Value7))
-	buf = marshalFloat32(buf, (m.Value8))
-	buf = marshalFloat32(buf, (m.Value9))
-	buf = marshalFloat32(buf, (m.Value10))
-	buf = marshalFloat32(buf, (m.Value11))
-	buf = marshalFloat32(buf, (m.Value12))
-	buf = marshalFloat32(buf, (m.Value13))
-	buf = marshalFloat32(buf, (m.Value14))
-	buf = marshalFloat32(buf, (m.Value15))
-	buf = marshalFloat32(buf, (m.Value16))
-	buf = marshalFloat32(buf, (m.Value17))
-	buf = marshalFloat32(buf, (m.Value18))
-	buf = marshalFloat32(buf, (m.Value19))
-	buf = marshalFloat32(buf, (m.Value20))
-	buf = marshalUint16(buf, (m.Index))
-
-	return buf
-}
-
-func (m *AqTelemetryF) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *AqTelemetryF) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Value1 = unmarshalFloat32(buf)
-
-	buf, m.Value2 = unmarshalFloat32(buf)
-
-	buf, m.Value3 = unmarshalFloat32(buf)
-
-	buf, m.Value4 = unmarshalFloat32(buf)
-
-	buf, m.Value5 = unmarshalFloat32(buf)
-
-	buf, m.Value6 = unmarshalFloat32(buf)
-
-	buf, m.Value7 = unmarshalFloat32(buf)
-
-	buf, m.Value8 = unmarshalFloat32(buf)
-
-	buf, m.Value9 = unmarshalFloat32(buf)
-
-	buf, m.Value10 = unmarshalFloat32(buf)
-
-	buf, m.Value11 = unmarshalFloat32(buf)
-
-	buf, m.Value12 = unmarshalFloat32(buf)
-
-	buf, m.Value13 = unmarshalFloat32(buf)
-
-	buf, m.Value14 = unmarshalFloat32(buf)
-
-	buf, m.Value15 = unmarshalFloat32(buf)
-
-	buf, m.Value16 = unmarshalFloat32(buf)
-
-	buf, m.Value17 = unmarshalFloat32(buf)
-
-	buf, m.Value18 = unmarshalFloat32(buf)
-
-	buf, m.Value19 = unmarshalFloat32(buf)
-
-	buf, m.Value20 = unmarshalFloat32(buf)
-
-	buf, m.Index = unmarshalUint16(buf)
-
-	return buf
-}
-
-func (m *AqTelemetryF) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Sends ESC32 telemetry data for up to 4 motors. Multiple messages may be sent in sequence when system has > 4 motors. Data is described as follows:      // unsigned int state :   3;        // unsigned int vin :   12;  // x 100        // unsigned int amps :   14;  // x 100        // unsigned int rpm :   15;        // unsigned int duty :   8;   // x (255/100)        // - Data Version 2 -        //     unsigned int errors :    9;   // Bad detects error count        // - Data Version 3 -        //     unsigned int temp   :    9;   // (Deg C + 32) * 4        // unsigned int errCode : 3;     */
-type AqEscTelemetry struct {
-	/* Timestamp of the component clock since boot time in ms. */
-	TimeBootMs uint32
-
-	/* Data bits 1-32 for each ESC. */
-	Data0 [4]uint32
-
-	/* Data bits 33-64 for each ESC. */
-	Data1 [4]uint32
-
-	/* Age of each ESC telemetry reading in ms compared to boot time. A value of 0xFFFF means timeout/no data. */
-	StatusAge [4]uint16
-
-	/* Sequence number of message (first set of 4 motors is #1, next 4 is #2, etc). */
-	Seq byte
-
-	/* Total number of active ESCs/motors on the system. */
-	NumMotors byte
-
-	/* Number of active ESCs in this sequence (1 through this many array members will be populated with data) */
-	NumInSeq byte
-
-	/* ESC/Motor ID */
-	Escid [4]byte
-
-	/* Version of data structure (determines contents). */
-	DataVersion [4]byte
-}
-
-func (m *AqEscTelemetry) ID() int        { return 152 }
-func (m *AqEscTelemetry) CRCExtra() byte { return 115 }
-
-func (m *AqEscTelemetry) MarshalV1(buf []byte) []byte {
-	buf = marshalUint32(buf, (m.TimeBootMs))
-	for _, v := range m.Data0 {
-		buf = marshalUint32(buf, (v))
-	}
-	for _, v := range m.Data1 {
-		buf = marshalUint32(buf, (v))
-	}
-	for _, v := range m.StatusAge {
-		buf = marshalUint16(buf, (v))
-	}
-	buf = marshalByte(buf, (m.Seq))
-	buf = marshalByte(buf, (m.NumMotors))
-	buf = marshalByte(buf, (m.NumInSeq))
-	for _, v := range m.Escid {
-		buf = marshalByte(buf, (v))
-	}
-	for _, v := range m.DataVersion {
-		buf = marshalByte(buf, (v))
-	}
-
-	return buf
-}
-
-func (m *AqEscTelemetry) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *AqEscTelemetry) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.TimeBootMs = unmarshalUint32(buf)
-
-	for i, _ := range m.Data0 {
-		buf, m.Data0[i] = unmarshalUint32(buf)
-	}
-
-	for i, _ := range m.Data1 {
-		buf, m.Data1[i] = unmarshalUint32(buf)
-	}
-
-	for i, _ := range m.StatusAge {
-		buf, m.StatusAge[i] = unmarshalUint16(buf)
-	}
-
-	buf, m.Seq = unmarshalByte(buf)
-
-	buf, m.NumMotors = unmarshalByte(buf)
-
-	buf, m.NumInSeq = unmarshalByte(buf)
-
-	for i, _ := range m.Escid {
-		buf, m.Escid[i] = unmarshalByte(buf)
-	}
-
-	for i, _ := range m.DataVersion {
-		buf, m.DataVersion[i] = unmarshalByte(buf)
-	}
-
-	return buf
-}
-
-func (m *AqEscTelemetry) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
 }
 
 /* The heartbeat message shows that a system or component is present and responding. The type and autopilot fields (along with the message component id), allow the receiving system to treat further messages from this system appropriately (e.g. by laying out the user interface based on the autopilot). This microservice is documented at https://mavlink.io/en/services/heartbeat.html */
@@ -12457,6 +12201,262 @@ func (m *LandingTarget) UnmarshalV2(buf []byte) []byte {
 		m.Type = LandingTargetType(v)
 	}
 	buf, m.PositionValid = unmarshalByte(buf)
+
+	return buf
+}
+
+/* Sends up to 20 raw float values. */
+type AqTelemetryF struct {
+	/* value1 */
+	Value1 float32
+
+	/* value2 */
+	Value2 float32
+
+	/* value3 */
+	Value3 float32
+
+	/* value4 */
+	Value4 float32
+
+	/* value5 */
+	Value5 float32
+
+	/* value6 */
+	Value6 float32
+
+	/* value7 */
+	Value7 float32
+
+	/* value8 */
+	Value8 float32
+
+	/* value9 */
+	Value9 float32
+
+	/* value10 */
+	Value10 float32
+
+	/* value11 */
+	Value11 float32
+
+	/* value12 */
+	Value12 float32
+
+	/* value13 */
+	Value13 float32
+
+	/* value14 */
+	Value14 float32
+
+	/* value15 */
+	Value15 float32
+
+	/* value16 */
+	Value16 float32
+
+	/* value17 */
+	Value17 float32
+
+	/* value18 */
+	Value18 float32
+
+	/* value19 */
+	Value19 float32
+
+	/* value20 */
+	Value20 float32
+
+	/* Index of message */
+	Index uint16
+}
+
+func (m *AqTelemetryF) ID() int        { return 150 }
+func (m *AqTelemetryF) CRCExtra() byte { return 241 }
+
+func (m *AqTelemetryF) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Value1))
+	buf = marshalFloat32(buf, (m.Value2))
+	buf = marshalFloat32(buf, (m.Value3))
+	buf = marshalFloat32(buf, (m.Value4))
+	buf = marshalFloat32(buf, (m.Value5))
+	buf = marshalFloat32(buf, (m.Value6))
+	buf = marshalFloat32(buf, (m.Value7))
+	buf = marshalFloat32(buf, (m.Value8))
+	buf = marshalFloat32(buf, (m.Value9))
+	buf = marshalFloat32(buf, (m.Value10))
+	buf = marshalFloat32(buf, (m.Value11))
+	buf = marshalFloat32(buf, (m.Value12))
+	buf = marshalFloat32(buf, (m.Value13))
+	buf = marshalFloat32(buf, (m.Value14))
+	buf = marshalFloat32(buf, (m.Value15))
+	buf = marshalFloat32(buf, (m.Value16))
+	buf = marshalFloat32(buf, (m.Value17))
+	buf = marshalFloat32(buf, (m.Value18))
+	buf = marshalFloat32(buf, (m.Value19))
+	buf = marshalFloat32(buf, (m.Value20))
+	buf = marshalUint16(buf, (m.Index))
+
+	return buf
+}
+
+func (m *AqTelemetryF) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *AqTelemetryF) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Value1 = unmarshalFloat32(buf)
+
+	buf, m.Value2 = unmarshalFloat32(buf)
+
+	buf, m.Value3 = unmarshalFloat32(buf)
+
+	buf, m.Value4 = unmarshalFloat32(buf)
+
+	buf, m.Value5 = unmarshalFloat32(buf)
+
+	buf, m.Value6 = unmarshalFloat32(buf)
+
+	buf, m.Value7 = unmarshalFloat32(buf)
+
+	buf, m.Value8 = unmarshalFloat32(buf)
+
+	buf, m.Value9 = unmarshalFloat32(buf)
+
+	buf, m.Value10 = unmarshalFloat32(buf)
+
+	buf, m.Value11 = unmarshalFloat32(buf)
+
+	buf, m.Value12 = unmarshalFloat32(buf)
+
+	buf, m.Value13 = unmarshalFloat32(buf)
+
+	buf, m.Value14 = unmarshalFloat32(buf)
+
+	buf, m.Value15 = unmarshalFloat32(buf)
+
+	buf, m.Value16 = unmarshalFloat32(buf)
+
+	buf, m.Value17 = unmarshalFloat32(buf)
+
+	buf, m.Value18 = unmarshalFloat32(buf)
+
+	buf, m.Value19 = unmarshalFloat32(buf)
+
+	buf, m.Value20 = unmarshalFloat32(buf)
+
+	buf, m.Index = unmarshalUint16(buf)
+
+	return buf
+}
+
+func (m *AqTelemetryF) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Sends ESC32 telemetry data for up to 4 motors. Multiple messages may be sent in sequence when system has > 4 motors. Data is described as follows:      // unsigned int state :   3;        // unsigned int vin :   12;  // x 100        // unsigned int amps :   14;  // x 100        // unsigned int rpm :   15;        // unsigned int duty :   8;   // x (255/100)        // - Data Version 2 -        //     unsigned int errors :    9;   // Bad detects error count        // - Data Version 3 -        //     unsigned int temp   :    9;   // (Deg C + 32) * 4        // unsigned int errCode : 3;     */
+type AqEscTelemetry struct {
+	/* Timestamp of the component clock since boot time in ms. */
+	TimeBootMs uint32
+
+	/* Data bits 1-32 for each ESC. */
+	Data0 [4]uint32
+
+	/* Data bits 33-64 for each ESC. */
+	Data1 [4]uint32
+
+	/* Age of each ESC telemetry reading in ms compared to boot time. A value of 0xFFFF means timeout/no data. */
+	StatusAge [4]uint16
+
+	/* Sequence number of message (first set of 4 motors is #1, next 4 is #2, etc). */
+	Seq byte
+
+	/* Total number of active ESCs/motors on the system. */
+	NumMotors byte
+
+	/* Number of active ESCs in this sequence (1 through this many array members will be populated with data) */
+	NumInSeq byte
+
+	/* ESC/Motor ID */
+	Escid [4]byte
+
+	/* Version of data structure (determines contents). */
+	DataVersion [4]byte
+}
+
+func (m *AqEscTelemetry) ID() int        { return 152 }
+func (m *AqEscTelemetry) CRCExtra() byte { return 115 }
+
+func (m *AqEscTelemetry) MarshalV1(buf []byte) []byte {
+	buf = marshalUint32(buf, (m.TimeBootMs))
+	for _, v := range m.Data0 {
+		buf = marshalUint32(buf, (v))
+	}
+	for _, v := range m.Data1 {
+		buf = marshalUint32(buf, (v))
+	}
+	for _, v := range m.StatusAge {
+		buf = marshalUint16(buf, (v))
+	}
+	buf = marshalByte(buf, (m.Seq))
+	buf = marshalByte(buf, (m.NumMotors))
+	buf = marshalByte(buf, (m.NumInSeq))
+	for _, v := range m.Escid {
+		buf = marshalByte(buf, (v))
+	}
+	for _, v := range m.DataVersion {
+		buf = marshalByte(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *AqEscTelemetry) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *AqEscTelemetry) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.TimeBootMs = unmarshalUint32(buf)
+
+	for i, _ := range m.Data0 {
+		buf, m.Data0[i] = unmarshalUint32(buf)
+	}
+
+	for i, _ := range m.Data1 {
+		buf, m.Data1[i] = unmarshalUint32(buf)
+	}
+
+	for i, _ := range m.StatusAge {
+		buf, m.StatusAge[i] = unmarshalUint16(buf)
+	}
+
+	buf, m.Seq = unmarshalByte(buf)
+
+	buf, m.NumMotors = unmarshalByte(buf)
+
+	buf, m.NumInSeq = unmarshalByte(buf)
+
+	for i, _ := range m.Escid {
+		buf, m.Escid[i] = unmarshalByte(buf)
+	}
+
+	for i, _ := range m.DataVersion {
+		buf, m.DataVersion[i] = unmarshalByte(buf)
+	}
+
+	return buf
+}
+
+func (m *AqEscTelemetry) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
 
 	return buf
 }

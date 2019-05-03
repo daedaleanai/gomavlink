@@ -2596,46 +2596,6 @@ const (
 // The Dialect factory function constructs the proper empty message given the message ID.
 func Dialect(mid int) mavlink.Message {
 	switch mid {
-	case 170:
-		return &CpuLoad{}
-	case 172:
-		return &SensorBias{}
-	case 173:
-		return &Diagnostic{}
-	case 176:
-		return &SlugsNavigation{}
-	case 177:
-		return &DataLog{}
-	case 179:
-		return &GpsDateTime{}
-	case 180:
-		return &MidLvlCmds{}
-	case 181:
-		return &CtrlSrfcPt{}
-	case 184:
-		return &SlugsCameraOrder{}
-	case 185:
-		return &ControlSurface{}
-	case 186:
-		return &SlugsMobileLocation{}
-	case 188:
-		return &SlugsConfigurationCamera{}
-	case 189:
-		return &IsrLocation{}
-	case 191:
-		return &VoltSensor{}
-	case 192:
-		return &PtzStatus{}
-	case 193:
-		return &UavStatus{}
-	case 194:
-		return &StatusGps{}
-	case 195:
-		return &NovatelDiag{}
-	case 196:
-		return &SensorDiag{}
-	case 197:
-		return &Boot{}
 	case 0:
 		return &Heartbeat{}
 	case 1:
@@ -2870,6 +2830,46 @@ func Dialect(mid int) mavlink.Message {
 		return &AutopilotVersion{}
 	case 149:
 		return &LandingTarget{}
+	case 170:
+		return &CpuLoad{}
+	case 172:
+		return &SensorBias{}
+	case 173:
+		return &Diagnostic{}
+	case 176:
+		return &SlugsNavigation{}
+	case 177:
+		return &DataLog{}
+	case 179:
+		return &GpsDateTime{}
+	case 180:
+		return &MidLvlCmds{}
+	case 181:
+		return &CtrlSrfcPt{}
+	case 184:
+		return &SlugsCameraOrder{}
+	case 185:
+		return &ControlSurface{}
+	case 186:
+		return &SlugsMobileLocation{}
+	case 188:
+		return &SlugsConfigurationCamera{}
+	case 189:
+		return &IsrLocation{}
+	case 191:
+		return &VoltSensor{}
+	case 192:
+		return &PtzStatus{}
+	case 193:
+		return &UavStatus{}
+	case 194:
+		return &StatusGps{}
+	case 195:
+		return &NovatelDiag{}
+	case 196:
+		return &SensorDiag{}
+	case 197:
+		return &Boot{}
 	case 230:
 		return &EstimatorStatus{}
 	case 231:
@@ -2986,1182 +2986,6 @@ func Dialect(mid int) mavlink.Message {
 		return &WheelDistance{}
 	}
 	return nil
-}
-
-/* Sensor and DSC control loads. */
-type CpuLoad struct {
-	/* Battery Voltage */
-	Batvolt uint16
-
-	/* Sensor DSC Load */
-	Sensload byte
-
-	/* Control DSC Load */
-	Ctrlload byte
-}
-
-func (m *CpuLoad) ID() int        { return 170 }
-func (m *CpuLoad) CRCExtra() byte { return 75 }
-
-func (m *CpuLoad) MarshalV1(buf []byte) []byte {
-	buf = marshalUint16(buf, (m.Batvolt))
-	buf = marshalByte(buf, (m.Sensload))
-	buf = marshalByte(buf, (m.Ctrlload))
-
-	return buf
-}
-
-func (m *CpuLoad) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *CpuLoad) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Batvolt = unmarshalUint16(buf)
-
-	buf, m.Sensload = unmarshalByte(buf)
-
-	buf, m.Ctrlload = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *CpuLoad) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Accelerometer and gyro biases. */
-type SensorBias struct {
-	/* Accelerometer X bias */
-	Axbias float32
-
-	/* Accelerometer Y bias */
-	Aybias float32
-
-	/* Accelerometer Z bias */
-	Azbias float32
-
-	/* Gyro X bias */
-	Gxbias float32
-
-	/* Gyro Y bias */
-	Gybias float32
-
-	/* Gyro Z bias */
-	Gzbias float32
-}
-
-func (m *SensorBias) ID() int        { return 172 }
-func (m *SensorBias) CRCExtra() byte { return 168 }
-
-func (m *SensorBias) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Axbias))
-	buf = marshalFloat32(buf, (m.Aybias))
-	buf = marshalFloat32(buf, (m.Azbias))
-	buf = marshalFloat32(buf, (m.Gxbias))
-	buf = marshalFloat32(buf, (m.Gybias))
-	buf = marshalFloat32(buf, (m.Gzbias))
-
-	return buf
-}
-
-func (m *SensorBias) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SensorBias) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Axbias = unmarshalFloat32(buf)
-
-	buf, m.Aybias = unmarshalFloat32(buf)
-
-	buf, m.Azbias = unmarshalFloat32(buf)
-
-	buf, m.Gxbias = unmarshalFloat32(buf)
-
-	buf, m.Gybias = unmarshalFloat32(buf)
-
-	buf, m.Gzbias = unmarshalFloat32(buf)
-
-	return buf
-}
-
-func (m *SensorBias) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Configurable diagnostic messages. */
-type Diagnostic struct {
-	/* Diagnostic float 1 */
-	Diagfl1 float32
-
-	/* Diagnostic float 2 */
-	Diagfl2 float32
-
-	/* Diagnostic float 3 */
-	Diagfl3 float32
-
-	/* Diagnostic short 1 */
-	Diagsh1 int16
-
-	/* Diagnostic short 2 */
-	Diagsh2 int16
-
-	/* Diagnostic short 3 */
-	Diagsh3 int16
-}
-
-func (m *Diagnostic) ID() int        { return 173 }
-func (m *Diagnostic) CRCExtra() byte { return 2 }
-
-func (m *Diagnostic) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Diagfl1))
-	buf = marshalFloat32(buf, (m.Diagfl2))
-	buf = marshalFloat32(buf, (m.Diagfl3))
-	buf = marshalInt16(buf, (m.Diagsh1))
-	buf = marshalInt16(buf, (m.Diagsh2))
-	buf = marshalInt16(buf, (m.Diagsh3))
-
-	return buf
-}
-
-func (m *Diagnostic) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *Diagnostic) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Diagfl1 = unmarshalFloat32(buf)
-
-	buf, m.Diagfl2 = unmarshalFloat32(buf)
-
-	buf, m.Diagfl3 = unmarshalFloat32(buf)
-
-	buf, m.Diagsh1 = unmarshalInt16(buf)
-
-	buf, m.Diagsh2 = unmarshalInt16(buf)
-
-	buf, m.Diagsh3 = unmarshalInt16(buf)
-
-	return buf
-}
-
-func (m *Diagnostic) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Data used in the navigation algorithm. */
-type SlugsNavigation struct {
-	/* Measured Airspeed prior to the nav filter */
-	UM float32
-
-	/* Commanded Roll */
-	PhiC float32
-
-	/* Commanded Pitch */
-	ThetaC float32
-
-	/* Commanded Turn rate */
-	PsidotC float32
-
-	/* Y component of the body acceleration */
-	AyBody float32
-
-	/* Total Distance to Run on this leg of Navigation */
-	Totaldist float32
-
-	/* Remaining distance to Run on this leg of Navigation */
-	Dist2go float32
-
-	/* Commanded altitude (MSL) */
-	HC uint16
-
-	/* Origin WP */
-	Fromwp byte
-
-	/* Destination WP */
-	Towp byte
-}
-
-func (m *SlugsNavigation) ID() int        { return 176 }
-func (m *SlugsNavigation) CRCExtra() byte { return 228 }
-
-func (m *SlugsNavigation) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.UM))
-	buf = marshalFloat32(buf, (m.PhiC))
-	buf = marshalFloat32(buf, (m.ThetaC))
-	buf = marshalFloat32(buf, (m.PsidotC))
-	buf = marshalFloat32(buf, (m.AyBody))
-	buf = marshalFloat32(buf, (m.Totaldist))
-	buf = marshalFloat32(buf, (m.Dist2go))
-	buf = marshalUint16(buf, (m.HC))
-	buf = marshalByte(buf, (m.Fromwp))
-	buf = marshalByte(buf, (m.Towp))
-
-	return buf
-}
-
-func (m *SlugsNavigation) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SlugsNavigation) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.UM = unmarshalFloat32(buf)
-
-	buf, m.PhiC = unmarshalFloat32(buf)
-
-	buf, m.ThetaC = unmarshalFloat32(buf)
-
-	buf, m.PsidotC = unmarshalFloat32(buf)
-
-	buf, m.AyBody = unmarshalFloat32(buf)
-
-	buf, m.Totaldist = unmarshalFloat32(buf)
-
-	buf, m.Dist2go = unmarshalFloat32(buf)
-
-	buf, m.HC = unmarshalUint16(buf)
-
-	buf, m.Fromwp = unmarshalByte(buf)
-
-	buf, m.Towp = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *SlugsNavigation) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Configurable data log probes to be used inside Simulink */
-type DataLog struct {
-	/* Log value 1  */
-	Fl1 float32
-
-	/* Log value 2  */
-	Fl2 float32
-
-	/* Log value 3  */
-	Fl3 float32
-
-	/* Log value 4  */
-	Fl4 float32
-
-	/* Log value 5  */
-	Fl5 float32
-
-	/* Log value 6  */
-	Fl6 float32
-}
-
-func (m *DataLog) ID() int        { return 177 }
-func (m *DataLog) CRCExtra() byte { return 167 }
-
-func (m *DataLog) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Fl1))
-	buf = marshalFloat32(buf, (m.Fl2))
-	buf = marshalFloat32(buf, (m.Fl3))
-	buf = marshalFloat32(buf, (m.Fl4))
-	buf = marshalFloat32(buf, (m.Fl5))
-	buf = marshalFloat32(buf, (m.Fl6))
-
-	return buf
-}
-
-func (m *DataLog) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *DataLog) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Fl1 = unmarshalFloat32(buf)
-
-	buf, m.Fl2 = unmarshalFloat32(buf)
-
-	buf, m.Fl3 = unmarshalFloat32(buf)
-
-	buf, m.Fl4 = unmarshalFloat32(buf)
-
-	buf, m.Fl5 = unmarshalFloat32(buf)
-
-	buf, m.Fl6 = unmarshalFloat32(buf)
-
-	return buf
-}
-
-func (m *DataLog) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Pilot console PWM messges. */
-type GpsDateTime struct {
-	/* Year reported by Gps  */
-	Year byte
-
-	/* Month reported by Gps  */
-	Month byte
-
-	/* Day reported by Gps  */
-	Day byte
-
-	/* Hour reported by Gps  */
-	Hour byte
-
-	/* Min reported by Gps  */
-	Min byte
-
-	/* Sec reported by Gps   */
-	Sec byte
-
-	/* Clock Status. See table 47 page 211 OEMStar Manual   */
-	Clockstat byte
-
-	/* Visible satellites reported by Gps   */
-	Vissat byte
-
-	/* Used satellites in Solution   */
-	Usesat byte
-
-	/* GPS+GLONASS satellites in Solution   */
-	Gppgl byte
-
-	/* GPS and GLONASS usage mask (bit 0 GPS_used? bit_4 GLONASS_used?) */
-	Sigusedmask byte
-
-	/* Percent used GPS */
-	Percentused byte
-}
-
-func (m *GpsDateTime) ID() int        { return 179 }
-func (m *GpsDateTime) CRCExtra() byte { return 132 }
-
-func (m *GpsDateTime) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, (m.Year))
-	buf = marshalByte(buf, (m.Month))
-	buf = marshalByte(buf, (m.Day))
-	buf = marshalByte(buf, (m.Hour))
-	buf = marshalByte(buf, (m.Min))
-	buf = marshalByte(buf, (m.Sec))
-	buf = marshalByte(buf, (m.Clockstat))
-	buf = marshalByte(buf, (m.Vissat))
-	buf = marshalByte(buf, (m.Usesat))
-	buf = marshalByte(buf, (m.Gppgl))
-	buf = marshalByte(buf, (m.Sigusedmask))
-	buf = marshalByte(buf, (m.Percentused))
-
-	return buf
-}
-
-func (m *GpsDateTime) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *GpsDateTime) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Year = unmarshalByte(buf)
-
-	buf, m.Month = unmarshalByte(buf)
-
-	buf, m.Day = unmarshalByte(buf)
-
-	buf, m.Hour = unmarshalByte(buf)
-
-	buf, m.Min = unmarshalByte(buf)
-
-	buf, m.Sec = unmarshalByte(buf)
-
-	buf, m.Clockstat = unmarshalByte(buf)
-
-	buf, m.Vissat = unmarshalByte(buf)
-
-	buf, m.Usesat = unmarshalByte(buf)
-
-	buf, m.Gppgl = unmarshalByte(buf)
-
-	buf, m.Sigusedmask = unmarshalByte(buf)
-
-	buf, m.Percentused = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *GpsDateTime) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Mid Level commands sent from the GS to the autopilot. These are only sent when being operated in mid-level commands mode from the ground. */
-type MidLvlCmds struct {
-	/* Commanded altitude (MSL) */
-	Hcommand float32
-
-	/* Commanded Airspeed */
-	Ucommand float32
-
-	/* Commanded Turnrate */
-	Rcommand float32
-
-	/* The system setting the commands */
-	Target byte
-}
-
-func (m *MidLvlCmds) ID() int        { return 180 }
-func (m *MidLvlCmds) CRCExtra() byte { return 146 }
-
-func (m *MidLvlCmds) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Hcommand))
-	buf = marshalFloat32(buf, (m.Ucommand))
-	buf = marshalFloat32(buf, (m.Rcommand))
-	buf = marshalByte(buf, (m.Target))
-
-	return buf
-}
-
-func (m *MidLvlCmds) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *MidLvlCmds) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Hcommand = unmarshalFloat32(buf)
-
-	buf, m.Ucommand = unmarshalFloat32(buf)
-
-	buf, m.Rcommand = unmarshalFloat32(buf)
-
-	buf, m.Target = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *MidLvlCmds) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* This message sets the control surfaces for selective passthrough mode. */
-type CtrlSrfcPt struct {
-	/* Bitfield containing the passthrough configuration, see CONTROL_SURFACE_FLAG ENUM. */
-	Bitfieldpt ControlSurfaceFlag // uint16
-
-	/* The system setting the commands */
-	Target byte
-}
-
-func (m *CtrlSrfcPt) ID() int        { return 181 }
-func (m *CtrlSrfcPt) CRCExtra() byte { return 104 }
-
-func (m *CtrlSrfcPt) MarshalV1(buf []byte) []byte {
-	buf = marshalUint16(buf, uint16(m.Bitfieldpt))
-	buf = marshalByte(buf, (m.Target))
-
-	return buf
-}
-
-func (m *CtrlSrfcPt) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *CtrlSrfcPt) UnmarshalV1(buf []byte) []byte {
-
-	{
-		var v uint16
-		buf, v = unmarshalUint16(buf)
-		m.Bitfieldpt = ControlSurfaceFlag(v)
-	}
-
-	buf, m.Target = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *CtrlSrfcPt) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Orders generated to the SLUGS camera mount.  */
-type SlugsCameraOrder struct {
-	/* The system reporting the action */
-	Target byte
-
-	/* Order the mount to pan: -1 left, 0 No pan motion, +1 right */
-	Pan int8
-
-	/* Order the mount to tilt: -1 down, 0 No tilt motion, +1 up */
-	Tilt int8
-
-	/* Order the zoom values 0 to 10 */
-	Zoom int8
-
-	/* Orders the camera mount to move home. The other fields are ignored when this field is set. 1: move home, 0 ignored */
-	Movehome int8
-}
-
-func (m *SlugsCameraOrder) ID() int        { return 184 }
-func (m *SlugsCameraOrder) CRCExtra() byte { return 45 }
-
-func (m *SlugsCameraOrder) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, (m.Target))
-	buf = marshalInt8(buf, (m.Pan))
-	buf = marshalInt8(buf, (m.Tilt))
-	buf = marshalInt8(buf, (m.Zoom))
-	buf = marshalInt8(buf, (m.Movehome))
-
-	return buf
-}
-
-func (m *SlugsCameraOrder) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SlugsCameraOrder) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Target = unmarshalByte(buf)
-
-	buf, m.Pan = unmarshalInt8(buf)
-
-	buf, m.Tilt = unmarshalInt8(buf)
-
-	buf, m.Zoom = unmarshalInt8(buf)
-
-	buf, m.Movehome = unmarshalInt8(buf)
-
-	return buf
-}
-
-func (m *SlugsCameraOrder) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Control for surface; pending and order to origin. */
-type ControlSurface struct {
-	/* Pending */
-	Mcontrol float32
-
-	/* Order to origin */
-	Bcontrol float32
-
-	/* The system setting the commands */
-	Target byte
-
-	/* ID control surface send 0: throttle 1: aileron 2: elevator 3: rudder */
-	Idsurface byte
-}
-
-func (m *ControlSurface) ID() int        { return 185 }
-func (m *ControlSurface) CRCExtra() byte { return 113 }
-
-func (m *ControlSurface) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Mcontrol))
-	buf = marshalFloat32(buf, (m.Bcontrol))
-	buf = marshalByte(buf, (m.Target))
-	buf = marshalByte(buf, (m.Idsurface))
-
-	return buf
-}
-
-func (m *ControlSurface) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *ControlSurface) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Mcontrol = unmarshalFloat32(buf)
-
-	buf, m.Bcontrol = unmarshalFloat32(buf)
-
-	buf, m.Target = unmarshalByte(buf)
-
-	buf, m.Idsurface = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *ControlSurface) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Transmits the last known position of the mobile GS to the UAV. Very relevant when Track Mobile is enabled */
-type SlugsMobileLocation struct {
-	/* Mobile Latitude */
-	Latitude float32
-
-	/* Mobile Longitude */
-	Longitude float32
-
-	/* The system reporting the action */
-	Target byte
-}
-
-func (m *SlugsMobileLocation) ID() int        { return 186 }
-func (m *SlugsMobileLocation) CRCExtra() byte { return 101 }
-
-func (m *SlugsMobileLocation) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Latitude))
-	buf = marshalFloat32(buf, (m.Longitude))
-	buf = marshalByte(buf, (m.Target))
-
-	return buf
-}
-
-func (m *SlugsMobileLocation) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SlugsMobileLocation) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Latitude = unmarshalFloat32(buf)
-
-	buf, m.Longitude = unmarshalFloat32(buf)
-
-	buf, m.Target = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *SlugsMobileLocation) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Control for camara. */
-type SlugsConfigurationCamera struct {
-	/* The system setting the commands */
-	Target byte
-
-	/* ID 0: brightness 1: aperture 2: iris 3: ICR 4: backlight */
-	Idorder byte
-
-	/*  1: up/on 2: down/off 3: auto/reset/no action */
-	Order byte
-}
-
-func (m *SlugsConfigurationCamera) ID() int        { return 188 }
-func (m *SlugsConfigurationCamera) CRCExtra() byte { return 5 }
-
-func (m *SlugsConfigurationCamera) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, (m.Target))
-	buf = marshalByte(buf, (m.Idorder))
-	buf = marshalByte(buf, (m.Order))
-
-	return buf
-}
-
-func (m *SlugsConfigurationCamera) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SlugsConfigurationCamera) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Target = unmarshalByte(buf)
-
-	buf, m.Idorder = unmarshalByte(buf)
-
-	buf, m.Order = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *SlugsConfigurationCamera) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Transmits the position of watch */
-type IsrLocation struct {
-	/* ISR Latitude */
-	Latitude float32
-
-	/* ISR Longitude */
-	Longitude float32
-
-	/* ISR Height */
-	Height float32
-
-	/* The system reporting the action */
-	Target byte
-
-	/* Option 1 */
-	Option1 byte
-
-	/* Option 2 */
-	Option2 byte
-
-	/* Option 3 */
-	Option3 byte
-}
-
-func (m *IsrLocation) ID() int        { return 189 }
-func (m *IsrLocation) CRCExtra() byte { return 246 }
-
-func (m *IsrLocation) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Latitude))
-	buf = marshalFloat32(buf, (m.Longitude))
-	buf = marshalFloat32(buf, (m.Height))
-	buf = marshalByte(buf, (m.Target))
-	buf = marshalByte(buf, (m.Option1))
-	buf = marshalByte(buf, (m.Option2))
-	buf = marshalByte(buf, (m.Option3))
-
-	return buf
-}
-
-func (m *IsrLocation) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *IsrLocation) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Latitude = unmarshalFloat32(buf)
-
-	buf, m.Longitude = unmarshalFloat32(buf)
-
-	buf, m.Height = unmarshalFloat32(buf)
-
-	buf, m.Target = unmarshalByte(buf)
-
-	buf, m.Option1 = unmarshalByte(buf)
-
-	buf, m.Option2 = unmarshalByte(buf)
-
-	buf, m.Option3 = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *IsrLocation) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Transmits the readings from the voltage and current sensors */
-type VoltSensor struct {
-	/* Voltage in uS of PWM. 0 uS = 0V, 20 uS = 21.5V  */
-	Voltage uint16
-
-	/* Depends on the value of r2Type (0) Current consumption in uS of PWM, 20 uS = 90Amp (1) Distance in cm (2) Distance in cm (3) Absolute value */
-	Reading2 uint16
-
-	/* It is the value of reading 2: 0 - Current, 1 - Foreward Sonar, 2 - Back Sonar, 3 - RPM */
-	R2type byte
-}
-
-func (m *VoltSensor) ID() int        { return 191 }
-func (m *VoltSensor) CRCExtra() byte { return 17 }
-
-func (m *VoltSensor) MarshalV1(buf []byte) []byte {
-	buf = marshalUint16(buf, (m.Voltage))
-	buf = marshalUint16(buf, (m.Reading2))
-	buf = marshalByte(buf, (m.R2type))
-
-	return buf
-}
-
-func (m *VoltSensor) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *VoltSensor) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Voltage = unmarshalUint16(buf)
-
-	buf, m.Reading2 = unmarshalUint16(buf)
-
-	buf, m.R2type = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *VoltSensor) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Transmits the actual Pan, Tilt and Zoom values of the camera unit */
-type PtzStatus struct {
-	/* The Pan value in 10ths of degree */
-	Pan int16
-
-	/* The Tilt value in 10ths of degree */
-	Tilt int16
-
-	/* The actual Zoom Value */
-	Zoom byte
-}
-
-func (m *PtzStatus) ID() int        { return 192 }
-func (m *PtzStatus) CRCExtra() byte { return 187 }
-
-func (m *PtzStatus) MarshalV1(buf []byte) []byte {
-	buf = marshalInt16(buf, (m.Pan))
-	buf = marshalInt16(buf, (m.Tilt))
-	buf = marshalByte(buf, (m.Zoom))
-
-	return buf
-}
-
-func (m *PtzStatus) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *PtzStatus) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Pan = unmarshalInt16(buf)
-
-	buf, m.Tilt = unmarshalInt16(buf)
-
-	buf, m.Zoom = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *PtzStatus) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Transmits the actual status values UAV in flight */
-type UavStatus struct {
-	/* Latitude UAV */
-	Latitude float32
-
-	/* Longitude UAV */
-	Longitude float32
-
-	/* Altitude UAV */
-	Altitude float32
-
-	/* Speed UAV */
-	Speed float32
-
-	/* Course UAV */
-	Course float32
-
-	/* The ID system reporting the action */
-	Target byte
-}
-
-func (m *UavStatus) ID() int        { return 193 }
-func (m *UavStatus) CRCExtra() byte { return 160 }
-
-func (m *UavStatus) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Latitude))
-	buf = marshalFloat32(buf, (m.Longitude))
-	buf = marshalFloat32(buf, (m.Altitude))
-	buf = marshalFloat32(buf, (m.Speed))
-	buf = marshalFloat32(buf, (m.Course))
-	buf = marshalByte(buf, (m.Target))
-
-	return buf
-}
-
-func (m *UavStatus) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *UavStatus) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Latitude = unmarshalFloat32(buf)
-
-	buf, m.Longitude = unmarshalFloat32(buf)
-
-	buf, m.Altitude = unmarshalFloat32(buf)
-
-	buf, m.Speed = unmarshalFloat32(buf)
-
-	buf, m.Course = unmarshalFloat32(buf)
-
-	buf, m.Target = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *UavStatus) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* This contains the status of the GPS readings */
-type StatusGps struct {
-	/* Magnetic variation */
-	Magvar float32
-
-	/* Number of times checksum has failed */
-	Csfails uint16
-
-	/* The quality indicator, 0=fix not available or invalid, 1=GPS fix, 2=C/A differential GPS, 6=Dead reckoning mode, 7=Manual input mode (fixed position), 8=Simulator mode, 9= WAAS a */
-	Gpsquality byte
-
-	/*  Indicates if GN, GL or GP messages are being received */
-	Msgstype byte
-
-	/*  A = data valid, V = data invalid */
-	Posstatus byte
-
-	/*  Magnetic variation direction E/W. Easterly variation (E) subtracts from True course and Westerly variation (W) adds to True course */
-	Magdir int8
-
-	/*  Positioning system mode indicator. A - Autonomous;D-Differential; E-Estimated (dead reckoning) mode;M-Manual input; N-Data not valid */
-	Modeind byte
-}
-
-func (m *StatusGps) ID() int        { return 194 }
-func (m *StatusGps) CRCExtra() byte { return 51 }
-
-func (m *StatusGps) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Magvar))
-	buf = marshalUint16(buf, (m.Csfails))
-	buf = marshalByte(buf, (m.Gpsquality))
-	buf = marshalByte(buf, (m.Msgstype))
-	buf = marshalByte(buf, (m.Posstatus))
-	buf = marshalInt8(buf, (m.Magdir))
-	buf = marshalByte(buf, (m.Modeind))
-
-	return buf
-}
-
-func (m *StatusGps) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *StatusGps) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Magvar = unmarshalFloat32(buf)
-
-	buf, m.Csfails = unmarshalUint16(buf)
-
-	buf, m.Gpsquality = unmarshalByte(buf)
-
-	buf, m.Msgstype = unmarshalByte(buf)
-
-	buf, m.Posstatus = unmarshalByte(buf)
-
-	buf, m.Magdir = unmarshalInt8(buf)
-
-	buf, m.Modeind = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *StatusGps) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Transmits the diagnostics data from the Novatel OEMStar GPS */
-type NovatelDiag struct {
-	/* Status Bitfield. See table 69 page 350 Novatel OEMstar Manual */
-	Receiverstatus uint32
-
-	/* Age of the position solution */
-	Possolage float32
-
-	/* Times the CRC has failed since boot */
-	Csfails uint16
-
-	/* The Time Status. See Table 8 page 27 Novatel OEMStar Manual */
-	Timestatus byte
-
-	/* solution Status. See table 44 page 197 */
-	Solstatus byte
-
-	/* position type. See table 43 page 196 */
-	Postype byte
-
-	/* velocity type. See table 43 page 196 */
-	Veltype byte
-}
-
-func (m *NovatelDiag) ID() int        { return 195 }
-func (m *NovatelDiag) CRCExtra() byte { return 59 }
-
-func (m *NovatelDiag) MarshalV1(buf []byte) []byte {
-	buf = marshalUint32(buf, (m.Receiverstatus))
-	buf = marshalFloat32(buf, (m.Possolage))
-	buf = marshalUint16(buf, (m.Csfails))
-	buf = marshalByte(buf, (m.Timestatus))
-	buf = marshalByte(buf, (m.Solstatus))
-	buf = marshalByte(buf, (m.Postype))
-	buf = marshalByte(buf, (m.Veltype))
-
-	return buf
-}
-
-func (m *NovatelDiag) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *NovatelDiag) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Receiverstatus = unmarshalUint32(buf)
-
-	buf, m.Possolage = unmarshalFloat32(buf)
-
-	buf, m.Csfails = unmarshalUint16(buf)
-
-	buf, m.Timestatus = unmarshalByte(buf)
-
-	buf, m.Solstatus = unmarshalByte(buf)
-
-	buf, m.Postype = unmarshalByte(buf)
-
-	buf, m.Veltype = unmarshalByte(buf)
-
-	return buf
-}
-
-func (m *NovatelDiag) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Diagnostic data Sensor MCU */
-type SensorDiag struct {
-	/* Float field 1 */
-	Float1 float32
-
-	/* Float field 2 */
-	Float2 float32
-
-	/* Int 16 field 1 */
-	Int1 int16
-
-	/* Int 8 field 1 */
-	Char1 int8
-}
-
-func (m *SensorDiag) ID() int        { return 196 }
-func (m *SensorDiag) CRCExtra() byte { return 129 }
-
-func (m *SensorDiag) MarshalV1(buf []byte) []byte {
-	buf = marshalFloat32(buf, (m.Float1))
-	buf = marshalFloat32(buf, (m.Float2))
-	buf = marshalInt16(buf, (m.Int1))
-	buf = marshalInt8(buf, (m.Char1))
-
-	return buf
-}
-
-func (m *SensorDiag) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *SensorDiag) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Float1 = unmarshalFloat32(buf)
-
-	buf, m.Float2 = unmarshalFloat32(buf)
-
-	buf, m.Int1 = unmarshalInt16(buf)
-
-	buf, m.Char1 = unmarshalInt8(buf)
-
-	return buf
-}
-
-func (m *SensorDiag) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* The boot message indicates that a system is starting. The onboard software version allows to keep track of onboard soft/firmware revisions. This message allows the sensor and control MCUs to communicate version numbers on startup. */
-type Boot struct {
-	/* The onboard software version */
-	Version uint32
-}
-
-func (m *Boot) ID() int        { return 197 }
-func (m *Boot) CRCExtra() byte { return 39 }
-
-func (m *Boot) MarshalV1(buf []byte) []byte {
-	buf = marshalUint32(buf, (m.Version))
-
-	return buf
-}
-
-func (m *Boot) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *Boot) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Version = unmarshalUint32(buf)
-
-	return buf
-}
-
-func (m *Boot) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
 }
 
 /* The heartbeat message shows that a system or component is present and responding. The type and autopilot fields (along with the message component id), allow the receiving system to treat further messages from this system appropriately (e.g. by laying out the user interface based on the autopilot). This microservice is documented at https://mavlink.io/en/services/heartbeat.html */
@@ -13418,6 +12242,1182 @@ func (m *LandingTarget) UnmarshalV2(buf []byte) []byte {
 		m.Type = LandingTargetType(v)
 	}
 	buf, m.PositionValid = unmarshalByte(buf)
+
+	return buf
+}
+
+/* Sensor and DSC control loads. */
+type CpuLoad struct {
+	/* Battery Voltage */
+	Batvolt uint16
+
+	/* Sensor DSC Load */
+	Sensload byte
+
+	/* Control DSC Load */
+	Ctrlload byte
+}
+
+func (m *CpuLoad) ID() int        { return 170 }
+func (m *CpuLoad) CRCExtra() byte { return 75 }
+
+func (m *CpuLoad) MarshalV1(buf []byte) []byte {
+	buf = marshalUint16(buf, (m.Batvolt))
+	buf = marshalByte(buf, (m.Sensload))
+	buf = marshalByte(buf, (m.Ctrlload))
+
+	return buf
+}
+
+func (m *CpuLoad) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *CpuLoad) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Batvolt = unmarshalUint16(buf)
+
+	buf, m.Sensload = unmarshalByte(buf)
+
+	buf, m.Ctrlload = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *CpuLoad) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Accelerometer and gyro biases. */
+type SensorBias struct {
+	/* Accelerometer X bias */
+	Axbias float32
+
+	/* Accelerometer Y bias */
+	Aybias float32
+
+	/* Accelerometer Z bias */
+	Azbias float32
+
+	/* Gyro X bias */
+	Gxbias float32
+
+	/* Gyro Y bias */
+	Gybias float32
+
+	/* Gyro Z bias */
+	Gzbias float32
+}
+
+func (m *SensorBias) ID() int        { return 172 }
+func (m *SensorBias) CRCExtra() byte { return 168 }
+
+func (m *SensorBias) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Axbias))
+	buf = marshalFloat32(buf, (m.Aybias))
+	buf = marshalFloat32(buf, (m.Azbias))
+	buf = marshalFloat32(buf, (m.Gxbias))
+	buf = marshalFloat32(buf, (m.Gybias))
+	buf = marshalFloat32(buf, (m.Gzbias))
+
+	return buf
+}
+
+func (m *SensorBias) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SensorBias) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Axbias = unmarshalFloat32(buf)
+
+	buf, m.Aybias = unmarshalFloat32(buf)
+
+	buf, m.Azbias = unmarshalFloat32(buf)
+
+	buf, m.Gxbias = unmarshalFloat32(buf)
+
+	buf, m.Gybias = unmarshalFloat32(buf)
+
+	buf, m.Gzbias = unmarshalFloat32(buf)
+
+	return buf
+}
+
+func (m *SensorBias) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Configurable diagnostic messages. */
+type Diagnostic struct {
+	/* Diagnostic float 1 */
+	Diagfl1 float32
+
+	/* Diagnostic float 2 */
+	Diagfl2 float32
+
+	/* Diagnostic float 3 */
+	Diagfl3 float32
+
+	/* Diagnostic short 1 */
+	Diagsh1 int16
+
+	/* Diagnostic short 2 */
+	Diagsh2 int16
+
+	/* Diagnostic short 3 */
+	Diagsh3 int16
+}
+
+func (m *Diagnostic) ID() int        { return 173 }
+func (m *Diagnostic) CRCExtra() byte { return 2 }
+
+func (m *Diagnostic) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Diagfl1))
+	buf = marshalFloat32(buf, (m.Diagfl2))
+	buf = marshalFloat32(buf, (m.Diagfl3))
+	buf = marshalInt16(buf, (m.Diagsh1))
+	buf = marshalInt16(buf, (m.Diagsh2))
+	buf = marshalInt16(buf, (m.Diagsh3))
+
+	return buf
+}
+
+func (m *Diagnostic) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *Diagnostic) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Diagfl1 = unmarshalFloat32(buf)
+
+	buf, m.Diagfl2 = unmarshalFloat32(buf)
+
+	buf, m.Diagfl3 = unmarshalFloat32(buf)
+
+	buf, m.Diagsh1 = unmarshalInt16(buf)
+
+	buf, m.Diagsh2 = unmarshalInt16(buf)
+
+	buf, m.Diagsh3 = unmarshalInt16(buf)
+
+	return buf
+}
+
+func (m *Diagnostic) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Data used in the navigation algorithm. */
+type SlugsNavigation struct {
+	/* Measured Airspeed prior to the nav filter */
+	UM float32
+
+	/* Commanded Roll */
+	PhiC float32
+
+	/* Commanded Pitch */
+	ThetaC float32
+
+	/* Commanded Turn rate */
+	PsidotC float32
+
+	/* Y component of the body acceleration */
+	AyBody float32
+
+	/* Total Distance to Run on this leg of Navigation */
+	Totaldist float32
+
+	/* Remaining distance to Run on this leg of Navigation */
+	Dist2go float32
+
+	/* Commanded altitude (MSL) */
+	HC uint16
+
+	/* Origin WP */
+	Fromwp byte
+
+	/* Destination WP */
+	Towp byte
+}
+
+func (m *SlugsNavigation) ID() int        { return 176 }
+func (m *SlugsNavigation) CRCExtra() byte { return 228 }
+
+func (m *SlugsNavigation) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.UM))
+	buf = marshalFloat32(buf, (m.PhiC))
+	buf = marshalFloat32(buf, (m.ThetaC))
+	buf = marshalFloat32(buf, (m.PsidotC))
+	buf = marshalFloat32(buf, (m.AyBody))
+	buf = marshalFloat32(buf, (m.Totaldist))
+	buf = marshalFloat32(buf, (m.Dist2go))
+	buf = marshalUint16(buf, (m.HC))
+	buf = marshalByte(buf, (m.Fromwp))
+	buf = marshalByte(buf, (m.Towp))
+
+	return buf
+}
+
+func (m *SlugsNavigation) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SlugsNavigation) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.UM = unmarshalFloat32(buf)
+
+	buf, m.PhiC = unmarshalFloat32(buf)
+
+	buf, m.ThetaC = unmarshalFloat32(buf)
+
+	buf, m.PsidotC = unmarshalFloat32(buf)
+
+	buf, m.AyBody = unmarshalFloat32(buf)
+
+	buf, m.Totaldist = unmarshalFloat32(buf)
+
+	buf, m.Dist2go = unmarshalFloat32(buf)
+
+	buf, m.HC = unmarshalUint16(buf)
+
+	buf, m.Fromwp = unmarshalByte(buf)
+
+	buf, m.Towp = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *SlugsNavigation) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Configurable data log probes to be used inside Simulink */
+type DataLog struct {
+	/* Log value 1  */
+	Fl1 float32
+
+	/* Log value 2  */
+	Fl2 float32
+
+	/* Log value 3  */
+	Fl3 float32
+
+	/* Log value 4  */
+	Fl4 float32
+
+	/* Log value 5  */
+	Fl5 float32
+
+	/* Log value 6  */
+	Fl6 float32
+}
+
+func (m *DataLog) ID() int        { return 177 }
+func (m *DataLog) CRCExtra() byte { return 167 }
+
+func (m *DataLog) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Fl1))
+	buf = marshalFloat32(buf, (m.Fl2))
+	buf = marshalFloat32(buf, (m.Fl3))
+	buf = marshalFloat32(buf, (m.Fl4))
+	buf = marshalFloat32(buf, (m.Fl5))
+	buf = marshalFloat32(buf, (m.Fl6))
+
+	return buf
+}
+
+func (m *DataLog) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *DataLog) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Fl1 = unmarshalFloat32(buf)
+
+	buf, m.Fl2 = unmarshalFloat32(buf)
+
+	buf, m.Fl3 = unmarshalFloat32(buf)
+
+	buf, m.Fl4 = unmarshalFloat32(buf)
+
+	buf, m.Fl5 = unmarshalFloat32(buf)
+
+	buf, m.Fl6 = unmarshalFloat32(buf)
+
+	return buf
+}
+
+func (m *DataLog) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Pilot console PWM messges. */
+type GpsDateTime struct {
+	/* Year reported by Gps  */
+	Year byte
+
+	/* Month reported by Gps  */
+	Month byte
+
+	/* Day reported by Gps  */
+	Day byte
+
+	/* Hour reported by Gps  */
+	Hour byte
+
+	/* Min reported by Gps  */
+	Min byte
+
+	/* Sec reported by Gps   */
+	Sec byte
+
+	/* Clock Status. See table 47 page 211 OEMStar Manual   */
+	Clockstat byte
+
+	/* Visible satellites reported by Gps   */
+	Vissat byte
+
+	/* Used satellites in Solution   */
+	Usesat byte
+
+	/* GPS+GLONASS satellites in Solution   */
+	Gppgl byte
+
+	/* GPS and GLONASS usage mask (bit 0 GPS_used? bit_4 GLONASS_used?) */
+	Sigusedmask byte
+
+	/* Percent used GPS */
+	Percentused byte
+}
+
+func (m *GpsDateTime) ID() int        { return 179 }
+func (m *GpsDateTime) CRCExtra() byte { return 132 }
+
+func (m *GpsDateTime) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, (m.Year))
+	buf = marshalByte(buf, (m.Month))
+	buf = marshalByte(buf, (m.Day))
+	buf = marshalByte(buf, (m.Hour))
+	buf = marshalByte(buf, (m.Min))
+	buf = marshalByte(buf, (m.Sec))
+	buf = marshalByte(buf, (m.Clockstat))
+	buf = marshalByte(buf, (m.Vissat))
+	buf = marshalByte(buf, (m.Usesat))
+	buf = marshalByte(buf, (m.Gppgl))
+	buf = marshalByte(buf, (m.Sigusedmask))
+	buf = marshalByte(buf, (m.Percentused))
+
+	return buf
+}
+
+func (m *GpsDateTime) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *GpsDateTime) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Year = unmarshalByte(buf)
+
+	buf, m.Month = unmarshalByte(buf)
+
+	buf, m.Day = unmarshalByte(buf)
+
+	buf, m.Hour = unmarshalByte(buf)
+
+	buf, m.Min = unmarshalByte(buf)
+
+	buf, m.Sec = unmarshalByte(buf)
+
+	buf, m.Clockstat = unmarshalByte(buf)
+
+	buf, m.Vissat = unmarshalByte(buf)
+
+	buf, m.Usesat = unmarshalByte(buf)
+
+	buf, m.Gppgl = unmarshalByte(buf)
+
+	buf, m.Sigusedmask = unmarshalByte(buf)
+
+	buf, m.Percentused = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *GpsDateTime) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Mid Level commands sent from the GS to the autopilot. These are only sent when being operated in mid-level commands mode from the ground. */
+type MidLvlCmds struct {
+	/* Commanded altitude (MSL) */
+	Hcommand float32
+
+	/* Commanded Airspeed */
+	Ucommand float32
+
+	/* Commanded Turnrate */
+	Rcommand float32
+
+	/* The system setting the commands */
+	Target byte
+}
+
+func (m *MidLvlCmds) ID() int        { return 180 }
+func (m *MidLvlCmds) CRCExtra() byte { return 146 }
+
+func (m *MidLvlCmds) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Hcommand))
+	buf = marshalFloat32(buf, (m.Ucommand))
+	buf = marshalFloat32(buf, (m.Rcommand))
+	buf = marshalByte(buf, (m.Target))
+
+	return buf
+}
+
+func (m *MidLvlCmds) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *MidLvlCmds) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Hcommand = unmarshalFloat32(buf)
+
+	buf, m.Ucommand = unmarshalFloat32(buf)
+
+	buf, m.Rcommand = unmarshalFloat32(buf)
+
+	buf, m.Target = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *MidLvlCmds) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* This message sets the control surfaces for selective passthrough mode. */
+type CtrlSrfcPt struct {
+	/* Bitfield containing the passthrough configuration, see CONTROL_SURFACE_FLAG ENUM. */
+	Bitfieldpt ControlSurfaceFlag // uint16
+
+	/* The system setting the commands */
+	Target byte
+}
+
+func (m *CtrlSrfcPt) ID() int        { return 181 }
+func (m *CtrlSrfcPt) CRCExtra() byte { return 104 }
+
+func (m *CtrlSrfcPt) MarshalV1(buf []byte) []byte {
+	buf = marshalUint16(buf, uint16(m.Bitfieldpt))
+	buf = marshalByte(buf, (m.Target))
+
+	return buf
+}
+
+func (m *CtrlSrfcPt) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *CtrlSrfcPt) UnmarshalV1(buf []byte) []byte {
+
+	{
+		var v uint16
+		buf, v = unmarshalUint16(buf)
+		m.Bitfieldpt = ControlSurfaceFlag(v)
+	}
+
+	buf, m.Target = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *CtrlSrfcPt) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Orders generated to the SLUGS camera mount.  */
+type SlugsCameraOrder struct {
+	/* The system reporting the action */
+	Target byte
+
+	/* Order the mount to pan: -1 left, 0 No pan motion, +1 right */
+	Pan int8
+
+	/* Order the mount to tilt: -1 down, 0 No tilt motion, +1 up */
+	Tilt int8
+
+	/* Order the zoom values 0 to 10 */
+	Zoom int8
+
+	/* Orders the camera mount to move home. The other fields are ignored when this field is set. 1: move home, 0 ignored */
+	Movehome int8
+}
+
+func (m *SlugsCameraOrder) ID() int        { return 184 }
+func (m *SlugsCameraOrder) CRCExtra() byte { return 45 }
+
+func (m *SlugsCameraOrder) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, (m.Target))
+	buf = marshalInt8(buf, (m.Pan))
+	buf = marshalInt8(buf, (m.Tilt))
+	buf = marshalInt8(buf, (m.Zoom))
+	buf = marshalInt8(buf, (m.Movehome))
+
+	return buf
+}
+
+func (m *SlugsCameraOrder) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SlugsCameraOrder) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Target = unmarshalByte(buf)
+
+	buf, m.Pan = unmarshalInt8(buf)
+
+	buf, m.Tilt = unmarshalInt8(buf)
+
+	buf, m.Zoom = unmarshalInt8(buf)
+
+	buf, m.Movehome = unmarshalInt8(buf)
+
+	return buf
+}
+
+func (m *SlugsCameraOrder) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Control for surface; pending and order to origin. */
+type ControlSurface struct {
+	/* Pending */
+	Mcontrol float32
+
+	/* Order to origin */
+	Bcontrol float32
+
+	/* The system setting the commands */
+	Target byte
+
+	/* ID control surface send 0: throttle 1: aileron 2: elevator 3: rudder */
+	Idsurface byte
+}
+
+func (m *ControlSurface) ID() int        { return 185 }
+func (m *ControlSurface) CRCExtra() byte { return 113 }
+
+func (m *ControlSurface) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Mcontrol))
+	buf = marshalFloat32(buf, (m.Bcontrol))
+	buf = marshalByte(buf, (m.Target))
+	buf = marshalByte(buf, (m.Idsurface))
+
+	return buf
+}
+
+func (m *ControlSurface) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *ControlSurface) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Mcontrol = unmarshalFloat32(buf)
+
+	buf, m.Bcontrol = unmarshalFloat32(buf)
+
+	buf, m.Target = unmarshalByte(buf)
+
+	buf, m.Idsurface = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *ControlSurface) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Transmits the last known position of the mobile GS to the UAV. Very relevant when Track Mobile is enabled */
+type SlugsMobileLocation struct {
+	/* Mobile Latitude */
+	Latitude float32
+
+	/* Mobile Longitude */
+	Longitude float32
+
+	/* The system reporting the action */
+	Target byte
+}
+
+func (m *SlugsMobileLocation) ID() int        { return 186 }
+func (m *SlugsMobileLocation) CRCExtra() byte { return 101 }
+
+func (m *SlugsMobileLocation) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Latitude))
+	buf = marshalFloat32(buf, (m.Longitude))
+	buf = marshalByte(buf, (m.Target))
+
+	return buf
+}
+
+func (m *SlugsMobileLocation) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SlugsMobileLocation) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Latitude = unmarshalFloat32(buf)
+
+	buf, m.Longitude = unmarshalFloat32(buf)
+
+	buf, m.Target = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *SlugsMobileLocation) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Control for camara. */
+type SlugsConfigurationCamera struct {
+	/* The system setting the commands */
+	Target byte
+
+	/* ID 0: brightness 1: aperture 2: iris 3: ICR 4: backlight */
+	Idorder byte
+
+	/*  1: up/on 2: down/off 3: auto/reset/no action */
+	Order byte
+}
+
+func (m *SlugsConfigurationCamera) ID() int        { return 188 }
+func (m *SlugsConfigurationCamera) CRCExtra() byte { return 5 }
+
+func (m *SlugsConfigurationCamera) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, (m.Target))
+	buf = marshalByte(buf, (m.Idorder))
+	buf = marshalByte(buf, (m.Order))
+
+	return buf
+}
+
+func (m *SlugsConfigurationCamera) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SlugsConfigurationCamera) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Target = unmarshalByte(buf)
+
+	buf, m.Idorder = unmarshalByte(buf)
+
+	buf, m.Order = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *SlugsConfigurationCamera) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Transmits the position of watch */
+type IsrLocation struct {
+	/* ISR Latitude */
+	Latitude float32
+
+	/* ISR Longitude */
+	Longitude float32
+
+	/* ISR Height */
+	Height float32
+
+	/* The system reporting the action */
+	Target byte
+
+	/* Option 1 */
+	Option1 byte
+
+	/* Option 2 */
+	Option2 byte
+
+	/* Option 3 */
+	Option3 byte
+}
+
+func (m *IsrLocation) ID() int        { return 189 }
+func (m *IsrLocation) CRCExtra() byte { return 246 }
+
+func (m *IsrLocation) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Latitude))
+	buf = marshalFloat32(buf, (m.Longitude))
+	buf = marshalFloat32(buf, (m.Height))
+	buf = marshalByte(buf, (m.Target))
+	buf = marshalByte(buf, (m.Option1))
+	buf = marshalByte(buf, (m.Option2))
+	buf = marshalByte(buf, (m.Option3))
+
+	return buf
+}
+
+func (m *IsrLocation) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *IsrLocation) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Latitude = unmarshalFloat32(buf)
+
+	buf, m.Longitude = unmarshalFloat32(buf)
+
+	buf, m.Height = unmarshalFloat32(buf)
+
+	buf, m.Target = unmarshalByte(buf)
+
+	buf, m.Option1 = unmarshalByte(buf)
+
+	buf, m.Option2 = unmarshalByte(buf)
+
+	buf, m.Option3 = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *IsrLocation) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Transmits the readings from the voltage and current sensors */
+type VoltSensor struct {
+	/* Voltage in uS of PWM. 0 uS = 0V, 20 uS = 21.5V  */
+	Voltage uint16
+
+	/* Depends on the value of r2Type (0) Current consumption in uS of PWM, 20 uS = 90Amp (1) Distance in cm (2) Distance in cm (3) Absolute value */
+	Reading2 uint16
+
+	/* It is the value of reading 2: 0 - Current, 1 - Foreward Sonar, 2 - Back Sonar, 3 - RPM */
+	R2type byte
+}
+
+func (m *VoltSensor) ID() int        { return 191 }
+func (m *VoltSensor) CRCExtra() byte { return 17 }
+
+func (m *VoltSensor) MarshalV1(buf []byte) []byte {
+	buf = marshalUint16(buf, (m.Voltage))
+	buf = marshalUint16(buf, (m.Reading2))
+	buf = marshalByte(buf, (m.R2type))
+
+	return buf
+}
+
+func (m *VoltSensor) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *VoltSensor) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Voltage = unmarshalUint16(buf)
+
+	buf, m.Reading2 = unmarshalUint16(buf)
+
+	buf, m.R2type = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *VoltSensor) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Transmits the actual Pan, Tilt and Zoom values of the camera unit */
+type PtzStatus struct {
+	/* The Pan value in 10ths of degree */
+	Pan int16
+
+	/* The Tilt value in 10ths of degree */
+	Tilt int16
+
+	/* The actual Zoom Value */
+	Zoom byte
+}
+
+func (m *PtzStatus) ID() int        { return 192 }
+func (m *PtzStatus) CRCExtra() byte { return 187 }
+
+func (m *PtzStatus) MarshalV1(buf []byte) []byte {
+	buf = marshalInt16(buf, (m.Pan))
+	buf = marshalInt16(buf, (m.Tilt))
+	buf = marshalByte(buf, (m.Zoom))
+
+	return buf
+}
+
+func (m *PtzStatus) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *PtzStatus) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Pan = unmarshalInt16(buf)
+
+	buf, m.Tilt = unmarshalInt16(buf)
+
+	buf, m.Zoom = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *PtzStatus) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Transmits the actual status values UAV in flight */
+type UavStatus struct {
+	/* Latitude UAV */
+	Latitude float32
+
+	/* Longitude UAV */
+	Longitude float32
+
+	/* Altitude UAV */
+	Altitude float32
+
+	/* Speed UAV */
+	Speed float32
+
+	/* Course UAV */
+	Course float32
+
+	/* The ID system reporting the action */
+	Target byte
+}
+
+func (m *UavStatus) ID() int        { return 193 }
+func (m *UavStatus) CRCExtra() byte { return 160 }
+
+func (m *UavStatus) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Latitude))
+	buf = marshalFloat32(buf, (m.Longitude))
+	buf = marshalFloat32(buf, (m.Altitude))
+	buf = marshalFloat32(buf, (m.Speed))
+	buf = marshalFloat32(buf, (m.Course))
+	buf = marshalByte(buf, (m.Target))
+
+	return buf
+}
+
+func (m *UavStatus) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *UavStatus) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Latitude = unmarshalFloat32(buf)
+
+	buf, m.Longitude = unmarshalFloat32(buf)
+
+	buf, m.Altitude = unmarshalFloat32(buf)
+
+	buf, m.Speed = unmarshalFloat32(buf)
+
+	buf, m.Course = unmarshalFloat32(buf)
+
+	buf, m.Target = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *UavStatus) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* This contains the status of the GPS readings */
+type StatusGps struct {
+	/* Magnetic variation */
+	Magvar float32
+
+	/* Number of times checksum has failed */
+	Csfails uint16
+
+	/* The quality indicator, 0=fix not available or invalid, 1=GPS fix, 2=C/A differential GPS, 6=Dead reckoning mode, 7=Manual input mode (fixed position), 8=Simulator mode, 9= WAAS a */
+	Gpsquality byte
+
+	/*  Indicates if GN, GL or GP messages are being received */
+	Msgstype byte
+
+	/*  A = data valid, V = data invalid */
+	Posstatus byte
+
+	/*  Magnetic variation direction E/W. Easterly variation (E) subtracts from True course and Westerly variation (W) adds to True course */
+	Magdir int8
+
+	/*  Positioning system mode indicator. A - Autonomous;D-Differential; E-Estimated (dead reckoning) mode;M-Manual input; N-Data not valid */
+	Modeind byte
+}
+
+func (m *StatusGps) ID() int        { return 194 }
+func (m *StatusGps) CRCExtra() byte { return 51 }
+
+func (m *StatusGps) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Magvar))
+	buf = marshalUint16(buf, (m.Csfails))
+	buf = marshalByte(buf, (m.Gpsquality))
+	buf = marshalByte(buf, (m.Msgstype))
+	buf = marshalByte(buf, (m.Posstatus))
+	buf = marshalInt8(buf, (m.Magdir))
+	buf = marshalByte(buf, (m.Modeind))
+
+	return buf
+}
+
+func (m *StatusGps) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *StatusGps) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Magvar = unmarshalFloat32(buf)
+
+	buf, m.Csfails = unmarshalUint16(buf)
+
+	buf, m.Gpsquality = unmarshalByte(buf)
+
+	buf, m.Msgstype = unmarshalByte(buf)
+
+	buf, m.Posstatus = unmarshalByte(buf)
+
+	buf, m.Magdir = unmarshalInt8(buf)
+
+	buf, m.Modeind = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *StatusGps) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Transmits the diagnostics data from the Novatel OEMStar GPS */
+type NovatelDiag struct {
+	/* Status Bitfield. See table 69 page 350 Novatel OEMstar Manual */
+	Receiverstatus uint32
+
+	/* Age of the position solution */
+	Possolage float32
+
+	/* Times the CRC has failed since boot */
+	Csfails uint16
+
+	/* The Time Status. See Table 8 page 27 Novatel OEMStar Manual */
+	Timestatus byte
+
+	/* solution Status. See table 44 page 197 */
+	Solstatus byte
+
+	/* position type. See table 43 page 196 */
+	Postype byte
+
+	/* velocity type. See table 43 page 196 */
+	Veltype byte
+}
+
+func (m *NovatelDiag) ID() int        { return 195 }
+func (m *NovatelDiag) CRCExtra() byte { return 59 }
+
+func (m *NovatelDiag) MarshalV1(buf []byte) []byte {
+	buf = marshalUint32(buf, (m.Receiverstatus))
+	buf = marshalFloat32(buf, (m.Possolage))
+	buf = marshalUint16(buf, (m.Csfails))
+	buf = marshalByte(buf, (m.Timestatus))
+	buf = marshalByte(buf, (m.Solstatus))
+	buf = marshalByte(buf, (m.Postype))
+	buf = marshalByte(buf, (m.Veltype))
+
+	return buf
+}
+
+func (m *NovatelDiag) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *NovatelDiag) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Receiverstatus = unmarshalUint32(buf)
+
+	buf, m.Possolage = unmarshalFloat32(buf)
+
+	buf, m.Csfails = unmarshalUint16(buf)
+
+	buf, m.Timestatus = unmarshalByte(buf)
+
+	buf, m.Solstatus = unmarshalByte(buf)
+
+	buf, m.Postype = unmarshalByte(buf)
+
+	buf, m.Veltype = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *NovatelDiag) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Diagnostic data Sensor MCU */
+type SensorDiag struct {
+	/* Float field 1 */
+	Float1 float32
+
+	/* Float field 2 */
+	Float2 float32
+
+	/* Int 16 field 1 */
+	Int1 int16
+
+	/* Int 8 field 1 */
+	Char1 int8
+}
+
+func (m *SensorDiag) ID() int        { return 196 }
+func (m *SensorDiag) CRCExtra() byte { return 129 }
+
+func (m *SensorDiag) MarshalV1(buf []byte) []byte {
+	buf = marshalFloat32(buf, (m.Float1))
+	buf = marshalFloat32(buf, (m.Float2))
+	buf = marshalInt16(buf, (m.Int1))
+	buf = marshalInt8(buf, (m.Char1))
+
+	return buf
+}
+
+func (m *SensorDiag) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *SensorDiag) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Float1 = unmarshalFloat32(buf)
+
+	buf, m.Float2 = unmarshalFloat32(buf)
+
+	buf, m.Int1 = unmarshalInt16(buf)
+
+	buf, m.Char1 = unmarshalInt8(buf)
+
+	return buf
+}
+
+func (m *SensorDiag) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* The boot message indicates that a system is starting. The onboard software version allows to keep track of onboard soft/firmware revisions. This message allows the sensor and control MCUs to communicate version numbers on startup. */
+type Boot struct {
+	/* The onboard software version */
+	Version uint32
+}
+
+func (m *Boot) ID() int        { return 197 }
+func (m *Boot) CRCExtra() byte { return 39 }
+
+func (m *Boot) MarshalV1(buf []byte) []byte {
+	buf = marshalUint32(buf, (m.Version))
+
+	return buf
+}
+
+func (m *Boot) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *Boot) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Version = unmarshalUint32(buf)
+
+	return buf
+}
+
+func (m *Boot) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
 
 	return buf
 }

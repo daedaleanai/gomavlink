@@ -2653,12 +2653,6 @@ const (
 // The Dialect factory function constructs the proper empty message given the message ID.
 func Dialect(mid int) mavlink.Message {
 	switch mid {
-	case 10001:
-		return &UavionixAdsbOutCfg{}
-	case 10002:
-		return &UavionixAdsbOutDynamic{}
-	case 10003:
-		return &UavionixAdsbTransceiverHealthReport{}
 	case 0:
 		return &Heartbeat{}
 	case 1:
@@ -3007,285 +3001,14 @@ func Dialect(mid int) mavlink.Message {
 		return &TimeEstimateToTarget{}
 	case 9000:
 		return &WheelDistance{}
+	case 10001:
+		return &UavionixAdsbOutCfg{}
+	case 10002:
+		return &UavionixAdsbOutDynamic{}
+	case 10003:
+		return &UavionixAdsbTransceiverHealthReport{}
 	}
 	return nil
-}
-
-/* Static data to configure the ADS-B transponder (send within 10 sec of a POR and every 10 sec thereafter) */
-type UavionixAdsbOutCfg struct {
-	/* Vehicle address (24 bit) */
-	Icao uint32
-
-	/* Aircraft stall speed in cm/s */
-	Stallspeed uint16
-
-	/* Vehicle identifier (8 characters, null terminated, valid characters are A-Z, 0-9, " " only) */
-	Callsign [9]byte
-
-	/* Transmitting vehicle type. See ADSB_EMITTER_TYPE enum */
-	Emittertype AdsbEmitterType // byte
-
-	/* Aircraft length and width encoding (table 2-35 of DO-282B) */
-	Aircraftsize UavionixAdsbOutCfgAircraftSize // byte
-
-	/* GPS antenna lateral offset (table 2-36 of DO-282B) */
-	Gpsoffsetlat UavionixAdsbOutCfgGpsOffsetLat // byte
-
-	/* GPS antenna longitudinal offset from nose [if non-zero, take position (in meters) divide by 2 and add one] (table 2-37 DO-282B) */
-	Gpsoffsetlon UavionixAdsbOutCfgGpsOffsetLon // byte
-
-	/* ADS-B transponder reciever and transmit enable flags */
-	Rfselect UavionixAdsbOutRfSelect // byte
-
-}
-
-func (m *UavionixAdsbOutCfg) ID() int        { return 10001 }
-func (m *UavionixAdsbOutCfg) CRCExtra() byte { return 209 }
-
-func (m *UavionixAdsbOutCfg) MarshalV1(buf []byte) []byte {
-	buf = marshalUint32(buf, (m.Icao))
-	buf = marshalUint16(buf, (m.Stallspeed))
-	for _, v := range m.Callsign {
-		buf = marshalByte(buf, (v))
-	}
-	buf = marshalByte(buf, byte(m.Emittertype))
-	buf = marshalByte(buf, byte(m.Aircraftsize))
-	buf = marshalByte(buf, byte(m.Gpsoffsetlat))
-	buf = marshalByte(buf, byte(m.Gpsoffsetlon))
-	buf = marshalByte(buf, byte(m.Rfselect))
-
-	return buf
-}
-
-func (m *UavionixAdsbOutCfg) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *UavionixAdsbOutCfg) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Icao = unmarshalUint32(buf)
-
-	buf, m.Stallspeed = unmarshalUint16(buf)
-
-	for i, _ := range m.Callsign {
-		buf, m.Callsign[i] = unmarshalByte(buf)
-	}
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.Emittertype = AdsbEmitterType(v)
-	}
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.Aircraftsize = UavionixAdsbOutCfgAircraftSize(v)
-	}
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.Gpsoffsetlat = UavionixAdsbOutCfgGpsOffsetLat(v)
-	}
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.Gpsoffsetlon = UavionixAdsbOutCfgGpsOffsetLon(v)
-	}
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.Rfselect = UavionixAdsbOutRfSelect(v)
-	}
-
-	return buf
-}
-
-func (m *UavionixAdsbOutCfg) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Dynamic data used to generate ADS-B out transponder data (send at 5Hz) */
-type UavionixAdsbOutDynamic struct {
-	/* UTC time in seconds since GPS epoch (Jan 6, 1980). If unknown set to UINT32_MAX */
-	Utctime uint32
-
-	/* Latitude WGS84 (deg * 1E7). If unknown set to INT32_MAX */
-	Gpslat int32
-
-	/* Longitude WGS84 (deg * 1E7). If unknown set to INT32_MAX */
-	Gpslon int32
-
-	/* Altitude (WGS84). UP +ve. If unknown set to INT32_MAX */
-	Gpsalt int32
-
-	/* Barometric pressure altitude (MSL) relative to a standard atmosphere of 1013.2 mBar and NOT bar corrected altitude (m * 1E-3). (up +ve). If unknown set to INT32_MAX */
-	Baroaltmsl int32
-
-	/* Horizontal accuracy in mm (m * 1E-3). If unknown set to UINT32_MAX */
-	Accuracyhor uint32
-
-	/* Vertical accuracy in cm. If unknown set to UINT16_MAX */
-	Accuracyvert uint16
-
-	/* Velocity accuracy in mm/s (m * 1E-3). If unknown set to UINT16_MAX */
-	Accuracyvel uint16
-
-	/* GPS vertical speed in cm/s. If unknown set to INT16_MAX */
-	Velvert int16
-
-	/* North-South velocity over ground in cm/s North +ve. If unknown set to INT16_MAX */
-	Velns int16
-
-	/* East-West velocity over ground in cm/s East +ve. If unknown set to INT16_MAX */
-	Velew int16
-
-	/* ADS-B transponder dynamic input state flags */
-	State UavionixAdsbOutDynamicState // uint16
-
-	/* Mode A code (typically 1200 [0x04B0] for VFR) */
-	Squawk uint16
-
-	/* 0-1: no fix, 2: 2D fix, 3: 3D fix, 4: DGPS, 5: RTK */
-	Gpsfix UavionixAdsbOutDynamicGpsFix // byte
-
-	/* Number of satellites visible. If unknown set to UINT8_MAX */
-	Numsats byte
-
-	/* Emergency status */
-	Emergencystatus UavionixAdsbEmergencyStatus // byte
-
-}
-
-func (m *UavionixAdsbOutDynamic) ID() int        { return 10002 }
-func (m *UavionixAdsbOutDynamic) CRCExtra() byte { return 186 }
-
-func (m *UavionixAdsbOutDynamic) MarshalV1(buf []byte) []byte {
-	buf = marshalUint32(buf, (m.Utctime))
-	buf = marshalInt32(buf, (m.Gpslat))
-	buf = marshalInt32(buf, (m.Gpslon))
-	buf = marshalInt32(buf, (m.Gpsalt))
-	buf = marshalInt32(buf, (m.Baroaltmsl))
-	buf = marshalUint32(buf, (m.Accuracyhor))
-	buf = marshalUint16(buf, (m.Accuracyvert))
-	buf = marshalUint16(buf, (m.Accuracyvel))
-	buf = marshalInt16(buf, (m.Velvert))
-	buf = marshalInt16(buf, (m.Velns))
-	buf = marshalInt16(buf, (m.Velew))
-	buf = marshalUint16(buf, uint16(m.State))
-	buf = marshalUint16(buf, (m.Squawk))
-	buf = marshalByte(buf, byte(m.Gpsfix))
-	buf = marshalByte(buf, (m.Numsats))
-	buf = marshalByte(buf, byte(m.Emergencystatus))
-
-	return buf
-}
-
-func (m *UavionixAdsbOutDynamic) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *UavionixAdsbOutDynamic) UnmarshalV1(buf []byte) []byte {
-
-	buf, m.Utctime = unmarshalUint32(buf)
-
-	buf, m.Gpslat = unmarshalInt32(buf)
-
-	buf, m.Gpslon = unmarshalInt32(buf)
-
-	buf, m.Gpsalt = unmarshalInt32(buf)
-
-	buf, m.Baroaltmsl = unmarshalInt32(buf)
-
-	buf, m.Accuracyhor = unmarshalUint32(buf)
-
-	buf, m.Accuracyvert = unmarshalUint16(buf)
-
-	buf, m.Accuracyvel = unmarshalUint16(buf)
-
-	buf, m.Velvert = unmarshalInt16(buf)
-
-	buf, m.Velns = unmarshalInt16(buf)
-
-	buf, m.Velew = unmarshalInt16(buf)
-
-	{
-		var v uint16
-		buf, v = unmarshalUint16(buf)
-		m.State = UavionixAdsbOutDynamicState(v)
-	}
-
-	buf, m.Squawk = unmarshalUint16(buf)
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.Gpsfix = UavionixAdsbOutDynamicGpsFix(v)
-	}
-
-	buf, m.Numsats = unmarshalByte(buf)
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.Emergencystatus = UavionixAdsbEmergencyStatus(v)
-	}
-
-	return buf
-}
-
-func (m *UavionixAdsbOutDynamic) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
-}
-
-/* Transceiver heartbeat with health report (updated every 10s) */
-type UavionixAdsbTransceiverHealthReport struct {
-	/* ADS-B transponder messages */
-	Rfhealth UavionixAdsbRfHealth // byte
-
-}
-
-func (m *UavionixAdsbTransceiverHealthReport) ID() int        { return 10003 }
-func (m *UavionixAdsbTransceiverHealthReport) CRCExtra() byte { return 4 }
-
-func (m *UavionixAdsbTransceiverHealthReport) MarshalV1(buf []byte) []byte {
-	buf = marshalByte(buf, byte(m.Rfhealth))
-
-	return buf
-}
-
-func (m *UavionixAdsbTransceiverHealthReport) MarshalV2(buf []byte) []byte {
-	buf = m.MarshalV1(buf)
-
-	return buf
-}
-
-func (m *UavionixAdsbTransceiverHealthReport) UnmarshalV1(buf []byte) []byte {
-
-	{
-		var v byte
-		buf, v = unmarshalByte(buf)
-		m.Rfhealth = UavionixAdsbRfHealth(v)
-	}
-
-	return buf
-}
-
-func (m *UavionixAdsbTransceiverHealthReport) UnmarshalV2(buf []byte) []byte {
-	buf = m.UnmarshalV1(buf)
-
-	return buf
 }
 
 /* The heartbeat message shows that a system or component is present and responding. The type and autopilot fields (along with the message component id), allow the receiving system to treat further messages from this system appropriately (e.g. by laying out the user interface based on the autopilot). This microservice is documented at https://mavlink.io/en/services/heartbeat.html */
@@ -17034,6 +16757,283 @@ func (m *WheelDistance) UnmarshalV1(buf []byte) []byte {
 }
 
 func (m *WheelDistance) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Static data to configure the ADS-B transponder (send within 10 sec of a POR and every 10 sec thereafter) */
+type UavionixAdsbOutCfg struct {
+	/* Vehicle address (24 bit) */
+	Icao uint32
+
+	/* Aircraft stall speed in cm/s */
+	Stallspeed uint16
+
+	/* Vehicle identifier (8 characters, null terminated, valid characters are A-Z, 0-9, " " only) */
+	Callsign [9]byte
+
+	/* Transmitting vehicle type. See ADSB_EMITTER_TYPE enum */
+	Emittertype AdsbEmitterType // byte
+
+	/* Aircraft length and width encoding (table 2-35 of DO-282B) */
+	Aircraftsize UavionixAdsbOutCfgAircraftSize // byte
+
+	/* GPS antenna lateral offset (table 2-36 of DO-282B) */
+	Gpsoffsetlat UavionixAdsbOutCfgGpsOffsetLat // byte
+
+	/* GPS antenna longitudinal offset from nose [if non-zero, take position (in meters) divide by 2 and add one] (table 2-37 DO-282B) */
+	Gpsoffsetlon UavionixAdsbOutCfgGpsOffsetLon // byte
+
+	/* ADS-B transponder reciever and transmit enable flags */
+	Rfselect UavionixAdsbOutRfSelect // byte
+
+}
+
+func (m *UavionixAdsbOutCfg) ID() int        { return 10001 }
+func (m *UavionixAdsbOutCfg) CRCExtra() byte { return 209 }
+
+func (m *UavionixAdsbOutCfg) MarshalV1(buf []byte) []byte {
+	buf = marshalUint32(buf, (m.Icao))
+	buf = marshalUint16(buf, (m.Stallspeed))
+	for _, v := range m.Callsign {
+		buf = marshalByte(buf, (v))
+	}
+	buf = marshalByte(buf, byte(m.Emittertype))
+	buf = marshalByte(buf, byte(m.Aircraftsize))
+	buf = marshalByte(buf, byte(m.Gpsoffsetlat))
+	buf = marshalByte(buf, byte(m.Gpsoffsetlon))
+	buf = marshalByte(buf, byte(m.Rfselect))
+
+	return buf
+}
+
+func (m *UavionixAdsbOutCfg) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *UavionixAdsbOutCfg) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Icao = unmarshalUint32(buf)
+
+	buf, m.Stallspeed = unmarshalUint16(buf)
+
+	for i, _ := range m.Callsign {
+		buf, m.Callsign[i] = unmarshalByte(buf)
+	}
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Emittertype = AdsbEmitterType(v)
+	}
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Aircraftsize = UavionixAdsbOutCfgAircraftSize(v)
+	}
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Gpsoffsetlat = UavionixAdsbOutCfgGpsOffsetLat(v)
+	}
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Gpsoffsetlon = UavionixAdsbOutCfgGpsOffsetLon(v)
+	}
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Rfselect = UavionixAdsbOutRfSelect(v)
+	}
+
+	return buf
+}
+
+func (m *UavionixAdsbOutCfg) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Dynamic data used to generate ADS-B out transponder data (send at 5Hz) */
+type UavionixAdsbOutDynamic struct {
+	/* UTC time in seconds since GPS epoch (Jan 6, 1980). If unknown set to UINT32_MAX */
+	Utctime uint32
+
+	/* Latitude WGS84 (deg * 1E7). If unknown set to INT32_MAX */
+	Gpslat int32
+
+	/* Longitude WGS84 (deg * 1E7). If unknown set to INT32_MAX */
+	Gpslon int32
+
+	/* Altitude (WGS84). UP +ve. If unknown set to INT32_MAX */
+	Gpsalt int32
+
+	/* Barometric pressure altitude (MSL) relative to a standard atmosphere of 1013.2 mBar and NOT bar corrected altitude (m * 1E-3). (up +ve). If unknown set to INT32_MAX */
+	Baroaltmsl int32
+
+	/* Horizontal accuracy in mm (m * 1E-3). If unknown set to UINT32_MAX */
+	Accuracyhor uint32
+
+	/* Vertical accuracy in cm. If unknown set to UINT16_MAX */
+	Accuracyvert uint16
+
+	/* Velocity accuracy in mm/s (m * 1E-3). If unknown set to UINT16_MAX */
+	Accuracyvel uint16
+
+	/* GPS vertical speed in cm/s. If unknown set to INT16_MAX */
+	Velvert int16
+
+	/* North-South velocity over ground in cm/s North +ve. If unknown set to INT16_MAX */
+	Velns int16
+
+	/* East-West velocity over ground in cm/s East +ve. If unknown set to INT16_MAX */
+	Velew int16
+
+	/* ADS-B transponder dynamic input state flags */
+	State UavionixAdsbOutDynamicState // uint16
+
+	/* Mode A code (typically 1200 [0x04B0] for VFR) */
+	Squawk uint16
+
+	/* 0-1: no fix, 2: 2D fix, 3: 3D fix, 4: DGPS, 5: RTK */
+	Gpsfix UavionixAdsbOutDynamicGpsFix // byte
+
+	/* Number of satellites visible. If unknown set to UINT8_MAX */
+	Numsats byte
+
+	/* Emergency status */
+	Emergencystatus UavionixAdsbEmergencyStatus // byte
+
+}
+
+func (m *UavionixAdsbOutDynamic) ID() int        { return 10002 }
+func (m *UavionixAdsbOutDynamic) CRCExtra() byte { return 186 }
+
+func (m *UavionixAdsbOutDynamic) MarshalV1(buf []byte) []byte {
+	buf = marshalUint32(buf, (m.Utctime))
+	buf = marshalInt32(buf, (m.Gpslat))
+	buf = marshalInt32(buf, (m.Gpslon))
+	buf = marshalInt32(buf, (m.Gpsalt))
+	buf = marshalInt32(buf, (m.Baroaltmsl))
+	buf = marshalUint32(buf, (m.Accuracyhor))
+	buf = marshalUint16(buf, (m.Accuracyvert))
+	buf = marshalUint16(buf, (m.Accuracyvel))
+	buf = marshalInt16(buf, (m.Velvert))
+	buf = marshalInt16(buf, (m.Velns))
+	buf = marshalInt16(buf, (m.Velew))
+	buf = marshalUint16(buf, uint16(m.State))
+	buf = marshalUint16(buf, (m.Squawk))
+	buf = marshalByte(buf, byte(m.Gpsfix))
+	buf = marshalByte(buf, (m.Numsats))
+	buf = marshalByte(buf, byte(m.Emergencystatus))
+
+	return buf
+}
+
+func (m *UavionixAdsbOutDynamic) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *UavionixAdsbOutDynamic) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Utctime = unmarshalUint32(buf)
+
+	buf, m.Gpslat = unmarshalInt32(buf)
+
+	buf, m.Gpslon = unmarshalInt32(buf)
+
+	buf, m.Gpsalt = unmarshalInt32(buf)
+
+	buf, m.Baroaltmsl = unmarshalInt32(buf)
+
+	buf, m.Accuracyhor = unmarshalUint32(buf)
+
+	buf, m.Accuracyvert = unmarshalUint16(buf)
+
+	buf, m.Accuracyvel = unmarshalUint16(buf)
+
+	buf, m.Velvert = unmarshalInt16(buf)
+
+	buf, m.Velns = unmarshalInt16(buf)
+
+	buf, m.Velew = unmarshalInt16(buf)
+
+	{
+		var v uint16
+		buf, v = unmarshalUint16(buf)
+		m.State = UavionixAdsbOutDynamicState(v)
+	}
+
+	buf, m.Squawk = unmarshalUint16(buf)
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Gpsfix = UavionixAdsbOutDynamicGpsFix(v)
+	}
+
+	buf, m.Numsats = unmarshalByte(buf)
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Emergencystatus = UavionixAdsbEmergencyStatus(v)
+	}
+
+	return buf
+}
+
+func (m *UavionixAdsbOutDynamic) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Transceiver heartbeat with health report (updated every 10s) */
+type UavionixAdsbTransceiverHealthReport struct {
+	/* ADS-B transponder messages */
+	Rfhealth UavionixAdsbRfHealth // byte
+
+}
+
+func (m *UavionixAdsbTransceiverHealthReport) ID() int        { return 10003 }
+func (m *UavionixAdsbTransceiverHealthReport) CRCExtra() byte { return 4 }
+
+func (m *UavionixAdsbTransceiverHealthReport) MarshalV1(buf []byte) []byte {
+	buf = marshalByte(buf, byte(m.Rfhealth))
+
+	return buf
+}
+
+func (m *UavionixAdsbTransceiverHealthReport) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *UavionixAdsbTransceiverHealthReport) UnmarshalV1(buf []byte) []byte {
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Rfhealth = UavionixAdsbRfHealth(v)
+	}
+
+	return buf
+}
+
+func (m *UavionixAdsbTransceiverHealthReport) UnmarshalV2(buf []byte) []byte {
 	buf = m.UnmarshalV1(buf)
 
 	return buf
