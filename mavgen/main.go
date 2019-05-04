@@ -92,16 +92,25 @@ func main() {
 	for _, v := range dialect.Enums {
 		max := uint64(0)
 		for _, vv := range v.Entries {
-			val, _ := strconv.ParseUint(vv.Value, 0, 32)
-			if max < val {
-				max = val
+			if vv.Value != "" {
+				val, _ := strconv.ParseUint(vv.Value, 0, 32)
+				if max < val {
+					max = val
+				}
 			}
 		}
-		for _, vv := range v.Entries {
+		warnenums := false
+		for i, vv := range v.Entries {
 			if vv.Value == "" {
+				if uint64(i) != max+1 {
+					warnenums = true
+				}
 				vv.Value = fmt.Sprintf("%d", max+1)
 				max++
 			}
+		}
+		if warnenums {
+			log.Printf("Possibly ill-defined mixing of explicit and implicit values in enum %s may be inconsistent", v.Name)
 		}
 	}
 
