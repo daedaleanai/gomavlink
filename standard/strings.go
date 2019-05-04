@@ -331,35 +331,25 @@ func _() {
 	// Re-run the stringer command to generate them again.
 	var x [1]struct{}
 	_ = x[MAV_STATE_UNINIT-0]
-	_ = x[MAV_STATE_BOOT-2]
-	_ = x[MAV_STATE_CALIBRATING-3]
-	_ = x[MAV_STATE_STANDBY-4]
-	_ = x[MAV_STATE_ACTIVE-5]
-	_ = x[MAV_STATE_CRITICAL-6]
-	_ = x[MAV_STATE_EMERGENCY-7]
-	_ = x[MAV_STATE_POWEROFF-8]
-	_ = x[MAV_STATE_FLIGHT_TERMINATION-9]
+	_ = x[MAV_STATE_BOOT-1]
+	_ = x[MAV_STATE_CALIBRATING-2]
+	_ = x[MAV_STATE_STANDBY-3]
+	_ = x[MAV_STATE_ACTIVE-4]
+	_ = x[MAV_STATE_CRITICAL-5]
+	_ = x[MAV_STATE_EMERGENCY-6]
+	_ = x[MAV_STATE_POWEROFF-7]
+	_ = x[MAV_STATE_FLIGHT_TERMINATION-8]
 }
 
-const (
-	_MavState_name_0 = "MAV_STATE_UNINIT"
-	_MavState_name_1 = "MAV_STATE_BOOTMAV_STATE_CALIBRATINGMAV_STATE_STANDBYMAV_STATE_ACTIVEMAV_STATE_CRITICALMAV_STATE_EMERGENCYMAV_STATE_POWEROFFMAV_STATE_FLIGHT_TERMINATION"
-)
+const _MavState_name = "MAV_STATE_UNINITMAV_STATE_BOOTMAV_STATE_CALIBRATINGMAV_STATE_STANDBYMAV_STATE_ACTIVEMAV_STATE_CRITICALMAV_STATE_EMERGENCYMAV_STATE_POWEROFFMAV_STATE_FLIGHT_TERMINATION"
 
-var (
-	_MavState_index_1 = [...]uint8{0, 14, 35, 52, 68, 86, 105, 123, 151}
-)
+var _MavState_index = [...]uint8{0, 16, 30, 51, 68, 84, 102, 121, 139, 167}
 
 func (i MavState) String() string {
-	switch {
-	case i == 0:
-		return _MavState_name_0
-	case 2 <= i && i <= 9:
-		i -= 2
-		return _MavState_name_1[_MavState_index_1[i]:_MavState_index_1[i+1]]
-	default:
+	if i >= MavState(len(_MavState_index)-1) {
 		return "MavState(" + strconv.FormatInt(int64(i), 10) + ")"
 	}
+	return _MavState_name[_MavState_index[i]:_MavState_index[i+1]]
 }
 func _() {
 	// An "invalid array index" compiler error signifies that the constant values have changed.

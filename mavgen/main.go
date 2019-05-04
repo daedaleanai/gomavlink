@@ -9,6 +9,7 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+	"strconv"
 	"strings"
 	"text/template"
 )
@@ -66,7 +67,7 @@ func main() {
 		log.Printf("Including %s dialect %d version %d", f.Name(), inc.Dialect, inc.Version)
 		f.Close()
 
-		// Enum declarations are to be merged.
+		// Enum declarations are to be merged, where the includes are supposed to come first
 		for _, vv := range inc.Enums {
 			if enums[vv.Name] == nil {
 				enums[vv.Name] = vv
@@ -74,7 +75,7 @@ func main() {
 				continue
 			}
 			log.Printf("Merging %q enum %q", v, vv.Name)
-			enums[vv.Name].Entries = append(enums[vv.Name].Entries, vv.Entries...)
+			enums[vv.Name].Entries = append(vv.Entries, enums[vv.Name].Entries...)
 		}
 
 		dialect.Messages = append(dialect.Messages, inc.Messages...)
@@ -87,11 +88,19 @@ func main() {
 
 	log.Printf("Generating package %s dialect %d version %d", basename, dialect.Dialect, dialect.Version)
 
-	// fill in missing enum values, starting from 1
+	// fill in missing enum values, starting from highest found (?)
 	for _, v := range dialect.Enums {
-		for i, vv := range v.Entries {
+		max := uint64(0)
+		for _, vv := range v.Entries {
+			val, _ := strconv.ParseUint(vv.Value, 0, 32)
+			if max < val {
+				max = val
+			}
+		}
+		for _, vv := range v.Entries {
 			if vv.Value == "" {
-				vv.Value = fmt.Sprintf("%d", i+1)
+				vv.Value = fmt.Sprintf("%d", max+1)
+				max++
 			}
 		}
 	}

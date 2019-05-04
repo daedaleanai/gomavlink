@@ -14,24 +14,6 @@ import (
 type MavCmd uint32
 
 const (
-	/* Does nothing. */
-	MAV_CMD_DO_NOTHING MavCmd = 10001
-
-	/* Return vehicle to base. */
-	MAV_CMD_RETURN_TO_BASE MavCmd = 10011
-
-	/* Stops the vehicle from returning to base and resumes flight.  */
-	MAV_CMD_STOP_RETURN_TO_BASE MavCmd = 10012
-
-	/* Turns the vehicle's visible or infrared lights on or off. */
-	MAV_CMD_TURN_LIGHT MavCmd = 10013
-
-	/* Requests vehicle to send current mid-level commands to ground station. */
-	MAV_CMD_GET_MID_LEVEL_COMMANDS MavCmd = 10014
-
-	/* Requests storage of mid-level commands. */
-	MAV_CMD_MIDLEVEL_STORAGE MavCmd = 10015
-
 	/* Navigate to waypoint. */
 	MAV_CMD_NAV_WAYPOINT MavCmd = 16
 
@@ -447,6 +429,24 @@ const (
 
 	/* User defined command. Ground Station will not show the Vehicle as flying through this item. Example: MAV_CMD_DO_SET_PARAMETER item. */
 	MAV_CMD_USER_5 MavCmd = 31014
+
+	/* Does nothing. */
+	MAV_CMD_DO_NOTHING MavCmd = 10001
+
+	/* Return vehicle to base. */
+	MAV_CMD_RETURN_TO_BASE MavCmd = 10011
+
+	/* Stops the vehicle from returning to base and resumes flight.  */
+	MAV_CMD_STOP_RETURN_TO_BASE MavCmd = 10012
+
+	/* Turns the vehicle's visible or infrared lights on or off. */
+	MAV_CMD_TURN_LIGHT MavCmd = 10013
+
+	/* Requests vehicle to send current mid-level commands to ground station. */
+	MAV_CMD_GET_MID_LEVEL_COMMANDS MavCmd = 10014
+
+	/* Requests storage of mid-level commands. */
+	MAV_CMD_MIDLEVEL_STORAGE MavCmd = 10015
 )
 
 /* Slugs-specific navigation modes. */
@@ -875,28 +875,28 @@ const (
 	MAV_STATE_UNINIT MavState = 0
 
 	/* System is booting up. */
-	MAV_STATE_BOOT MavState = 2
+	MAV_STATE_BOOT MavState = 1
 
 	/* System is calibrating and not flight-ready. */
-	MAV_STATE_CALIBRATING MavState = 3
+	MAV_STATE_CALIBRATING MavState = 2
 
 	/* System is grounded and on standby. It can be launched any time. */
-	MAV_STATE_STANDBY MavState = 4
+	MAV_STATE_STANDBY MavState = 3
 
 	/* System is active and might be already airborne. Motors are engaged. */
-	MAV_STATE_ACTIVE MavState = 5
+	MAV_STATE_ACTIVE MavState = 4
 
 	/* System is in a non-normal flight mode. It can however still navigate. */
-	MAV_STATE_CRITICAL MavState = 6
+	MAV_STATE_CRITICAL MavState = 5
 
 	/* System is in a non-normal flight mode. It lost control over parts or over the whole airframe. It is in mayday and going down. */
-	MAV_STATE_EMERGENCY MavState = 7
+	MAV_STATE_EMERGENCY MavState = 6
 
 	/* System just initialized its power-down sequence, will shut down now. */
-	MAV_STATE_POWEROFF MavState = 8
+	MAV_STATE_POWEROFF MavState = 7
 
 	/* System is terminating itself. */
-	MAV_STATE_FLIGHT_TERMINATION MavState = 9
+	MAV_STATE_FLIGHT_TERMINATION MavState = 8
 )
 
 /* Component ids (values) for the different types and instances of onboard hardware/software that might make up a MAVLink system (autopilot, cameras, servos, GPS systems, avoidance systems etc.).       Components must use the appropriate ID in their source address when sending messages. Components can also use IDs to determine if they are the intended recipient of an incoming message. The MAV_COMP_ID_ALL value is used to indicate messages that must be processed by all components.       When creating new entries, components that can have multiple instances (e.g. cameras, servos etc.) should be allocated sequential values. An appropriate number of values should be left free after these components to allow the number of instances to be expanded. */
