@@ -14,7 +14,7 @@ usable for dumping ardupilot tlogs, see tlog/dump.go
 NOTE ON THE LICENSE: 
 The generator code ./mavgen and the .tmpl files are under the MIT license in the root directory.
 You can always run ./mavgen on whatever XML you feel running it on and use the output however you see fit, but 
-The generated files here are derived from XML code under the LGPL, i include them here as a service, but they are under the LGPL.
+The generated files here are derived from XML code under the LGPL, i include them here as a service, but they are under the LGPL, i think.
 
 
 NEW: the C directory contains templates to generate C code, a completely independent implementation with no dependencies to serialize and 
