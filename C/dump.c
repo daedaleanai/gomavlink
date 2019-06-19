@@ -1,4 +1,6 @@
 /*
+    test driver for mavgen code: read ardupilot logs (which have a timestamp)
+    from stdin and printf them on stdout.
     gcc -O3 dump.c lib.a -o dump
 */
 
