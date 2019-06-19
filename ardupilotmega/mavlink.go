@@ -9,7 +9,7 @@ import (
 	mavlink "github.com/daedaleanai/gomavlink"
 )
 
-//go:generate stringer -output strings.go -type=AccelcalVehiclePos,MavCmd,LimitsState,LimitModule,RallyFlags,GripperActions,WinchActions,CameraStatusTypes,CameraFeedbackFlags,MavModeGimbal,GimbalAxis,GimbalAxisCalibrationStatus,GimbalAxisCalibrationRequired,GoproHeartbeatStatus,GoproHeartbeatFlags,GoproRequestStatus,GoproCommand,GoproCaptureMode,GoproResolution,GoproFrameRate,GoproFieldOfView,GoproVideoSettingsFlags,GoproPhotoResolution,GoproProtuneWhiteBalance,GoproProtuneColour,GoproProtuneGain,GoproProtuneSharpness,GoproProtuneExposure,GoproCharging,GoproModel,GoproBurstRate,LedControlPattern,EkfStatusFlags,PidTuningAxis,MagCalStatus,MavRemoteLogDataBlockCommands,MavRemoteLogDataBlockStatuses,DeviceOpBustype,DeepstallStage,PlaneMode,CopterMode,SubMode,RoverMode,TrackerMode,MavAutopilot,MavType,FirmwareVersionType,HlFailureFlag,MavModeFlag,MavModeFlagDecodePosition,MavGoto,MavMode,MavState,MavComponent,MavSysStatusSensor,MavFrame,MavlinkDataStreamType,FenceAction,FenceBreach,MavMountMode,UavcanNodeHealth,UavcanNodeMode,MavDataStream,MavRoi,MavCmdAck,MavParamType,MavParamExtType,MavResult,MavMissionResult,MavSeverity,MavPowerStatus,SerialControlDev,SerialControlFlag,MavDistanceSensor,MavSensorOrientation,MavProtocolCapability,MavMissionType,MavEstimatorType,MavBatteryType,MavBatteryFunction,MavBatteryChargeState,MavSmartBatteryFault,MavVtolState,MavLandedState,AdsbAltitudeType,AdsbEmitterType,AdsbFlags,MavDoRepositionFlags,EstimatorStatusFlags,MotorTestOrder,MotorTestThrottleType,GpsInputIgnoreFlags,MavCollisionAction,MavCollisionThreatLevel,MavCollisionSrc,GpsFixType,RtkBaselineCoordinateSystem,LandingTargetType,VtolTransitionHeading,CameraCapFlags,VideoStreamStatusFlags,VideoStreamType,CameraZoomType,SetFocusType,ParamAck,CameraMode,MavArmAuthDeniedReason,RcType,PositionTargetTypemask,UtmFlightState,UtmDataAvailFlags,CellularNetworkRadioType,CellularNetworkStatusFlag,PrecisionLandMode,ParachuteAction,UavionixAdsbOutDynamicState,UavionixAdsbOutRfSelect,UavionixAdsbOutDynamicGpsFix,UavionixAdsbRfHealth,UavionixAdsbOutCfgAircraftSize,UavionixAdsbOutCfgGpsOffsetLat,UavionixAdsbOutCfgGpsOffsetLon,UavionixAdsbEmergencyStatus,IcarousTrackBandTypes,IcarousFmsState
+//go:generate stringer -output strings.go -type=AccelcalVehiclePos,MavCmd,LimitsState,LimitModule,RallyFlags,GripperActions,WinchActions,CameraStatusTypes,CameraFeedbackFlags,MavModeGimbal,GimbalAxis,GimbalAxisCalibrationStatus,GimbalAxisCalibrationRequired,GoproHeartbeatStatus,GoproHeartbeatFlags,GoproRequestStatus,GoproCommand,GoproCaptureMode,GoproResolution,GoproFrameRate,GoproFieldOfView,GoproVideoSettingsFlags,GoproPhotoResolution,GoproProtuneWhiteBalance,GoproProtuneColour,GoproProtuneGain,GoproProtuneSharpness,GoproProtuneExposure,GoproCharging,GoproModel,GoproBurstRate,LedControlPattern,EkfStatusFlags,PidTuningAxis,MagCalStatus,MavRemoteLogDataBlockCommands,MavRemoteLogDataBlockStatuses,DeviceOpBustype,DeepstallStage,PlaneMode,CopterMode,SubMode,RoverMode,TrackerMode,MavAutopilot,MavType,FirmwareVersionType,HlFailureFlag,MavModeFlag,MavModeFlagDecodePosition,MavGoto,MavMode,MavState,MavComponent,MavSysStatusSensor,MavFrame,MavlinkDataStreamType,FenceAction,FenceBreach,MavMountMode,UavcanNodeHealth,UavcanNodeMode,StorageStatus,MavDataStream,MavRoi,MavCmdAck,MavParamType,MavParamExtType,MavResult,MavMissionResult,MavSeverity,MavPowerStatus,SerialControlDev,SerialControlFlag,MavDistanceSensor,MavSensorOrientation,MavProtocolCapability,MavMissionType,MavEstimatorType,MavBatteryType,MavBatteryFunction,MavBatteryChargeState,MavSmartBatteryFault,MavVtolState,MavLandedState,AdsbAltitudeType,AdsbEmitterType,AdsbFlags,MavDoRepositionFlags,EstimatorStatusFlags,MotorTestOrder,MotorTestThrottleType,GpsInputIgnoreFlags,MavCollisionAction,MavCollisionThreatLevel,MavCollisionSrc,GpsFixType,RtkBaselineCoordinateSystem,LandingTargetType,VtolTransitionHeading,CameraCapFlags,VideoStreamStatusFlags,VideoStreamType,CameraZoomType,SetFocusType,ParamAck,CameraMode,MavArmAuthDeniedReason,RcType,PositionTargetTypemask,UtmFlightState,UtmDataAvailFlags,CellularNetworkRadioType,CellularNetworkStatusFlag,PrecisionLandMode,ParachuteAction,UavionixAdsbOutDynamicState,UavionixAdsbOutRfSelect,UavionixAdsbOutDynamicGpsFix,UavionixAdsbRfHealth,UavionixAdsbOutCfgAircraftSize,UavionixAdsbOutCfgGpsOffsetLat,UavionixAdsbOutCfgGpsOffsetLon,UavionixAdsbEmergencyStatus,IcarousTrackBandTypes,IcarousFmsState
 
 type AccelcalVehiclePos uint32
 
@@ -280,7 +280,7 @@ const (
 	/* Request MAVLink protocol version compatibility */
 	MAV_CMD_REQUEST_PROTOCOL_VERSION MavCmd = 519
 
-	/* Request autopilot capabilities */
+	/* Request autopilot capabilities. The receiver should ACK the command and then emit its capabilities in an AUTOPILOT_VERSION message */
 	MAV_CMD_REQUEST_AUTOPILOT_CAPABILITIES MavCmd = 520
 
 	/* Request camera information (CAMERA_INFORMATION). */
@@ -1312,6 +1312,8 @@ const (
 	PLANE_MODE_QLAND PlaneMode = 20
 
 	PLANE_MODE_QRTL PlaneMode = 21
+
+	PLANE_MODE_QAUTOTUNE PlaneMode = 22
 )
 
 /* A mapping of copter flight modes for custom_mode field of heartbeat. */
@@ -1706,7 +1708,7 @@ const (
 	/* Fifth bit:  00001000 */
 	MAV_MODE_FLAG_DECODE_POSITION_GUIDED MavModeFlagDecodePosition = 8
 
-	/* Sixt bit:   00000100 */
+	/* Sixth bit:   00000100 */
 	MAV_MODE_FLAG_DECODE_POSITION_AUTO MavModeFlagDecodePosition = 4
 
 	/* Seventh bit: 00000010 */
@@ -2189,6 +2191,23 @@ const (
 
 	/* The node is no longer available online. */
 	UAVCAN_NODE_MODE_OFFLINE UavcanNodeMode = 7
+)
+
+/* Flags to indicate the status of camera storage. */
+type StorageStatus uint32
+
+const (
+	/* Storage is missing (no microSD card loaded for example.) */
+	STORAGE_STATUS_EMPTY StorageStatus = 0
+
+	/* Storage present but unformatted. */
+	STORAGE_STATUS_UNFORMATTED StorageStatus = 1
+
+	/* Storage present and ready. */
+	STORAGE_STATUS_READY StorageStatus = 2
+
+	/* Camera does not supply storage status information. Capacity information in STORAGE_INFORMATION fields will be ignored. */
+	STORAGE_STATUS_NOT_SUPPORTED StorageStatus = 3
 )
 
 /* A data stream is not a fixed set of messages, but rather a      recommendation to the autopilot software. Individual autopilots may or may not obey      the recommended messages. */
@@ -3683,6 +3702,8 @@ func Dialect(mid int) mavlink.Message {
 		return &ChangeOperatorControlAck{}
 	case 7:
 		return &AuthKey{}
+	case 8:
+		return &LinkNodeStatus{}
 	case 11:
 		return &SetMode{}
 	case 20:
@@ -3749,6 +3770,8 @@ func Dialect(mid int) mavlink.Message {
 		return &ParamMapRc{}
 	case 51:
 		return &MissionRequestInt{}
+	case 52:
+		return &MissionChanged{}
 	case 54:
 		return &SafetySetAllowedArea{}
 	case 55:
@@ -4101,6 +4124,8 @@ func Dialect(mid int) mavlink.Message {
 		return &TrajectoryRepresentationBezier{}
 	case 334:
 		return &CellularStatus{}
+	case 335:
+		return &IsbdLinkStatus{}
 	case 340:
 		return &UtmGlobalPosition{}
 	case 350:
@@ -4113,6 +4138,8 @@ func Dialect(mid int) mavlink.Message {
 		return &SmartBatteryInfo{}
 	case 371:
 		return &SmartBatteryStatus{}
+	case 375:
+		return &ActuatorOutputStatus{}
 	case 380:
 		return &TimeEstimateToTarget{}
 	case 9000:
@@ -4239,7 +4266,7 @@ type SysStatus struct {
 	/* Bitmap showing which onboard controllers and sensors are enabled:  Value of 0: not enabled. Value of 1: enabled. */
 	OnboardControlSensorsEnabled MavSysStatusSensor // uint32
 
-	/* Bitmap showing which onboard controllers and sensors are operational or have an error:  Value of 0: not enabled. Value of 1: enabled. */
+	/* Bitmap showing which onboard controllers and sensors have an error (or are operational). Value of 0: error. Value of 1: healthy. */
 	OnboardControlSensorsHealth MavSysStatusSensor // uint32
 
 	/* Maximum usage in percent of the mainloop time. Values: [0-1000] - should always be below 1000 */
@@ -4576,6 +4603,100 @@ func (m *AuthKey) UnmarshalV1(buf []byte) []byte {
 }
 
 func (m *AuthKey) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Status generated in each node in the communication chain and injected into MAVLink stream. */
+type LinkNodeStatus struct {
+	/* Timestamp (time since system boot). */
+	Timestamp uint64
+
+	/* Transmit rate */
+	TxRate uint32
+
+	/* Receive rate */
+	RxRate uint32
+
+	/* Messages sent */
+	MessagesSent uint32
+
+	/* Messages received (estimated from counting seq) */
+	MessagesReceived uint32
+
+	/* Messages lost (estimated from counting seq) */
+	MessagesLost uint32
+
+	/* Number of bytes that could not be parsed correctly. */
+	RxParseErr uint16
+
+	/* Transmit buffer overflows. This number wraps around as it reaches UINT16_MAX */
+	TxOverflows uint16
+
+	/* Receive buffer overflows. This number wraps around as it reaches UINT16_MAX */
+	RxOverflows uint16
+
+	/* Remaining free transmit buffer space */
+	TxBuf byte
+
+	/* Remaining free receive buffer space */
+	RxBuf byte
+}
+
+func (m *LinkNodeStatus) ID() int        { return 8 }
+func (m *LinkNodeStatus) CRCExtra() byte { return 117 }
+
+func (m *LinkNodeStatus) MarshalV1(buf []byte) []byte {
+	buf = marshalUint64(buf, (m.Timestamp))
+	buf = marshalUint32(buf, (m.TxRate))
+	buf = marshalUint32(buf, (m.RxRate))
+	buf = marshalUint32(buf, (m.MessagesSent))
+	buf = marshalUint32(buf, (m.MessagesReceived))
+	buf = marshalUint32(buf, (m.MessagesLost))
+	buf = marshalUint16(buf, (m.RxParseErr))
+	buf = marshalUint16(buf, (m.TxOverflows))
+	buf = marshalUint16(buf, (m.RxOverflows))
+	buf = marshalByte(buf, (m.TxBuf))
+	buf = marshalByte(buf, (m.RxBuf))
+
+	return buf
+}
+
+func (m *LinkNodeStatus) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *LinkNodeStatus) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Timestamp = unmarshalUint64(buf)
+
+	buf, m.TxRate = unmarshalUint32(buf)
+
+	buf, m.RxRate = unmarshalUint32(buf)
+
+	buf, m.MessagesSent = unmarshalUint32(buf)
+
+	buf, m.MessagesReceived = unmarshalUint32(buf)
+
+	buf, m.MessagesLost = unmarshalUint32(buf)
+
+	buf, m.RxParseErr = unmarshalUint16(buf)
+
+	buf, m.TxOverflows = unmarshalUint16(buf)
+
+	buf, m.RxOverflows = unmarshalUint16(buf)
+
+	buf, m.TxBuf = unmarshalByte(buf)
+
+	buf, m.RxBuf = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *LinkNodeStatus) UnmarshalV2(buf []byte) []byte {
 	buf = m.UnmarshalV1(buf)
 
 	return buf
@@ -6853,6 +6974,73 @@ func (m *MissionRequestInt) UnmarshalV2(buf []byte) []byte {
 		buf, v = unmarshalByte(buf)
 		m.MissionType = MavMissionType(v)
 	}
+
+	return buf
+}
+
+/* A broadcast message to notify any ground station or SDK if a mission, geofence or safe points have changed on the vehicle. */
+type MissionChanged struct {
+	/* Start index for partial mission change (-1 for all items). */
+	StartIndex int16
+
+	/* End index of a partial mission change. -1 is a synonym for the last mission item (i.e. selects all items from start_index). Ignore field if start_index=-1. */
+	EndIndex int16
+
+	/* System ID of the author of the new mission. */
+	OriginSysid byte
+
+	/* Compnent ID of the author of the new mission. */
+	OriginCompid MavComponent // byte
+
+	/* Mission type. */
+	MissionType MavMissionType // byte
+
+}
+
+func (m *MissionChanged) ID() int        { return 52 }
+func (m *MissionChanged) CRCExtra() byte { return 132 }
+
+func (m *MissionChanged) MarshalV1(buf []byte) []byte {
+	buf = marshalInt16(buf, (m.StartIndex))
+	buf = marshalInt16(buf, (m.EndIndex))
+	buf = marshalByte(buf, (m.OriginSysid))
+	buf = marshalByte(buf, byte(m.OriginCompid))
+	buf = marshalByte(buf, byte(m.MissionType))
+
+	return buf
+}
+
+func (m *MissionChanged) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *MissionChanged) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.StartIndex = unmarshalInt16(buf)
+
+	buf, m.EndIndex = unmarshalInt16(buf)
+
+	buf, m.OriginSysid = unmarshalByte(buf)
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.OriginCompid = MavComponent(v)
+	}
+
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.MissionType = MavMissionType(v)
+	}
+
+	return buf
+}
+
+func (m *MissionChanged) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
 
 	return buf
 }
@@ -13170,7 +13358,7 @@ func (m *BatteryStatus) UnmarshalV2(buf []byte) []byte {
 	return buf
 }
 
-/* Version and capability of autopilot software */
+/* Version and capability of autopilot software. This should be emitted in response to a MAV_CMD_REQUEST_AUTOPILOT_CAPABILITIES command. */
 type AutopilotVersion struct {
 	/* Bitmap of capabilities */
 	Capabilities MavProtocolCapability // uint64
@@ -18833,18 +19021,18 @@ func (m *CameraSettings) UnmarshalV2(buf []byte) []byte {
 	return buf
 }
 
-/* Information about a storage medium. */
+/* Information about a storage medium. This message is sent in response to a request and whenever the status of the storage changes (STORAGE_STATUS). */
 type StorageInformation struct {
 	/* Timestamp (time since system boot). */
 	TimeBootMs uint32
 
-	/* Total capacity. */
+	/* Total capacity. If storage is not ready (STORAGE_STATUS_READY) value will be ignored. */
 	TotalCapacity float32
 
-	/* Used capacity. */
+	/* Used capacity. If storage is not ready (STORAGE_STATUS_READY) value will be ignored. */
 	UsedCapacity float32
 
-	/* Available storage capacity. */
+	/* Available storage capacity. If storage is not ready (STORAGE_STATUS_READY) value will be ignored. */
 	AvailableCapacity float32
 
 	/* Read speed. */
@@ -18859,8 +19047,9 @@ type StorageInformation struct {
 	/* Number of storage devices */
 	StorageCount byte
 
-	/* Status of storage (0 not available, 1 unformatted, 2 formatted) */
-	Status byte
+	/* Status of storage */
+	Status StorageStatus // byte
+
 }
 
 func (m *StorageInformation) ID() int        { return 261 }
@@ -18875,7 +19064,7 @@ func (m *StorageInformation) MarshalV1(buf []byte) []byte {
 	buf = marshalFloat32(buf, (m.WriteSpeed))
 	buf = marshalByte(buf, (m.StorageId))
 	buf = marshalByte(buf, (m.StorageCount))
-	buf = marshalByte(buf, (m.Status))
+	buf = marshalByte(buf, byte(m.Status))
 
 	return buf
 }
@@ -18904,7 +19093,11 @@ func (m *StorageInformation) UnmarshalV1(buf []byte) []byte {
 
 	buf, m.StorageCount = unmarshalByte(buf)
 
-	buf, m.Status = unmarshalByte(buf)
+	{
+		var v byte
+		buf, v = unmarshalByte(buf)
+		m.Status = StorageStatus(v)
+	}
 
 	return buf
 }
@@ -20157,7 +20350,7 @@ type ObstacleDistance struct {
 	/* Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number. */
 	TimeUsec uint64
 
-	/* Distance of obstacles around the UAV with index 0 corresponding to local North. A value of 0 means that the obstacle is right in front of the sensor. A value of max_distance +1 means no obstacle is present. A value of UINT16_MAX for unknown/not used. In a array element, one unit corresponds to 1cm. */
+	/* Distance of obstacles around the UAV with index 0 corresponding to local forward + angle_offset. A value of 0 means that the obstacle is right in front of the sensor. A value of max_distance +1 means no obstacle is present. A value of UINT16_MAX for unknown/not used. In a array element, one unit corresponds to 1cm. */
 	Distances [72]uint16
 
 	/* Minimum distance the sensor can measure. */
@@ -20169,8 +20362,15 @@ type ObstacleDistance struct {
 	/* Class id of the distance sensor type. */
 	SensorType MavDistanceSensor // byte
 
-	/* Angular width in degrees of each array element. */
+	/* Angular width in degrees of each array element. (Ignored if increment_f greater than 0). */
 	Increment byte
+
+	/* Angular width in degrees of each array element as a float. If greater than 0 then this value is used instead of the uint8_t increment field. */
+	IncrementF float32 /*EXTENSION*/
+
+	/* Relative angle offset of the 0-index element in the distances array. Value of 0 corresponds to forward. Positive values are offsets to the right. */
+	AngleOffset float32 /*EXTENSION*/
+
 }
 
 func (m *ObstacleDistance) ID() int        { return 330 }
@@ -20191,6 +20391,8 @@ func (m *ObstacleDistance) MarshalV1(buf []byte) []byte {
 
 func (m *ObstacleDistance) MarshalV2(buf []byte) []byte {
 	buf = m.MarshalV1(buf)
+	buf = marshalFloat32(buf, (m.IncrementF))
+	buf = marshalFloat32(buf, (m.AngleOffset))
 
 	return buf
 }
@@ -20220,6 +20422,8 @@ func (m *ObstacleDistance) UnmarshalV1(buf []byte) []byte {
 
 func (m *ObstacleDistance) UnmarshalV2(buf []byte) []byte {
 	buf = m.UnmarshalV1(buf)
+	buf, m.IncrementF = unmarshalFloat32(buf)
+	buf, m.AngleOffset = unmarshalFloat32(buf)
 
 	return buf
 }
@@ -20681,6 +20885,82 @@ func (m *CellularStatus) UnmarshalV1(buf []byte) []byte {
 }
 
 func (m *CellularStatus) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* Status of the Iridium SBD link. */
+type IsbdLinkStatus struct {
+	/* Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number. */
+	Timestamp uint64
+
+	/* Timestamp of the last successful sbd session. The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number. */
+	LastHeartbeat uint64
+
+	/* Number of failed SBD sessions. */
+	FailedSessions uint16
+
+	/* Number of successful SBD sessions. */
+	SuccessfulSessions uint16
+
+	/* Signal quality equal to the number of bars displayed on the ISU signal strength indicator. Range is 0 to 5, where 0 indicates no signal and 5 indicates maximum signal strength. */
+	SignalQuality byte
+
+	/* 1: Ring call pending, 0: No call pending. */
+	RingPending byte
+
+	/* 1: Transmission session pending, 0: No transmission session pending. */
+	TxSessionPending byte
+
+	/* 1: Receiving session pending, 0: No receiving session pending. */
+	RxSessionPending byte
+}
+
+func (m *IsbdLinkStatus) ID() int        { return 335 }
+func (m *IsbdLinkStatus) CRCExtra() byte { return 225 }
+
+func (m *IsbdLinkStatus) MarshalV1(buf []byte) []byte {
+	buf = marshalUint64(buf, (m.Timestamp))
+	buf = marshalUint64(buf, (m.LastHeartbeat))
+	buf = marshalUint16(buf, (m.FailedSessions))
+	buf = marshalUint16(buf, (m.SuccessfulSessions))
+	buf = marshalByte(buf, (m.SignalQuality))
+	buf = marshalByte(buf, (m.RingPending))
+	buf = marshalByte(buf, (m.TxSessionPending))
+	buf = marshalByte(buf, (m.RxSessionPending))
+
+	return buf
+}
+
+func (m *IsbdLinkStatus) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *IsbdLinkStatus) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.Timestamp = unmarshalUint64(buf)
+
+	buf, m.LastHeartbeat = unmarshalUint64(buf)
+
+	buf, m.FailedSessions = unmarshalUint16(buf)
+
+	buf, m.SuccessfulSessions = unmarshalUint16(buf)
+
+	buf, m.SignalQuality = unmarshalByte(buf)
+
+	buf, m.RingPending = unmarshalByte(buf)
+
+	buf, m.TxSessionPending = unmarshalByte(buf)
+
+	buf, m.RxSessionPending = unmarshalByte(buf)
+
+	return buf
+}
+
+func (m *IsbdLinkStatus) UnmarshalV2(buf []byte) []byte {
 	buf = m.UnmarshalV1(buf)
 
 	return buf
@@ -21183,6 +21463,56 @@ func (m *SmartBatteryStatus) UnmarshalV1(buf []byte) []byte {
 }
 
 func (m *SmartBatteryStatus) UnmarshalV2(buf []byte) []byte {
+	buf = m.UnmarshalV1(buf)
+
+	return buf
+}
+
+/* The raw values of the actuator outputs. */
+type ActuatorOutputStatus struct {
+	/* Timestamp (since system boot). */
+	TimeUsec uint64
+
+	/* Active outputs */
+	Active uint32
+
+	/* Servo / motor output array values. Zero values indicate unused channels. */
+	Actuator [32]float32
+}
+
+func (m *ActuatorOutputStatus) ID() int        { return 375 }
+func (m *ActuatorOutputStatus) CRCExtra() byte { return 251 }
+
+func (m *ActuatorOutputStatus) MarshalV1(buf []byte) []byte {
+	buf = marshalUint64(buf, (m.TimeUsec))
+	buf = marshalUint32(buf, (m.Active))
+	for _, v := range m.Actuator {
+		buf = marshalFloat32(buf, (v))
+	}
+
+	return buf
+}
+
+func (m *ActuatorOutputStatus) MarshalV2(buf []byte) []byte {
+	buf = m.MarshalV1(buf)
+
+	return buf
+}
+
+func (m *ActuatorOutputStatus) UnmarshalV1(buf []byte) []byte {
+
+	buf, m.TimeUsec = unmarshalUint64(buf)
+
+	buf, m.Active = unmarshalUint32(buf)
+
+	for i, _ := range m.Actuator {
+		buf, m.Actuator[i] = unmarshalFloat32(buf)
+	}
+
+	return buf
+}
+
+func (m *ActuatorOutputStatus) UnmarshalV2(buf []byte) []byte {
 	buf = m.UnmarshalV1(buf)
 
 	return buf
