@@ -1,0 +1,7 @@
+TODO(lvd)
+
+enum/param support
+more test V1 decoding
+test v1 encoding
+test V2 encoding/decoding
+implement signature
