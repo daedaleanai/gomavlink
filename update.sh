@@ -1,5 +1,7 @@
 #!/bin/sh
 
+go install github.com/daedaleanai/gomavgen
+
 if [ -d /tmp/mavlink ]; then
 	echo Updating mavlink repo in /tmp
 	(cd /tmp/mavlink; git pull)
@@ -10,7 +12,7 @@ fi
 
 for dialect in /tmp/mavlink/message_definitions/v1.0/*.xml; do 
 	ddir=$(basename -s .xml $dialect | tr '[A-Z]' '[a-z]')
-	go run mavgen/*.go  mavgen/go.tmpl $dialect > ${ddir}/mavlink.go
+	gomavgen ../gomavgen/go.tmpl $dialect > ${ddir}/mavlink.go
 	(cd ${ddir}; go generate; go fmt; go build)
 	echo
 done
