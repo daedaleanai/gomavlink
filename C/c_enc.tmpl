@@ -86,7 +86,7 @@ size_t {{$pkg}}_message_serialize_v1(struct {{$pkg}}_message *msg, uint8_t* buf,
 	tmp[1] = p - tmp - 6; // set len
 
 	uint16_t crc = 0xffff;
-	for (uint8_t* pp = tmp; pp < p; ++pp) {
+	for (uint8_t* pp = tmp + 1; pp < p; ++pp) {
 		crc = x25(crc, *pp);
 	}
 	crc = x25(crc, {{$pkg}}_crcextra(msg->msg_id));
@@ -133,7 +133,7 @@ size_t {{$pkg}}_message_serialize_v2(struct {{$pkg}}_message *msg, uint8_t* buf,
 	tmp[1] = p - tmp - 10;  // fill in len
 	
 	uint16_t crc = 0xffff;
-	for (uint8_t* pp = tmp; pp < p; ++pp) {
+	for (uint8_t* pp = tmp + 1; pp < p; ++pp) {
 		crc = x25(crc, *pp);
 	}
 	crc = x25(crc, {{$pkg}}_crcextra(msg->msg_id));
