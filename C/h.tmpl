@@ -7,6 +7,10 @@
 #include <stddef.h>
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 {{range .Enums}}
 {{- $tpe := .Name}}
 {{if .Description}}/* {{notabs .Description}} */{{end}}
@@ -115,3 +119,6 @@ size_t {{$pkg}}_message_deserialize(const uint8_t* buf, size_t size, struct {{$p
  */
 size_t {{$pkg}}_message_snprintf(char* buf, size_t size, const struct {{$pkg}}_message *msg);
 
+#ifdef __cplusplus
+}
+#endif
